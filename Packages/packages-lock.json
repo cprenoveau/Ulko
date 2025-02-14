@@ -8,7 +8,7 @@
         "com.unity.addressables": "2.2.2",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "3270f13c395ca02f8768dd02bf6c89101ddd4ab5"
+      "hash": "13ec23a60613bc5455af0829cdf73397bb539aa1"
     },
     "com.olegknyazev.softmask": {
       "version": "https://github.com/olegknyazev/SoftMask.git?path=/Packages/com.olegknyazev.softmask#1.7.0",
