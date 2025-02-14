@@ -63,24 +63,15 @@ namespace Ulko
             }
         }
 
-        private void OnDestroy()
-        {
-            if (ctSource != null)
-            {
-                ctSource.Cancel();
-                ctSource.Dispose();
-            }
-        }
-
         private static async Task StartupSequence(Main main, CancellationToken ct)
         {
             permanentContainer = new GameObject("Universe");
             DontDestroyOnLoad(permanentContainer);
 
             var gameInstance = Instantiate(main.gameInstancePrefab, permanentContainer.transform);
-            await gameInstance.InitAsync(ctSource.Token);
+            await gameInstance.InitAsync(ct);
 
-            await gameInstance.GoToStartupAsync(ctSource.Token);
+            await gameInstance.GoToStartupAsync(ct);
         }
     }
 }
