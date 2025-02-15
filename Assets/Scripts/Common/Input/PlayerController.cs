@@ -35,11 +35,11 @@ namespace Ulko
             Debug.Log("Controller disconnected: " + obj.name);
         }
 
-        public static void EnableAllPlayersControllerMaps(bool enable, string category)
+        public static void DisableAllPlayersControllerMaps(bool disable, string category)
         {
             foreach (var player in players)
             {
-                player.EnableControllerMaps(enable, category);
+                player.DisableControllerMaps(disable, category);
             }
         }
 
@@ -118,9 +118,9 @@ namespace Ulko
             RewiredPlayer.ClearInputEventDelegates();
         }
 
-        public void EnableControllerMaps(bool enable, string category)
+        public void DisableControllerMaps(bool disable, string category)
         {
-            RewiredPlayer.controllers.maps.SetMapsEnabled(enable, category);
+            RewiredPlayer.controllers.maps.SetMapsEnabled(disable, category);
         }
 
         public Vector2 Move => KeyPad.Value;
