@@ -14,26 +14,9 @@ namespace Ulko
         public string startupScene;
         public SceneStack sceneStack;
 
-        private CancellationTokenSource ctSource = new CancellationTokenSource();
-
-        private void OnDestroy()
-        {
-            ctSource.Cancel();
-            ctSource.Dispose();
-        }
-
         public async Task InitAsync(CancellationToken ct)
         {
             Scene.UseAddressables(sceneStack);
-        }
-
-        public void GoToStartup()
-        {
-            ctSource.Cancel();
-            ctSource.Dispose();
-            ctSource = new CancellationTokenSource();
-
-            GoToStartupAsync(ctSource.Token).FireAndForgetTask();
         }
 
         public async Task GoToStartupAsync(CancellationToken ct)

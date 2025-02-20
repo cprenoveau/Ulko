@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,7 +37,7 @@ namespace Ulko
 
         public static void DisableAllPlayersControllerMaps(bool disable, string category)
         {
-            foreach (var player in players)
+            foreach(var player in players)
             {
                 player.DisableControllerMaps(disable, category);
             }
@@ -120,7 +120,7 @@ namespace Ulko
 
         public void DisableControllerMaps(bool disable, string category)
         {
-            RewiredPlayer.controllers.maps.SetMapsEnabled(disable, category);
+            RewiredPlayer.controllers.maps.SetMapsEnabled(!disable, category);
         }
 
         public Vector2 Move => KeyPad.Value;
@@ -139,19 +139,19 @@ namespace Ulko
 
         private void InputEvent(Rewired.InputActionEventData data)
         {
-            if (data.actionName.Contains("Move"))
+            if(data.actionName.Contains("Move"))
             {
                 KeyPad.ReadInput(data);
             }
 
-            if (data.player.GetButtonDown(data.actionName))
+            if(data.player.GetButtonDown(data.actionName))
             {
-                switch (data.actionName)
+                switch(data.actionName)
                 {
                     case "Interact": OnInteract?.Invoke(); break;
                     case "Cancel": OnCancel?.Invoke(); break;
                     case "Back": OnBack?.Invoke(); break;
-                    case "MainMenu": OnMainMenu?.Invoke(); break;
+                    case "MainMenu": OnMainMenu?.Invoke();break;
                     case "Pause": OnPause?.Invoke(); break;
                     case "Skip": OnSkip?.Invoke(); break;
                     case "Next": OnShowNext?.Invoke(); break;
@@ -160,7 +160,7 @@ namespace Ulko
                 }
             }
 
-            if (data.GetCurrentInputSources().Count > 0)
+            if(data.GetCurrentInputSources().Count > 0)
             {
                 var inputSource = data.GetCurrentInputSources()[0];
                 if (inputSource.controller.type != Rewired.ControllerType.Mouse)
@@ -197,7 +197,7 @@ namespace Ulko
         private static Rewired.Controller GetDefaultDevice()
         {
             var joysticks = PlayerOne.RewiredPlayer.controllers.Joysticks;
-            if (joysticks.Count > 0)
+            if(joysticks.Count > 0)
                 return joysticks[0];
 
             return PlayerOne.RewiredPlayer.controllers.Keyboard;
