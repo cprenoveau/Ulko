@@ -15,8 +15,6 @@ namespace Ulko
         public bool allowMouseInputs = false;
 
         public MenuStack menuStack;
-        public AssetReference messagePrompt;
-        public AssetReference choicePrompt;
 
         public CanvasGroup fade;
         public CanvasGroup infoView;
