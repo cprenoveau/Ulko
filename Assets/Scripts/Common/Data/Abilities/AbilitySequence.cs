@@ -9,7 +9,7 @@ namespace Ulko.Data.Abilities
     public class AbilitySequence
     {
         [SerializeReference]
-        public List<IAbilityStep> steps = new List<IAbilityStep>();
+        public List<IAbilityStep> steps = new();
 
         public IEnumerator Play(MonoBehaviour holder, ICharacter actor, List<ICharacter> targets)
         {

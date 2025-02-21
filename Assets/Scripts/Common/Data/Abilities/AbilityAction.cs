@@ -2,7 +2,6 @@
 using Ulko.Data.Timeline;
 using Ulko.Persistence;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Ulko.Data.Abilities
@@ -17,7 +16,6 @@ namespace Ulko.Data.Abilities
         public int Level => PlayerProfile.GetHeroLevel(Hero.id);
 
         public int HP => Hero.hp;
-        public int MP => Hero.mp;
         public float GetStat(Stat stat) => PlayerProfile.GetHeroStat(Hero.id, stat);
         public List<ActiveStatus> Statuses { get; private set; } = new List<ActiveStatus>();
         public bool HasStatus(string id) => Statuses.Find(s => s.status.id == id) != null;

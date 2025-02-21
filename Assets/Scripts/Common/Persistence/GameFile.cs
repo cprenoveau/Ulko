@@ -11,17 +11,15 @@ namespace Ulko.Persistence
     {
         public string id;
         public int hp;
-        public int mp;
         public int exp;
         public bool isActive;
 
         public Hero() { }
 
-        public Hero(Data.Characters.Hero data, int hp, int mp, int exp)
+        public Hero(Data.Characters.Hero data, int hp, int exp)
         {
             id = data.id;
             this.hp = hp;
-            this.mp = mp;
             this.exp = exp;
             isActive = true;
         }
@@ -45,7 +43,6 @@ namespace Ulko.Persistence
         {
             id = source.id;
             hp = source.hp;
-            mp = source.mp;
             exp = source.exp;
             isActive = source.isActive;
         }
@@ -54,7 +51,6 @@ namespace Ulko.Persistence
         {
             id = json["id"].ToString();
             hp = json["hp"] != null ? json["hp"].ToObject<int>() : 0;
-            mp = json["mp"] != null ? json["mp"].ToObject<int>() : 0;
             exp = json["exp"] != null ? json["exp"].ToObject<int>() : 0;
             isActive = json["isActive"] != null ? json["isActive"].ToObject<bool>() : false;
         }
@@ -65,7 +61,6 @@ namespace Ulko.Persistence
             {
                 { "id", id },
                 { "hp", hp },
-                { "mp", mp },
                 { "exp", exp },
                 { "isActive", isActive }
             };

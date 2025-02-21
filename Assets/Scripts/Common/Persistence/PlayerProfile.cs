@@ -177,7 +177,7 @@ namespace Ulko
             if (hero != null) return hero;
 
             var data = Database.Heroes[heroId];
-            hero = new Hero(data, GetHeroStat(heroId, Stat.Fortitude), GetHeroStat(heroId, Stat.Fortitude), GetHeroExp(heroId));
+            hero = new Hero(data, GetHeroStat(heroId, Stat.Fortitude), GetHeroExp(heroId));
             loadedGame.party.Add(hero);
 
             return hero;

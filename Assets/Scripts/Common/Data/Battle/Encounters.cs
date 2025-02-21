@@ -39,7 +39,7 @@ namespace Ulko.Data
             return null;
         }
 
-        private List<Encounter> remaining = new List<Encounter>();
+        private readonly List<Encounter> remaining = new();
         private Encounter PickEncounter()
         {
             if(remaining.Count == 0)

@@ -6,8 +6,8 @@ namespace Ulko
 {
     public partial class PlayerController : MonoBehaviour
     {
-        private static List<string> disableUISubmitSource = new List<string>();
-        private static List<string> disableUINavSource = new List<string>();
+        private static List<string> disableUISubmitSource = new();
+        private static List<string> disableUINavSource = new();
 
         public static void DisableUISubmit(bool disable, string source)
         {

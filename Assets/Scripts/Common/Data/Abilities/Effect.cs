@@ -19,7 +19,6 @@ namespace Ulko.Data.Abilities
         string Id { get; }
         string Name { get; }
         int HP { get; }
-        int MP { get; }
         float GetStat(Stat stat);
         List<ActiveStatus> Statuses { get; }
 

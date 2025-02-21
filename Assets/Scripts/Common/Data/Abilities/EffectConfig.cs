@@ -7,7 +7,6 @@ namespace Ulko.Data.Abilities
     [CreateAssetMenu(fileName = "EffectConfig", menuName = "Ulko/Abilities/Effect Config", order = 1)]
     public class EffectConfig : ScriptableObject
     {
-        public float criticalMultiplier = 1.5f;
         public float flatModifier = 100;
         public float randomMinMultiplier = 0.95f;
         public float randomMaxMultiplier = 1.05f;
@@ -22,7 +21,7 @@ namespace Ulko.Data.Abilities
             public float multiplier;
         }
 
-        public List<ElementalMultiplier> attackMultipliers = new List<ElementalMultiplier>();
+        public List<ElementalMultiplier> attackMultipliers = new();
 
         public float GetAttackMultiplier(ElementalTag tag, ElementalTag against)
         {

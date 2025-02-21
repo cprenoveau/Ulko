@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using HotChocolate.Utils;
 using UnityEngine.AddressableAssets;
 
 namespace Ulko.Data.Abilities

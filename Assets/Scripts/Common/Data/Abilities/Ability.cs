@@ -17,7 +17,7 @@ namespace Ulko.Data.Abilities
     public class AbilityEffects
     {
         [SerializeReference]
-        public List<IEffect> effects = new List<IEffect>();
+        public List<IEffect> effects = new();
 
         public string Description()
         {
@@ -99,12 +99,11 @@ namespace Ulko.Data.Abilities
     public class Ability : ScriptableObject, IActionAsset
     {
         public string id;
-        public int mpCost;
         public ElementalTag mainElement;
         public AbilityTarget target;
 
         [SerializeReference]
-        public List<AbilityNode> nodes = new List<AbilityNode>();
+        public List<AbilityNode> nodes = new();
 
         public string Id => id;
         public AbilityTarget AbilityTarget => target;
@@ -149,7 +148,6 @@ namespace Ulko.Data.Abilities
             }
 
             str += " " + Localization.Localize("size_"+target.targetSize.ToString().ToLower());
-            str += " <nobr>" + Localization.LocalizeFormat("mp_cost", mpCost) + "</nobr>";
 
             return str;
         }
