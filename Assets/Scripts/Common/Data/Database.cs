@@ -1,6 +1,5 @@
 ﻿using Ulko.Data.Abilities;
 using Ulko.Data.Characters;
-using Ulko.Data.Inventory;
 using Ulko.Data.Timeline;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
@@ -15,7 +14,6 @@ namespace Ulko
         public static Dictionary<string, Story> Stories { get; private set; } = new Dictionary<string, Story>();
         public static Dictionary<string, Hero> Heroes { get; private set; } = new Dictionary<string, Hero>();
         public static Dictionary<string, Enemy> Enemies { get; private set; } = new Dictionary<string, Enemy>();
-        public static Dictionary<string, ItemAsset> Items { get; private set; } = new Dictionary<string, ItemAsset>();
         public static Dictionary<string, Status> Statuses { get; private set; } = new Dictionary<string, Status>();
 
         public static async Task Init(List<Story> stories, TextAsset heroesAsset, TextAsset enemiesAsset)
@@ -38,14 +36,6 @@ namespace Ulko
             foreach (var enemy in enemies)
             {
                 Enemies.Add(enemy.id, enemy);
-            }
-
-            Items.Clear();
-
-            var items = await Addressables.LoadAssetsAsync<ItemAsset>("Item", null).Task;
-            foreach (var item in items)
-            {
-                Items.Add(item.id, item);
             }
 
             Statuses.Clear();

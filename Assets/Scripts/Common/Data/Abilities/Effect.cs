@@ -106,7 +106,6 @@ namespace Ulko.Data.Abilities
         public string targetId;
         public string actorId;
 
-        public bool missed;
         public bool revive;
         public int hpDiff;
         public int mpDiff;
@@ -188,10 +187,7 @@ namespace Ulko.Data.Abilities
     public class Damage : IEffect
     {
         public EffectConfig config;
-        public Stat attackStat = Stat.Attack;
-        public Stat defenseStat = Stat.Defense;
-        public Stat evadeStat = Stat.Evade;
-        public Stat accuracyStat = Stat.Accuracy;
+        public Stat attackStat = Stat.Wisdom;
         public ElementalTag element;
         [Tooltip("Multiplier applied to stat based damage")]
         public float damageMultiplier = 1f;
@@ -205,9 +201,6 @@ namespace Ulko.Data.Abilities
             {
                 config = config,
                 attackStat = attackStat,
-                defenseStat = defenseStat,
-                evadeStat = evadeStat,
-                accuracyStat = accuracyStat,
                 element = element,
                 damageMultiplier = damageMultiplier,
                 percentDamage = percentDamage,
@@ -223,9 +216,9 @@ namespace Ulko.Data.Abilities
             if(damageMultiplier != 0)
             {
                 if (element != null)
-                    str = Localization.LocalizeFormat("damage_wtype_desc", damageMultiplier * 100, TextFormat.Localize(element), TextFormat.Localize(attackStat), TextFormat.Localize(defenseStat));
+                    str = Localization.LocalizeFormat("damage_wtype_desc", damageMultiplier * 100, TextFormat.Localize(element), TextFormat.Localize(attackStat));
                 else
-                    str = Localization.LocalizeFormat("damage_desc", damageMultiplier * 100, TextFormat.Localize(attackStat), TextFormat.Localize(defenseStat));
+                    str = Localization.LocalizeFormat("damage_desc", damageMultiplier * 100, TextFormat.Localize(attackStat));
             }
             else if(percentDamage != 0)
             {
@@ -265,43 +258,20 @@ namespace Ulko.Data.Abilities
 
         public CharacterResult ComputeResult(ICharacterData actor, ICharacterData target, List<StatModifier> statModifiers, float multiplier)
         {
-            float criticalMultiplier = 1;
-            float damage = 0;
-
             float atk = StatModifier.GetStat(actor, target, attackStat, statModifiers);
-            float def = StatModifier.GetStat(target, actor, defenseStat, statModifiers);
 
-            float acc = StatModifier.GetStat(actor, target, accuracyStat, statModifiers);
-            float evd = StatModifier.GetStat(target, actor, evadeStat, statModifiers);
+            float damage = atk * damageMultiplier;
 
-            float hitRoll = UnityEngine.Random.Range(0, 100f);
-            bool attackHits = hitRoll <= acc && hitRoll >= evd;
+            float randomMod = UnityEngine.Random.Range(config.randomMinMultiplier, config.randomMaxMultiplier);
+            damage *= randomMod;
 
-            if (attackHits || noMiss)
-            {
-                damage = atk * damageMultiplier;
-
-                float randomMod = UnityEngine.Random.Range(config.randomMinMultiplier, config.randomMaxMultiplier);
-                damage *= randomMod;
-
-                float crit = StatModifier.GetStat(actor, target, Stat.Critical, statModifiers);
-                int critRoll = UnityEngine.Random.Range(0, 100);
-                if (critRoll < crit)
-                {
-                    criticalMultiplier = 1.5f;
-                }
-
-                if (def != 0)
-                    damage = damage * config.flatModifier / (config.flatModifier + def);
-
-                damage += StatModifier.GetStat(target, actor, Stat.MaxHP, statModifiers) * percentDamage / 100f;
-                damage += flatDamage;
-            }
+            damage += StatModifier.GetStat(target, actor, Stat.Fortitude, statModifiers) * percentDamage / 100f;
+            damage += flatDamage;
 
             float attackMult = config.GetAttackMultiplier(element, target.Element);
 
-            int finalDamage = Mathf.RoundToInt(damage * criticalMultiplier * attackMult * multiplier);
-            return new CharacterResult(target.Id, actor.Id) { hpDiff = -finalDamage, missed = !attackHits && !noMiss };
+            int finalDamage = Mathf.RoundToInt(damage * attackMult * multiplier);
+            return new CharacterResult(target.Id, actor.Id) { hpDiff = -finalDamage };
         }
     }
 
@@ -309,7 +279,7 @@ namespace Ulko.Data.Abilities
     public class Heal : IEffect
     {
         public EffectConfig config;
-        public Stat healStat = Stat.Magic;
+        public Stat healStat = Stat.Wisdom;
         public ElementalTag element;
         [Tooltip("Multiplier applied to stat based healing")]
         public float healMultiplier = 1f;
@@ -388,7 +358,7 @@ namespace Ulko.Data.Abilities
             float randomMod = UnityEngine.Random.Range(config.randomMinMultiplier, config.randomMaxMultiplier);
             heal *= randomMod;
 
-            heal += StatModifier.GetStat(target, actor, Stat.MaxHP, statModifiers) * percentHeal / 100f;
+            heal += StatModifier.GetStat(target, actor, Stat.Fortitude, statModifiers) * percentHeal / 100f;
             heal += flatHeal;
 
             int finalHeal = Mathf.RoundToInt(heal * multiplier);

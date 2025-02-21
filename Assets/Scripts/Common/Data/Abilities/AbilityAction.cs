@@ -40,16 +40,6 @@ namespace Ulko.Data.Abilities
         {
             Hero = hero;
             Asset = milestone.Party.Find(x => x.id == hero.id);
-
-            foreach (var status in Asset.GetStatuses(Level).Select(s => s.status))
-            {
-                Statuses.Add(new ActiveStatus
-                {
-                    durationType = ActiveStatus.DurationType.Infinite,
-                    status = status,
-                    lastApplyTime = status.applyType == Status.ApplyType.OverTime ? Time.time : -1
-                });
-            }
         }
 
         private void AddStatus(ActiveStatus status)
@@ -78,8 +68,7 @@ namespace Ulko.Data.Abilities
         {
             if (HP > 0 || result.revive)
             {
-                Hero.hp = (int)Mathf.Clamp(HP + result.hpDiff, 0, GetStat(Stat.MaxHP));
-                Hero.mp = (int)Mathf.Clamp(MP + result.mpDiff, 0, GetStat(Stat.MaxMP));
+                Hero.hp = (int)Mathf.Clamp(HP + result.hpDiff, 0, GetStat(Stat.Fortitude));
 
                 if(HP > 0)
                 {

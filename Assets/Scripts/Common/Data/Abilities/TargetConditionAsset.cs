@@ -133,16 +133,7 @@ namespace Ulko.Data.Abilities
     {
         protected override bool _IsTrue(ICharacterData actor, ICharacterData target, AbilityTarget abilityTarget)
         {
-            return target.HP >= target.GetStat(Stat.MaxHP);
-        }
-    }
-
-    [Serializable]
-    public class IsFullMPCondition : TargetCondition
-    {
-        protected override bool _IsTrue(ICharacterData actor, ICharacterData target, AbilityTarget abilityTarget)
-        {
-            return target.MP >= target.GetStat(Stat.MaxMP);
+            return target.HP >= target.GetStat(Stat.Fortitude);
         }
     }
 }

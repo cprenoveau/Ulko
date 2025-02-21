@@ -6,6 +6,7 @@ using System.IO;
 
 namespace Ulko.Persistence
 {
+    //cannot be a struct because IClonable requires a parameterless constructor. language restriction
     public class Hero : IJsonObject, IClonable
     {
         public string id;
@@ -13,9 +14,6 @@ namespace Ulko.Persistence
         public int mp;
         public int exp;
         public bool isActive;
-        public string equippedWeapon;
-        public List<string> equippedArmor = new List<string>();
-        public List<ModSlot> modSlots = new List<ModSlot>();
 
         public Hero() { }
 
@@ -50,9 +48,6 @@ namespace Ulko.Persistence
             mp = source.mp;
             exp = source.exp;
             isActive = source.isActive;
-            equippedWeapon = source.equippedWeapon;
-            equippedArmor = source.equippedArmor.Clone();
-            modSlots = source.modSlots.Clone();
         }
 
         public void FromJson(JToken json)
@@ -62,9 +57,6 @@ namespace Ulko.Persistence
             mp = json["mp"] != null ? json["mp"].ToObject<int>() : 0;
             exp = json["exp"] != null ? json["exp"].ToObject<int>() : 0;
             isActive = json["isActive"] != null ? json["isActive"].ToObject<bool>() : false;
-            equippedWeapon = json["equippedWeapon"].ToString();
-            equippedArmor = json["equippedArmor"].ParseStringList();
-            modSlots = json["modSlots"].ParseList<ModSlot>();
         }
 
         public JToken ToJson()
@@ -75,57 +67,7 @@ namespace Ulko.Persistence
                 { "hp", hp },
                 { "mp", mp },
                 { "exp", exp },
-                { "isActive", isActive },
-                { "equippedWeapon", equippedWeapon },
-                { "equippedArmor", equippedArmor.ToJson() },
-                { "modSlots", modSlots.ToJson() }
-            };
-
-            return json;
-        }
-    }
-
-    [Serializable]
-    public class ModSlot : IJsonObject, IClonable
-    {
-        public string elementId;
-        public string modId;
-
-        public ModSlot() { }
-
-        public ModSlot(ModSlot source)
-        {
-            Clone(source);
-        }
-
-        public ModSlot(JToken json)
-        {
-            FromJson(json);
-        }
-
-        public void Clone(object source)
-        {
-            Clone(source as ModSlot);
-        }
-
-        public void Clone(ModSlot source)
-        {
-            elementId = source.elementId;
-            modId = source.modId;
-        }
-
-        public void FromJson(JToken json)
-        {
-            elementId = json["elementId"].ToString();
-            modId = json["modId"] != null ? json["modId"].ToString() : "";
-        }
-
-        public JToken ToJson()
-        {
-            var json = new JObject
-            {
-                { "elementId", elementId },
-                { "modId", modId }
+                { "isActive", isActive }
             };
 
             return json;
@@ -347,13 +289,13 @@ namespace Ulko.Persistence
         public int money;
 
         public Location location;
-        public List<Hero> party = new List<Hero>();
+        public List<Hero> party = new();
 
         public string currentStory;
-        public Dictionary<string, Progression> stories = new Dictionary<string, Progression>();
+        public Dictionary<string, Progression> stories = new();
 
-        public List<Item> inventory = new List<Item>();
-        public List<Chest> collectedChests = new List<Chest>();
+        public List<Item> inventory = new();
+        public List<Chest> collectedChests = new();
 
         public GameFile() { }
 

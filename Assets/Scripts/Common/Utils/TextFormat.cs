@@ -17,14 +17,6 @@ namespace Ulko
             return date.ToString("g", Localization.GetCurrentCulture());
         }
 
-        public static string EquipCount(int count)
-        {
-            if (count == 0)
-                return "";
-            else
-                return "E" + count;
-        }
-
         public static string Localize(Stat stat)
         {
             return Localization.Localize("stat_" + stat.ToString().ToLower());
@@ -39,14 +31,6 @@ namespace Ulko
         {
             string color = ColorUtility.ToHtmlStringRGB(element.color);
             return "<#" + color + ">" + Localization.Localize(element.id) + "</color>";
-        }
-
-        public static string ToString(Stat stat, float value)
-        {
-            if (stat == Stat.Accuracy || stat == Stat.Critical || stat == Stat.Evade)
-                return value + "%";
-            else
-                return value.ToString();
         }
     }
 }

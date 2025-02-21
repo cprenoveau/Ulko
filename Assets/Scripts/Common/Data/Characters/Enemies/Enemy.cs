@@ -7,7 +7,7 @@ namespace Ulko.Data.Characters
     {
         public string id;
         public string name;
-        public List<Level> levels = new List<Level>();
+        public List<Level> levels = new();
 
         public Enemy() { }
 

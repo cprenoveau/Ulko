@@ -1,6 +1,5 @@
 ﻿using Ulko.Data;
 using Ulko.Data.Abilities;
-using Ulko.Data.Inventory;
 using Ulko.Persistence;
 using Newtonsoft.Json.Linq;
 using System;
@@ -143,31 +142,16 @@ namespace Ulko
 
         public static void SetParty(List<Data.Characters.HeroAsset> party, bool setPartyOrder)
         {
-            for(int i = 0; i < loadedGame.party.Count;)
+            for(int i = 0; i < loadedGame.party.Count; ++i)
             {
                 var member = loadedGame.party[i];
-
                 member.isActive = party.Find(m => m.id == member.id) != null;
-                if(!member.isActive && Database.Heroes[member.id].isGuest)
-                {
-                    loadedGame.party.RemoveAt(i);
-                }
-                else
-                {
-                    ++i;
-                }
             }
 
             foreach(var member in party)
             {
                 var hero = CreateOrGetHero(member.id);
                 hero.isActive = true;
-
-                if (member.overrideWeapon != null)
-                    hero.equippedWeapon = member.overrideWeapon.id;
-
-                if (member.overrideArmor.Count > 0)
-                    hero.equippedArmor = member.overrideArmor.Select(a => a.id).ToList();
             }
 
             if(setPartyOrder)
@@ -193,7 +177,7 @@ namespace Ulko
             if (hero != null) return hero;
 
             var data = Database.Heroes[heroId];
-            hero = new Hero(data, GetHeroStat(heroId, Stat.MaxHP), GetHeroStat(heroId, Stat.MaxMP), GetHeroExp(heroId));
+            hero = new Hero(data, GetHeroStat(heroId, Stat.Fortitude), GetHeroStat(heroId, Stat.Fortitude), GetHeroExp(heroId));
             loadedGame.party.Add(hero);
 
             return hero;
@@ -207,18 +191,11 @@ namespace Ulko
             bool healed = false;
             foreach (var hero in Party)
             {
-                int maxHp = GetHeroStat(hero.id, Stat.MaxHP);
-                int maxMp = GetHeroStat(hero.id, Stat.MaxMP);
+                int maxHp = GetHeroStat(hero.id, Stat.Fortitude);
 
                 if (hero.hp < maxHp)
                 {
                     hero.hp = maxHp;
-                    healed = true;
-                }
-
-                if (hero.mp < maxMp)
-                {
-                    hero.mp = maxMp;
                     healed = true;
                 }
             }
@@ -254,133 +231,12 @@ namespace Ulko
             return GetHeroStat(heroId, GetHeroLevel(heroId), stat);
         }
 
-        public static int GetHeroStat(string heroId, int level, Stat stat)
-        {
-            return GetHeroStat(heroId, level, stat, GetWeaponData(heroId), GetArmorData(heroId), GetModData(heroId));
-        }
-
-        public static int GetHeroStat(string heroId, Stat stat, Weapon weapon, IEnumerable<Armor> armors, IEnumerable<Mod> mods)
-        {
-            return GetHeroStat(heroId, GetHeroLevel(heroId), stat, weapon, armors, mods);
-        }
-
-        private static int GetHeroStat(string heroId, int level, Stat stat, Weapon weapon, IEnumerable<Armor> armors, IEnumerable<Mod> mods)
+        private static int GetHeroStat(string heroId, int level, Stat stat)
         {
             var heroData = Database.Heroes[heroId];
             var heroStat = heroData.GetLevelData(level).GetStat(stat);
 
-            if(weapon != null)
-                heroStat += weapon.GetStat(stat);
-
-            foreach (var armor in armors)
-            {
-                heroStat += armor.GetStat(stat);
-            }
-
-            foreach(var mod in mods)
-            {
-                heroStat *= 1f + mod.GetStat(stat) / 100f;
-            }
-
             return Mathf.CeilToInt(heroStat);
-        }
-
-        private static void InsertUnique<T>(ref List<T> a, List<T> b)
-        {
-            foreach(var element in b)
-            {
-                if (!a.Contains(element))
-                    a.Add(element);
-            }
-        }
-
-        public static List<Ability> GetAllAbilities(Data.Characters.HeroAsset hero)
-        {
-            var abilities = new List<Ability>();
-
-            abilities.AddRange(hero.GetAbilities(GetHeroLevel(hero.id)).Select(a => a.ability));
-            InsertUnique(ref abilities, GetModAbilities(hero.id));
-
-            return abilities;
-        }
-
-        public static List<Status> GetAllStatuses(Data.Characters.HeroAsset hero)
-        {
-            var statuses = new List<Status>();
-
-            statuses.AddRange(hero.GetStatuses(GetHeroLevel(hero.id)).Select(a => a.status));
-            InsertUnique(ref statuses, GetWeaponStatuses(hero.id));
-            InsertUnique(ref statuses, GetArmorStatuses(hero.id));
-            InsertUnique(ref statuses, GetModStatuses(hero.id));
-
-            return statuses;
-        }
-
-        public static List<Status> GetWeaponStatuses(string heroId)
-        {
-            var statuses = new List<Status>();
-            var weapon = GetWeaponData(heroId);
-
-            if(weapon != null)
-                statuses.AddRange(weapon.giveStatus);
-
-            return statuses;
-        }
-
-        public static List<Status> GetArmorStatuses(string heroId)
-        {
-            var statuses = new List<Status>();
-            var armors = GetArmorData(heroId);
-            foreach(var armor in armors)
-            {
-                statuses.AddRange(armor.giveStatus);
-            }
-            return statuses;
-        }
-
-        public static List<Ability> GetModAbilities(string heroId)
-        {
-            var abilities = new List<Ability>();
-
-            var mods = GetModData(heroId);
-
-            foreach(var mod in mods)
-            {
-                InsertUnique(ref abilities, mod.giveAbilities);
-            }
-
-            return abilities;
-        }
-
-        public static List<Status> GetModStatuses(string heroId)
-        {
-            var statuses = new List<Status>();
-
-            var mods = GetModData(heroId);
-            foreach (var mod in mods)
-            {
-                foreach (var status in mod.giveStatus)
-                {
-                    if (statuses.Find(a => a.id == status.id) == null)
-                    {
-                        statuses.Add(status);
-                    }
-                }
-            }
-
-            return statuses;
-        }
-
-        public static bool UseAbility(string heroId, Ability ability)
-        {
-            var hero = GetPartyMember(heroId);
-            if(hero != null && hero.mp >= ability.mpCost)
-            {
-                hero.mp -= ability.mpCost;
-                return true;
-            }
-
-            return false;
         }
 
         public static int Money => loadedGame.money;

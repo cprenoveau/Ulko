@@ -123,8 +123,6 @@ namespace Ulko.Data.Abilities
         public enum EffectType
         {
             Damage,
-            PhysicalDamage,
-            MagicDamage,
             Heal,
             GiveStatus,
             RemoveStatus
@@ -137,8 +135,6 @@ namespace Ulko.Data.Abilities
             switch (effectType)
             {
                 case EffectType.Damage: return action.Effects.Find(e => e.GetType() == typeof(Damage)) != null;
-                case EffectType.PhysicalDamage: return action.Effects.Find(e => e.GetType() == typeof(Damage) && (e as Damage).attackStat == Stat.Attack) != null;
-                case EffectType.MagicDamage: return action.Effects.Find(e => e.GetType() == typeof(Damage) && (e as Damage).attackStat == Stat.Magic) != null;
                 case EffectType.Heal: return action.Effects.Find(e => e.GetType() == typeof(Heal)) != null;
                 case EffectType.GiveStatus: return action.Effects.Find(e => e.GetType() == typeof(GiveStatus)) != null;
                 case EffectType.RemoveStatus: return action.Effects.Find(e => e.GetType() == typeof(RemoveStatus)) != null;

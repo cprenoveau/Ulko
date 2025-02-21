@@ -6,9 +6,8 @@ namespace Ulko.Data.Characters
     public class Hero : IJsonObject
     {
         public string id;
-        public bool isGuest;
         public int minLevel;
-        public List<Level> levels = new List<Level>();
+        public List<Level> levels = new();
 
         public Hero() { }
 
@@ -49,7 +48,6 @@ namespace Ulko.Data.Characters
         public void FromJson(JToken json)
         {
             id = json["id"].ToString();
-            isGuest = json["isGuest"].ToObject<bool>();
             minLevel = json["minLevel"].ToObject<int>();
             levels = json["levels"].ParseList<Level>();
         }
@@ -59,7 +57,6 @@ namespace Ulko.Data.Characters
             var json = new JObject
             {
                 { "id", id },
-                { "isGuest", isGuest },
                 { "minLevel", minLevel },
                 { "levels", levels.ToJson() }
             };

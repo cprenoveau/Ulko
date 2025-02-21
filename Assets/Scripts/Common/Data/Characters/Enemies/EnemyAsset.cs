@@ -17,12 +17,12 @@ namespace Ulko.Data.Characters
 
         public int level = 1;
         public AssetReferenceT<GameObject> prefab;
-        public List<CharacterTag> tags = new List<CharacterTag>();
+        public List<CharacterTag> tags = new();
         public ElementalTag element;
         public Abilities.Ability attackAbility;
-        public List<Abilities.Ability> abilities = new List<Abilities.Ability>();
-        public List<Abilities.Status> statuses = new List<Abilities.Status>();
-        public List<AnimationData> animations = new List<AnimationData>();
+        public List<Abilities.Ability> abilities = new();
+        public List<Abilities.Status> statuses = new();
+        public List<AnimationData> animations = new();
 
         public GameObject Instantiate(Transform parent)
         {
