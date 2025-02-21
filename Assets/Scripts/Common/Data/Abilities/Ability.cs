@@ -152,7 +152,7 @@ namespace Ulko.Data.Abilities
             return str;
         }
 
-        private static List<Instantiator> conditionInstantiators = new List<Instantiator>();
+        private static readonly List<Instantiator> conditionInstantiators = new();
         public static IEnumerable<Instantiator> ConditionInstantiators()
         {
             conditionInstantiators.Clear();
@@ -166,7 +166,7 @@ namespace Ulko.Data.Abilities
             return conditionInstantiators;
         }
 
-        private static List<Instantiator> stepInstantiators = new List<Instantiator>();
+        private static readonly List<Instantiator> stepInstantiators = new();
         public static IEnumerable<Instantiator> StepInstantiators()
         {
             stepInstantiators.Clear();
@@ -180,7 +180,7 @@ namespace Ulko.Data.Abilities
             return stepInstantiators;
         }
 
-        private static List<Instantiator> effectInstantiators = new List<Instantiator>();
+        private static readonly List<Instantiator> effectInstantiators = new();
         public static IEnumerable<Instantiator> EffectInstantiators()
         {
             effectInstantiators.Clear();

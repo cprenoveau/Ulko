@@ -107,9 +107,8 @@ namespace Ulko.Data.Abilities
 
         public bool revive;
         public int hpDiff;
-        public int mpDiff;
-        public List<ActiveStatus> addStatus = new List<ActiveStatus>();
-        public List<Status> removeStatus = new List<Status>();
+        public List<ActiveStatus> addStatus = new();
+        public List<Status> removeStatus = new();
 
         public CharacterResult(string targetId, string actorId)
         {
@@ -120,7 +119,7 @@ namespace Ulko.Data.Abilities
 
     public class EffectResults
     {
-        public List<EffectResult> results = new List<EffectResult>();
+        public List<EffectResult> results = new();
         public IActionData nextAction;
 
         public bool Success => results.Find(r => r.success) != null;
@@ -131,7 +130,7 @@ namespace Ulko.Data.Abilities
         public bool success;
         public Type effectType;
         public IActionData nextAction;
-        public List<CharacterResult> characters = new List<CharacterResult>();
+        public List<CharacterResult> characters = new();
 
         public EffectResult(bool success, Type effectType)
         {
