@@ -1,5 +1,4 @@
 ﻿using Ulko.Data;
-using Ulko.Data.Abilities;
 using Ulko.Persistence;
 using Newtonsoft.Json.Linq;
 using System;

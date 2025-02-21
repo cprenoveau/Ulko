@@ -27,7 +27,7 @@ namespace Ulko.Data.Timeline
         public bool setPartyOrder;
         public bool SetPartyOrder => setPartyOrder;
 
-        public List<Characters.HeroAsset> party = new List<Characters.HeroAsset>();
+        public List<Characters.HeroAsset> party = new();
         public List<Characters.HeroAsset> Party => party;
 
         public bool ShowSavePrompt => showSavePrompt;
@@ -52,7 +52,7 @@ namespace Ulko.Data.Timeline
         public bool setPartyOrder;
         public bool SetPartyOrder => setPartyOrder;
 
-        public List<Characters.HeroAsset> party = new List<Characters.HeroAsset>();
+        public List<Characters.HeroAsset> party = new();
         public List<Characters.HeroAsset> Party => party;
 
         public bool ShowSavePrompt => showSavePrompt;
@@ -73,12 +73,10 @@ namespace Ulko.Data.Timeline
         public bool setPartyOrder;
         public bool SetPartyOrder => setPartyOrder;
 
-        public List<Characters.HeroAsset> party = new List<Characters.HeroAsset>();
+        public List<Characters.HeroAsset> party = new();
         public List<Characters.HeroAsset> Party => party;
 
         public bool ShowSavePrompt => showSavePrompt;
         public bool showSavePrompt;
-
-        public Data.Battle battle;
     }
 }

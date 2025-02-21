@@ -19,10 +19,6 @@ namespace Ulko.Data.Characters
         public AssetReferenceT<GameObject> prefab;
         public Sprite portrait;
         public Sprite fullDrawing;
-        public List<CharacterTag> tags = new();
-        public ElementalTag element;
-        public List<ItemTag> weaponTags = new();
-        public Abilities.Ability attackAbility;
         public List<AnimationData> animations = new();
 
         public GameObject Instantiate(Transform parent)

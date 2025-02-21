@@ -21,16 +21,5 @@ namespace Ulko
         {
             return Localization.Localize("stat_" + stat.ToString().ToLower());
         }
-
-        public static string Localize(CharacterTag tag)
-        {
-            return Localization.Localize(tag.id);
-        }
-
-        public static string Localize(ElementalTag element)
-        {
-            string color = ColorUtility.ToHtmlStringRGB(element.color);
-            return "<#" + color + ">" + Localization.Localize(element.id) + "</color>";
-        }
     }
 }
