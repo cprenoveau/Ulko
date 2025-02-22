@@ -7,7 +7,7 @@ namespace Ulko.Data.Cutscenes
     public class CharacterAnimationStep : StepAction
     {
         public CharacterAnimation actor;
-        public List<SpriteAnimation> animations = new List<SpriteAnimation>();
+        public List<SpriteAnimation> animations = new();
         public bool loop;
         public float speed = 1f;
         public float duration = float.PositiveInfinity;

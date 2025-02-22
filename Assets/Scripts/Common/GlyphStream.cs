@@ -11,8 +11,8 @@ namespace Ulko
             public float duration;
         }
 
-        private GlyphStreamConfig config;
-        private List<Glyph> glyphs = new List<Glyph>();
+        private readonly GlyphStreamConfig config;
+        private readonly List<Glyph> glyphs = new();
 
         public int GlyphCount => glyphs.Count;
 
@@ -20,7 +20,7 @@ namespace Ulko
         {
             this.config = config;
 
-            Stack<Color> colors = new Stack<Color>();
+            Stack<Color> colors = new();
             colors.Push(config.defaultColor);
 
             bool isItalic = false;

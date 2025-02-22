@@ -24,11 +24,11 @@ namespace Ulko.Data.Cutscenes
         public float ambientFadeInDuration;
 
         public bool playBattleTransition;
-        public List<CutsceneSequence> sequences = new List<CutsceneSequence>();
+        public List<CutsceneSequence> sequences = new();
 
         public Dialogue DefaultDialogue { get; private set; } = new Dialogue();
 
-        private Dictionary<int, Coroutine> playingCoroutines = new Dictionary<int, Coroutine>();
+        private readonly Dictionary<int, Coroutine> playingCoroutines = new();
 
         private void Awake()
         {

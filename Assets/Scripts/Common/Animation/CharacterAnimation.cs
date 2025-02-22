@@ -78,35 +78,6 @@ namespace Ulko
             }
         }
 
-        public void StandImmediate(Vector2 direction)
-        {
-            CurrentDirection = direction;
-            CurrentState = State.None;
-
-            if (CurrentRoutine != null)
-            {
-                StopCoroutine(CurrentRoutine);
-                CurrentRoutine = null;
-            }
-
-            foreach (var child in children)
-            {
-                if (child.gameObject.activeSelf)
-                    child.StandImmediate(direction);
-            }
-
-            if (idle != null)
-            {
-                spriteRenderer.enabled = true;
-                var anim = idle.GetAnimation(direction);
-                anim.SetFirstFrame(spriteRenderer);
-            }
-            else
-            {
-                spriteRenderer.enabled = false;
-            }
-        }
-
         public void Stand(Vector2 direction, float speed = 1f)
         {
             if (State.Idle != CurrentState || direction != CurrentDirection)
@@ -129,6 +100,8 @@ namespace Ulko
                 if (idle != null)
                 {
                     spriteRenderer.enabled = true;
+                    var anim = idle.GetAnimation(direction);
+                    anim.SetFirstFrame(spriteRenderer);
                     CurrentRoutine = StartCoroutine(idle.Play(this, spriteRenderer, direction, true, speed));
                 }
                 else

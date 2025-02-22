@@ -6,11 +6,11 @@ namespace Ulko
 {
     public class SpeechBubble : MonoBehaviour
     {
-        public List<string> speakerIds = new List<string>();
+        public List<string> speakerIds = new();
         public GameObject bubble;
         public float bounceDuration = 0.3f;
-        public Vector3 scaleStart = new Vector3(0.2f, 0.2f, 0.2f);
-        public Vector3 scaleMax = new Vector3(1.2f, 1.2f, 1.2f);
+        public Vector3 scaleStart = new(0.2f, 0.2f, 0.2f);
+        public Vector3 scaleMax = new(1.2f, 1.2f, 1.2f);
 
         private ClipSequence bounce;
 

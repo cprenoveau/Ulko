@@ -15,7 +15,7 @@ namespace Ulko
         }
 
         public Color defaultColor;
-        public List<ColorMap> colorMap = new List<ColorMap>();
+        public List<ColorMap> colorMap = new();
 
         [Serializable]
         public class CharDuration
@@ -25,7 +25,7 @@ namespace Ulko
         }
 
         public float defaultCharDuration = 0.2f;
-        public List<CharDuration> specialCharDuration = new List<CharDuration>();
+        public List<CharDuration> specialCharDuration = new();
 
         public float GetDuration(char c)
         {

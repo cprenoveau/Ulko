@@ -7,9 +7,9 @@ namespace Ulko.Data.Cutscenes
 {
     public class Sequence : MonoBehaviour
     {
-        public List<Step> steps = new List<Step>();
+        public List<Step> steps = new();
 
-        private Dictionary<int, Coroutine> playingCoroutines = new Dictionary<int, Coroutine>();
+        private readonly Dictionary<int, Coroutine> playingCoroutines = new();
 
         private int index;
         public IEnumerator Play(MonoBehaviour holder, Action onComplete)

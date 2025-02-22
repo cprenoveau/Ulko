@@ -7,6 +7,6 @@ namespace Ulko.Data.Timeline
     public class Story : ScriptableObject
     {
         public string id;
-        public List<Act> acts = new List<Act>();
+        public List<Act> acts = new();
     }
 }

@@ -8,10 +8,10 @@ namespace Ulko.Data
     {
         public class Line
         {
-            public event Action evt;
+            private event Action OnPlay;
 
             public string speakerKey;
-            public Dictionary<string, string> textByLanguage = new Dictionary<string, string>();
+            public Dictionary<string, string> textByLanguage = new();
 
             public Line(JToken json)
             {
@@ -28,9 +28,9 @@ namespace Ulko.Data
                 }
             }
 
-            public void RaiseEvent()
+            public void RaisePlayEvent()
             {
-                evt?.Invoke();
+                OnPlay?.Invoke();
             }
 
             public string GetSpeakerName()
@@ -50,7 +50,7 @@ namespace Ulko.Data
         public class Page
         {
             public int CurrentLineIndex { get; set; }
-            public List<Line> lines = new List<Line>();
+            public List<Line> lines = new();
 
             public Page(JToken json)
             {
@@ -153,7 +153,7 @@ namespace Ulko.Data
         }
 
         public int CurrentNodeIndex { get; set; }
-        public List<Graph> nodes = new List<Graph>();
+        public List<Graph> nodes = new();
 
         public Dialogue(){ }
 

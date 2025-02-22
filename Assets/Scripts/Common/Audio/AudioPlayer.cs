@@ -21,13 +21,13 @@ namespace Ulko
             public AudioDefinition def;
         }
 
-        public List<MixerByType> mixers = new List<MixerByType>();
+        public List<MixerByType> mixers = new();
         public AudioSourceHandle audioSource;
 
-        public List<UISound> uiSounds = new List<UISound>();
+        public List<UISound> uiSounds = new();
 
-        private Dictionary<AudioDefinition, List<AudioSourceHandle>> playingSounds = new Dictionary<AudioDefinition, List<AudioSourceHandle>>();
-        private Stack<AudioSourceHandle> soundPool = new Stack<AudioSourceHandle>();
+        private readonly Dictionary<AudioDefinition, List<AudioSourceHandle>> playingSounds = new();
+        private readonly Stack<AudioSourceHandle> soundPool = new();
 
         private void Awake()
         {

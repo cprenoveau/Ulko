@@ -8,7 +8,7 @@ namespace Ulko
 
         public static void RefreshAll()
         {
-            var orients = FindObjectsOfType<OrientToCamera>();
+            var orients = FindObjectsByType<OrientToCamera>(FindObjectsSortMode.None);
             foreach (var orient in orients)
                 orient.Refresh();
         }

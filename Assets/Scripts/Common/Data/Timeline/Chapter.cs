@@ -13,9 +13,9 @@ namespace Ulko.Data.Timeline
         public string description;
 
         [SerializeReference]
-        public List<IMilestone> milestones = new List<IMilestone>();
+        public List<IMilestone> milestones = new();
 
-        private List<Instantiator> instantiators = new List<Instantiator>();
+        private List<Instantiator> instantiators = new();
         public IEnumerable<Instantiator> MilestoneInstantiators()
         {
             instantiators.Clear();
