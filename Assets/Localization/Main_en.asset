@@ -1,0 +1,623 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Main_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: a38300253d54e2b46b5a5bef2172200c, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1757946187911168
+    m_Localized: Lvl:{0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1758003859591168
+    m_Localized: HP:{0}/{1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1758141034303488
+    m_Localized: MP:{0}/{1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1801418378874880
+    m_Localized: New Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1801904414822400
+    m_Localized: Load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1801935926628352
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802310696079360
+    m_Localized: Stats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802341029285888
+    m_Localized: Equip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802393374199808
+    m_Localized: Abilities
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802431357816832
+    m_Localized: Items
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802468737454080
+    m_Localized: Swap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802505244676096
+    m_Localized: Status Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802576044527616
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1819980455776256
+    m_Localized: '{0:D2}h {1:D2}m {2:D2}s'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820294894358528
+    m_Localized: '{0} GP'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1822046137913344
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1822139851247616
+    m_Localized: Ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3244416555847680
+    m_Localized: Level:{0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3249607275483136
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3666364477771776
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4026661151477760
+    m_Localized: Delete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11925279038636032
+    m_Localized: Attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373179914614988800
+    m_Localized: Trash Hand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11925375503433728
+    m_Localized: Run
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12280467169513472
+    m_Localized: Miss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37303286104195072
+    m_Localized: New File
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37756764987457536
+    m_Localized: '{0} MP'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42451405260156928
+    m_Localized: MaxHP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42451644838801408
+    m_Localized: MaxMP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42451691039059968
+    m_Localized: Atk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452065472966656
+    m_Localized: Mag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452102949072896
+    m_Localized: Def
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452145999409152
+    m_Localized: MDef
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452193273409536
+    m_Localized: Eva
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452234516000768
+    m_Localized: Acc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452278241619968
+    m_Localized: Crit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452354036887552
+    m_Localized: Spd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47979241759965184
+    m_Localized: None
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49328415336169472
+    m_Localized: '{0} GP'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49630715397144576
+    m_Localized: 'Owned:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49961717898280960
+    m_Localized: Maxed Out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49961871829237760
+    m_Localized: 'Cost: {0} GP'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49961961587343360
+    m_Localized: 'Buy: x{0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49965207827644416
+    m_Localized: Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49965235963035648
+    m_Localized: Sell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49982270323425280
+    m_Localized: 'Sell: x{0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49982347339235328
+    m_Localized: 'Value: {0} GP'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49985151009161216
+    m_Localized: Sold Out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50054746659225600
+    m_Localized: Maximum Health Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055159361961984
+    m_Localized: Maximum Magic Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055368108277760
+    m_Localized: Physical Attack Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055485712367616
+    m_Localized: Magic Attack Power
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055529333129216
+    m_Localized: Physical Defense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055640939364352
+    m_Localized: Magic Defense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055693548519424
+    m_Localized: '% chance of Evading an attack'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055787538677760
+    m_Localized: '% chance of Hitting a target'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055910947684352
+    m_Localized: '% chance of landing a Critical Hit'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055999573327872
+    m_Localized: Rate of time gauge fill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50070534543769600
+    m_Localized: Holy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50070618106888192
+    m_Localized: Spooky
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50070740446347264
+    m_Localized: Savvy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50322820452974592
+    m_Localized: Deals damage based on {0}% {1} {2} against {3}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50327723816648704
+    m_Localized: Deals damage based on {0}% {1} against {2}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50355782821216256
+    m_Localized: Can't Be Used Here
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50355865771966464
+    m_Localized: Not Enough MP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50357543850082304
+    m_Localized: Use Ability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50365899465687040
+    m_Localized: Deals {0}% damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50054991996649472
+    m_Localized: Deals {0} damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50367762906873856
+    m_Localized: Heals HP based on {0}% {1} {2}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50368019271122944
+    m_Localized: Heals HP based on {0}% {1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50368085205581824
+    m_Localized: Heals {0}% HP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50368211680624640
+    m_Localized: Heals <color=#00FF00>{0}</color> HP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50369924454023168
+    m_Localized: Revives
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50391762420760576
+    m_Localized: '{0} for {1} turns'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51399724786384896
+    m_Localized: 'EXP: {0}/{1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51399800443240448
+    m_Localized: 'EXP: MAX'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51403770637189120
+    m_Localized: To Next Lvl:{0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51413480060878848
+    m_Localized: Unlocks at Level {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52173570904817664
+    m_Localized: 'Money: {0} GP'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52173637481005056
+    m_Localized: 'Total EXP: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52175051104059392
+    m_Localized: Victory!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52570910203445248
+    m_Localized: Assist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52571115426545664
+    m_Localized: Release
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53245774170030080
+    m_Localized: 'Value: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53324276298809344
+    m_Localized: Hero is not in party
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55133969086283776
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134009871695872
+    m_Localized: French
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134077752311808
+    m_Localized: Fullscreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134130759925760
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134175760613376
+    m_Localized: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134220320899072
+    m_Localized: Music {0}%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134248645033984
+    m_Localized: Sound {0}%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134278772719616
+    m_Localized: Voice {0}%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55388599229743104
+    m_Localized: Previous
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55388647426490368
+    m_Localized: Next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56179752036335616
+    m_Localized: Removes status {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56593099902812160
+    m_Localized: Empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58278659012820992
+    m_Localized: '{0} Level Up!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58280416459751424
+    m_Localized: Level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61193605610602496
+    m_Localized: '{0} {1} against {2}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61195238297960448
+    m_Localized: Flying
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61195508016873472
+    m_Localized: All
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61195752960032768
+    m_Localized: and
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61195808358400000
+    m_Localized: or
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61196649165357056
+    m_Localized: Inflicts {0} {1} to {2}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61199493935267840
+    m_Localized: Beast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61200086691086336
+    m_Localized: Humanoid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61210188873596928
+    m_Localized: Prevents status {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61212503420567552
+    m_Localized: Wielder becomes target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61213211796570112
+    m_Localized: A random target is picked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61214840801329152
+    m_Localized: '{0:F0}% chance'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61897339743371264
+    m_Localized: every second
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61897611702042624
+    m_Localized: every {0} seconds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61898014707548160
+    m_Localized: every turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61898061486620672
+    m_Localized: every {0} turns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61898208098516992
+    m_Localized: on death
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62001658798931968
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63020911090073600
+    m_Localized: 'Your money: {0} GP'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63021473865007104
+    m_Localized: Heal All
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65551944389885952
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65553126206341120
+    m_Localized: Speed Up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 99628456309141504
+    m_Localized: 'Status: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101069198483288064
+    m_Localized: Heroes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101069243374923776
+    m_Localized: Enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 114122130159960064
+    m_Localized: Dawn of Victory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 114255180428607488
+    m_Localized: Fainted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118940081652367360
+    m_Localized: 6 years later
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179774903081394176
+    m_Localized: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179775353914548224
+    m_Localized: Retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273186350171152384
+    m_Localized: No Valid Target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273697502483439616
+    m_Localized: Heals {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273842509668409344
+    m_Localized: x{0} affinity bonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273842629822636032
+    m_Localized: x{0} affinity malus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273935132563333120
+    m_Localized: (one)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273935230118649856
+    m_Localized: (group)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279766114759598080
+    m_Localized: '{0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279773480372658176
+    m_Localized: '{0} {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279773517211230208
+    m_Localized: Inflicts {0} {1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279784078762303488
+    m_Localized: <nobr>(no miss)</nobr>
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372643240050941952
+    m_Localized: '{0}% chance of giving {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372643200288940032
+    m_Localized: '{0}% chance of giving {1} for {2} turns'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372874942300020736
+    m_Localized: Small Heal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372875911234576384
+    m_Localized: Medium Heal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372875973759066112
+    m_Localized: Large Heal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373172125813432320
+    m_Localized: Discard to perform a Normal Attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373245890769444864
+    m_Localized: Move {0}/{1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373264549814460416
+    m_Localized: Discard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373269693796966400
+    m_Localized: Cannot be used
+    m_Metadata:
+      m_Items: []
+  - m_Id: 375727145037586432
+    m_Localized: Draw Pile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 375727187274227712
+    m_Localized: Discard Pile
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

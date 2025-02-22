@@ -1,0 +1,624 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Main Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Main
+  m_TableCollectionNameGuidString: a38300253d54e2b46b5a5bef2172200c
+  m_Entries:
+  - m_Id: 1802393374199808
+    m_Key: abilities
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055787538677760
+    m_Key: accuracy_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273842509668409344
+    m_Key: affinity_bonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273842629822636032
+    m_Key: affinity_malus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61195508016873472
+    m_Key: all
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61195752960032768
+    m_Key: and
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52570910203445248
+    m_Key: assist
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11925279038636032
+    m_Key: attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055368108277760
+    m_Key: attack_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1822046137913344
+    m_Key: back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61199493935267840
+    m_Key: beast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49965207827644416
+    m_Key: buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49961961587343360
+    m_Key: buy_amount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3666364477771776
+    m_Key: cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61210188873596928
+    m_Key: cancel_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50355782821216256
+    m_Key: cannot_use_here
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61212503420567552
+    m_Key: change_target_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61213211796570112
+    m_Key: change_target_random_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49961871829237760
+    m_Key: cost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055910947684352
+    m_Key: critical_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50327723816648704
+    m_Key: damage_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50054991996649472
+    m_Key: damage_flat_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50365899465687040
+    m_Key: damage_percent_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50322820452974592
+    m_Key: damage_wtype_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055529333129216
+    m_Key: defense_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4026661151477760
+    m_Key: delete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373264549814460416
+    m_Key: discard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373172125813432320
+    m_Key: discard_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56593099902812160
+    m_Key: empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101069243374923776
+    m_Key: enemies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802341029285888
+    m_Key: equip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055693548519424
+    m_Key: evade_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61897339743371264
+    m_Key: every_second
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61897611702042624
+    m_Key: every_seconds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61898014707548160
+    m_Key: every_turn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61898061486620672
+    m_Key: every_turns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51399800443240448
+    m_Key: exp_max
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51399724786384896
+    m_Key: exp_value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 114255180428607488
+    m_Key: fainted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61195238297960448
+    m_Key: flying
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134077752311808
+    m_Key: fullscreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179774903081394176
+    m_Key: game_over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 114122130159960064
+    m_Key: game_subtitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372643240050941952
+    m_Key: give_status_infinite_chance_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279766114759598080
+    m_Key: give_status_infinite_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372643200288940032
+    m_Key: give_status_turn_chance_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50391762420760576
+    m_Key: give_status_turn_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63021473865007104
+    m_Key: heal_all
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50368019271122944
+    m_Key: heal_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50368211680624640
+    m_Key: heal_flat_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372875973759066112
+    m_Key: heal_large_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372875911234576384
+    m_Key: heal_medium_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50368085205581824
+    m_Key: heal_percent_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372874942300020736
+    m_Key: heal_small_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50367762906873856
+    m_Key: heal_wtype_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273697502483439616
+    m_Key: heals_status
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53324276298809344
+    m_Key: hero_not_in_party
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101069198483288064
+    m_Key: heroes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50070534543769600
+    m_Key: holy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1758003859591168
+    m_Key: hp_value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61200086691086336
+    m_Key: humanoid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49961717898280960
+    m_Key: item_maxed_out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49985151009161216
+    m_Key: item_sold_out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802431357816832
+    m_Key: items
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134130759925760
+    m_Key: language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58280416459751424
+    m_Key: level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58278659012820992
+    m_Key: level_up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3244416555847680
+    m_Key: level_value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1801904414822400
+    m_Key: load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55133969086283776
+    m_Key: locale_en
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134009871695872
+    m_Key: locale_fr
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1757946187911168
+    m_Key: lvl_value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055485712367616
+    m_Key: magic_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055640939364352
+    m_Key: magicdefense_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50054746659225600
+    m_Key: maxhp_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055159361961984
+    m_Key: maxmp_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65551944389885952
+    m_Key: menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12280467169513472
+    m_Key: miss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61193605610602496
+    m_Key: modify_stat_against_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61196649165357056
+    m_Key: modify_stat_against_neg_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279773480372658176
+    m_Key: modify_stat_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279773517211230208
+    m_Key: modify_stat_neg_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49328415336169472
+    m_Key: money_cost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52173570904817664
+    m_Key: money_earned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820294894358528
+    m_Key: money_value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37756764987457536
+    m_Key: mp_cost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1758141034303488
+    m_Key: mp_value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134220320899072
+    m_Key: music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37303286104195072
+    m_Key: new_file
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1801418378874880
+    m_Key: new_game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55388647426490368
+    m_Key: next
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373269693796966400
+    m_Key: no_action
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279784078762303488
+    m_Key: no_miss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273186350171152384
+    m_Key: no_valid_target
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47979241759965184
+    m_Key: none
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50355865771966464
+    m_Key: not_enough_mp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1822139851247616
+    m_Key: ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61898208098516992
+    m_Key: on_death
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61195808358400000
+    m_Key: or
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49630715397144576
+    m_Key: owned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62001658798931968
+    m_Key: pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55388599229743104
+    m_Key: previous
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1801935926628352
+    m_Key: quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61214840801329152
+    m_Key: random_roll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52571115426545664
+    m_Key: release
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56179752036335616
+    m_Key: remove_status_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134175760613376
+    m_Key: resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179775353914548224
+    m_Key: retry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50369924454023168
+    m_Key: revives
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11925375503433728
+    m_Key: run
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3249607275483136
+    m_Key: save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50070740446347264
+    m_Key: savvy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49965235963035648
+    m_Key: sell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49982270323425280
+    m_Key: sell_amount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802576044527616
+    m_Key: settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118940081652367360
+    m_Key: six_years_later
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273935230118649856
+    m_Key: size_group
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273935132563333120
+    m_Key: size_one
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134248645033984
+    m_Key: sound
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055999573327872
+    m_Key: speed_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65553126206341120
+    m_Key: speed_up
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50070618106888192
+    m_Key: spooky
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452234516000768
+    m_Key: stat_accuracy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42451691039059968
+    m_Key: stat_attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452278241619968
+    m_Key: stat_critical
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452102949072896
+    m_Key: stat_defense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452193273409536
+    m_Key: stat_evade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452065472966656
+    m_Key: stat_magic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452145999409152
+    m_Key: stat_magicdefense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42451405260156928
+    m_Key: stat_maxhp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42451644838801408
+    m_Key: stat_maxmp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452354036887552
+    m_Key: stat_speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802310696079360
+    m_Key: stats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802505244676096
+    m_Key: status_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 99628456309141504
+    m_Key: status_value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802468737454080
+    m_Key: swap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1819980455776256
+    m_Key: time_hms
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51403770637189120
+    m_Key: to_next_level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52173637481005056
+    m_Key: total_exp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373179914614988800
+    m_Key: trash_hand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373245890769444864
+    m_Key: move_count
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51413480060878848
+    m_Key: unlocks_at_level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50357543850082304
+    m_Key: use_ability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53245774170030080
+    m_Key: value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52175051104059392
+    m_Key: victory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134278772719616
+    m_Key: voice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63020911090073600
+    m_Key: your_money
+    m_Metadata:
+      m_Items: []
+  - m_Id: 375727145037586432
+    m_Key: draw_pile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 375727187274227712
+    m_Key: discard_pile
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 0
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1648496119167

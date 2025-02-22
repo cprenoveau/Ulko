@@ -1,0 +1,624 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Main_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: a38300253d54e2b46b5a5bef2172200c, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1757946187911168
+    m_Localized: Niv:{0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1758003859591168
+    m_Localized: PV:{0}/{1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1758141034303488
+    m_Localized: PM:{0}/{1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1801418378874880
+    m_Localized: Nouvelle Partie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1801904414822400
+    m_Localized: Charger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1801935926628352
+    m_Localized: Quitter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802310696079360
+    m_Localized: Stats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802341029285888
+    m_Localized: "\xC9quiper"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802393374199808
+    m_Localized: "Capacit\xE9s"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802431357816832
+    m_Localized: Items
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802468737454080
+    m_Localized: "\xC9changer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802505244676096
+    m_Localized: Info sur les Statuts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1802576044527616
+    m_Localized: "Param\xE8tres"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1819980455776256
+    m_Localized: '{0:D2}h {1:D2}m {2:D2}s'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820294894358528
+    m_Localized: '{0} PO'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1822046137913344
+    m_Localized: Retour
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1822139851247616
+    m_Localized: Ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3244416555847680
+    m_Localized: Niveau:{0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3249607275483136
+    m_Localized: Sauvegarder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3666364477771776
+    m_Localized: Annuler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4026661151477760
+    m_Localized: Effacer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11925279038636032
+    m_Localized: Attaquer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373179914614988800
+    m_Localized: Jeter la Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11925375503433728
+    m_Localized: Fuir
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12280467169513472
+    m_Localized: "Rat\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37303286104195072
+    m_Localized: Nouveau Fichier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 37756764987457536
+    m_Localized: '{0} PM'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42451405260156928
+    m_Localized: MaxPV
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42451644838801408
+    m_Localized: MaxPM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42451691039059968
+    m_Localized: Atq
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452065472966656
+    m_Localized: Mag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452102949072896
+    m_Localized: "D\xE9f"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452145999409152
+    m_Localized: "D\xE9fM"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452193273409536
+    m_Localized: "\xC9va"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452234516000768
+    m_Localized: "Pr\xE9c"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452278241619968
+    m_Localized: Crit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42452354036887552
+    m_Localized: Vit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 47979241759965184
+    m_Localized: Aucun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49328415336169472
+    m_Localized: '{0} PO'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49630715397144576
+    m_Localized: "Poss\xE9d\xE9:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49961717898280960
+    m_Localized: Maximum Permis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49961871829237760
+    m_Localized: "Co\xFBt: {0} PO"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49961961587343360
+    m_Localized: 'Acheter: x{0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49965207827644416
+    m_Localized: Acheter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49965235963035648
+    m_Localized: Vendre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49982270323425280
+    m_Localized: 'Vendre: x{0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49982347339235328
+    m_Localized: 'Valeur: {0} PO'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49985151009161216
+    m_Localized: Tout Vendu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055159361961984
+    m_Localized: Points de Magie Maximum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50054746659225600
+    m_Localized: Points de Vie Maximum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055368108277760
+    m_Localized: Puissance de l'Attaque Physique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055485712367616
+    m_Localized: Puissance de l'Attaque Magique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055529333129216
+    m_Localized: "D\xE9fense Physique"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055640939364352
+    m_Localized: "D\xE9fense Magique"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055693548519424
+    m_Localized: '% de chance d''Esquiver une attaque'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055787538677760
+    m_Localized: '% de chance de Toucher une cible'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055910947684352
+    m_Localized: '% de chance de faire un Coup Critique'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50055999573327872
+    m_Localized: Taux de remplissage de la barre de temps
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50070534543769600
+    m_Localized: Foi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50070618106888192
+    m_Localized: Effroi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50070740446347264
+    m_Localized: Narquois
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50322820452974592
+    m_Localized: "Inflige des d\xE9g\xE2ts bas\xE9 sur {0}% {2} de type {1} contre
+      la {3}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50327723816648704
+    m_Localized: "Inflige des d\xE9g\xE2ts bas\xE9 sur {0}% {1} contre la {2}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50355782821216256
+    m_Localized: "Ne Peut \xCAtre Utilis\xE9 Ici"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50355865771966464
+    m_Localized: Pas Assez de PM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50357543850082304
+    m_Localized: "Utiliser la Capacit\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50365899465687040
+    m_Localized: "Inflige {0}% de d\xE9g\xE2ts"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50054991996649472
+    m_Localized: "Inflige {0} points de d\xE9g\xE2t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50367762906873856
+    m_Localized: "Gu\xE9rit des PV bas\xE9 sur {0}% {2} de type {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50368019271122944
+    m_Localized: "Gu\xE9rit des PV bas\xE9 sur {0}% {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50368085205581824
+    m_Localized: "Gu\xE9rit {0}% des PV"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50368211680624640
+    m_Localized: "Gu\xE9rit {0} PV"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50369924454023168
+    m_Localized: Ranime
+    m_Metadata:
+      m_Items: []
+  - m_Id: 50391762420760576
+    m_Localized: '{0} pour {1} tours'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51399724786384896
+    m_Localized: 'EXP: {0}/{1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51399800443240448
+    m_Localized: 'EXP: MAX'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51403770637189120
+    m_Localized: Prochain Niv dans:{0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 51413480060878848
+    m_Localized: "Se d\xE9bloque au Niveau {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52173570904817664
+    m_Localized: 'Argent: {0} PO'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52173637481005056
+    m_Localized: 'EXP Totale: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52175051104059392
+    m_Localized: Victoire!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52570910203445248
+    m_Localized: Participer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 52571115426545664
+    m_Localized: Rendre
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53245774170030080
+    m_Localized: 'Valeur: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 53324276298809344
+    m_Localized: "Le h\xE9ros n'est pas dans le groupe"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55133969086283776
+    m_Localized: Anglais
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134009871695872
+    m_Localized: "Fran\xE7ais"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134077752311808
+    m_Localized: "Plein \xC9cran"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134130759925760
+    m_Localized: Langue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134175760613376
+    m_Localized: "R\xE9solution"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134220320899072
+    m_Localized: Musique {0}%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134248645033984
+    m_Localized: Son {0}%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55134278772719616
+    m_Localized: Voix {0}%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55388599229743104
+    m_Localized: "Pr\xE9c\xE9dent"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 55388647426490368
+    m_Localized: Suivant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56179752036335616
+    m_Localized: "Enl\xE8ve le statut {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 56593099902812160
+    m_Localized: Vide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58278659012820992
+    m_Localized: '{0} Monte de Niveau!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58280416459751424
+    m_Localized: Niveau
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61193605610602496
+    m_Localized: '{0} {1} contre {2}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61195238297960448
+    m_Localized: Volant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61195508016873472
+    m_Localized: Tous
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61195752960032768
+    m_Localized: et
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61195808358400000
+    m_Localized: ou
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61196649165357056
+    m_Localized: "Inflige {0} {1} \xE0 {2}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61199493935267840
+    m_Localized: "B\xEAte"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61200086691086336
+    m_Localized: "Humano\xEFde"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61210188873596928
+    m_Localized: "Emp\xEAche le statut {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61212503420567552
+    m_Localized: Le porteur devient la cible
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61213211796570112
+    m_Localized: "La cible est s\xE9lectionn\xE9e au hasard"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61214840801329152
+    m_Localized: '{0:F0}% de chance'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61897339743371264
+    m_Localized: "\xE0 chaque seconde"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61897611702042624
+    m_Localized: "\xE0 chaque {0} secondes"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61898014707548160
+    m_Localized: "\xE0 chaque tour"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61898061486620672
+    m_Localized: "\xE0 chaque {0} tours"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 61898208098516992
+    m_Localized: lorsque mort
+    m_Metadata:
+      m_Items: []
+  - m_Id: 62001658798931968
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63020911090073600
+    m_Localized: 'Votre argent: {0} PO'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63021473865007104
+    m_Localized: "Gu\xE9rir le Groupe"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65551944389885952
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 65553126206341120
+    m_Localized: "Acc\xE9l\xE9rer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 99628456309141504
+    m_Localized: 'Statut: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101069198483288064
+    m_Localized: "H\xE9ros"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 101069243374923776
+    m_Localized: Ennemis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 114122130159960064
+    m_Localized: L'Aube de la Victoire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 114255180428607488
+    m_Localized: "\xC9vanoui"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118940081652367360
+    m_Localized: 6 ans plus tard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179774903081394176
+    m_Localized: "D\xE9faite"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 179775353914548224
+    m_Localized: "R\xE9essayer"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273186350171152384
+    m_Localized: Pas de Cible Valide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273697502483439616
+    m_Localized: "Gu\xE9rit {0}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273842509668409344
+    m_Localized: "x{0} bonus d'affinit\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273842629822636032
+    m_Localized: "x{0} malus d'affinit\xE9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273935132563333120
+    m_Localized: (un)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 273935230118649856
+    m_Localized: (groupe)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279766114759598080
+    m_Localized: '{0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279773517211230208
+    m_Localized: Inflige {0} {1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279773480372658176
+    m_Localized: '{0} {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 279784078762303488
+    m_Localized: "<nobr>(pas d'\xE9chec)</nobr>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372643200288940032
+    m_Localized: '{0}% de chance de donner {1} pour {2} tours'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372643240050941952
+    m_Localized: '{0}% de chance de donner {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372874942300020736
+    m_Localized: "Petite Gu\xE9rison"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372875911234576384
+    m_Localized: "Gu\xE9rison Moyenne"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372875973759066112
+    m_Localized: "Grande Gu\xE9rison"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373172125813432320
+    m_Localized: "D\xE9fausser pour effectuer une Attaque Normale"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373245890769444864
+    m_Localized: Action {0}/{1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373264549814460416
+    m_Localized: "D\xE9fausser"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373269693796966400
+    m_Localized: "Ne peut \xEAtre utilis\xE9e"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 375727145037586432
+    m_Localized: Pioche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 375727187274227712
+    m_Localized: "D\xE9fausse"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

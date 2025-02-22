@@ -55,19 +55,13 @@ namespace Ulko
         }
 
         private static ILocalizationProvider localization;
-        private static bool init;
 
         public static void Init(ILocalizationProvider loc)
         {
-            if (!init)
-            {
-                localization = loc;
-                localization.LocaleChanged += () => { LocaleChanged?.Invoke(); };
+            localization = loc;
+            localization.LocaleChanged += () => { LocaleChanged?.Invoke(); };
 
-                localization.Init();
-
-                init = true;
-            }
+            localization.Init();
         }
     }
 }

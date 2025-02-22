@@ -14,6 +14,7 @@ namespace Ulko
 {
     public class Main : MonoBehaviour
     {
+        public LocalizationProvider localizationPrefab;
         public PlayerController playerControllerPrefab;
         public GameInstance gameInstancePrefab;
         public List<Context> contextPrefabs = new();
@@ -71,6 +72,9 @@ namespace Ulko
         {
             permanentContainer = new GameObject("Universe");
             DontDestroyOnLoad(permanentContainer);
+
+            var locInstance = Instantiate(main.localizationPrefab, permanentContainer.transform);
+            Localization.Init(locInstance);
 
             var gameInstance = Instantiate(main.gameInstancePrefab, permanentContainer.transform);
             await gameInstance.Init(main.playerControllerPrefab, main.contextPrefabs, ct);

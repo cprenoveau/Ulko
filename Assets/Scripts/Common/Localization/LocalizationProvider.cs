@@ -23,11 +23,6 @@ namespace Ulko
         public bool Initialized { get; private set; }
         public event Action LocaleChanged;
 
-        private void Awake()
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-
         private void Start()
         {
             LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
