@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b341b52ac33004b9960542fe7baed6, type: 3}
+  m_Name: SlidingPanelFromLeft
+  m_EditorClassIdentifier: 
+  inAnimationDuration: 0.28
+  inStartPositionOffset: {x: -800, y: 0, z: 0}
+  inOvershoot: {x: 20, y: 0, z: 0}
+  inOvershootDuration: 0.1
+  inDelay: 0
+  inAnimationEasing: 8
+  inOvershootEasing: 9
+  outAnimationDuration: 0.2
+  outEndPositionOffset: {x: -1800, y: 0, z: 0}
+  outOvershoot: {x: 20, y: 0, z: 0}
+  outOvershootDuration: 0.1
+  outDelay: 0
+  outAnimationEasing: 7
+  outOvershootEasing: 9

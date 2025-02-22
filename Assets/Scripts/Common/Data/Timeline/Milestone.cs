@@ -60,7 +60,7 @@ namespace Ulko.Data.Timeline
     }
 
     [Serializable]
-    public class Battle : IMilestone
+    public class BossBattle : IMilestone
     {
         public string name;
         public string Name => name;
@@ -78,5 +78,7 @@ namespace Ulko.Data.Timeline
 
         public bool ShowSavePrompt => showSavePrompt;
         public bool showSavePrompt;
+
+        public BattleAsset battleAsset;
     }
 }

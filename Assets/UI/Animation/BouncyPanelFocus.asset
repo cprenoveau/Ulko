@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ca0716e2112e4479586c8559ee03f4, type: 3}
+  m_Name: BouncyPanelFocus
+  m_EditorClassIdentifier: 
+  inAnimationDuration: 0.15
+  inScaleStart: {x: 0.98, y: 0.98, z: 0}
+  inScaleMax: {x: 1.01, y: 1.01, z: 1}
+  inDelay: 0
+  inAnimationEasing: 27
+  inAnimationSettleEasing: 27
+  outAnimationDuration: 0.15
+  outScaleMax: {x: 1.01, y: 1.01, z: 1}
+  outScaleEnd: {x: 0.98, y: 0.98, z: 0}
+  outDelay: 0
+  outAnimationEasing: 27
+  outAnimationSettleEasing: 25

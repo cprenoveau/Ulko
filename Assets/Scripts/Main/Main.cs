@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Threading;
 using HotChocolate.Utils;
+using System.Collections.Generic;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -12,7 +14,9 @@ namespace Ulko
 {
     public class Main : MonoBehaviour
     {
+        public PlayerController playerControllerPrefab;
         public GameInstance gameInstancePrefab;
+        public List<Context> contextPrefabs = new();
 
         private static bool gameStarted;
         private static CancellationTokenSource ctSource;
@@ -69,9 +73,9 @@ namespace Ulko
             DontDestroyOnLoad(permanentContainer);
 
             var gameInstance = Instantiate(main.gameInstancePrefab, permanentContainer.transform);
-            await gameInstance.InitAsync(ct);
+            await gameInstance.Init(main.playerControllerPrefab, main.contextPrefabs, ct);
 
-            await gameInstance.GoToStartupAsync(ct);
+            await gameInstance.GoToStartup(ct);
         }
     }
 }

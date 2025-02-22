@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1a2ae943a46994dbecbec14f68db88, type: 3}
+  m_Name: DeviceUI
+  m_EditorClassIdentifier: 
+  actions:
+  - actionName: Interact
+    color: {r: 0.15294118, g: 0.7843138, b: 0.27450982, a: 1}
+  - actionName: Cancel
+    color: {r: 0.87843144, g: 0.18039216, b: 0.16862746, a: 1}
+  - actionName: MainMenu
+    color: {r: 0.8000001, g: 0.7254902, b: 0.14117648, a: 1}
+  - actionName: FastForward
+    color: {r: 0.1764706, g: 0.5647059, b: 1, a: 1}
+  - actionName: Next
+    color: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
+  - actionName: Previous
+    color: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
+  buttons:
+  - buttonName: A
+    color: {r: 0.15294118, g: 0.7843138, b: 0.27450982, a: 1}
+    icon: {fileID: 21300000, guid: 8b73091ebb35ab84b955f25dca6ae7e4, type: 3}
+  - buttonName: B
+    color: {r: 0.87843144, g: 0.18039216, b: 0.16862746, a: 1}
+    icon: {fileID: 21300000, guid: 811a71a0b0e394c479adec38bca7eb7b, type: 3}
+  - buttonName: Y
+    color: {r: 0.8000001, g: 0.7254902, b: 0.14117648, a: 1}
+    icon: {fileID: 21300000, guid: 01b14cd32fc8cf14d9059dc148b71bb8, type: 3}
+  - buttonName: X
+    color: {r: 0.1764706, g: 0.5647059, b: 1, a: 1}
+    icon: {fileID: 21300000, guid: 0cedc04cfb8619d4cb6831e703a378cb, type: 3}
+  - buttonName: Cross
+    color: {r: 0.1764706, g: 0.5647059, b: 1, a: 1}
+    icon: {fileID: 21300000, guid: 95e47d3cad2027c47811e0ea44d492a4, type: 3}
+  - buttonName: Circle
+    color: {r: 0.87843144, g: 0.18039216, b: 0.16862746, a: 1}
+    icon: {fileID: 21300000, guid: b5e483168f4c97f4f9b5986b1d8836d1, type: 3}
+  - buttonName: Square
+    color: {r: 0.9568628, g: 0.47450984, b: 1, a: 1}
+    icon: {fileID: 21300000, guid: b2746ef512b1cb6448519a69a6a82387, type: 3}
+  - buttonName: Triangle
+    color: {r: 0.15294118, g: 0.7843138, b: 0.27450982, a: 1}
+    icon: {fileID: 21300000, guid: fbb75ad6d926b4a41b65535c990b5a90, type: 3}
+  - buttonName: L1
+    color: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
+    icon: {fileID: 21300000, guid: 8e791f9bbb69bf54fb89c55c7786a1ce, type: 3}
+  - buttonName: R1
+    color: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
+    icon: {fileID: 21300000, guid: 4e9efd82a11028441958d08023d5c06b, type: 3}
+  - buttonName: Left Shoulder
+    color: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
+    icon: {fileID: 21300000, guid: 8e791f9bbb69bf54fb89c55c7786a1ce, type: 3}
+  - buttonName: Right Shoulder
+    color: {r: 0.5294118, g: 0.5294118, b: 0.5294118, a: 1}
+    icon: {fileID: 21300000, guid: 4e9efd82a11028441958d08023d5c06b, type: 3}

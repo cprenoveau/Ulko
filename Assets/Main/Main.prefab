@@ -44,4 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead8c452c3494b04a8f37e1f095cefde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerControllerPrefab: {fileID: 6957475655939513660, guid: 0a38e84d106dc604aa1fb33017361286, type: 3}
   gameInstancePrefab: {fileID: 4281384943517733131, guid: 3dae11719a06d714a8bef3f013b32e69, type: 3}
+  contextPrefabs:
+  - {fileID: 8872085980258272395, guid: 632b7068ab078764991850a11d8b0866, type: 3}
