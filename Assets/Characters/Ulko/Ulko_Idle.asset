@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503b0f19a62c3b24d8aa2a8a05ed8b11, type: 3}
+  m_Name: Ulko_Idle
+  m_EditorClassIdentifier: 
+  down: {fileID: 11400000, guid: 3b1a7c0612e3bbe44ad59bd32ae5e57d, type: 2}
+  up: {fileID: 11400000, guid: c652f755b8a0cfd4e8b630a89b2d09eb, type: 2}
+  left: {fileID: 11400000, guid: 6c6eb1c893fe63b4d92a482577afe00f, type: 2}
+  right: {fileID: 11400000, guid: 1b95ac6ce74dcf548be14a70214e85d7, type: 2}

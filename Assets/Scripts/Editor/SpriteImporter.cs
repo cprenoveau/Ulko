@@ -23,10 +23,10 @@ namespace Ulko
         private Texture2D texture;
         private float fps = 12;
 
-        private int walkDownStartFrame = 80;
-        private int walkLeftStartFrame = 71;
-        private int walkRightStartFrame = 89;
-        private int walkUpStartFrame = 62;
+        private int walkDownStartFrame = 19;
+        private int walkLeftStartFrame = 10;
+        private int walkRightStartFrame = 28;
+        private int walkUpStartFrame = 1;
         private int walkFrameCount = 8;
 
         private void OnGUI()

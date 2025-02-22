@@ -1,0 +1,58 @@
+[
+  {
+    "id": "tough",
+    "name": "tough",
+    "levels": [
+      {
+        "level": 1.0,
+        "exp": 0.0,
+        "fortitude": 30.0,
+        "wisdom": 5.0,
+        "intuition": 10.0,
+        "intelligence": 5.0
+      }
+    ]
+  },
+  {
+    "id": "intelligent",
+    "name": "intelligent",
+    "levels": [
+      {
+        "level": 1.0,
+        "exp": 0.0,
+        "fortitude": 15.0,
+        "wisdom": 5.0,
+        "intuition": 10.0,
+        "intelligence": 20.0
+      }
+    ]
+  },
+  {
+    "id": "wise",
+    "name": "wise",
+    "levels": [
+      {
+        "level": 1.0,
+        "exp": 0.0,
+        "fortitude": 15.0,
+        "wisdom": 20.0,
+        "intuition": 5.0,
+        "intelligence": 10.0
+      }
+    ]
+  },
+  {
+    "id": "intuitive",
+    "name": "intuitive",
+    "levels": [
+      {
+        "level": 1.0,
+        "exp": 0.0,
+        "fortitude": 15.0,
+        "wisdom": 10.0,
+        "intuition": 20.0,
+        "intelligence": 5.0
+      }
+    ]
+  }
+]

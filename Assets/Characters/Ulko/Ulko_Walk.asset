@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503b0f19a62c3b24d8aa2a8a05ed8b11, type: 3}
+  m_Name: Ulko_Walk
+  m_EditorClassIdentifier: 
+  down: {fileID: 11400000, guid: 8fa09298de10a57428c74e51f827512f, type: 2}
+  up: {fileID: 11400000, guid: 3fd3a09ba09f5174ca4899cf24e86f81, type: 2}
+  left: {fileID: 11400000, guid: 509d010b40a84e8488ec40d23ae6fb50, type: 2}
+  right: {fileID: 11400000, guid: b9e0047544530f443b5e7b9dc936639e, type: 2}

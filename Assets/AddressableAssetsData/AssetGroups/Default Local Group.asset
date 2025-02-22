@@ -15,6 +15,16 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 695bb641bd2b3ad4facc0995577c8ab8
   m_SerializeEntries:
+  - m_GUID: 6015aaf5983d7ab4f982a6ada83f93df
+    m_Address: LevelTest
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 782ac91376fc48b43991e37a007f05f9
+    m_Address: Assets/Characters/Ulko/Ulko.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95c23d7799246c749bf45d7c17f8978e
     m_Address: Startup
     m_ReadOnly: 0

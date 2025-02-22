@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fcf0a9bfd8bfe3418ffdbf455247085, type: 3}
+  m_Name: UlkoAsset
+  m_EditorClassIdentifier: 
+  id: ulko
+  displayName: ulko
+  prefab:
+    m_AssetGUID: 782ac91376fc48b43991e37a007f05f9
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  portrait: {fileID: 0}
+  fullDrawing: {fileID: 0}
+  animations: []

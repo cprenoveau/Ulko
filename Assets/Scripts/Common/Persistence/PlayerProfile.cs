@@ -182,11 +182,8 @@ namespace Ulko
             return hero;
         }
 
-        public static bool HealParty(int cost)
+        public static bool HealParty()
         {
-            if (Money < cost)
-                return false;
-
             bool healed = false;
             foreach (var hero in Party)
             {
@@ -199,7 +196,6 @@ namespace Ulko
                 }
             }
 
-            if (healed) AddMoney(-cost);
             return healed;
         }
 
@@ -236,13 +232,6 @@ namespace Ulko
             var heroStat = heroData.GetLevelData(level).GetStat(stat);
 
             return Mathf.CeilToInt(heroStat);
-        }
-
-        public static int Money => loadedGame.money;
-        public static void AddMoney(int amount)
-        {
-            loadedGame.money += amount;
-            if (loadedGame.money < 0) loadedGame.money = 0;
         }
 
         public static double Time => loadedGame.playTime;
@@ -389,7 +378,7 @@ namespace Ulko
         public static void NewGame()
         {
             loadedGame = new GameFile(JObject.Parse(newGameAsset.text));
-            HealParty(0);
+            HealParty();
 
             LoadedFile = null;
         }

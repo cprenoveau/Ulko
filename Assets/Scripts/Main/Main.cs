@@ -5,7 +5,6 @@ using System.Threading;
 using HotChocolate.Utils;
 using System.Collections.Generic;
 
-
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -14,10 +13,18 @@ namespace Ulko
 {
     public class Main : MonoBehaviour
     {
+        public SettingsConfig settingsConfig;
+
+        public TextAsset newGame;
+        public TextAsset heroes;
+        public TextAsset enemies;
+
         public LocalizationProvider localizationPrefab;
         public PlayerController playerControllerPrefab;
         public GameInstance gameInstancePrefab;
         public List<Context> contextPrefabs = new();
+
+        public List<Data.Timeline.Story> stories = new();
 
         private static bool gameStarted;
         private static CancellationTokenSource ctSource;
@@ -72,6 +79,10 @@ namespace Ulko
         {
             permanentContainer = new GameObject("Universe");
             DontDestroyOnLoad(permanentContainer);
+
+            Settings.Init(main.settingsConfig);
+            PlayerProfile.Init(main.newGame);
+            await Database.Init(main.stories, main.heroes, main.enemies);
 
             var locInstance = Instantiate(main.localizationPrefab, permanentContainer.transform);
             Localization.Init(locInstance);

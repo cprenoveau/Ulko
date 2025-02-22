@@ -23,7 +23,7 @@ namespace Ulko
         {
             var executablePath = Path.Combine(Application.dataPath, @"..\ExcelExporter.exe");
             var inputPath = Path.Combine(Application.dataPath, "Excel");
-            var outputPath = Path.Combine(Application.dataPath, @"Game\Design\FromExcel");
+            var outputPath = Path.Combine(Application.dataPath, @"Excel\Exported");
 
             ProcessStartInfo processInfo = new ProcessStartInfo();
 

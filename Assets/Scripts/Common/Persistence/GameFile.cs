@@ -174,123 +174,15 @@ namespace Ulko.Persistence
         }
     }
 
-    public class Item : IJsonObject, IClonable
-    {
-        public string id;
-        public int count;
-
-        public Item() { }
-
-        public Item(string id, int count)
-        {
-            this.id = id;
-            this.count = count;
-        }
-
-        public Item(Item source)
-        {
-            Clone(source);
-        }
-
-        public Item(JToken json)
-        {
-            FromJson(json);
-        }
-
-        public void Clone(object source)
-        {
-            Clone(source as Item);
-        }
-
-        public void Clone(Item source)
-        {
-            id = source.id;
-            count = source.count;
-        }
-
-        public void FromJson(JToken json)
-        {
-            id = json["id"].ToString();
-            count = json["count"].ToObject<int>();
-        }
-
-        public JToken ToJson()
-        {
-            var json = new JObject
-            {
-                { "id", id },
-                { "count", count }
-            };
-
-            return json;
-        }
-    }
-
-    public class Chest : IJsonObject, IClonable
-    {
-        public string id;
-        public List<Item> collectedItems;
-
-        public Chest() { }
-
-        public Chest(string id, List<Item> collectedItems)
-        {
-            this.id = id;
-            this.collectedItems = collectedItems;
-        }
-
-        public Chest(Chest source)
-        {
-            Clone(source);
-        }
-
-        public Chest(JToken json)
-        {
-            FromJson(json);
-        }
-
-        public void Clone(object source)
-        {
-            Clone(source as Chest);
-        }
-
-        public void Clone(Chest source)
-        {
-            id = source.id;
-            collectedItems = source.collectedItems.Clone();
-        }
-
-        public void FromJson(JToken json)
-        {
-            id = json["id"].ToString();
-            collectedItems = json["collectedItems"].ParseList<Item>();
-        }
-
-        public JToken ToJson()
-        {
-            var json = new JObject
-            {
-                { "id", id },
-                { "collectedItems", collectedItems.ToJson() }
-            };
-
-            return json;
-        }
-    }
-
     public class GameFile : IJsonObject, IClonable
     {
         public double playTime;
-        public int money;
 
         public Location location;
         public List<Hero> party = new();
 
         public string currentStory;
         public Dictionary<string, Progression> stories = new();
-
-        public List<Item> inventory = new();
-        public List<Chest> collectedChests = new();
 
         public GameFile() { }
 
@@ -312,25 +204,19 @@ namespace Ulko.Persistence
         public void Clone(GameFile source)
         {
             playTime = source.playTime;
-            money = source.money;
             location = source.location.Clone();
             party = source.party.Clone();
             currentStory = source.currentStory;
             stories = source.stories.Clone();
-            inventory = source.inventory.Clone();
-            collectedChests = source.collectedChests.Clone();
         }
 
         public void FromJson(JToken json)
         {
             playTime = json["playTime"] != null ? json["playTime"].ToObject<double>() : 0;
-            money = json["money"].ToObject<int>();
             location = json["location"].Parse<Location>();
             party = json["party"].ParseList<Hero>();
             currentStory = json["currentStory"].ToString();
             stories = json["stories"].ParseDict<Progression>();
-            inventory = json["inventory"].ParseList<Item>();
-            collectedChests = json["collectedChests"].ParseList<Chest>();
         }
 
         public JToken ToJson()
@@ -338,13 +224,10 @@ namespace Ulko.Persistence
             var json = new JObject
             {
                 { "playTime", playTime },
-                { "money", money },
                 { "location", location.ToJson() },
                 { "party", party.ToJson() },
                 { "currentStory", currentStory },
-                { "stories", stories.ToJson() },
-                { "inventory", inventory.ToJson() },
-                { "collectedChests", collectedChests.ToJson() }
+                { "stories", stories.ToJson() }
             };
 
             return json;

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862973c8bbad1834ca4c12d637a0ff06, type: 3}
+  m_Name: Settings
+  m_EditorClassIdentifier: 
+  resolutions:
+  - key: fullscreen
+    size: {x: 1920, y: 1080}
+    fullscreen: 1
+  - key: windowed
+    size: {x: 1920, y: 1080}
+    fullscreen: 0
+  - key: half
+    size: {x: 960, y: 540}
+    fullscreen: 0
+  masterMixer: {fileID: 24100000, guid: e4b882b2fd3f6a94896bb60914fb83de, type: 2}
+  musicVolumeParam: musicVolume
+  soundVolumeParam: soundVolume
+  voiceVolumeParam: voiceVolume
+  musicMinVolume: -60
+  soundMinVolume: -60
+  voiceMinVolume: -60
+  musicMaxVolume: 0
+  soundMaxVolume: 0
+  voiceMaxVolume: 0
+  musicDefault: 100
+  soundDefault: 100
+  voiceDefault: 100

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d181e62724c6f84783247ec6a565380, type: 3}
+  m_Name: Act-1_Chapter01
+  m_EditorClassIdentifier: 
+  chapterName: Chapter 1
+  description: Test
+  milestones:
+  - rid: 6273284956353200204
+  references:
+    version: 2
+    RefIds:
+    - rid: 6273284956353200204
+      type: {class: Level, ns: Ulko.Data.Timeline, asm: Ulko.Common}
+      data:
+        name: LevelTest
+        sceneAddress: LevelTest
+        lightingAndWeather: {fileID: 0}
+        setPartyOrder: 0
+        party:
+        - {fileID: 11400000, guid: b75ccacbaebd95546aac0918add8b32e, type: 2}
+        showSavePrompt: 0
+        area: {fileID: 0}
+        spawnPoint: {fileID: 0}
