@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6072727257495452630}
   - component: {fileID: 6803488081064891399}
-  - component: {fileID: 3762470228099062769}
   - component: {fileID: 707470969035346399}
   m_Layer: 0
   m_Name: StartupCamera
@@ -85,19 +84,6 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &3762470228099062769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525900674966547564}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6ed554b23b541d4ea9201bf78a3e238, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shader: {fileID: 4800000, guid: 0a3c04d411f83614ab285ced492c8fcb, type: 3}
 --- !u!114 &707470969035346399
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -247,9 +247,7 @@ namespace Ulko
         private void ShowFastForwardEffect(bool enabled)
         {
             uiRoot.fastForward.SetActive(enabled);
-
-            if (Camera != null && Camera.GetComponent<VHSPostProcessEffect>() != null)
-                Camera.GetComponent<VHSPostProcessEffect>().enabled = enabled;
+            UniversalRenderPipelineUtil.SetRendererFeatureActive("VHSGlitchEffect", enabled);
         }
     }
 }
