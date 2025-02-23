@@ -222,7 +222,7 @@ namespace Ulko
 
             uiRoot.menuStack.PopAll();
 
-            await Data.StartBattle(encounter.battle, default);
+            await Data.StartBattle(encounter.battle, ct);
 
             battleStarting = false;
         }

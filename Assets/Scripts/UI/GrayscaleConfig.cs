@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Ulko.UI
 {
-    [CreateAssetMenu(fileName = "UI_Grayscale", menuName = "Ulko/UI Grayscale", order = 1)]
+    [CreateAssetMenu(fileName = "UI_Grayscale", menuName = "Ulko/UI/UI Grayscale", order = 1)]
     public class GrayscaleConfig : ScriptableObject
     {
         public float grayscaleAmount = 0.5f;

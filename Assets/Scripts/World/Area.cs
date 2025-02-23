@@ -8,7 +8,7 @@ namespace Ulko.World
     {
         public AreaTag areaTag;
         public Encounters encounters;
-        public AmbientConfig ambientConfig;
+        public AmbientAudioConfig ambientAudioConfig;
         public AudioDefinition musicDef;
         public Limits limits;
         public bool isInterior;

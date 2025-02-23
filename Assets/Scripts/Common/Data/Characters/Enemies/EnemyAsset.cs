@@ -35,12 +35,13 @@ namespace Ulko.Data.Characters
             return null;
         }
 
-        public SpriteAnimation GetAnimation(string id)
+        public List<SpriteAnimation> GetAnimation(string id)
         {
+            var anims = new List<SpriteAnimation>();
             var anim = animations.Find(a => a.tag.id == id);
-            if (anim != null) return anim.animation;
+            if (anim != null) anims.Add(anim.animation);
 
-            return null;
+            return anims;
         }
     }
 }

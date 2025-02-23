@@ -55,3 +55,8 @@ MonoBehaviour:
       m_TableReference:
         m_TableCollectionName: GUID:aa348dd5999ea51459ec92ca7456f11d
     tableCache: {fileID: 0}
+  - tableId: characters
+    table:
+      m_TableReference:
+        m_TableCollectionName: GUID:e5c4340ed485e67418c18b08471c6585
+    tableCache: {fileID: 0}

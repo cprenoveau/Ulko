@@ -15,6 +15,8 @@ namespace Ulko
     {
         [Tooltip("Define the milestone to launch the game into. Leaving this blank will use the name of the scene.")]
         public string startingMilestone;
+        [Tooltip("Immediately start this encounter after milestone is started.")]
+        public Data.BattleAsset startingEncounter;
 
         public SettingsConfig settingsConfig;
 
@@ -111,6 +113,9 @@ namespace Ulko
                 PlayerProfile.SetMilestone(milestoneName);
 
                 await gameInstance.StartMilestone(Database.GetMilestone(PlayerProfile.CurrentStory, PlayerProfile.GetProgression()), ct);
+
+                if (main.startingEncounter != null)
+                    await gameInstance.StartBattle(main.startingEncounter, ct);
             }
             else
 #endif

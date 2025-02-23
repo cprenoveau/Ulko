@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Ulko.Data
 {
-    [CreateAssetMenu(fileName = "AmbientConfig", menuName = "Ulko/Audio/Ambient Config", order = 1)]
-    public class AmbientConfig : ScriptableObject
+    [CreateAssetMenu(fileName = "AmbientAudioConfig", menuName = "Ulko/Audio/Ambient Audio Config", order = 1)]
+    public class AmbientAudioConfig : ScriptableObject
     {
         [Serializable]
         public class Ambient

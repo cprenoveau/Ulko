@@ -15,8 +15,6 @@ namespace Ulko.Data
         }
 
         public string sceneAddress;
-        public int minMoney;
-        public int maxMoney;
         public List<Enemy> enemies = new();
 
         public int EnemyTypeCount(string enemyId)

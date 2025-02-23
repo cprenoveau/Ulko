@@ -20,6 +20,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 112146e36a24c8044ae198397e836292
+    m_Address: Assets/UI/Menus/Battle/BattleMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 121a66534dce7b04e8ec9062cdbc77b6
+    m_Address: Assets/Characters/DemonFox/DemonFox.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3069093c6d5c3a443a36f0a5f858f870
+    m_Address: Assets/UI/Menus/Battle/VictoryScreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 31fcdc3de9f1d8944be9d6b8d7320fb2
     m_Address: Assets/UI/Menus/PauseMenu.prefab
     m_ReadOnly: 0
@@ -35,6 +50,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52218ce30faabfb4ba3ab324600717f6
+    m_Address: TestEncounter
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5456c658e07683744b1ec8350baa60e0
     m_Address: Assets/UI/Menus/WorldHud.prefab
     m_ReadOnly: 0
@@ -45,8 +65,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 642c567bbfc8fdb42ad14384679c6615
+    m_Address: Assets/UI/Menus/Battle/BattleHud.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 782ac91376fc48b43991e37a007f05f9
     m_Address: Assets/Characters/Ulko/Ulko.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d7f4d3e344464a4997c1899afa4bae7
+    m_Address: Assets/UI/Menus/Battle/GameOverMenu.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -57,6 +87,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 987a4d0ba7bf0014aa0486312b5779c6
     m_Address: Assets/UI/Prompts/MessagePrompt.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf044d85944b5834fb26c80f107e75d0
+    m_Address: Assets/UI/Menus/Battle/LevelUpScreen.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

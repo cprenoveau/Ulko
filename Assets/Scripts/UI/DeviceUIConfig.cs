@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Ulko.UI
 {
-    [CreateAssetMenu(fileName = "DeviceUI", menuName = "Ulko/Device UI", order = 1)]
+    [CreateAssetMenu(fileName = "DeviceUIConfig", menuName = "Ulko/UI/Device UI Config", order = 1)]
     public class DeviceUIConfig : ScriptableObject
     {
         [Serializable]

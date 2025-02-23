@@ -19,8 +19,8 @@ namespace Ulko.Data.Cutscenes
         public Camera cam;
         public TextAsset defaultDialogue;
 
-        public bool stopAllAmbient;
-        public AmbientConfig ambient;
+        public bool stopAllAmbientAudio;
+        public AmbientAudioConfig ambientAudioConfig;
         public float ambientFadeInDuration;
 
         public bool playBattleTransition;
@@ -42,11 +42,11 @@ namespace Ulko.Data.Cutscenes
 
             cam.gameObject.SetActive(true);
 
-            if(stopAllAmbient)
+            if(stopAllAmbientAudio)
                 Audio.Player.StopAll(AudioType.Ambient);
 
-            if (ambient != null)
-                ambient.Play(ambientFadeInDuration);
+            if (ambientAudioConfig != null)
+                ambientAudioConfig.Play(ambientFadeInDuration);
 
             StopAllCoroutines();
             StartCoroutine(PlayAsync(onComplete));

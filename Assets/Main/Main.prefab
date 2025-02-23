@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ead8c452c3494b04a8f37e1f095cefde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingMilestone: 
   settingsConfig: {fileID: 11400000, guid: f70b650cee4a9d747994b9fb873669bf, type: 2}
   newGame: {fileID: 4900000, guid: 635572a924045834a9ee75883a81bdb9, type: 3}
   heroes: {fileID: 4900000, guid: 5ff6c7bf1a9dd924ba58e067e2eb0507, type: 3}
@@ -54,5 +55,6 @@ MonoBehaviour:
   contextPrefabs:
   - {fileID: 8872085980258272395, guid: 632b7068ab078764991850a11d8b0866, type: 3}
   - {fileID: 2068359790133762115, guid: 78440cb5fac4aaa409c6d5952dcba7b7, type: 3}
+  - {fileID: 6155287370732427910, guid: 9b533d631f6563540b938b61bedbd8bc, type: 3}
   stories:
   - {fileID: 11400000, guid: 6b1b57c682bffbe4dabd5b461402c8e8, type: 2}

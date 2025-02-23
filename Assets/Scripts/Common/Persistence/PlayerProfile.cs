@@ -226,7 +226,7 @@ namespace Ulko
             return GetHeroStat(heroId, GetHeroLevel(heroId), stat);
         }
 
-        private static int GetHeroStat(string heroId, int level, Stat stat)
+        public static int GetHeroStat(string heroId, int level, Stat stat)
         {
             var heroData = Database.Heroes[heroId];
             var heroStat = heroData.GetLevelData(level).GetStat(stat);

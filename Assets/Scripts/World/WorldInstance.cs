@@ -251,8 +251,8 @@ namespace Ulko.World
             else
                 Audio.Player.PlaySolo(CurrentArea.musicDef);
 
-            if (CurrentArea.ambientConfig != null)
-                CurrentArea.ambientConfig.Play(0.1f);
+            if (CurrentArea.ambientAudioConfig != null)
+                CurrentArea.ambientAudioConfig.Play(0.1f);
 
             Area.SetCurrentArea(CurrentArea.areaTag.id);
 
