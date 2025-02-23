@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a54f66fef35de4d910f77198ef025a, type: 3}
+  m_Name: GlyphStreamConfig
+  m_EditorClassIdentifier: 
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  colorMap:
+  - tag: 112
+    color: {r: 0, g: 0.86782575, b: 1, a: 1}
+  - tag: 108
+    color: {r: 1, g: 0.92075473, b: 0.2783019, a: 1}
+  - tag: 99
+    color: {r: 0.26352793, g: 0.8867924, b: 0.29207447, a: 1}
+  defaultCharDuration: 0.04
+  specialCharDuration:
+  - character: 46
+    duration: 0.45
+  - character: 33
+    duration: 0.45
+  - character: 63
+    duration: 0.45
+  - character: 44
+    duration: 0.2
+  - character: 59
+    duration: 0.3

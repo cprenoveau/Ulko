@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Ulko.UI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
@@ -16,6 +17,9 @@ namespace Ulko
 
         public MenuStack menuStack;
 
+        public AssetReference messagePrompt;
+        public AssetReference choicePrompt;
+
         public CanvasGroup fade;
         public CanvasGroup infoView;
         public TMP_Text infoText;
@@ -26,7 +30,7 @@ namespace Ulko
 
         public void Init()
         {
-            Menu.UseAddressables(menuStack);
+            HotChocolate.UI.Menu.UseAddressables(menuStack);
             SetInfo(null);
             fastForward.SetActive(false);
 
@@ -191,6 +195,95 @@ namespace Ulko
         private void UpdateFade(float alpha, float progress)
         {
             fade.alpha = alpha;
+        }
+
+        public void ShowMessagePrompt((string, PromptData) data)
+        {
+            ShowMessagePrompt(data.Item1, data.Item2);
+        }
+
+        public void ShowMessagePrompt(string id, PromptData data)
+        {
+            menuStack.Push(messagePrompt, id, data);
+        }
+
+        public void ShowChoicePrompt((string, PromptData) data)
+        {
+            ShowChoicePrompt(data.Item1, data.Item2);
+        }
+
+        public void ShowChoicePrompt(string id, PromptData data)
+        {
+            menuStack.Push(choicePrompt, id, data);
+        }
+
+        public static (string, PromptData) OkPrompt(string id, string message, Action callback)
+        {
+            var promptData = new PromptData()
+            {
+                message = message,
+                allowClose = false
+            };
+
+            var okButton = new PromptButtonData()
+            {
+                label = Localization.Localize("ok"),
+                style = PromptButtonStyle.Ok,
+                onClick = () => { Audio.Player.PlayUISound(Audio.UISoundId.MenuOk); callback?.Invoke(); }
+            };
+
+            promptData.buttons.Add(okButton);
+
+            return (id, promptData);
+        }
+
+        public static (string, PromptData) OkCancelPrompt(string id, string message, Action callback)
+        {
+            var promptData = new PromptData()
+            {
+                message = message,
+                allowClose = true
+            };
+
+            var okButton = new PromptButtonData()
+            {
+                label = Localization.Localize("ok"),
+                style = PromptButtonStyle.Ok,
+                onClick = () => { callback?.Invoke(); }
+            };
+
+            var cancelButton = new PromptButtonData()
+            {
+                label = Localization.Localize("cancel"),
+                style = PromptButtonStyle.Cancel,
+                onClick = () => { Audio.Player.PlayUISound(Audio.UISoundId.MenuCancel); }
+            };
+
+            promptData.buttons.Add(okButton);
+            promptData.buttons.Add(cancelButton);
+
+            return (id, promptData);
+        }
+
+        public static (string, PromptData) WarningPrompt(string id, string message, Action callback)
+        {
+            var promptData = new PromptData()
+            {
+                message = message,
+                allowClose = true,
+                onClose = callback
+            };
+
+            var okButton = new PromptButtonData()
+            {
+                label = Localization.Localize("ok"),
+                style = PromptButtonStyle.Ok,
+                onClick = () => { Audio.Player.PlayUISound(Audio.UISoundId.MenuCancel); }
+            };
+
+            promptData.buttons.Add(okButton);
+
+            return (id, promptData);
         }
     }
 }

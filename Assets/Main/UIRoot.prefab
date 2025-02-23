@@ -203,13 +203,13 @@ MonoBehaviour:
   allowMouseInputs: 1
   menuStack: {fileID: 1003620067555832040}
   messagePrompt:
-    m_AssetGUID: 
+    m_AssetGUID: 987a4d0ba7bf0014aa0486312b5779c6
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   choicePrompt:
-    m_AssetGUID: 
+    m_AssetGUID: f5e15e54081678d459d5ba86ddb4d1dc
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 

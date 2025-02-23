@@ -15,6 +15,26 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 695bb641bd2b3ad4facc0995577c8ab8
   m_SerializeEntries:
+  - m_GUID: 003e0ef308e688b4492b211904a8fee7
+    m_Address: Assets/UI/Menus/Dialogue/DialogueBox.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31fcdc3de9f1d8944be9d6b8d7320fb2
+    m_Address: Assets/UI/Menus/PauseMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fb32a2c6e86da94a8dffaff100c611c
+    m_Address: Assets/UI/Menus/SaveGame/SaveMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 464a7a6e65121da408b0e1c41155a081
+    m_Address: Assets/UI/Menus/SaveGame/LoadMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5456c658e07683744b1ec8350baa60e0
     m_Address: Assets/UI/Menus/WorldHud.prefab
     m_ReadOnly: 0
@@ -35,8 +55,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 987a4d0ba7bf0014aa0486312b5779c6
+    m_Address: Assets/UI/Prompts/MessagePrompt.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c81c973732bca564a9a84a4f3b586f2e
     m_Address: Assets/UI/Menus/StartMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca11dc5f353cfe3469a9a8748066b743
+    m_Address: Assets/UI/Menus/SettingsMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2c0028a89b876e4584da3584b4435a3
+    m_Address: Assets/UI/Menus/Dialogue/DialogueChoiceMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5e15e54081678d459d5ba86ddb4d1dc
+    m_Address: Assets/UI/Prompts/ChoicePrompt.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

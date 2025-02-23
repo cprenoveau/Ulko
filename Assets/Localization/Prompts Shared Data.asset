@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Prompts Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Prompts
+  m_TableCollectionNameGuidString: aa348dd5999ea51459ec92ca7456f11d
+  m_Entries:
+  - m_Id: 135166726144
+    m_Key: save_override_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2184587546624
+    m_Key: save_successful_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3603952603136
+    m_Key: save_error_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361613916934144
+    m_Key: delete_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361753092329472
+    m_Key: delete_error_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361933212520448
+    m_Key: delete_successful_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46306197475819520
+    m_Key: item_maxed_out_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46306515617972224
+    m_Key: not_enough_money_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46318634920968192
+    m_Key: item_sold_out_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48957776720953344
+    m_Key: assist_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49265543537098752
+    m_Key: no_more_controllers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58356108329353216
+    m_Key: new_file_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59347693586219008
+    m_Key: healing_fountain_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59352714029694976
+    m_Key: nobody_to_heal_message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 110469698167111680
+    m_Key: cannot_equip_guest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368923512698560512
+    m_Key: player_already_joined
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 0
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1649370310276

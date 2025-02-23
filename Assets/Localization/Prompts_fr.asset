@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Prompts_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: aa348dd5999ea51459ec92ca7456f11d, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 135166726144
+    m_Localized: "\xCAtes-vous s\xFBr de vouloir \xE9craser cette sauvegarde?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2184587546624
+    m_Localized: "Sauvegarde r\xE9ussie!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3603952603136
+    m_Localized: "Une erreur inattendue s'est produite. Votre partie n'a pas \xE9t\xE9
+      sauvegard\xE9e."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361613916934144
+    m_Localized: "\xCAtes-vous s\xFBr de vouloir effacer cette sauvegarde?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361753092329472
+    m_Localized: "Une erreur inattendue s'est produite. Rien n'a \xE9t\xE9 effac\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 361933212520448
+    m_Localized: "Fichier d\xE9truit avec succ\xE8s!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46306197475819520
+    m_Localized: "Vous poss\xE9dez d\xE9j\xE0 la quantit\xE9 maximale pour cet item."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46306515617972224
+    m_Localized: Vous n'avez pas assez de PO pour cette transaction.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 46318634920968192
+    m_Localized: "Vous ne pouvez pas vendre les items qui sont \xE9quipp\xE9s."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48957776720953344
+    m_Localized: Appuyez sur Ok depuis votre manette pour joindre comme joueur backseat.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49265543537098752
+    m_Localized: "Il n'y a plus de manette de disponible pour le joueur principal.
+      Ce n'est pas autoris\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 58356108329353216
+    m_Localized: "\xCAtes-vous s\xFBr de vouloir commencer une nouvelle partie? Votre
+      progr\xE8s courant sera perdu."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59347693586219008
+    m_Localized: "Voulez-vous gu\xE9rir votre groupe pour {0} PO?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59352714029694976
+    m_Localized: "Votre groupe est d\xE9j\xE0 en pleine forme."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 110469698167111680
+    m_Localized: "Les membres du groupe temporaires ne peuvent pas \xEAtre \xE9quipp\xE9s."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368923512698560512
+    m_Localized: "Ce joueur a d\xE9j\xE0 rejoint la partie."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

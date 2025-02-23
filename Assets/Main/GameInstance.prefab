@@ -92,8 +92,8 @@ MonoBehaviour:
   startupScene: Startup
   sceneStack: {fileID: 4762027996009471767}
   uiRoot: {fileID: 5827331314164668432}
-  pauseMenu: {fileID: 0}
-  saveMenu: {fileID: 0}
+  pauseMenu: {fileID: 11400000, guid: 80e18922d76fcfa438033583a678a09c, type: 2}
+  saveMenu: {fileID: 11400000, guid: b082c561253377a4daca5103bdb82122, type: 2}
   audioListener: {fileID: 1796637462390585320}
 --- !u!114 &4762027996009471767
 MonoBehaviour:

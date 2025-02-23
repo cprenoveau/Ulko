@@ -50,3 +50,8 @@ MonoBehaviour:
       m_TableReference:
         m_TableCollectionName: GUID:a38300253d54e2b46b5a5bef2172200c
     tableCache: {fileID: 0}
+  - tableId: prompts
+    table:
+      m_TableReference:
+        m_TableCollectionName: GUID:aa348dd5999ea51459ec92ca7456f11d
+    tableCache: {fileID: 0}
