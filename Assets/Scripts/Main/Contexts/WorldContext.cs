@@ -62,8 +62,6 @@ namespace Ulko
 
             uiRoot.menuStack.Push(hud.asset, hud.id, new WorldHudData { gameState = Data, worldInstance = worldInstance });
             uiRoot.FadeIn(2f);
-
-            await Task.Delay(1000, ct);
         }
 
         protected override async Task _End(CancellationToken ct)
