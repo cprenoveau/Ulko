@@ -19,7 +19,9 @@ namespace Ulko
             Audio.Player.StopAll(AudioType.Ambient);
 
             uiRoot.SetInfo(null);
-            Audio.Player.PlaySolo(music);
+
+            if(music != null)
+                Audio.Player.PlaySolo(music);
 
             uiRoot.menuStack.Push(startMenu.asset, startMenu.id, new MenuData { gameState = Data, uiRoot = uiRoot });
             uiRoot.FadeIn(2f);

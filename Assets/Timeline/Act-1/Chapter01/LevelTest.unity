@@ -578,7 +578,7 @@ MonoBehaviour:
   areaTag: {fileID: 11400000, guid: 90fc23306b565ad4da4088653883701d, type: 2}
   encounters: {fileID: 11400000, guid: 8d64905492d190f4aa4ba8e6c866546b, type: 2}
   ambientAudioConfig: {fileID: 0}
-  musicDef: {fileID: 11400000, guid: 0ba8c6e1e69bbcc4c9ec646bb0754235, type: 2}
+  musicDef: {fileID: 0}
   limits: {fileID: 722875408}
   isInterior: 0
 --- !u!1660057539 &9223372036854775807

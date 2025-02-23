@@ -177,7 +177,7 @@ MonoBehaviour:
   uiRoot: {fileID: 8442621195702620100}
   cam: {fileID: 6803488081064891399}
   startMenu: {fileID: 11400000, guid: dbf37c9928d08de43822792dfe5b05ea, type: 2}
-  music: {fileID: 11400000, guid: 4e7549185e9856e49b1d46b08652eba2, type: 2}
+  music: {fileID: 0}
 --- !u!1001 &6358063670696919432
 PrefabInstance:
   m_ObjectHideFlags: 0
