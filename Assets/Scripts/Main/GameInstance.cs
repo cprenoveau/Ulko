@@ -188,6 +188,8 @@ namespace Ulko
             if (ct.IsCancellationRequested)
                 return;
 
+            uiRoot.FadeAmount(1f);
+
             CurrentContext = contextType;
 
             if (CurrentContext == ContextType.World)
@@ -201,6 +203,8 @@ namespace Ulko
 
             if (CurrentContext != ContextType.None)
             {
+                uiRoot.FadeAmount(0f);
+
                 await contexts[CurrentContext].Begin(ct);
 
                 if (ct.IsCancellationRequested)

@@ -61,7 +61,7 @@ namespace Ulko
             worldInstance.Teleport(new Vector3(loc.x, loc.y, loc.z), area);
 
             uiRoot.menuStack.Push(hud.asset, hud.id, new WorldHudData { gameState = Data, worldInstance = worldInstance });
-            uiRoot.FadeIn(1f);
+            uiRoot.FadeIn(2f);
 
             await Task.Delay(1000, ct);
         }
