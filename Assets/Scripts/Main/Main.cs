@@ -13,6 +13,9 @@ namespace Ulko
 {
     public class Main : MonoBehaviour
     {
+        [Tooltip("Define the milestone to launch the game into. Leaving this blank will use the name of the scene.")]
+        public string startingMilestone;
+
         public SettingsConfig settingsConfig;
 
         public TextAsset newGame;
@@ -90,7 +93,30 @@ namespace Ulko
             var gameInstance = Instantiate(main.gameInstancePrefab, permanentContainer.transform);
             await gameInstance.Init(main.playerControllerPrefab, main.contextPrefabs, ct);
 
-            await gameInstance.GoToStartup(ct);
+#if UNITY_EDITOR
+
+            string milestoneName = null;
+
+            if (!string.IsNullOrEmpty(main.startingMilestone))
+                milestoneName = main.startingMilestone;
+
+            if (string.IsNullOrEmpty(milestoneName))
+                milestoneName = SceneManager.GetActiveScene().name;
+
+            var (story, prog) = Database.GetProgression(milestoneName);
+
+            if (prog != null && !EditorPrefs.GetBool("ForcePlayFromStartup"))
+            {
+                PlayerProfile.NewGame();
+                PlayerProfile.SetMilestone(milestoneName);
+
+                await gameInstance.StartMilestone(Database.GetMilestone(PlayerProfile.CurrentStory, PlayerProfile.GetProgression()), ct);
+            }
+            else
+#endif
+            {
+                await gameInstance.GoToStartup(ct);
+            }
         }
     }
 }

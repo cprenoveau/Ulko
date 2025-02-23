@@ -611,6 +611,10 @@ MonoBehaviour:
     m_Key: discard_pile
     m_Metadata:
       m_Items: []
+  - m_Id: 384945061280866304
+    m_Key: test
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

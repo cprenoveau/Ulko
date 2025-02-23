@@ -618,6 +618,10 @@ MonoBehaviour:
     m_Localized: Discard Pile
     m_Metadata:
       m_Items: []
+  - m_Id: 384945061280866304
+    m_Localized: Test
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
