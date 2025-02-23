@@ -241,7 +241,7 @@ namespace Ulko
 
         private void TogglePause()
         {
-            if (CurrentContext == ContextType.None)
+            if (CurrentContext == ContextType.None || CurrentContext == ContextType.Startup)
                 return;
 
             if (uiRoot.menuStack.Find(pauseMenu.id) != null)

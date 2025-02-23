@@ -158,7 +158,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3118779298537134537}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88426d61a3830d54599d65a1bd2cf257, type: 3}
+  m_Script: {fileID: 11500000, guid: eb06d1764c276de419d9c68d0fcca281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firstSelected: {fileID: 2869978277315293693}
@@ -344,8 +344,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pause
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f94a641b207b1c43b6e3a8d6696a97a, type: 2}
-  m_sharedMaterial: {fileID: 21621485198630482, guid: 9f94a641b207b1c43b6e3a8d6696a97a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -385,15 +385,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -451,6 +453,18 @@ PrefabInstance:
     - target: {fileID: 470946372368212700, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 877308881991691432, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 877308881991691432, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 877308881991691432, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 1031781518472732700, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
       propertyPath: m_Pivot.x
@@ -532,6 +546,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5784071479130674861, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5784071479130674861, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5784071479130674861, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
+    - target: {fileID: 6493072610162494951, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6493072610162494951, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6493072610162494951, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 6827806103795758095, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
       propertyPath: m_Name
       value: ButtonBar
@@ -579,6 +617,18 @@ PrefabInstance:
     - target: {fileID: 8773984758553534584, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064482203301113058, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 9064482203301113058, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 9064482203301113058, guid: de8d7d3f2e09229498fe7439fd349e5d, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -857,7 +907,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca6342accfd4a9b43898322e90968026, type: 3}
+  m_Script: {fileID: 11500000, guid: 066420df229d99242b5967e26b3a2ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5557336328090397869 stripped
@@ -868,7 +918,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2869978277315293693}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca6342accfd4a9b43898322e90968026, type: 3}
+  m_Script: {fileID: 11500000, guid: 066420df229d99242b5967e26b3a2ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6769045949249409989 stripped
@@ -879,7 +929,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bbd701e4f9c91d4f9a0c93c83075083, type: 3}
+  m_Script: {fileID: 11500000, guid: c39ab1677e74b854188d2c9317565536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5594957096012850464
@@ -1029,7 +1079,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca6342accfd4a9b43898322e90968026, type: 3}
+  m_Script: {fileID: 11500000, guid: 066420df229d99242b5967e26b3a2ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &8536648958460912889 stripped
