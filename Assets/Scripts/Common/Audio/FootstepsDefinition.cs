@@ -21,7 +21,7 @@ namespace Ulko
 
         public (AudioClip clip, float volume) GetFootstep(Material mat, int stepCount)
         {
-            var surface = footsteps.Find(s => s.material.color == mat.color && s.material.mainTexture == mat.mainTexture);
+            var surface = footsteps.Find(s => s.material != null && s.material.color == mat.color && s.material.mainTexture == mat.mainTexture);
             if (surface == null)
             {
                 surface = defaultFootstep;

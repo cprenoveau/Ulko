@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844e43027a4cd5b45889df4a206a4449, type: 3}
+  m_Name: FoggySunnyDay
+  m_EditorClassIdentifier: 
+  timeOfDay: 12
+  sunIntensity: 0.95
+  sunColor: {r: 1, g: 1, b: 0.9411765, a: 1}
+  shadowStrength: 0.33
+  skybox: {fileID: 2100000, guid: 85cf0b004bc4a654b9e501efcce47902, type: 2}
+  skyboxRotationSpeed: 0.2
+  ambientColor: {r: 0.50980395, g: 0.40784314, b: 0.3647059, a: 1}
+  shadowColor: {r: 0.41960785, g: 0.47843137, b: 0.627451, a: 1}
+  fogEnabled: 1
+  fogColor: {r: 0.7176471, g: 0.88235295, b: 0.9254902, a: 1}

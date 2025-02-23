@@ -53,4 +53,6 @@ MonoBehaviour:
   gameInstancePrefab: {fileID: 4281384943517733131, guid: 3dae11719a06d714a8bef3f013b32e69, type: 3}
   contextPrefabs:
   - {fileID: 8872085980258272395, guid: 632b7068ab078764991850a11d8b0866, type: 3}
-  stories: []
+  - {fileID: 2068359790133762115, guid: 78440cb5fac4aaa409c6d5952dcba7b7, type: 3}
+  stories:
+  - {fileID: 11400000, guid: 6b1b57c682bffbe4dabd5b461402c8e8, type: 2}

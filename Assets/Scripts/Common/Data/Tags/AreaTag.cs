@@ -2,7 +2,7 @@
 
 namespace Ulko.Data
 {
-    [CreateAssetMenu(fileName = "AreaTag", menuName = "Ulko/Area Tag", order = 1)]
+    [CreateAssetMenu(fileName = "AreaTag", menuName = "Ulko/Tags/Area Tag", order = 1)]
     public class AreaTag : ScriptableObject
     {
         public string id;

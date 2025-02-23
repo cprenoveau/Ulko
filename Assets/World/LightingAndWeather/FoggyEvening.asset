@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844e43027a4cd5b45889df4a206a4449, type: 3}
+  m_Name: FoggyEvening
+  m_EditorClassIdentifier: 
+  timeOfDay: 18.4
+  sunIntensity: 0.15
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  shadowStrength: 1.78
+  skybox: {fileID: 2100000, guid: c52c5d7968fa6c9499b0b5752f899bfb, type: 2}
+  skyboxRotationSpeed: 0.2
+  ambientColor: {r: 0.24301353, g: 0.24740942, b: 0.4056604, a: 1}
+  shadowColor: {r: 0.17795478, g: 0.24087341, b: 0.4056604, a: 1}
+  fogEnabled: 1
+  fogColor: {r: 0.27450982, g: 0.3019608, b: 0.3137255, a: 1}
+  lightAngle: 10

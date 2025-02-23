@@ -21,7 +21,6 @@ namespace Ulko.World
         public delegate bool CanInteractDelegate();
         public CanInteractDelegate CanInteract { get; private set; }
         public Area CurrentArea { get; private set; }
-        public MissionObjective CurrentObjective => CurrentArea != null ? CurrentArea.objective : null;
         public Player Player { get; private set; }
         public List<PlayerFollower> PlayerFollowers { get; private set; } = new List<PlayerFollower>();
 

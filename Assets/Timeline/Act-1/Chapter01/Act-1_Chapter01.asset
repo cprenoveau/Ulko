@@ -24,10 +24,10 @@ MonoBehaviour:
       data:
         name: LevelTest
         sceneAddress: LevelTest
-        lightingAndWeather: {fileID: 0}
+        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         setPartyOrder: 0
         party:
         - {fileID: 11400000, guid: b75ccacbaebd95546aac0918add8b32e, type: 2}
         showSavePrompt: 0
-        area: {fileID: 0}
-        spawnPoint: {fileID: 0}
+        area: {fileID: 11400000, guid: 90fc23306b565ad4da4088653883701d, type: 2}
+        spawnPoint: {fileID: 11400000, guid: dd34cea886fa6924e85be34c2ef5e3f6, type: 2}

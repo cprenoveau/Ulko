@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844e43027a4cd5b45889df4a206a4449, type: 3}
+  m_Name: StormyDayExt
+  m_EditorClassIdentifier: 
+  timeOfDay: 12
+  sunIntensity: 0.08
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  shadowStrength: 0.4
+  skybox: {fileID: 2100000, guid: 2039a0ad0a9d05549928b70362f54902, type: 2}
+  skyboxRotationSpeed: 0.8
+  ambientColor: {r: 0.31305623, g: 0.3894411, b: 0.6320754, a: 1}
+  shadowColor: {r: 0.38431373, g: 0.40784314, b: 0.4627451, a: 1}
+  fogEnabled: 1
+  fogColor: {r: 0.13725491, g: 0.14117648, b: 0.16078432, a: 1}

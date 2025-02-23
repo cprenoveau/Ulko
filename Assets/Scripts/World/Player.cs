@@ -11,7 +11,6 @@ namespace Ulko.World
     {
         public Rigidbody rigidBody;
         public Transform visualAnchor;
-        public Material outlineMaterial;
 
         public int Steps => (int)distanceWalked;
         public CharacterAnimation CharacterInstance { get; private set; }
@@ -68,8 +67,6 @@ namespace Ulko.World
 
             CharacterInstance = instance.GetComponent<CharacterAnimation>();
             CharacterInstance.transform.localPosition = Vector3.zero;
-
-            CharacterInstance.spriteRenderer.material = outlineMaterial;
 
             CharacterInstance.Stand(dir);
         }

@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 695bb641bd2b3ad4facc0995577c8ab8
   m_SerializeEntries:
+  - m_GUID: 5456c658e07683744b1ec8350baa60e0
+    m_Address: Assets/UI/Menus/WorldHud.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6015aaf5983d7ab4f982a6ada83f93df
     m_Address: LevelTest
     m_ReadOnly: 0
@@ -31,7 +36,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c81c973732bca564a9a84a4f3b586f2e
-    m_Address: Assets/UI/StartMenu.prefab
+    m_Address: Assets/UI/Menus/StartMenu.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

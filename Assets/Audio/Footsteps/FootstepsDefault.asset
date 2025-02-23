@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FootstepsDefault
   m_EditorClassIdentifier: 
   defaultFootstep:
-    material: {fileID: 0}
+    material: {fileID: 2100000, guid: 803b30ebdcb36134a9ad285ac13d218b, type: 2}
     minVolume: 0.3
     maxVolume: 0.8
     sounds:

@@ -11,7 +11,6 @@ namespace Ulko.World
         public AmbientConfig ambientConfig;
         public AudioDefinition musicDef;
         public Limits limits;
-        public MissionObjective objective;
         public bool isInterior;
 
         public static Area[] AllAreas => FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None);
