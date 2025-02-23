@@ -25,6 +25,7 @@ namespace Ulko
         public TextAsset enemies;
 
         public LocalizationProvider localizationPrefab;
+        public AudioPlayer audioPlayerPrefab;
         public PlayerController playerControllerPrefab;
         public GameInstance gameInstancePrefab;
         public List<Context> contextPrefabs = new();
@@ -87,10 +88,14 @@ namespace Ulko
 
             Settings.Init(main.settingsConfig);
             PlayerProfile.Init(main.newGame);
+
             await Database.Init(main.stories, main.heroes, main.enemies);
 
             var locInstance = Instantiate(main.localizationPrefab, permanentContainer.transform);
             Localization.Init(locInstance);
+
+            var audioInstance = Instantiate(main.audioPlayerPrefab, permanentContainer.transform);
+            Audio.Init(audioInstance);
 
             var gameInstance = Instantiate(main.gameInstancePrefab, permanentContainer.transform);
             await gameInstance.Init(main.playerControllerPrefab, main.contextPrefabs, ct);
