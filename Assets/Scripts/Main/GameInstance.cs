@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Ulko
 {
@@ -18,6 +19,9 @@ namespace Ulko
         public MenuDefinition pauseMenu;
         public MenuDefinition saveMenu;
         public AudioListener audioListener;
+
+        public Volume defaultPostProcess;
+        public Volume vhsGlitchEffect;
 
         public Location CurrentLocation => PlayerProfile.CurrentLocation;
         public Data.Timeline.IMilestone CurrentMilestone => GetCurrentMilestone();
@@ -247,7 +251,9 @@ namespace Ulko
         private void ShowFastForwardEffect(bool enabled)
         {
             uiRoot.fastForward.SetActive(enabled);
-            UniversalRenderPipelineUtil.SetRendererFeatureActive("VHSGlitchEffect", enabled);
+
+            defaultPostProcess.enabled = !enabled;
+            vhsGlitchEffect.enabled = enabled;
         }
     }
 }
