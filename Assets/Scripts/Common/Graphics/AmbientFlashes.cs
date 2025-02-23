@@ -19,10 +19,10 @@ namespace Ulko
             public EasingType easingType = EasingType.Linear;
             public float intensity = 0.1f;
             public float lightIntensity = 0.1f;
-            public List<Light> lights = new List<Light>();
+            public List<Light> lights = new();
 
             Color startColor;
-            List<float> startLightIntensity = new List<float>();
+            readonly List<float> startLightIntensity = new();
 
             public IEnumerator Play()
             {
@@ -65,10 +65,10 @@ namespace Ulko
         [Serializable]
         public class Flashes
         {
-            public List<AmbientFlash> flashes = new List<AmbientFlash>();
+            public List<AmbientFlash> flashes = new();
         }
 
-        public List<Flashes> flashes = new List<Flashes>();
+        public List<Flashes> flashes = new();
 
         private Coroutine flashCoroutine;
 

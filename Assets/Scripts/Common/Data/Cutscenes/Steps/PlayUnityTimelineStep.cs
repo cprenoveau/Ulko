@@ -4,7 +4,7 @@ using UnityEngine.Playables;
 
 namespace Ulko.Data.Cutscenes
 {
-    public class TimelineStep : StepAction
+    public class PlayUnityTimelineStep : StepAction
     {
         public PlayableDirector director;
 

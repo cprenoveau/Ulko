@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Ulko.Data.Cutscenes
 {
-    public class AnimationStep : StepAction
+    public class PlayAnimationStep : StepAction
     {
         public SpriteRenderer actor;
         public SpriteAnimation anim;

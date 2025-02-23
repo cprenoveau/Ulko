@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Ulko.Data.Cutscenes
 {
-    public class PlaySoundStep : StepAction
+    public class PlayAudioStep : StepAction
     {
         public AudioDefinition sound;
         public bool solo;

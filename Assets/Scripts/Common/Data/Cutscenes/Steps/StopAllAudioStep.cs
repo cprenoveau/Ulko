@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace Ulko.Data.Cutscenes
 {
-    public class StopSoundStep : StepAction
+    public class StopAllAudioStep : StepAction
     {
-        public AudioDefinition sound;
+        public AudioType audioType = AudioType.Ambient;
         public float fadeOutDuration = 2f;
 
         public override IEnumerator Play()
         {
-            Audio.Player.StopAll(sound, fadeOutDuration);
+            Audio.Player.StopAll(audioType, fadeOutDuration);
 
             yield return new WaitForSeconds(fadeOutDuration);
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Ulko.Data.Cutscenes
 {
-    public class WalkStep : StepAction
+    public class PlayCharacterWalkStep : StepAction
     {
         public CharacterAnimation actor;
         public Transform toPosition;

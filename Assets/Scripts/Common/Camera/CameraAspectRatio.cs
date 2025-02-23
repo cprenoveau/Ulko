@@ -9,7 +9,7 @@ namespace Ulko
         public float height = 1080;
 
         private Camera cam;
-        private float minAspect => width / height;
+        private float MinAspect => width / height;
 
         private void Start()
         {
@@ -17,15 +17,10 @@ namespace Ulko
             Refresh();
         }
 
-        private void OnPreRender()
-        {
-            OrientToCamera.RefreshAll();
-        }
-
         private void Refresh()
         {
             float targetAspect = (float)Screen.width / Screen.height;
-            if (targetAspect < minAspect) targetAspect = minAspect;
+            if (targetAspect < MinAspect) targetAspect = MinAspect;
 
             UpdateAspect(targetAspect);
         }

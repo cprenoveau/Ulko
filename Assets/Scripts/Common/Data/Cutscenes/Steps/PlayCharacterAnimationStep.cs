@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Ulko.Data.Cutscenes
 {
-    public class CharacterAnimationStep : StepAction
+    public class PlayCharacterAnimationStep : StepAction
     {
         public CharacterAnimation actor;
         public List<SpriteAnimation> animations = new();

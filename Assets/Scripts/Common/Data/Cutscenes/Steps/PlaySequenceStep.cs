@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Ulko.Data.Cutscenes
 {
-    public class SequenceStep : StepAction
+    public class PlaySequenceStep : StepAction
     {
         public List<StepAction> actions = new List<StepAction>();
 

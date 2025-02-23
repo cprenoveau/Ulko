@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Ulko.Data.Cutscenes
 {
-    public class AnimatorTriggerStep : StepAction
+    public class SetAnimatorTriggerStep : StepAction
     {
         public Animator animator;
         public string trigger;

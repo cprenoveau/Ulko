@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Ulko.Data.Cutscenes
 {
-    public class DialogueStep : StepAction
+    public class PlayDialogueStep : StepAction
     {
         public TextAsset dialogueOverride;
         public int startLineIndex = 0;
@@ -20,9 +20,9 @@ namespace Ulko.Data.Cutscenes
             public StepAction action;
         }
 
-        public List<DialogueEvent> events = new List<DialogueEvent>();
+        public List<DialogueEvent> events = new();
 
-        public static event Action<DialogueStep> OnPlay;
+        public static event Action<PlayDialogueStep> OnPlay;
         public bool IsPlaying { get; set; }
 
         public override IEnumerator Play()
