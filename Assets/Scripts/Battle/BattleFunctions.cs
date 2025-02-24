@@ -71,6 +71,8 @@ namespace Ulko.Battle
 
             await Task.Delay(200);
 
+            ResetAllPositions(instance);
+
             return GetResult(instance);
         }
 
