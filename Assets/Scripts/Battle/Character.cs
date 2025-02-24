@@ -29,7 +29,7 @@ namespace Ulko.Battle
         List<SpriteAnimation> GetAnimation(string id);
     }
 
-    public class Character : MonoBehaviour
+    public class Character : MonoBehaviour, ICharacterCosmetics
     {
         public BattleConfig config;
 
