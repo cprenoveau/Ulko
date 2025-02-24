@@ -12,23 +12,21 @@ namespace Ulko.Data.Abilities
 
     public class Character : IClonable
     {
-        public delegate float GetStatDelegate(Stat stat);
-
         public string id;
         public string name;
         public int hp;
         public CharacterSide characterSide;
-        public GetStatDelegate getStat;
+        public Level stats;
 
         public Character(){}
 
-        public Character(string id, string name, int hp, CharacterSide characterSide, GetStatDelegate getStat)
+        public Character(string id, string name, int hp, CharacterSide characterSide, Level stats)
         {
             this.id = id;
             this.name = name;
             this.hp = hp;
             this.characterSide = characterSide;
-            this.getStat = getStat;
+            this.stats = stats;
         }
 
         public void Clone(object source)
@@ -42,7 +40,7 @@ namespace Ulko.Data.Abilities
             name = source.name;
             hp = source.hp;
             characterSide = source.characterSide;
-            getStat = source.getStat;
+            stats = source.stats.Clone();
         }
     }
 
@@ -154,15 +152,15 @@ namespace Ulko.Data.Abilities
 
         private void Apply(State state, Character target)
         {
-            float atk = state.currentAction.actor.getStat(attackStat);
-            float def = target.getStat(defenseStat);
+            float atk = state.currentAction.actor.stats.GetStat(attackStat);
+            float def = target.stats.GetStat(defenseStat);
 
             float damage = atk * damageMultiplier;
 
             if (def != 0)
                 damage = damage * config.flatModifier / (config.flatModifier + def);
 
-            damage += target.getStat(Stat.Fortitude) * percentDamage / 100f;
+            damage += target.stats.GetStat(Stat.Fortitude) * percentDamage / 100f;
             damage += flatDamage;
 
             damage = Mathf.Clamp(damage, 1, damage);

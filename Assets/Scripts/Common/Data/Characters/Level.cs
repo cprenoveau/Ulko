@@ -12,7 +12,7 @@ namespace Ulko.Data
     }
 
     [Serializable]
-    public class Level : IJsonObject
+    public class Level : IJsonObject, IClonable
     {
         public int level;
         public int exp;
@@ -20,6 +20,21 @@ namespace Ulko.Data
         public float wisdom;
         public float intuition;
         public float intelligence;
+
+        public void Clone(object source)
+        {
+            Clone(source as Level);
+        }
+
+        public void Clone(Level source)
+        {
+            level = source.level;
+            exp = source.exp;
+            fortitude = source.fortitude;
+            wisdom = source.wisdom;
+            intuition = source.intuition;
+            intelligence = source.intelligence;
+        }
 
         public float GetStat(Stat stat)
         {
