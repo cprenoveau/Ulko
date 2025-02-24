@@ -92,7 +92,7 @@ namespace Ulko.Data.Abilities
             characters = source.characters.Clone();
         }
 
-        public static State ApplyAction(State state)
+        public static State EvaluateOutcome(State state)
         {
             var outcome = state.Clone();
 
@@ -163,7 +163,7 @@ namespace Ulko.Data.Abilities
             damage += target.stats.GetStat(Stat.Fortitude) * percentDamage / 100f;
             damage += flatDamage;
 
-            damage = Mathf.Clamp(damage, 1, damage);
+            damage = Mathf.Clamp(damage, 1, target.hp);
 
             target.hp -= (int)damage;
         }
