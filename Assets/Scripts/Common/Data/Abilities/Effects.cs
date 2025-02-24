@@ -119,6 +119,7 @@ namespace Ulko.Data.Abilities
     [Serializable]
     public class Damage : Effect
     {
+        public TargetConditionAsset condition;
         public EffectConfig config;
         public Stat attackStat = Stat.Wisdom;
         public Stat defenseStat = Stat.Intuition;
@@ -134,6 +135,7 @@ namespace Ulko.Data.Abilities
 
         private void Clone(Damage source)
         {
+            condition = source.condition;
             config = source.config;
             attackStat = source.attackStat;
             defenseStat = source.defenseStat;
@@ -153,7 +155,7 @@ namespace Ulko.Data.Abilities
             foreach (string targetId in action.targetIds)
             {
                 var target = state.FindCharacter(targetId);
-                if(target != null)
+                if(target != null && condition.IsTrue(actor, target))
                 {
                     outcome = state.Clone();
                     Apply(actor, target);
@@ -205,6 +207,7 @@ namespace Ulko.Data.Abilities
     [Serializable]
     public class BecomeTarget : Effect
     {
+        public TargetConditionAsset condition;
         public float percentChance = 50;
 
         public override void Clone(object source)
@@ -214,6 +217,7 @@ namespace Ulko.Data.Abilities
 
         private void Clone(BecomeTarget source)
         {
+            condition = source.condition;
             percentChance = source.percentChance;
         }
 
@@ -227,8 +231,23 @@ namespace Ulko.Data.Abilities
 
             if(UnityEngine.Random.Range(0, 100) > percentChance)
             {
+                List<string> newTargets = new();
+
+                foreach(var targetId in state.declaredAction.targetIds)
+                {
+                    var target = state.FindCharacter(targetId);
+                    if(target != null && condition.IsTrue(actor, target))
+                    {
+                        newTargets.Add(action.actorId);
+                    }
+                    else
+                    {
+                        newTargets.Add(targetId);
+                    }
+                }
+
                 outcome = state.Clone();
-                outcome.declaredAction.targetIds = new List<string> { action.actorId };
+                outcome.declaredAction.targetIds = newTargets;
             }
 
             return outcome;

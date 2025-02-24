@@ -17,7 +17,7 @@ MonoBehaviour:
     union: 0
     conditions:
     - rid: 6273285019555594453
-    - rid: 6273285019555594455
+    - rid: 6273285019555594456
   references:
     version: 2
     RefIds:
@@ -25,7 +25,7 @@ MonoBehaviour:
       type: {class: IsAliveCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
         invert: 0
-    - rid: 6273285019555594455
-      type: {class: IsAbilityTargetTypeCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+    - rid: 6273285019555594456
+      type: {class: IsOnSameSideCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
-        invert: 0
+        invert: 1

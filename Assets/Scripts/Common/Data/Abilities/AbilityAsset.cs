@@ -75,7 +75,7 @@ namespace Ulko.Data.Abilities
             if (targetCondition == null)
                 return true;
 
-            return targetCondition.IsTrue(actor, target, this);
+            return targetCondition.IsTrue(actor, target);
         }
 
         public bool HasCondition(Type conditionType)
