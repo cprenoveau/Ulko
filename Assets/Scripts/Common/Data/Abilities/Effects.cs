@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Ulko.Data.Abilities
@@ -46,14 +47,14 @@ namespace Ulko.Data.Abilities
 
     public class CharacterAction : IClonable
     {
-        public CharacterState actor;
-        public List<CharacterState> targets = new();
+        public string actorId;
+        public List<string> targetIds = new();
         public List<Effect> effects = new();
 
-        public CharacterAction(CharacterState actor, List<CharacterState> targets, List<Effect> effects)
+        public CharacterAction(string actorId, List<string> targetIds, List<Effect> effects)
         {
-            this.actor = actor;
-            this.targets = targets;
+            this.actorId = actorId;
+            this.targetIds = targetIds;
             this.effects = effects;
         }
 
@@ -64,20 +65,22 @@ namespace Ulko.Data.Abilities
 
         public void Clone(CharacterAction source)
         {
-            actor = source.actor.Clone();
-            targets = source.targets.Clone();
+            actorId = source.actorId;
+            targetIds = source.targetIds.Clone();
             effects = source.effects.Clone();
         }
     }
 
     public class BattlefieldState : IClonable
     {
-        public CharacterAction currentAction;
+        public CharacterAction declaredAction;
         public List<CharacterState> characters = new();
 
-        public BattlefieldState(CharacterAction currentAction, List<CharacterState> characters)
+        public CharacterState FindCharacter(string id) => characters.FirstOrDefault(c => c.id == id);
+
+        public BattlefieldState(CharacterAction declaredAction, List<CharacterState> characters)
         {
-            this.currentAction = currentAction;
+            this.declaredAction = declaredAction;
             this.characters = characters;
         }
 
@@ -88,17 +91,17 @@ namespace Ulko.Data.Abilities
 
         public void Clone(BattlefieldState source)
         {
-            currentAction = source.currentAction.Clone();
+            declaredAction = source.declaredAction.Clone();
             characters = source.characters.Clone();
         }
 
-        public static BattlefieldState EvaluateOutcome(BattlefieldState state)
+        public static BattlefieldState Apply(CharacterAction action, BattlefieldState state)
         {
-            var outcome = state.Clone();
+            var outcome = state;
 
-            foreach(var effect in outcome.currentAction.effects)
+            foreach (var effect in action.effects)
             {
-                outcome = effect.Apply(outcome);
+                outcome = effect.Apply(action, outcome);
             }
 
             return outcome;
@@ -110,7 +113,7 @@ namespace Ulko.Data.Abilities
     {
         public abstract void Clone(object source);
         public abstract string Description();
-        public abstract BattlefieldState Apply(BattlefieldState state);
+        public abstract BattlefieldState Apply(CharacterAction action, BattlefieldState state);
     }
 
     [Serializable]
@@ -139,21 +142,30 @@ namespace Ulko.Data.Abilities
             flatDamage = source.flatDamage;
         }
 
-        public override BattlefieldState Apply(BattlefieldState state)
+        public override BattlefieldState Apply(CharacterAction action, BattlefieldState state)
         {
-            var outcome = state.Clone();
+            var outcome = state;
 
-            foreach(var target in outcome.currentAction.targets)
+            var actor = state.FindCharacter(action.actorId);
+            if (actor == null)
+                return outcome;
+
+            foreach (string targetId in action.targetIds)
             {
-                Apply(outcome, target);
+                var target = state.FindCharacter(targetId);
+                if(target != null)
+                {
+                    outcome = state.Clone();
+                    Apply(actor, target);
+                }
             }
-            
+
             return outcome;
         }
 
-        private void Apply(BattlefieldState state, CharacterState target)
+        public void Apply(CharacterState actor, CharacterState target)
         {
-            float atk = state.currentAction.actor.stats.GetStat(attackStat);
+            float atk = actor.stats.GetStat(attackStat);
             float def = target.stats.GetStat(defenseStat);
 
             float damage = atk * damageMultiplier;
@@ -186,6 +198,45 @@ namespace Ulko.Data.Abilities
                 str = Localization.LocalizeFormat("damage_flat_desc", flatDamage);
             }
 
+            return str;
+        }
+    }
+
+    [Serializable]
+    public class BecomeTarget : Effect
+    {
+        public float percentChance = 50;
+
+        public override void Clone(object source)
+        {
+            Clone(source as BecomeTarget);
+        }
+
+        private void Clone(BecomeTarget source)
+        {
+            percentChance = source.percentChance;
+        }
+
+        public override BattlefieldState Apply(CharacterAction action, BattlefieldState state)
+        {
+            var outcome = state;
+
+            var actor = state.FindCharacter(action.actorId);
+            if (actor == null)
+                return outcome;
+
+            if(UnityEngine.Random.Range(0, 100) > percentChance)
+            {
+                outcome = state.Clone();
+                outcome.declaredAction.targetIds = new List<string> { action.actorId };
+            }
+
+            return outcome;
+        }
+
+        public override string Description()
+        {
+            string str = "";
             return str;
         }
     }
