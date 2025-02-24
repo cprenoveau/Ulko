@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System.Threading.Tasks;
+using System.Threading;
+using HotChocolate.Utils;
 
 namespace Ulko.Battle
 {
@@ -26,6 +29,11 @@ namespace Ulko.Battle
         {
             state = source.state.Clone();
             sequence = source.sequence;
+        }
+
+        public async Task PlaySequenceAsTask(BattleInstance instance, CancellationToken ct)
+        {
+            await instance.Battlefield.StartCoroutineAsync(PlaySequence(instance), ct);
         }
 
         public IEnumerator PlaySequence(BattleInstance instance)

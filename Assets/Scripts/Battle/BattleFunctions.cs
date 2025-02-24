@@ -65,6 +65,8 @@ namespace Ulko.Battle
 
             ActionState.Apply(result.SelectedAction.state.pendingAction, result.SelectedAction.state);
 
+            await result.SelectedAction.PlaySequenceAsTask(instance, ct);
+
             instance.ApplyState(result.SelectedAction.state);
 
             await Task.Delay(200);

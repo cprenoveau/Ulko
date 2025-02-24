@@ -87,7 +87,7 @@ namespace Ulko.World
 
         protected override void _UpdateCamera()
         {
-            if (playerTransform == null)
+            if (playerTransform == null || limits == null)
                 return;
 
             var boundaries = limits.Absolute();
