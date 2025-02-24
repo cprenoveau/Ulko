@@ -2,7 +2,7 @@
 using Ulko.Data.Characters;
 using System.Collections.Generic;
 using UnityEngine;
-using Ulko.Data.Battle;
+using Ulko.Data.Abilities;
 
 namespace Ulko.Battle
 {

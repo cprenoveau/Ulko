@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using Ulko.Data.Battle;
+using Ulko.Data.Abilities;
 
 namespace Ulko.Battle
 {

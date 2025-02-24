@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Ulko.Data.Battle
+namespace Ulko.Data.Abilities
 {
     public enum CharacterSide
     {
@@ -10,7 +10,7 @@ namespace Ulko.Data.Battle
         Enemies
     }
 
-    public class BattleCharacter : IClonable
+    public class Character : IClonable
     {
         public delegate float GetStatDelegate(Stat stat);
 
@@ -20,9 +20,9 @@ namespace Ulko.Data.Battle
         public CharacterSide characterSide;
         public GetStatDelegate getStat;
 
-        public BattleCharacter(){}
+        public Character(){}
 
-        public BattleCharacter(string id, string name, int hp, CharacterSide characterSide, GetStatDelegate getStat)
+        public Character(string id, string name, int hp, CharacterSide characterSide, GetStatDelegate getStat)
         {
             this.id = id;
             this.name = name;
@@ -33,10 +33,10 @@ namespace Ulko.Data.Battle
 
         public void Clone(object source)
         {
-            Clone(source as BattleCharacter);
+            Clone(source as Character);
         }
 
-        public void Clone(BattleCharacter source)
+        public void Clone(Character source)
         {
             id = source.id;
             name = source.name;
@@ -46,13 +46,13 @@ namespace Ulko.Data.Battle
         }
     }
 
-    public class BattleAction : IClonable
+    public class Action : IClonable
     {
-        public BattleCharacter actor;
-        public List<BattleCharacter> targets = new();
-        public List<BattleEffect> effects = new();
+        public Character actor;
+        public List<Character> targets = new();
+        public List<Effect> effects = new();
 
-        public BattleAction(BattleCharacter actor, List<BattleCharacter> targets, List<BattleEffect> effects)
+        public Action(Character actor, List<Character> targets, List<Effect> effects)
         {
             this.actor = actor;
             this.targets = targets;
@@ -61,10 +61,10 @@ namespace Ulko.Data.Battle
 
         public void Clone(object source)
         {
-            Clone(source as BattleAction);
+            Clone(source as Action);
         }
 
-        public void Clone(BattleAction source)
+        public void Clone(Action source)
         {
             actor = source.actor.Clone();
             targets = source.targets.Clone();
@@ -72,12 +72,12 @@ namespace Ulko.Data.Battle
         }
     }
 
-    public class BattleState : IClonable
+    public class State : IClonable
     {
-        public BattleAction currentAction;
-        public List<BattleCharacter> characters = new();
+        public Action currentAction;
+        public List<Character> characters = new();
 
-        public BattleState(BattleAction currentAction, List<BattleCharacter> characters)
+        public State(Action currentAction, List<Character> characters)
         {
             this.currentAction = currentAction;
             this.characters = characters;
@@ -85,16 +85,16 @@ namespace Ulko.Data.Battle
 
         public void Clone(object source)
         {
-            Clone(source as BattleState);
+            Clone(source as State);
         }
 
-        public void Clone(BattleState source)
+        public void Clone(State source)
         {
             currentAction = source.currentAction.Clone();
             characters = source.characters.Clone();
         }
 
-        public static BattleState ApplyAction(BattleState state)
+        public static State ApplyAction(State state)
         {
             var outcome = state.Clone();
 
@@ -107,15 +107,15 @@ namespace Ulko.Data.Battle
         }
     }
 
-    public abstract class BattleEffect : IClonable
+    public abstract class Effect : IClonable
     {
         public abstract void Clone(object source);
         public abstract string Description();
-        public abstract BattleState Apply(BattleState state);
+        public abstract State Apply(State state);
     }
 
     [Serializable]
-    public class Damage : BattleEffect
+    public class Damage : Effect
     {
         public EffectConfig config;
         public Stat attackStat = Stat.Wisdom;
@@ -140,7 +140,7 @@ namespace Ulko.Data.Battle
             flatDamage = source.flatDamage;
         }
 
-        public override BattleState Apply(BattleState state)
+        public override State Apply(State state)
         {
             var outcome = state.Clone();
 
@@ -152,7 +152,7 @@ namespace Ulko.Data.Battle
             return outcome;
         }
 
-        private void Apply(BattleState state, BattleCharacter target)
+        private void Apply(State state, Character target)
         {
             float atk = state.currentAction.actor.getStat(attackStat);
             float def = target.getStat(defenseStat);

@@ -1,17 +1,14 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Ulko.Data.Battle;
+using Ulko.Data.Abilities;
 using UnityEngine;
 
 namespace Ulko.Battle
 {
     public class BattleInstance : IDisposable
     {
-        public delegate void ShowDialogueDelegate(Data.Dialogue dialogue, Action callback);
+        public delegate void ShowDialogueDelegate(Data.Dialogue dialogue, System.Action callback);
         public event ShowDialogueDelegate OnShowDialogue;
 
         public Data.BattleAsset BattleAsset { get; private set; }
