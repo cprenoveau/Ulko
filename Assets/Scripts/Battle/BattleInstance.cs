@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Ulko.Data.Battle;
 using UnityEngine;
 
 namespace Ulko.Battle
@@ -24,7 +25,7 @@ namespace Ulko.Battle
         private readonly Character enemyPrefab;
         private readonly Transform parent;
 
-        private readonly List<ICharacterType> heroInfos = new();
+        private readonly List<ICharacterData> heroInfos = new();
 
         private List<(string hero, int exp)> expEarned;
         public List<(string hero, int exp)> GetExp()
@@ -130,7 +131,7 @@ namespace Ulko.Battle
             {
                 var hero = party.ElementAt(i);
 
-                if (Heroes[i].CharacterType?.Id != hero.id)
+                if (Heroes[i].CharacterData?.Id != hero.id)
                 {
                     var info = GetOrCreateHero(hero.id);
                     Heroes[i].Init(info, Battlefield.HeroPosition(i, partyCount), i);
@@ -140,7 +141,7 @@ namespace Ulko.Battle
             }
         }
 
-        private ICharacterType GetOrCreateHero(string heroId)
+        private ICharacterData GetOrCreateHero(string heroId)
         {
             var hero = heroInfos.Find(h => h.Id == heroId);
             if(hero == null)

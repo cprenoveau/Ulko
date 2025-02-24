@@ -1,19 +1,13 @@
 ﻿using Ulko.Data;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using Ulko.Data.Battle;
 
 namespace Ulko.Battle
 {
-    public enum CharacterSide
-    {
-        Heroes,
-        Enemies
-    }
-
-    public interface ICharacterType
+    public interface ICharacterData
     {
         string Id { get; }
         string IdWithoutSuffix { get; }
@@ -54,24 +48,24 @@ namespace Ulko.Battle
         }
 
         public AnimState CurrentAnimState { get; private set; }
-        public ICharacterType CharacterType { get; private set; }
+        public ICharacterData CharacterData { get; private set; }
 
-        public string Id => CharacterType.Id;
-        public string IdWithoutSuffix => CharacterType.IdWithoutSuffix;
-        public string Name => CharacterType.Name;
-        public CharacterSide CharacterSide => CharacterType.CharacterSide;
-        public int Level => CharacterType.Level;
-        public int Exp => CharacterType.Exp;
+        public string Id => CharacterData.Id;
+        public string IdWithoutSuffix => CharacterData.IdWithoutSuffix;
+        public string Name => CharacterData.Name;
+        public CharacterSide CharacterSide => CharacterData.CharacterSide;
+        public int Level => CharacterData.Level;
+        public int Exp => CharacterData.Exp;
 
         public Vector3 Position { get; private set; }
         public int OrderInParty { get; private set; }
-        public Vector2 FacingDirection => CharacterType.FacingDirection;
+        public Vector2 FacingDirection => CharacterData.FacingDirection;
         public Transform Transform => transform;
 
-        public int HP => CharacterType.HP;
-        public float GetStat(Stat stat) => CharacterType.GetStat(stat);
+        public int HP => CharacterData.HP;
+        public float GetStat(Stat stat) => CharacterData.GetStat(stat);
         public bool IsDead => HP <= 0;
-        public int TurnCount => CharacterType.TurnCount;
+        public int TurnCount => CharacterData.TurnCount;
 
         public CharacterAnimation CharacterInstance { get; private set; }
 
@@ -88,9 +82,9 @@ namespace Ulko.Battle
             }
         }
 
-        public void Init(ICharacterType characterInfo, Vector3 position, int orderInParty)
+        public void Init(ICharacterData characterInfo, Vector3 position, int orderInParty)
         {
-            CharacterType = characterInfo;
+            CharacterData = characterInfo;
 
             Position = position;
             OrderInParty = orderInParty;
@@ -101,7 +95,7 @@ namespace Ulko.Battle
                 Addressables.ReleaseInstance(CharacterInstance.gameObject);
             }
 
-            var instance = CharacterType.Instantiate(transform);
+            var instance = CharacterData.Instantiate(transform);
             CharacterInstance = instance.GetComponentInChildren<CharacterAnimation>();
             CharacterInstance.transform.localPosition = Vector3.zero;
 
@@ -118,7 +112,7 @@ namespace Ulko.Battle
 
         public void IncrementTurnCount()
         {
-            CharacterType.TurnCount++;
+            CharacterData.TurnCount++;
         }
 
         public void ResetPosition()
@@ -162,7 +156,7 @@ namespace Ulko.Battle
 
         public void PlayAnimation(string id, bool loop, float speed = 1f, float duration = float.PositiveInfinity)
         {
-            var anim = CharacterType.GetAnimation(id);
+            var anim = CharacterData.GetAnimation(id);
             CharacterInstance.Play(anim, loop, speed, duration);
         }
 

@@ -2,10 +2,11 @@
 using Ulko.Data.Characters;
 using System.Collections.Generic;
 using UnityEngine;
+using Ulko.Data.Battle;
 
 namespace Ulko.Battle
 {
-    public class Enemy : ICharacterType
+    public class Enemy : ICharacterData
     {
         public string Id => EnemyData.id + Suffix;
         public string IdWithoutSuffix => EnemyData.id;
@@ -14,7 +15,7 @@ namespace Ulko.Battle
         public int Level => Asset.level;
         public int Exp => EnemyData.GetLevelData(CurrentLevel).exp;
 
-        public ICharacterType.InstantiateDelegate Instantiate { get; private set; }
+        public ICharacterData.InstantiateDelegate Instantiate { get; private set; }
         public Vector2 FacingDirection { get; private set; }
 
         public string Suffix { get; private set; }

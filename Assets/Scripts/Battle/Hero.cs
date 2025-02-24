@@ -2,10 +2,11 @@
 using Ulko.Data.Characters;
 using System.Collections.Generic;
 using UnityEngine;
+using Ulko.Data.Battle;
 
 namespace Ulko.Battle
 {
-    public class Hero : ICharacterType
+    public class Hero : ICharacterData
     {
         public string Id => HeroData.id;
         public string IdWithoutSuffix => HeroData.id;
@@ -14,7 +15,7 @@ namespace Ulko.Battle
         public int Level => HeroData.GetLevelDataFromExp(SavedData.exp).level;
         public int Exp => SavedData.exp;
 
-        public ICharacterType.InstantiateDelegate Instantiate { get; private set; }
+        public ICharacterData.InstantiateDelegate Instantiate { get; private set; }
         public Vector2 FacingDirection { get; private set; }
 
         public int HP
