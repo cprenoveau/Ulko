@@ -21,7 +21,6 @@ namespace Ulko.Battle
 
         public delegate void PlayerTurn(PlayerAction action);
         public static async Task<BattleResult> DoBattle(
-            MonoBehaviour holder,
             BattleInstance instance,
             Camera cam,
             PlayerTurn onPlayerTurn,
@@ -33,12 +32,12 @@ namespace Ulko.Battle
 
             while (!ct.IsCancellationRequested)
             {
-                battleResult = await DoHeroesTurn(holder, instance, onPlayerTurn, ct);
+                battleResult = await DoHeroesTurn(instance, onPlayerTurn, ct);
 
                 if (battleResult != BattleResult.None)
                     break;
 
-                battleResult = await DoEnemiesTurn(holder, instance, ct);
+                battleResult = await DoEnemiesTurn(instance, ct);
 
                 if (battleResult != BattleResult.None)
                     break;
@@ -55,7 +54,6 @@ namespace Ulko.Battle
         }
 
         private static async Task<BattleResult> DoHeroesTurn(
-            MonoBehaviour holder,
             BattleInstance instance,
             PlayerTurn onPlayerTurn,
             CancellationToken ct)
@@ -65,20 +63,16 @@ namespace Ulko.Battle
 
             var result = await playerAction;
 
-            var actionState = new ActionState(
-                result.SelectedAction,
-                instance.GetAllCharacters(BattleInstance.FetchCondition.All).Select(c => c.CaptureState()).ToList());
+            ActionState.Apply(result.SelectedAction.state.pendingAction, result.SelectedAction.state);
 
-            ActionState.Apply(result.SelectedAction, actionState);
-
-            instance.ApplyState(actionState);
+            instance.ApplyState(result.SelectedAction.state);
 
             await Task.Delay(200);
 
             return GetResult(instance);
         }
 
-        private static async Task<BattleResult> DoEnemiesTurn(MonoBehaviour holder, BattleInstance instance, CancellationToken ct)
+        private static async Task<BattleResult> DoEnemiesTurn(BattleInstance instance, CancellationToken ct)
         {
             return BattleResult.None;
         }

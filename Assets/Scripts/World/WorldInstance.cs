@@ -298,6 +298,7 @@ namespace Ulko.World
             PlayerProfile.SetArea(CurrentArea.areaTag.id);
 
             yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
 
             var currentZone = VirtualCameraZone.FindCurrentZone(Player);
             if (currentZone != null) yield return Player.StartCoroutine(currentZone.InitAsync(WorldCamera, Player.transform, CurrentArea.limits, true));

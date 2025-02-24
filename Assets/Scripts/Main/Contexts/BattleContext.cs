@@ -55,7 +55,6 @@ namespace Ulko.Contexts
             PlayerProfile.SaveState();
 
             var result = await BattleFunctions.DoBattle(
-                this,
                 battleInstance,
                 cam,
                 (PlayerAction playerAction) => { WaitForPlayer(playerAction); },

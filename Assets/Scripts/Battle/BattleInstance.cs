@@ -225,10 +225,10 @@ namespace Ulko.Battle
 
         public void ApplyState(ActionState state)
         {
-            foreach(var characterState in state.characters)
+            foreach (var characterState in state.characters)
             {
                 var character = FindCharacter(characterState.id);
-                if(character != null)
+                if (character != null)
                 {
                     character.ApplyState(characterState);
                 }
