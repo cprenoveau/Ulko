@@ -156,6 +156,15 @@ namespace Ulko.Data.Abilities
     [Serializable]
     public abstract class Effect : IClonable
     {
+        public enum EffectType
+        {
+            Damage,
+            BecomeTarget,
+            CancelEffect
+        }
+
+        public abstract EffectType Type { get; }
+
         public abstract void Clone(object source);
         public abstract string Description();
         public abstract void Apply(CharacterAction action, ActionState state);
@@ -164,6 +173,8 @@ namespace Ulko.Data.Abilities
     [Serializable]
     public class Damage : Effect, IEquatable<Damage>
     {
+        public override EffectType Type => EffectType.Damage;
+
         public TargetConditionAsset condition;
         public EffectConfig config;
         public Stat attackStat = Stat.Wisdom;
@@ -209,7 +220,7 @@ namespace Ulko.Data.Abilities
             foreach (string targetId in action.targetIds)
             {
                 var target = state.FindCharacter(targetId);
-                if(target != null && condition.IsTrue(actor, target))
+                if(target != null && condition != null && condition.IsTrue(actor, target))
                 {
                     Apply(actor, target);
                 }
@@ -258,6 +269,8 @@ namespace Ulko.Data.Abilities
     [Serializable]
     public class BecomeTarget : Effect, IEquatable<BecomeTarget>
     {
+        public override EffectType Type => EffectType.BecomeTarget;
+
         public TargetConditionAsset condition;
         public float percentChance = 50;
 
@@ -291,7 +304,7 @@ namespace Ulko.Data.Abilities
                 foreach(var targetId in state.pendingAction.targetIds)
                 {
                     var target = state.FindCharacter(targetId);
-                    if(target != null && condition.IsTrue(actor, target))
+                    if(target != null && condition != null && condition.IsTrue(actor, target))
                     {
                         newTargets.Add(action.actorId);
                     }
@@ -302,6 +315,57 @@ namespace Ulko.Data.Abilities
                 }
 
                 state.pendingAction.targetIds = newTargets;
+            }
+        }
+
+        public override string Description()
+        {
+            string str = "";
+            return str;
+        }
+    }
+
+    [Serializable]
+    public class CancelEffect : Effect, IEquatable<CancelEffect>
+    {
+        public override EffectType Type => EffectType.CancelEffect;
+
+        public TargetConditionAsset condition;
+        public float percentChance = 50;
+        public EffectType effectType;
+
+        public override void Clone(object source)
+        {
+            Clone(source as CancelEffect);
+        }
+
+        private void Clone(CancelEffect source)
+        {
+            condition = source.condition;
+            percentChance = source.percentChance;
+            effectType = source.effectType;
+        }
+
+        public bool Equals(CancelEffect other)
+        {
+            return condition == other.condition
+                && percentChance == other.percentChance
+                && effectType == other.effectType;
+        }
+
+        public override void Apply(CharacterAction action, ActionState state)
+        {
+            var actor = state.FindCharacter(action.actorId);
+            if (actor == null)
+                return;
+
+            if (UnityEngine.Random.Range(0, 100) > percentChance)
+            {
+                var pendingActionActor = state.FindCharacter(state.pendingAction.actorId);
+                if (pendingActionActor != null && condition != null && condition.IsTrue(actor, pendingActionActor))
+                {
+                    state.pendingAction.effects.RemoveAll(e => e.Type == effectType);
+                }
             }
         }
 
