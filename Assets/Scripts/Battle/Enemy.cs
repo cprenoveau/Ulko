@@ -33,6 +33,8 @@ namespace Ulko.Battle
         public Data.Characters.Enemy EnemyData { get; private set; }
         public int CurrentLevel { get; private set; }
 
+        public AbilityAsset Attack => Asset.attack;
+
         public List<SpriteAnimation> GetAnimation(string id)
         {
             return Asset.GetAnimation(id);

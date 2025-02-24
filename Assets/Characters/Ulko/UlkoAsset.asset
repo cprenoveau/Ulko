@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: UlkoAsset
   m_EditorClassIdentifier: 
   id: ulko
+  attack: {fileID: 11400000, guid: 6bf01be8e184b2141b73e83492911e32, type: 2}
   displayName: ulko
   prefab:
     m_AssetGUID: 782ac91376fc48b43991e37a007f05f9

@@ -103,7 +103,7 @@ namespace Ulko.Data.Abilities
     }
 
     [Serializable]
-    public class IsTargetTypeCondition : TargetCondition
+    public class IsAbilityTargetTypeCondition : TargetCondition
     {
         protected override bool _IsTrue(CharacterState actor, CharacterState target, AbilityTarget abilityTarget)
         {

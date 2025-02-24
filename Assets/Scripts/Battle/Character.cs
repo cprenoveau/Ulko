@@ -23,6 +23,7 @@ namespace Ulko.Battle
 
         int HP { get; set; }
         float GetStat(Stat stat);
+        AbilityAsset Attack { get; }
 
         int TurnCount { get; set; }
 
@@ -66,6 +67,8 @@ namespace Ulko.Battle
         public float GetStat(Stat stat) => CharacterData.GetStat(stat);
         public bool IsDead => HP <= 0;
         public int TurnCount => CharacterData.TurnCount;
+
+        public AbilityAsset Attack => CharacterData.Attack;
 
         public CharacterAnimation CharacterInstance { get; private set; }
 

@@ -39,6 +39,8 @@ namespace Ulko.Battle
         public Persistence.Hero SavedData => PlayerProfile.GetPartyMember(Id);
         public Data.Characters.Hero HeroData { get; private set; }
 
+        public AbilityAsset Attack => Asset.attack;
+
         public List<SpriteAnimation> GetAnimation(string id)
         {
             return Asset.GetAnimation(id);
