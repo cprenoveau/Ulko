@@ -11,7 +11,7 @@ namespace Ulko.Data.Abilities
         Enemies
     }
 
-    public class CharacterState : IClonable
+    public class CharacterState : IClonable, IEquatable<CharacterState>
     {
         public string id;
         public string name;
@@ -43,9 +43,18 @@ namespace Ulko.Data.Abilities
             characterSide = source.characterSide;
             stats = source.stats.Clone();
         }
+
+        public bool Equals(CharacterState other)
+        {
+            return id.Equals(other.id)
+                && name.Equals(other.name)
+                && hp.Equals(other.hp)
+                && characterSide.Equals(other.characterSide)
+                && stats.Equals(other.stats);
+        }
     }
 
-    public class CharacterAction : IClonable
+    public class CharacterAction : IClonable, IEquatable<CharacterAction>
     {
         public string actorId;
         public List<string> targetIds = new();
@@ -69,9 +78,16 @@ namespace Ulko.Data.Abilities
             targetIds = source.targetIds.Clone();
             effects = source.effects.Clone();
         }
+
+        public bool Equals(CharacterAction other)
+        {
+            return actorId.Equals(other.actorId)
+                && targetIds.SequenceEqual(other.targetIds)
+                && effects.SequenceEqual(other.effects);
+        }
     }
 
-    public class ActionState : IClonable
+    public class ActionState : IClonable, IEquatable<ActionState>
     {
         public CharacterAction pendingAction;
         public List<CharacterState> characters = new();
@@ -93,6 +109,12 @@ namespace Ulko.Data.Abilities
         {
             pendingAction = source.pendingAction.Clone();
             characters = source.characters.Clone();
+        }
+
+        public bool Equals(ActionState other)
+        {
+            return pendingAction.Equals(other.pendingAction)
+                && characters.SequenceEqual(other.characters);
         }
 
         public static void Apply(CharacterAction action, ActionState state)
@@ -140,7 +162,7 @@ namespace Ulko.Data.Abilities
     }
 
     [Serializable]
-    public class Damage : Effect
+    public class Damage : Effect, IEquatable<Damage>
     {
         public TargetConditionAsset condition;
         public EffectConfig config;
@@ -165,6 +187,17 @@ namespace Ulko.Data.Abilities
             damageMultiplier = source.damageMultiplier;
             percentDamage = source.percentDamage;
             flatDamage = source.flatDamage;
+        }
+
+        public bool Equals(Damage other)
+        {
+            return condition == other.condition
+                && config == other.config
+                && attackStat == other.attackStat
+                && defenseStat == other.defenseStat
+                && damageMultiplier == other.damageMultiplier
+                && percentDamage == other.percentDamage
+                && flatDamage == other.flatDamage;
         }
 
         public override void Apply(CharacterAction action, ActionState state)
@@ -223,7 +256,7 @@ namespace Ulko.Data.Abilities
     }
 
     [Serializable]
-    public class BecomeTarget : Effect
+    public class BecomeTarget : Effect, IEquatable<BecomeTarget>
     {
         public TargetConditionAsset condition;
         public float percentChance = 50;
@@ -237,6 +270,12 @@ namespace Ulko.Data.Abilities
         {
             condition = source.condition;
             percentChance = source.percentChance;
+        }
+
+        public bool Equals(BecomeTarget other)
+        {
+            return condition == other.condition
+                && percentChance == other.percentChance;
         }
 
         public override void Apply(CharacterAction action, ActionState state)

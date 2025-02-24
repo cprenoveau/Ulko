@@ -12,7 +12,7 @@ namespace Ulko.Data
     }
 
     [Serializable]
-    public class Level : IJsonObject, IClonable
+    public class Level : IJsonObject, IClonable, IEquatable<Level>
     {
         public int level;
         public int exp;
@@ -90,6 +90,16 @@ namespace Ulko.Data
             };
 
             return json;
+        }
+
+        public bool Equals(Level other)
+        {
+            return level.Equals(other.level)
+                && exp.Equals(other.exp)
+                && fortitude.Equals(other.fortitude)
+                && wisdom.Equals(other.wisdom)
+                && intuition.Equals(other.intuition)
+                && intelligence.Equals(other.intelligence);
         }
     }
 }
