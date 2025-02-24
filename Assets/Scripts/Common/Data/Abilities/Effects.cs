@@ -71,40 +71,67 @@ namespace Ulko.Data.Abilities
         }
     }
 
-    public class BattlefieldState : IClonable
+    public class ActionState : IClonable
     {
-        public CharacterAction declaredAction;
+        public CharacterAction pendingAction;
         public List<CharacterState> characters = new();
 
         public CharacterState FindCharacter(string id) => characters.FirstOrDefault(c => c.id == id);
 
-        public BattlefieldState(CharacterAction declaredAction, List<CharacterState> characters)
+        public ActionState(CharacterAction pendingAction, List<CharacterState> characters)
         {
-            this.declaredAction = declaredAction;
+            this.pendingAction = pendingAction;
             this.characters = characters;
         }
 
         public void Clone(object source)
         {
-            Clone(source as BattlefieldState);
+            Clone(source as ActionState);
         }
 
-        public void Clone(BattlefieldState source)
+        public void Clone(ActionState source)
         {
-            declaredAction = source.declaredAction.Clone();
+            pendingAction = source.pendingAction.Clone();
             characters = source.characters.Clone();
         }
 
-        public static BattlefieldState Apply(CharacterAction action, BattlefieldState state)
+        public static ActionState Apply(CharacterAction action, ActionState state)
         {
-            var outcome = state;
-
             foreach (var effect in action.effects)
             {
-                outcome = effect.Apply(action, outcome);
+                effect.Apply(action, state);
             }
 
-            return outcome;
+            return state;
+        }
+    }
+
+    public class ActionStack
+    {
+        public ActionState CurrentState => stateStack.Peek();
+
+        private readonly Stack<ActionState> stateStack = new();
+
+        public ActionStack(ActionState currentState)
+        {
+            stateStack.Push(currentState);
+        }
+
+        public void Push(ActionState state)
+        {
+            stateStack.Push(state);
+        }
+
+        public ActionState Evaluate()
+        {
+            while (stateStack.Count > 1)
+            {
+                var state = CurrentState;
+                stateStack.Pop();
+                ActionState.Apply(state.pendingAction, stateStack.Peek());
+            }
+
+            return CurrentState;
         }
     }
 
@@ -113,7 +140,7 @@ namespace Ulko.Data.Abilities
     {
         public abstract void Clone(object source);
         public abstract string Description();
-        public abstract BattlefieldState Apply(CharacterAction action, BattlefieldState state);
+        public abstract ActionState Apply(CharacterAction action, ActionState state);
     }
 
     [Serializable]
@@ -144,25 +171,22 @@ namespace Ulko.Data.Abilities
             flatDamage = source.flatDamage;
         }
 
-        public override BattlefieldState Apply(CharacterAction action, BattlefieldState state)
+        public override ActionState Apply(CharacterAction action, ActionState state)
         {
-            var outcome = state;
-
             var actor = state.FindCharacter(action.actorId);
             if (actor == null)
-                return outcome;
+                return state;
 
             foreach (string targetId in action.targetIds)
             {
                 var target = state.FindCharacter(targetId);
                 if(target != null && condition.IsTrue(actor, target))
                 {
-                    outcome = state.Clone();
                     Apply(actor, target);
                 }
             }
 
-            return outcome;
+            return state;
         }
 
         public void Apply(CharacterState actor, CharacterState target)
@@ -221,19 +245,17 @@ namespace Ulko.Data.Abilities
             percentChance = source.percentChance;
         }
 
-        public override BattlefieldState Apply(CharacterAction action, BattlefieldState state)
+        public override ActionState Apply(CharacterAction action, ActionState state)
         {
-            var outcome = state;
-
             var actor = state.FindCharacter(action.actorId);
             if (actor == null)
-                return outcome;
+                return state;
 
             if(UnityEngine.Random.Range(0, 100) > percentChance)
             {
                 List<string> newTargets = new();
 
-                foreach(var targetId in state.declaredAction.targetIds)
+                foreach(var targetId in state.pendingAction.targetIds)
                 {
                     var target = state.FindCharacter(targetId);
                     if(target != null && condition.IsTrue(actor, target))
@@ -246,11 +268,10 @@ namespace Ulko.Data.Abilities
                     }
                 }
 
-                outcome = state.Clone();
-                outcome.declaredAction.targetIds = newTargets;
+                state.pendingAction.targetIds = newTargets;
             }
 
-            return outcome;
+            return state;
         }
 
         public override string Description()
