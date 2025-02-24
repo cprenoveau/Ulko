@@ -95,14 +95,12 @@ namespace Ulko.Data.Abilities
             characters = source.characters.Clone();
         }
 
-        public static ActionState Apply(CharacterAction action, ActionState state)
+        public static void Apply(CharacterAction action, ActionState state)
         {
             foreach (var effect in action.effects)
             {
                 effect.Apply(action, state);
             }
-
-            return state;
         }
     }
 
@@ -122,7 +120,7 @@ namespace Ulko.Data.Abilities
             stateStack.Push(state);
         }
 
-        public ActionState Evaluate()
+        public void Evaluate()
         {
             while (stateStack.Count > 1)
             {
@@ -130,8 +128,6 @@ namespace Ulko.Data.Abilities
                 stateStack.Pop();
                 ActionState.Apply(state.pendingAction, stateStack.Peek());
             }
-
-            return CurrentState;
         }
     }
 
@@ -140,7 +136,7 @@ namespace Ulko.Data.Abilities
     {
         public abstract void Clone(object source);
         public abstract string Description();
-        public abstract ActionState Apply(CharacterAction action, ActionState state);
+        public abstract void Apply(CharacterAction action, ActionState state);
     }
 
     [Serializable]
@@ -171,11 +167,11 @@ namespace Ulko.Data.Abilities
             flatDamage = source.flatDamage;
         }
 
-        public override ActionState Apply(CharacterAction action, ActionState state)
+        public override void Apply(CharacterAction action, ActionState state)
         {
             var actor = state.FindCharacter(action.actorId);
             if (actor == null)
-                return state;
+                return;
 
             foreach (string targetId in action.targetIds)
             {
@@ -185,8 +181,6 @@ namespace Ulko.Data.Abilities
                     Apply(actor, target);
                 }
             }
-
-            return state;
         }
 
         public void Apply(CharacterState actor, CharacterState target)
@@ -245,11 +239,11 @@ namespace Ulko.Data.Abilities
             percentChance = source.percentChance;
         }
 
-        public override ActionState Apply(CharacterAction action, ActionState state)
+        public override void Apply(CharacterAction action, ActionState state)
         {
             var actor = state.FindCharacter(action.actorId);
             if (actor == null)
-                return state;
+                return;
 
             if(UnityEngine.Random.Range(0, 100) > percentChance)
             {
@@ -270,8 +264,6 @@ namespace Ulko.Data.Abilities
 
                 state.pendingAction.targetIds = newTargets;
             }
-
-            return state;
         }
 
         public override string Description()
