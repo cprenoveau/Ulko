@@ -15,7 +15,7 @@ namespace Ulko.UI
         {
             Hero = hero;
 
-            var info = hero.CharacterData as Hero;
+            var info = hero.CharacterType as Hero;
 
             heroView.Init(info.Asset);
             Select(selected);

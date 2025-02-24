@@ -56,7 +56,7 @@ namespace Ulko.Battle
         public async Task RunIntoBattlefield(Character hero, CancellationToken ct)
         {
             Vector3 originalPos = hero.transform.position;
-            hero.SetState(Character.AnimState.RunInto);
+            hero.SetAnimationState(Character.AnimState.RunInto);
 
             Vector3 startPos = originalPos - new Vector3(heroStandDirection.x, 0, heroStandDirection.y) * runDistance;
             hero.transform.position = startPos;
@@ -71,7 +71,7 @@ namespace Ulko.Battle
             }
 
             hero.transform.position = originalPos;
-            hero.SetState(Character.AnimState.Idle);
+            hero.SetAnimationState(Character.AnimState.Idle);
         }
 
         public async Task CameraPan(Camera cam, CancellationToken ct)

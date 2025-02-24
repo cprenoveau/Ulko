@@ -6,7 +6,7 @@ using Ulko.Data.Abilities;
 
 namespace Ulko.Battle
 {
-    public class Hero : ICharacterData
+    public class Hero : ICharacterType
     {
         public string Id => HeroData.id;
         public string IdWithoutSuffix => HeroData.id;
@@ -15,7 +15,7 @@ namespace Ulko.Battle
         public int Level => HeroData.GetLevelDataFromExp(SavedData.exp).level;
         public int Exp => SavedData.exp;
 
-        public ICharacterData.InstantiateDelegate Instantiate { get; private set; }
+        public ICharacterType.InstantiateDelegate Instantiate { get; private set; }
         public Vector2 FacingDirection { get; private set; }
 
         public int HP
@@ -28,10 +28,7 @@ namespace Ulko.Battle
             }
         }
 
-        public float GetStat(Stat stat)
-        {
-            return PlayerProfile.GetHeroStat(Id, stat);
-        }
+        public Level Stats => PlayerProfile.GetHeroStats(Id, Level);
 
         public int TurnCount { get; set; }
 

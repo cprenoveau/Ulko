@@ -221,17 +221,20 @@ namespace Ulko
             return hero != null ? heroData.GetLevelDataFromExp(hero.exp).level : heroData.minLevel;
         }
 
-        public static int GetHeroStat(string heroId, Stat stat)
+        public static Level GetHeroStats(string heroId, int level)
         {
-            return GetHeroStat(heroId, GetHeroLevel(heroId), stat);
+            var heroData = Database.Heroes[heroId];
+            return heroData.GetLevelData(level).Clone();
         }
 
         public static int GetHeroStat(string heroId, int level, Stat stat)
         {
-            var heroData = Database.Heroes[heroId];
-            var heroStat = heroData.GetLevelData(level).GetStat(stat);
+            return (int)GetHeroStats(heroId, level).GetStat(stat);
+        }
 
-            return Mathf.CeilToInt(heroStat);
+        public static int GetHeroStat(string heroId, Stat stat)
+        {
+            return GetHeroStat(heroId, GetHeroLevel(heroId), stat);
         }
 
         public static double Time => loadedGame.playTime;

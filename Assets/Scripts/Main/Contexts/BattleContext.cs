@@ -71,7 +71,7 @@ namespace Ulko.Contexts
                     gameState = Data,
                     uiRoot = uiRoot,
                     battleInstance = battleInstance,
-                    onClose = () => { Data.EndBattle(ct).FireAndForgetTask(); }
+                    onClose = () => { Data.EndBattle(default).FireAndForgetTask(); }
                 });
             }
             else

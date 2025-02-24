@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Ulko.Data.Abilities;
 using UnityEngine;
 
 namespace Ulko.Battle
@@ -59,12 +60,22 @@ namespace Ulko.Battle
             PlayerTurn onPlayerTurn,
             CancellationToken ct)
         {
-            var playerAction = new PlayerAction();
+            var playerAction = new PlayerAction(PlayerAction.GetPossibleActions(instance));
             onPlayerTurn?.Invoke(playerAction);
 
             var result = await playerAction;
 
-            return BattleResult.None;
+            var actionState = new ActionState(
+                result.SelectedAction,
+                instance.GetAllCharacters(BattleInstance.FetchCondition.All).Select(c => c.CharacterState).ToList());
+
+            ActionState.Apply(result.SelectedAction, actionState);
+
+            instance.ApplyState(actionState);
+
+            await Task.Delay(200);
+
+            return GetResult(instance);
         }
 
         private static async Task<BattleResult> DoEnemiesTurn(MonoBehaviour holder, BattleInstance instance, CancellationToken ct)

@@ -7,7 +7,7 @@ using Ulko.Data.Abilities;
 
 namespace Ulko.Battle
 {
-    public interface ICharacterData
+    public interface ICharacterType
     {
         string Id { get; }
         string IdWithoutSuffix { get; }
@@ -22,10 +22,8 @@ namespace Ulko.Battle
         public InstantiateDelegate Instantiate { get; }
 
         int HP { get; set; }
-        float GetStat(Stat stat);
+        Level Stats { get; }
         AbilityAsset Attack { get; }
-
-        int TurnCount { get; set; }
 
         List<SpriteAnimation> GetAnimation(string id);
     }
@@ -49,32 +47,32 @@ namespace Ulko.Battle
         }
 
         public AnimState CurrentAnimState { get; private set; }
-        public ICharacterData CharacterData { get; private set; }
+        public ICharacterType CharacterType { get; private set; }
+        public CharacterState CharacterState => new(Id, Name, HP, CharacterSide, Stats);
 
-        public string Id => CharacterData.Id;
-        public string IdWithoutSuffix => CharacterData.IdWithoutSuffix;
-        public string Name => CharacterData.Name;
-        public CharacterSide CharacterSide => CharacterData.CharacterSide;
-        public int Level => CharacterData.Level;
-        public int Exp => CharacterData.Exp;
+        public string Id => CharacterType.Id;
+        public string IdWithoutSuffix => CharacterType.IdWithoutSuffix;
+        public string Name => CharacterType.Name;
+        public CharacterSide CharacterSide => CharacterType.CharacterSide;
+        public int Level => CharacterType.Level;
+        public int Exp => CharacterType.Exp;
 
         public Vector3 Position { get; private set; }
         public int OrderInParty { get; private set; }
-        public Vector2 FacingDirection => CharacterData.FacingDirection;
+        public Vector2 FacingDirection => CharacterType.FacingDirection;
         public Transform Transform => transform;
 
-        public int HP => CharacterData.HP;
-        public float GetStat(Stat stat) => CharacterData.GetStat(stat);
+        public int HP => CharacterType.HP;
+        public Level Stats => CharacterType.Stats;
         public bool IsDead => HP <= 0;
-        public int TurnCount => CharacterData.TurnCount;
 
-        public AbilityAsset Attack => CharacterData.Attack;
+        public AbilityAsset Attack => CharacterType.Attack;
 
         public CharacterAnimation CharacterInstance { get; private set; }
 
         private void Start()
         {
-            SetState(CurrentAnimState);
+            SetAnimationState(CurrentAnimState);
         }
 
         private void OnDestroy()
@@ -85,9 +83,9 @@ namespace Ulko.Battle
             }
         }
 
-        public void Init(ICharacterData characterInfo, Vector3 position, int orderInParty)
+        public void Init(ICharacterType characterInfo, Vector3 position, int orderInParty)
         {
-            CharacterData = characterInfo;
+            CharacterType = characterInfo;
 
             Position = position;
             OrderInParty = orderInParty;
@@ -98,7 +96,7 @@ namespace Ulko.Battle
                 Addressables.ReleaseInstance(CharacterInstance.gameObject);
             }
 
-            var instance = CharacterData.Instantiate(transform);
+            var instance = CharacterType.Instantiate(transform);
             CharacterInstance = instance.GetComponentInChildren<CharacterAnimation>();
             CharacterInstance.transform.localPosition = Vector3.zero;
 
@@ -108,23 +106,23 @@ namespace Ulko.Battle
         public string Description()
         {
             string str = Name;
-            str += " " + Localization.LocalizeFormat("hp_value", HP, GetStat(Stat.Fortitude));
+            str += " " + Localization.LocalizeFormat("hp_value", HP, Stats.GetStat(Stat.Fortitude));
 
             return str;
-        }
-
-        public void IncrementTurnCount()
-        {
-            CharacterData.TurnCount++;
         }
 
         public void ResetPosition()
         {
             transform.position = Position;
-            SetState(CurrentAnimState);
+            SetAnimationState(CurrentAnimState);
         }
 
-        public void SetState(AnimState state)
+        public void ApplyState(CharacterState state)
+        {
+            CharacterType.HP = state.hp;
+        }
+
+        public void SetAnimationState(AnimState state)
         {
             if (!gameObject.activeInHierarchy)
                 return;
@@ -159,7 +157,7 @@ namespace Ulko.Battle
 
         public void PlayAnimation(string id, bool loop, float speed = 1f, float duration = float.PositiveInfinity)
         {
-            var anim = CharacterData.GetAnimation(id);
+            var anim = CharacterType.GetAnimation(id);
             CharacterInstance.Play(anim, loop, speed, duration);
         }
 
@@ -170,7 +168,7 @@ namespace Ulko.Battle
             while (CharacterInstance.IsPlaying)
                 yield return null;
 
-            if(!holdPose) SetState(CurrentAnimState);
+            if(!holdPose) SetAnimationState(CurrentAnimState);
         }
 
         private void PlayHurtAnimation()
@@ -189,7 +187,7 @@ namespace Ulko.Battle
             if(CurrentAnimState == AnimState.Dead && dyingTag != null)
                 yield return PlayAnimationAsync(dyingTag.id, false, false);
 
-            SetState(CurrentAnimState);
+            SetAnimationState(CurrentAnimState);
 
             hurtAnimCoroutine = null;
         }

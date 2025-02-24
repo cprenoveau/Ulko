@@ -22,7 +22,7 @@ namespace Ulko.Battle
         private readonly Character enemyPrefab;
         private readonly Transform parent;
 
-        private readonly List<ICharacterData> heroInfos = new();
+        private readonly List<ICharacterType> heroInfos = new();
 
         private List<(string hero, int exp)> expEarned;
         public List<(string hero, int exp)> GetExp()
@@ -128,17 +128,17 @@ namespace Ulko.Battle
             {
                 var hero = party.ElementAt(i);
 
-                if (Heroes[i].CharacterData?.Id != hero.id)
+                if (Heroes[i].CharacterType?.Id != hero.id)
                 {
                     var info = GetOrCreateHero(hero.id);
                     Heroes[i].Init(info, Battlefield.HeroPosition(i, partyCount), i);
 
-                    Heroes[i].SetState(Character.AnimState.Idle);
+                    Heroes[i].SetAnimationState(Character.AnimState.Idle);
                 }
             }
         }
 
-        private ICharacterData GetOrCreateHero(string heroId)
+        private ICharacterType GetOrCreateHero(string heroId)
         {
             var hero = heroInfos.Find(h => h.Id == heroId);
             if(hero == null)
@@ -195,13 +195,12 @@ namespace Ulko.Battle
                 var enemyInfo = new Enemy(
                     enemy.asset,
                     Database.Enemies[enemy.asset.id],
-                    enemy.asset.level,
                     Battlefield.enemyStandDirection,
                     BattleAsset.EnemySuffix(i));
 
                 instance.Init(enemyInfo, pos, enemy.positionIndex);
 
-                instance.SetState(Character.AnimState.Idle);
+                instance.SetAnimationState(Character.AnimState.Idle);
                 Enemies.Add(instance);
             }
         }
@@ -222,6 +221,18 @@ namespace Ulko.Battle
 
             Heroes.Clear();
             Enemies.Clear();
+        }
+
+        public void ApplyState(ActionState state)
+        {
+            foreach(var characterState in state.characters)
+            {
+                var character = FindCharacter(characterState.id);
+                if(character != null)
+                {
+                    character.ApplyState(characterState);
+                }
+            }
         }
 
         public Character FindCharacter(string id)
@@ -295,20 +306,78 @@ namespace Ulko.Battle
             }
         }
 
-        public IEnumerable<Character> GetAlliesOf(Character actor, FetchCondition condition)
+        public IEnumerable<Character> GetAlliesOf(CharacterSide side, FetchCondition condition)
         {
-            if (actor.CharacterSide == CharacterSide.Heroes)
+            if (side == CharacterSide.Heroes)
                 return GetHeroes(condition);
             else
                 return GetEnemies(condition);
         }
 
-        public IEnumerable<Character> GetEnemiesOf(Character actor, FetchCondition condition)
+        public IEnumerable<Character> GetEnemiesOf(CharacterSide side, FetchCondition condition)
         {
-            if (actor.CharacterSide == CharacterSide.Heroes)
+            if (side == CharacterSide.Heroes)
                 return GetEnemies(condition);
             else
                 return GetHeroes(condition);
+        }
+
+        public List<Character> GetTargetCandidates(AbilityTarget target, CharacterState actor)
+        {
+            var candidates = new List<Character>();
+
+            switch (target.targetType)
+            {
+                case AbilityTarget.TargetType.Allies:
+                    candidates.AddRange(GetAlliesOf(actor.characterSide, FetchCondition.All));
+
+                    if (!target.HasCondition(typeof(IsOnSameSideCondition)))
+                        candidates.AddRange(GetEnemiesOf(actor.characterSide, FetchCondition.All));
+
+                    break;
+
+                case AbilityTarget.TargetType.Enemies:
+                    candidates.AddRange(GetEnemiesOf(actor.characterSide, FetchCondition.All));
+
+                    if (!target.HasCondition(typeof(IsOnSameSideCondition)))
+                        candidates.AddRange(GetAlliesOf(actor.characterSide, FetchCondition.All));
+
+                    break;
+            }
+
+            for (int i = 0; i < candidates.Count;)
+            {
+                if (!target.IsValidTarget(actor, candidates[i].CharacterState))
+                    candidates.RemoveAt(i);
+                else
+                    ++i;
+            }
+
+            return candidates;
+        }
+
+        public List<Character> GetRandomTargets(AbilityTarget target, List<Character> candidates)
+        {
+            if (candidates.Count == 0)
+                return candidates;
+
+            if (target.targetSize == AbilityTarget.TargetSize.One)
+            {
+                return new List<Character> { GetRandomSingleTarget(candidates) };
+            }
+            else
+            {
+                return candidates;
+            }
+        }
+
+        public Character GetRandomSingleTarget(List<Character> candidates)
+        {
+            if (candidates.Count == 0)
+                return null;
+
+            var index = UnityEngine.Random.Range(0, candidates.Count);
+            return candidates[index];
         }
     }
 }

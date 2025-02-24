@@ -2,6 +2,7 @@
 using HotChocolate.UI;
 using System.Collections.Generic;
 using TMPro;
+using System.Linq;
 
 namespace Ulko.UI
 {
@@ -39,7 +40,7 @@ namespace Ulko.UI
 
         private void Refresh()
         {
-            data.playerAction.DeclareAction();
+            data.playerAction.DeclareAction(data.playerAction.PossibleActions.First());
         }
     }
 }
