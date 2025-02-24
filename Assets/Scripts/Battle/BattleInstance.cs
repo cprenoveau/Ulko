@@ -22,7 +22,7 @@ namespace Ulko.Battle
         private readonly Character enemyPrefab;
         private readonly Transform parent;
 
-        private readonly List<ICharacterType> heroInfos = new();
+        private readonly List<ICharacterInternal> heroInfos = new();
 
         private List<(string hero, int exp)> expEarned;
         public List<(string hero, int exp)> GetExp()
@@ -128,7 +128,7 @@ namespace Ulko.Battle
             {
                 var hero = party.ElementAt(i);
 
-                if (Heroes[i].CharacterType?.Id != hero.id)
+                if (!Heroes[i].Initialized || Heroes[i].Id != hero.id)
                 {
                     var info = GetOrCreateHero(hero.id);
                     Heroes[i].Init(info, Battlefield.HeroPosition(i, partyCount), i);
@@ -138,7 +138,7 @@ namespace Ulko.Battle
             }
         }
 
-        private ICharacterType GetOrCreateHero(string heroId)
+        private ICharacterInternal GetOrCreateHero(string heroId)
         {
             var hero = heroInfos.Find(h => h.Id == heroId);
             if(hero == null)
@@ -347,7 +347,7 @@ namespace Ulko.Battle
 
             for (int i = 0; i < candidates.Count;)
             {
-                if (!target.IsValidTarget(actor, candidates[i].CharacterState))
+                if (!target.IsValidTarget(actor, candidates[i].CaptureState()))
                     candidates.RemoveAt(i);
                 else
                     ++i;

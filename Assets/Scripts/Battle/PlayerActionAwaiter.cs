@@ -36,7 +36,7 @@ namespace Ulko.Battle
             foreach(var hero in instance.GetHeroes(BattleInstance.FetchCondition.AliveOnly))
             {
                 var action = hero.Attack;
-                var targetCandidates = instance.GetTargetCandidates(action.AbilityTarget, hero.CharacterState);
+                var targetCandidates = instance.GetTargetCandidates(action.AbilityTarget, hero.CaptureState());
 
                 if (action.AbilityTarget.targetSize == AbilityTarget.TargetSize.One)
                 {

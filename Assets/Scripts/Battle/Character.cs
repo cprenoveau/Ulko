@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Ulko.Data.Abilities;
+using Ulko.Data.Characters;
 
 namespace Ulko.Battle
 {
-    public interface ICharacterType
+    public interface ICharacterInternal
     {
         string Id { get; }
         string IdWithoutSuffix { get; }
@@ -15,15 +16,15 @@ namespace Ulko.Battle
         CharacterSide CharacterSide { get; }
         int Level { get; }
         int Exp { get; }
-
-        Vector2 FacingDirection { get; }
-
-        public delegate GameObject InstantiateDelegate(Transform parent);
-        public InstantiateDelegate Instantiate { get; }
-
         int HP { get; set; }
         Level Stats { get; }
         AbilityAsset Attack { get; }
+
+        Vector2 FacingDirection { get; }
+        CharacterAsset Asset { get; }
+
+        public delegate GameObject InstantiateDelegate(Transform parent);
+        public InstantiateDelegate Instantiate { get; }
 
         List<SpriteAnimation> GetAnimation(string id);
     }
@@ -38,6 +39,25 @@ namespace Ulko.Battle
         public AnimationTag dyingTag;
         public AnimationTag deadTag;
 
+        public bool Initialized => characterInternal != null;
+
+        public string Id => characterInternal.Id;
+        public string IdWithoutSuffix => characterInternal.IdWithoutSuffix;
+        public string Name => characterInternal.Name;
+        public CharacterSide CharacterSide => characterInternal.CharacterSide;
+        public int Level => characterInternal.Level;
+        public int Exp => characterInternal.Exp;
+        public int HP => characterInternal.HP;
+        public bool IsDead => HP <= 0;
+        public Level Stats => characterInternal.Stats;
+        public AbilityAsset Attack => characterInternal.Attack;
+
+        public Vector3 Position { get; private set; }
+        public int OrderInParty { get; private set; }
+        public Vector2 FacingDirection => characterInternal.FacingDirection;
+        public Transform Transform => transform;
+        public CharacterAsset Asset => characterInternal.Asset;
+
         public enum AnimState
         {
             Idle,
@@ -47,28 +67,9 @@ namespace Ulko.Battle
         }
 
         public AnimState CurrentAnimState { get; private set; }
-        public ICharacterType CharacterType { get; private set; }
-        public CharacterState CharacterState => new(Id, Name, HP, CharacterSide, Stats);
-
-        public string Id => CharacterType.Id;
-        public string IdWithoutSuffix => CharacterType.IdWithoutSuffix;
-        public string Name => CharacterType.Name;
-        public CharacterSide CharacterSide => CharacterType.CharacterSide;
-        public int Level => CharacterType.Level;
-        public int Exp => CharacterType.Exp;
-
-        public Vector3 Position { get; private set; }
-        public int OrderInParty { get; private set; }
-        public Vector2 FacingDirection => CharacterType.FacingDirection;
-        public Transform Transform => transform;
-
-        public int HP => CharacterType.HP;
-        public Level Stats => CharacterType.Stats;
-        public bool IsDead => HP <= 0;
-
-        public AbilityAsset Attack => CharacterType.Attack;
-
         public CharacterAnimation CharacterInstance { get; private set; }
+
+        private ICharacterInternal characterInternal;
 
         private void Start()
         {
@@ -83,9 +84,9 @@ namespace Ulko.Battle
             }
         }
 
-        public void Init(ICharacterType characterInfo, Vector3 position, int orderInParty)
+        public void Init(ICharacterInternal characterInternal, Vector3 position, int orderInParty)
         {
-            CharacterType = characterInfo;
+            this.characterInternal = characterInternal;
 
             Position = position;
             OrderInParty = orderInParty;
@@ -96,11 +97,21 @@ namespace Ulko.Battle
                 Addressables.ReleaseInstance(CharacterInstance.gameObject);
             }
 
-            var instance = CharacterType.Instantiate(transform);
+            var instance = this.characterInternal.Instantiate(transform);
             CharacterInstance = instance.GetComponentInChildren<CharacterAnimation>();
             CharacterInstance.transform.localPosition = Vector3.zero;
 
             CharacterInstance.Stand(FacingDirection);
+        }
+
+        public CharacterState CaptureState()
+        {
+            return new(Id, Name, HP, CharacterSide, Stats);
+        }
+
+        public void ApplyState(CharacterState state)
+        {
+            characterInternal.HP = state.hp;
         }
 
         public string Description()
@@ -115,11 +126,6 @@ namespace Ulko.Battle
         {
             transform.position = Position;
             SetAnimationState(CurrentAnimState);
-        }
-
-        public void ApplyState(CharacterState state)
-        {
-            CharacterType.HP = state.hp;
         }
 
         public void SetAnimationState(AnimState state)
@@ -157,7 +163,7 @@ namespace Ulko.Battle
 
         public void PlayAnimation(string id, bool loop, float speed = 1f, float duration = float.PositiveInfinity)
         {
-            var anim = CharacterType.GetAnimation(id);
+            var anim = characterInternal.GetAnimation(id);
             CharacterInstance.Play(anim, loop, speed, duration);
         }
 

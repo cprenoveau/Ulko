@@ -6,17 +6,14 @@ using Ulko.Data.Abilities;
 
 namespace Ulko.Battle
 {
-    public class Hero : ICharacterType
+    public class Hero : ICharacterInternal
     {
         public string Id => HeroData.id;
         public string IdWithoutSuffix => HeroData.id;
-        public string Name => Localization.Localize(Asset.displayName);
+        public string Name => Localization.Localize(HeroAsset.displayName);
         public CharacterSide CharacterSide => CharacterSide.Heroes;
         public int Level => HeroData.GetLevelDataFromExp(SavedData.exp).level;
         public int Exp => SavedData.exp;
-
-        public ICharacterType.InstantiateDelegate Instantiate { get; private set; }
-        public Vector2 FacingDirection { get; private set; }
 
         public int HP
         {
@@ -27,20 +24,20 @@ namespace Ulko.Battle
                 PlayerProfile.UpdatePartyMember(SavedData);
             }
         }
-
         public Level Stats => PlayerProfile.GetHeroStats(Id, Level);
+        public AbilityAsset Attack => HeroAsset.attack;
 
-        public int TurnCount { get; set; }
+        public ICharacterInternal.InstantiateDelegate Instantiate { get; private set; }
+        public Vector2 FacingDirection { get; private set; }
 
-        public HeroAsset Asset { get; private set; }
+        public CharacterAsset Asset => HeroAsset;
+        public HeroAsset HeroAsset { get; private set; }
         public Persistence.Hero SavedData => PlayerProfile.GetPartyMember(Id);
         public Data.Characters.Hero HeroData { get; private set; }
 
-        public AbilityAsset Attack => Asset.attack;
-
         public List<SpriteAnimation> GetAnimation(string id)
         {
-            return Asset.GetAnimation(id);
+            return HeroAsset.GetAnimation(id);
         }
 
         public Hero(
@@ -48,7 +45,7 @@ namespace Ulko.Battle
             Data.Characters.Hero heroData,
             Vector2 direction)
         {
-            Asset = asset;
+            HeroAsset = asset;
             HeroData = heroData;
             FacingDirection = direction;
             Instantiate = asset.Instantiate;

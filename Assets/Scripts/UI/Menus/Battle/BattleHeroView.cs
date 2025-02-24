@@ -1,4 +1,5 @@
 ﻿using Ulko.Battle;
+using Ulko.Data.Characters;
 using UnityEngine;
 
 namespace Ulko.UI
@@ -15,9 +16,7 @@ namespace Ulko.UI
         {
             Hero = hero;
 
-            var info = hero.CharacterType as Hero;
-
-            heroView.Init(info.Asset);
+            heroView.Init(hero.Asset as HeroAsset);
             Select(selected);
         }
 

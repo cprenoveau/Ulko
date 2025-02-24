@@ -67,7 +67,7 @@ namespace Ulko.Battle
 
             var actionState = new ActionState(
                 result.SelectedAction,
-                instance.GetAllCharacters(BattleInstance.FetchCondition.All).Select(c => c.CharacterState).ToList());
+                instance.GetAllCharacters(BattleInstance.FetchCondition.All).Select(c => c.CaptureState()).ToList());
 
             ActionState.Apply(result.SelectedAction, actionState);
 
