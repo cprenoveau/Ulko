@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 
 namespace Ulko.Data.Abilities
 {
@@ -42,7 +39,7 @@ namespace Ulko.Data.Abilities
             if (UnityEngine.Random.Range(0, 100) > percentChance)
             {
                 var pendingActionActor = state.FindCharacter(state.pendingAction.actorId);
-                if (pendingActionActor != null && condition != null && condition.IsTrue(actor, pendingActionActor))
+                if (pendingActionActor != null && (condition == null || condition.IsTrue(actor, pendingActionActor)))
                 {
                     state.pendingAction.effects.RemoveAll(e => e.Type == effectType);
                 }

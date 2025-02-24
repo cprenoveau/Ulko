@@ -53,7 +53,7 @@ namespace Ulko.Data.Abilities
             foreach (string targetId in action.targetIds)
             {
                 var target = state.FindCharacter(targetId);
-                if (target != null && condition != null && condition.IsTrue(actor, target))
+                if (target != null && (condition == null || condition.IsTrue(actor, target)))
                 {
                     Apply(actor, target);
                 }

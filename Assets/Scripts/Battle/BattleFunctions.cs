@@ -61,13 +61,13 @@ namespace Ulko.Battle
             var playerAction = new PlayerAction(PlayerAction.GetPossibleActions(instance));
             onPlayerTurn?.Invoke(playerAction);
 
-            var result = await playerAction;
+            var action = await playerAction;
 
-            ActionState.Apply(result.SelectedAction.state.pendingAction, result.SelectedAction.state);
+            ActionState.Apply(action.SelectedAction.state.pendingAction, action.SelectedAction.state);
 
-            await result.SelectedAction.PlaySequenceAsTask(instance, ct);
+            await action.SelectedAction.PlaySequenceAsTask(instance, ct);
 
-            instance.ApplyState(result.SelectedAction.state);
+            instance.ApplyState(action.SelectedAction.state);
 
             await Task.Delay(200);
 
