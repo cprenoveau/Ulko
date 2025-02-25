@@ -109,7 +109,29 @@ namespace Ulko
             }
         }
 
-        public IEnumerator SetInfoAsync(string text, float duration)
+        public void SetInfo(string text, float alpha = 1f)
+        {
+            if (string.IsNullOrEmpty(text))
+            {
+                infoView.alpha = 0;
+            }
+            else
+            {
+                infoView.alpha = alpha;
+                infoText.text = text;
+            }
+        }
+
+        public void FadeInfo(string text, float duration)
+        {
+            if (fadeInfoCoroutine != null)
+                StopCoroutine(fadeInfoCoroutine);
+
+            fadeInfoCoroutine = StartCoroutine(FadeInfoAsync(text, duration));
+        }
+
+        private Coroutine fadeInfoCoroutine;
+        private IEnumerator FadeInfoAsync(string text, float duration)
         {
             SetInfo(text, infoView.alpha);
 
@@ -138,45 +160,32 @@ namespace Ulko
             infoView.alpha = alpha;
         }
 
-        public void SetInfo(string text, float alpha = 1f)
-        {
-            if (string.IsNullOrEmpty(text))
-            {
-                infoView.alpha = 0;
-            }
-            else
-            {
-                infoView.alpha = alpha;
-                infoText.text = text;
-            }
-        }
-
         public void FadeAmount(float fade)
         {
-            if (fadeRoutine != null)
+            if (fadeCoroutine != null)
             {
-                StopCoroutine(fadeRoutine);
-                fadeRoutine = null;
+                StopCoroutine(fadeCoroutine);
+                fadeCoroutine = null;
             }
 
             this.fade.alpha = fade;
         }
 
-        private Coroutine fadeRoutine;
+        private Coroutine fadeCoroutine;
         public void FadeIn(float duration)
         {
-            if (fadeRoutine != null)
-                StopCoroutine(fadeRoutine);
+            if (fadeCoroutine != null)
+                StopCoroutine(fadeCoroutine);
 
-            fadeRoutine = StartCoroutine(Fade(duration, fade.alpha, 0f));
+            fadeCoroutine = StartCoroutine(Fade(duration, fade.alpha, 0f));
         }
 
         public void FadeOut(float duration)
         {
-            if (fadeRoutine != null)
-                StopCoroutine(fadeRoutine);
+            if (fadeCoroutine != null)
+                StopCoroutine(fadeCoroutine);
 
-            fadeRoutine = StartCoroutine(Fade(duration, fade.alpha, 1f));
+            fadeCoroutine = StartCoroutine(Fade(duration, fade.alpha, 1f));
         }
 
         private IEnumerator Fade(float duration, float from, float to)

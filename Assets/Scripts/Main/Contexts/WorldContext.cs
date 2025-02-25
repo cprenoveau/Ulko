@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using static Ulko.Data.Encounters;
+using System.Collections;
 
 namespace Ulko
 {
@@ -99,9 +100,16 @@ namespace Ulko
             Settings.OnResolutionChanged -= OnResolutionChanged;
         }
 
-        private static Texture2D screenshot;
         private void ShowScreenshot()
         {
+            StartCoroutine(ShowScreenshotAsync());
+        }
+
+        private static Texture2D screenshot;
+        private IEnumerator ShowScreenshotAsync()
+        {
+            yield return new WaitForEndOfFrame();
+
             HideScreenshot();
 
             screenshot = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
@@ -161,8 +169,7 @@ namespace Ulko
         private Material skybox;
         private void OnAreaEntered(Area area)
         {
-            StopAllCoroutines();
-            StartCoroutine(uiRoot.SetInfoAsync(Localization.Localize(area.areaTag.id), 2f));
+            uiRoot.FadeInfo(Localization.Localize(area.areaTag.id), 2f);
 
             if (area.isInterior)
             {

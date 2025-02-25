@@ -1,6 +1,5 @@
 ﻿using Ulko.Data.Timeline;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -141,7 +140,10 @@ namespace Ulko.World
             SoftWall.OnTrigger += HitSoftWall;
             MilestoneTrigger.OnTrigger += StartNextMilestone;
             MilestoneInteractable.OnInteract += StartNextMilestone;
+
             VirtualCameraZone.OnTrigger += OnVirtualCameraEntered;
+            VirtualCameraZone.OnEnabled += OnVirtualCameraEnabled;
+            VirtualCameraZone.OnInitialized += OnVirtualCameraInit;
 
             Speaker.OnInteract += TalkTo;
             SavePoint.OnInteract += SaveGame;
@@ -158,7 +160,10 @@ namespace Ulko.World
             SoftWall.OnTrigger -= HitSoftWall;
             MilestoneTrigger.OnTrigger -= StartNextMilestone;
             MilestoneInteractable.OnInteract -= StartNextMilestone;
+
             VirtualCameraZone.OnTrigger -= OnVirtualCameraEntered;
+            VirtualCameraZone.OnEnabled -= OnVirtualCameraEnabled;
+            VirtualCameraZone.OnInitialized -= OnVirtualCameraInit;
 
             Speaker.OnInteract -= TalkTo;
             SavePoint.OnInteract -= SaveGame;
@@ -259,26 +264,36 @@ namespace Ulko.World
             OnAreaEntered?.Invoke(CurrentArea);
         }
 
-        private void OnVirtualCameraEntered(VirtualCameraZone currentZone, VirtualCameraZone newZone)
-        {
-            newZone.Init(WorldCamera, Player.transform, CurrentArea.limits, false);
-        }
-
         private void ExitArea()
         {
             OnAreaExited?.Invoke(CurrentArea);
             CurrentArea = null;
         }
 
-        public void Teleport(Vector3 pos, Area area)
+        private void OnVirtualCameraEntered(VirtualCameraZone currentZone, VirtualCameraZone newZone)
         {
-            Player.StartCoroutine(TeleportAsync(pos, area));
+            newZone.Init(WorldCamera, Player.transform, CurrentArea.limits, false);
         }
 
-        private IEnumerator TeleportAsync(Vector3 pos, Area area)
+        private void OnVirtualCameraEnabled(VirtualCameraZone zone)
         {
-            yield return new WaitForEndOfFrame();
+            FindCurrentCameraZone();
+        }
 
+        private void FindCurrentCameraZone()
+        {
+            var currentZone = VirtualCameraZone.FindCurrentZone(Player);
+            if (currentZone != null)
+                currentZone.Init(WorldCamera, Player.transform, CurrentArea.limits, true);
+        }
+
+        private void OnVirtualCameraInit(VirtualCameraZone zone)
+        {
+            hideScreenshot?.Invoke();
+        }
+
+        public void Teleport(Vector3 pos, Area area)
+        {
             showScreenshot?.Invoke();
 
             if (CurrentArea != null && CurrentArea.areaTag.id != area.areaTag.id)
@@ -297,13 +312,7 @@ namespace Ulko.World
             CurrentArea = area;
             PlayerProfile.SetArea(CurrentArea.areaTag.id);
 
-            yield return new WaitForEndOfFrame();
-            yield return new WaitForEndOfFrame();
-
-            var currentZone = VirtualCameraZone.FindCurrentZone(Player);
-            if (currentZone != null) yield return Player.StartCoroutine(currentZone.InitAsync(WorldCamera, Player.transform, CurrentArea.limits, true));
-
-            hideScreenshot?.Invoke();
+            FindCurrentCameraZone();
         }
 
         private void StartNextMilestone()

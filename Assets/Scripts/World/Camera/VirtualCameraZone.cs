@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -13,6 +14,11 @@ namespace Ulko.World
         public delegate void VirtualCameraTrigger(VirtualCameraZone currentZone, VirtualCameraZone newZone);
         public static event VirtualCameraTrigger OnTrigger;
 
+        public delegate void VirtualCameraEnabled(VirtualCameraZone zone);
+        public static event VirtualCameraEnabled OnEnabled;
+
+        public delegate void VirtualCameraInitialized(VirtualCameraZone zone);
+        public static event VirtualCameraInitialized OnInitialized;
         public static VirtualCameraZone FindCurrentZone(Player player)
         {
             var vCams = GameObject.FindObjectsByType<VirtualCameraZone>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
@@ -25,6 +31,11 @@ namespace Ulko.World
             }
 
             return CurrentZone;
+        }
+
+        private void OnEnable()
+        {
+            OnEnabled?.Invoke(this);
         }
 
         public override void OnEnter(Player player)
@@ -91,6 +102,8 @@ namespace Ulko.World
 
             yield return null;
             OrientToCamera.RefreshAll();
+
+            OnInitialized?.Invoke(this);
         }
 
         private void Update()

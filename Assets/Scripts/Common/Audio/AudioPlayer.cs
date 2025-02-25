@@ -29,11 +29,6 @@ namespace Ulko
         private readonly Dictionary<AudioDefinition, List<AudioSourceHandle>> playingSounds = new();
         private readonly Stack<AudioSourceHandle> soundPool = new();
 
-        private void Awake()
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-
         public void PlayUISound(Audio.UISoundId id)
         {
             Play(uiSounds.Find(s => s.id == id).def, 1f, 0f);
