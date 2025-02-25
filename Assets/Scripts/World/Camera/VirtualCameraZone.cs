@@ -21,7 +21,7 @@ namespace Ulko.World
             var vCams = GameObject.FindObjectsByType<VirtualCameraZone>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
             foreach (var vCam in vCams)
             {
-                if (vCam != CurrentZone && vCam.GetComponent<BoxCollider>().bounds.Contains(player.transform.position))
+                if (vCam != CurrentZone && vCam.GetComponent<BoxCollider>().bounds.Contains(player.transform.position + Vector3.up * 0.5f))
                 {
                     return vCam;
                 }
