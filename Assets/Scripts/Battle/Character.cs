@@ -106,12 +106,17 @@ namespace Ulko.Battle
 
         public CharacterState CaptureState()
         {
-            return new(Id, Name, HP, CharacterSide, Stats);
+            return new(Id, Name, HP, CharacterSide, Stats, new List<string>());
         }
 
         public void ApplyState(CharacterState state)
         {
             characterInternal.HP = (int)Mathf.Clamp(state.hp, 0, Stats.MaxHP);
+
+            foreach(var status in state.statusIds)
+            {
+                Debug.Log(Id + " gained status " + status);
+            }
         }
 
         public string Description()

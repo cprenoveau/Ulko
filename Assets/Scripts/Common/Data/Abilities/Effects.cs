@@ -17,16 +17,18 @@ namespace Ulko.Data.Abilities
         public int hp;
         public CharacterSide characterSide;
         public Level stats;
+        public List<string> statusIds;
 
         public CharacterState(){}
 
-        public CharacterState(string id, string name, int hp, CharacterSide characterSide, Level stats)
+        public CharacterState(string id, string name, int hp, CharacterSide characterSide, Level stats, List<string> statusIds)
         {
             this.id = id;
             this.name = name;
             this.hp = hp;
             this.characterSide = characterSide;
             this.stats = stats;
+            this.statusIds = statusIds;
         }
 
         public void Clone(object source)
@@ -41,6 +43,7 @@ namespace Ulko.Data.Abilities
             hp = source.hp;
             characterSide = source.characterSide;
             stats = source.stats.Clone();
+            statusIds = source.statusIds.Clone();
         }
 
         public bool Equals(CharacterState other)
@@ -49,7 +52,8 @@ namespace Ulko.Data.Abilities
                 && name.Equals(other.name)
                 && hp.Equals(other.hp)
                 && characterSide.Equals(other.characterSide)
-                && stats.Equals(other.stats);
+                && stats.Equals(other.stats)
+                && statusIds.SequenceEqual(other.statusIds);
         }
     }
 
@@ -133,7 +137,8 @@ namespace Ulko.Data.Abilities
             Damage,
             BecomeTarget,
             CancelEffect,
-            ModifyStat
+            ModifyStat,
+            GiveStatus
         }
 
         public abstract EffectType Type { get; }
