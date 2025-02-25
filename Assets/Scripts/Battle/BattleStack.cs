@@ -13,12 +13,14 @@ namespace Ulko.Battle
     {
         public AbilityAsset ability;
         public string actorId;
+        public List<string> targetIds;
         public List<BattleAction> actions = new();
 
         public BattleActions(AbilityAsset ability, string actorId, List<string> targetIds, List<CharacterState> characters)
         {
             this.ability = ability;
             this.actorId = actorId;
+            this.targetIds = targetIds;
 
             foreach (var node in ability.AbilityNodes)
             {
