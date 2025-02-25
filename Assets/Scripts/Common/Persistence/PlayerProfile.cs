@@ -176,7 +176,7 @@ namespace Ulko
             if (hero != null) return hero;
 
             var data = Database.Heroes[heroId];
-            hero = new Hero(data, GetHeroStat(heroId, Stat.Fortitude), GetHeroExp(heroId));
+            hero = new Hero(data, GetHeroStats(heroId).MaxHP, GetHeroExp(heroId));
             loadedGame.party.Add(hero);
 
             return hero;
@@ -187,7 +187,7 @@ namespace Ulko
             bool healed = false;
             foreach (var hero in Party)
             {
-                int maxHp = GetHeroStat(hero.id, Stat.Fortitude);
+                int maxHp = GetHeroStats(hero.id).MaxHP;
 
                 if (hero.hp < maxHp)
                 {
@@ -225,6 +225,11 @@ namespace Ulko
         {
             var heroData = Database.Heroes[heroId];
             return heroData.GetLevelData(level).Clone();
+        }
+
+        public static Level GetHeroStats(string heroId)
+        {
+            return GetHeroStats(heroId, GetHeroLevel(heroId));
         }
 
         public static int GetHeroStat(string heroId, int level, Stat stat)

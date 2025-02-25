@@ -21,6 +21,8 @@ namespace Ulko.Data
         public float intuition;
         public float intelligence;
 
+        public int MaxHP => (int)GetStat(Stat.Fortitude);
+
         public void Clone(object source)
         {
             Clone(source as Level);

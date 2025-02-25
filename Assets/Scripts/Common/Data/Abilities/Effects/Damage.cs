@@ -70,10 +70,10 @@ namespace Ulko.Data.Abilities
             if (def != 0)
                 damage = damage * config.flatModifier / (config.flatModifier + def);
 
-            damage += target.stats.GetStat(Stat.Fortitude) * percentDamage / 100f;
+            damage += target.stats.MaxHP * percentDamage / 100f;
             damage += flatDamage;
 
-            damage = Mathf.Clamp(damage, 1, target.hp);
+            damage = Mathf.Clamp(damage, 1, damage);
 
             target.hp -= (int)damage;
         }

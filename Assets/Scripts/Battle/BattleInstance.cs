@@ -223,6 +223,9 @@ namespace Ulko.Battle
             Enemies.Clear();
         }
 
+        public delegate void CharacterStateChanged(CharacterState oldState, CharacterState newState);
+        public event CharacterStateChanged OnCharacterStateChanged;
+
         public void ApplyState(ActionState state)
         {
             foreach (var characterState in state.characters)
@@ -230,7 +233,11 @@ namespace Ulko.Battle
                 var character = FindCharacter(characterState.id);
                 if (character != null)
                 {
+                    var oldState = character.CaptureState();
                     character.ApplyState(characterState);
+
+                    if(oldState != characterState)
+                        OnCharacterStateChanged?.Invoke(oldState, characterState);
                 }
             }
         }

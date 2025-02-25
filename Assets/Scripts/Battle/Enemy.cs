@@ -43,7 +43,7 @@ namespace Ulko.Battle
             FacingDirection = direction;
             Instantiate = asset.Instantiate;
 
-            HP = (int)Stats.GetStat(Stat.Fortitude);
+            HP = Stats.MaxHP;
         }
     }
 }

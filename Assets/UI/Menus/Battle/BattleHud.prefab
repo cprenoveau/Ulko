@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSelected: {fileID: 0}
-  config: {fileID: 11400000, guid: 561d3632d33bb8a4d9d1fd63692eed14, type: 2}
+  config: {fileID: 11400000, guid: 645d861f89d95b84aa0b6b311d1bd1c1, type: 2}
   heroPrefab: {fileID: 5437854231109359395, guid: 499114981eac03f419443feab4d75de3, type: 3}
   heroParent: {fileID: 4454389685937231142}
   textQueuePrefab: {fileID: 5219196247395689284, guid: e6d577c668638b24982686dbfbc34b2f, type: 3}

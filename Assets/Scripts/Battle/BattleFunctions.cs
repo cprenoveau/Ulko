@@ -69,7 +69,7 @@ namespace Ulko.Battle
 
             instance.ApplyState(action.SelectedAction.state);
 
-            await Task.Delay(200);
+            await Task.Delay(1000);
 
             ResetAllPositions(instance);
 

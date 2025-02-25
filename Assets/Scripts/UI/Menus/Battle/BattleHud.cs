@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using Ulko.Data.Abilities;
 
 namespace Ulko.UI
 {
@@ -16,8 +17,13 @@ namespace Ulko.UI
 
     public class BattleHud : Menu
     {
+        public UiConfig config;
+
         public BattleHeroView heroPrefab;
         public RectTransform heroParent;
+
+        public TextQueue textQueuePrefab;
+        public RectTransform textQueueParent;
 
         private MenuStack stack;
         private BattleHudData data;
@@ -30,11 +36,16 @@ namespace Ulko.UI
             this.data = data as BattleHudData;
 
             PlayerProfile.OnPartyChanged += RefreshHeroes;
+
+            this.data.battleInstance.OnCharacterStateChanged += ShowCharacterStateChanged;
         }
 
         protected override void _OnPop() 
         {
             PlayerProfile.OnPartyChanged -= RefreshHeroes;
+
+            if(data != null)
+                data.battleInstance.OnCharacterStateChanged -= ShowCharacterStateChanged;
         }
 
         protected override void _OnFocusIn(bool fromPush, string previousMenu)
@@ -58,6 +69,45 @@ namespace Ulko.UI
                 var instance = Instantiate(heroPrefab, heroParent);
                 instance.Init(hero, false);
             }
+        }
+
+        private void ShowCharacterStateChanged(CharacterState oldState, CharacterState newState)
+        {
+            var character = data.battleInstance.FindCharacter(oldState.id);
+            if (character != null)
+            {
+                int hpDiff = newState.hp - oldState.hp;
+
+                if (hpDiff < 0)
+                {
+                    ShowText(character, (-hpDiff).ToString(), config.damageTextColor);
+                }
+                else if (hpDiff > 0)
+                {
+                    ShowText(character, hpDiff.ToString(), config.healTextColor);
+                }
+            }
+        }
+
+        private readonly Dictionary<string, TextQueue> textQueues = new();
+        private void ShowText(Character character, string text, Color color)
+        {
+            if (!textQueues.ContainsKey(character.Id))
+            {
+                var instance = Instantiate(textQueuePrefab, textQueueParent);
+                instance.Init(data.gameState.Camera);
+                instance.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                instance.GetComponent<RectTransform>().sizeDelta = Vector2.zero;
+                textQueues.Add(character.Id, instance);
+            }
+
+            textQueues[character.Id].Enqueue(
+                text,
+                color,
+                config.battleTextSpeed,
+                config.battleTextInterval,
+                config.battleTextDuration,
+                character.GetComponentInChildren<ArrowAnchor>().transform);
         }
     }
 }

@@ -111,13 +111,13 @@ namespace Ulko.Battle
 
         public void ApplyState(CharacterState state)
         {
-            characterInternal.HP = state.hp;
+            characterInternal.HP = (int)Mathf.Clamp(state.hp, 0, Stats.MaxHP);
         }
 
         public string Description()
         {
             string str = Name;
-            str += " " + Localization.LocalizeFormat("hp_value", HP, Stats.GetStat(Stat.Fortitude));
+            str += " " + Localization.LocalizeFormat("hp_value", HP, Stats.MaxHP);
 
             return str;
         }
