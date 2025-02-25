@@ -19,7 +19,7 @@ MonoBehaviour:
   applyType: 1
   applyInterval: 0
   priority: 0
-  vfxOnHead: {fileID: 0}
+  vfxOnHead: {fileID: 11400000, guid: 3301430c40a574546a667a2329fdcd2c, type: 2}
   condition:
     invert: 0
     union: 0

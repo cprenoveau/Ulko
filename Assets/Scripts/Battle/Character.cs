@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Ulko.Data.Abilities;
 using Ulko.Data.Characters;
+using Unity.IO.Archive;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Linq;
 
 namespace Ulko.Battle
 {
@@ -105,22 +109,6 @@ namespace Ulko.Battle
             CharacterInstance.Stand(FacingDirection);
         }
 
-        public CharacterState CaptureState()
-        {
-            return new(Id, Name, HP, CharacterSide, Stats, StatusState.Clone());
-        }
-
-        public void ApplyState(CharacterState state)
-        {
-            characterInternal.HP = (int)Mathf.Clamp(state.hp, 0, Stats.MaxHP);
-            StatusState = state.statuses.Clone();
-
-            foreach(var status in StatusState)
-            {
-                Debug.Log(Id + " has status " + status.statusAsset.id + " for " + status.nTurns + "/" + status.maxTurns + " turns ");
-            }
-        }
-
         public string Description()
         {
             string str = Name;
@@ -129,10 +117,88 @@ namespace Ulko.Battle
             return str;
         }
 
+        public CharacterState CaptureState()
+        {
+            return new(Id, Name, HP, CharacterSide, Stats, StatusState.Clone());
+        }
+
+        public void ApplyState(CharacterState state)
+        {
+            characterInternal.HP = Mathf.Clamp(state.hp, 0, Stats.MaxHP);
+            StatusState = state.statuses.Clone();
+
+            UpdateStatusCosmetics();
+        }
+
+        private readonly Dictionary<string, CancellationTokenSource> statusCosmeticsTasks = new();
+        private void UpdateStatusCosmetics()
+        {
+            foreach (string statusId in statusCosmeticsTasks.Keys)
+            {
+                if (StatusState.FirstOrDefault(s => s.statusAsset.id == statusId) == null)
+                    RemoveStatusCosmetics(statusId);
+            }
+
+            foreach (var status in StatusState)
+            {
+                AddStatusCosmetics(status);
+            }
+        }
+
+        private void AddStatusCosmetics(StatusState status)
+        {
+            string statusId = status.statusAsset.id;
+
+            if (!statusCosmeticsTasks.ContainsKey(statusId))
+            {
+                var ctSource = new CancellationTokenSource();
+                var task = PlayStatusCosmeticsAsync(status, ctSource.Token);
+
+                statusCosmeticsTasks.Add(statusId, ctSource);
+            }
+        }
+
+        private void RemoveStatusCosmetics(string statusId)
+        {
+            if (statusCosmeticsTasks.ContainsKey(statusId))
+            {
+                statusCosmeticsTasks[statusId].Cancel();
+                statusCosmeticsTasks[statusId].Dispose();
+
+                statusCosmeticsTasks.Remove(statusId);
+            }
+        }
+
+        private async Task PlayStatusCosmeticsAsync(StatusState status, CancellationToken ct)
+        {
+            await Task.Yield();
+
+            if (ct.IsCancellationRequested)
+                return;
+
+            var anchor = GetComponentInChildren<HeadAnchor>();
+            if (anchor != null && status.statusAsset.vfxOnHead != null)
+            {
+                var vfx = status.statusAsset.vfxOnHead;
+                var result = await Addressables.InstantiateAsync(vfx.prefab.RuntimeKey, anchor.transform.position, Quaternion.identity, anchor.transform).Task;
+                result.name = vfx.name;
+
+                while (!ct.IsCancellationRequested)
+                {
+                    await Task.Yield();
+                }
+
+                Addressables.ReleaseInstance(result);
+            }
+        }
+
         public void ResetPosition()
         {
-            transform.position = Position;
-            SetAnimationState(CurrentAnimState);
+            if(transform != null)
+            {
+                transform.position = Position;
+                SetAnimationState(CurrentAnimState);
+            }
         }
 
         public void SetAnimationState(AnimState state)

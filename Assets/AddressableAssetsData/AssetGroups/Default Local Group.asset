@@ -116,6 +116,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e4f35d65ad0db204e92dcb5d8b50e5df
+    m_Address: Assets/VFX/BlindCloud.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5e15e54081678d459d5ba86ddb4d1dc
     m_Address: Assets/UI/Prompts/ChoicePrompt.prefab
     m_ReadOnly: 0

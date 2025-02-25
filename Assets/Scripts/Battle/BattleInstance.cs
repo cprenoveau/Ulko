@@ -234,10 +234,12 @@ namespace Ulko.Battle
                 if (character != null)
                 {
                     var oldState = character.CaptureState();
-                    character.ApplyState(characterState);
 
                     if(!oldState.Equals(characterState))
+                    {
+                        character.ApplyState(characterState);
                         OnCharacterStateChanged?.Invoke(oldState, characterState);
+                    }
                 }
             }
         }
