@@ -51,6 +51,7 @@ namespace Ulko.Battle
         public bool IsDead => HP <= 0;
         public Level Stats => characterInternal.Stats;
         public AbilityAsset Attack => characterInternal.Attack;
+        public List<StatusState> StatusState { get; private set; } = new List<StatusState>();
 
         public Vector3 Position { get; private set; }
         public int OrderInParty { get; private set; }
@@ -106,16 +107,17 @@ namespace Ulko.Battle
 
         public CharacterState CaptureState()
         {
-            return new(Id, Name, HP, CharacterSide, Stats, new List<string>());
+            return new(Id, Name, HP, CharacterSide, Stats, StatusState.Clone());
         }
 
         public void ApplyState(CharacterState state)
         {
             characterInternal.HP = (int)Mathf.Clamp(state.hp, 0, Stats.MaxHP);
+            StatusState = state.statuses.Clone();
 
-            foreach(var status in state.statusIds)
+            foreach(var status in StatusState)
             {
-                Debug.Log(Id + " gained status " + status);
+                Debug.Log(Id + " has status " + status.statusAsset.id + " for " + status.nTurns + "/" + status.maxTurns + " turns ");
             }
         }
 

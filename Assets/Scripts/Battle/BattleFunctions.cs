@@ -67,6 +67,8 @@ namespace Ulko.Battle
 
             foreach(var battleAction in action.SelectedAction.actions)
             {
+                battleAction.state.characters = instance.CaptureCharacterStates();
+
                 ActionState.Apply(battleAction.state.pendingAction, battleAction.state);
 
                 await battleAction.PlaySequenceAsTask(instance, ct);

@@ -36,7 +36,7 @@ namespace Ulko.Data.Abilities
             if (actor == null)
                 return;
 
-            if (UnityEngine.Random.Range(0, 100) > percentChance)
+            if (UnityEngine.Random.Range(0, 100) < percentChance)
             {
                 var pendingActionActor = state.FindCharacter(state.pendingAction.actorId);
                 if (pendingActionActor != null && (condition == null || condition.IsTrue(actor, pendingActionActor)))

@@ -10,6 +10,41 @@ namespace Ulko.Data.Abilities
         Enemies
     }
 
+    public class StatusState : IClonable, IEquatable<StatusState>
+    {
+        public StatusAsset statusAsset;
+        public int maxTurns;
+        public int nTurns;
+
+        public StatusState() { }
+
+        public StatusState(StatusAsset statusAsset, int maxTurns, int nTurns)
+        {
+            this.statusAsset = statusAsset;
+            this.maxTurns = maxTurns;
+            this.nTurns = nTurns;
+        }
+
+        public void Clone(object source)
+        {
+            Clone(source as StatusState);
+        }
+
+        public void Clone(StatusState source)
+        {
+            statusAsset = source.statusAsset;
+            maxTurns = source.maxTurns;
+            nTurns = source.nTurns;
+        }
+
+        public bool Equals(StatusState other)
+        {
+            return statusAsset == other.statusAsset
+                && maxTurns == other.maxTurns
+                && nTurns == other.nTurns;
+        }
+    }
+
     public class CharacterState : IClonable, IEquatable<CharacterState>
     {
         public string id;
@@ -17,18 +52,18 @@ namespace Ulko.Data.Abilities
         public int hp;
         public CharacterSide characterSide;
         public Level stats;
-        public List<string> statusIds;
+        public List<StatusState> statuses;
 
         public CharacterState(){}
 
-        public CharacterState(string id, string name, int hp, CharacterSide characterSide, Level stats, List<string> statusIds)
+        public CharacterState(string id, string name, int hp, CharacterSide characterSide, Level stats, List<StatusState> statuses)
         {
             this.id = id;
             this.name = name;
             this.hp = hp;
             this.characterSide = characterSide;
             this.stats = stats;
-            this.statusIds = statusIds;
+            this.statuses = statuses;
         }
 
         public void Clone(object source)
@@ -43,7 +78,7 @@ namespace Ulko.Data.Abilities
             hp = source.hp;
             characterSide = source.characterSide;
             stats = source.stats.Clone();
-            statusIds = source.statusIds.Clone();
+            statuses = source.statuses.Clone();
         }
 
         public bool Equals(CharacterState other)
@@ -53,7 +88,7 @@ namespace Ulko.Data.Abilities
                 && hp.Equals(other.hp)
                 && characterSide.Equals(other.characterSide)
                 && stats.Equals(other.stats)
-                && statusIds.SequenceEqual(other.statusIds);
+                && statuses.SequenceEqual(other.statuses);
         }
     }
 
@@ -62,6 +97,8 @@ namespace Ulko.Data.Abilities
         public string actorId;
         public List<string> targetIds = new();
         public List<Effect> effects = new();
+
+        public CharacterAction() { }
 
         public CharacterAction(string actorId, List<string> targetIds, List<Effect> effects)
         {
@@ -96,6 +133,8 @@ namespace Ulko.Data.Abilities
         public List<CharacterState> characters = new();
 
         public CharacterState FindCharacter(string id) => characters.FirstOrDefault(c => c.id == id);
+
+        public ActionState() { }
 
         public ActionState(CharacterAction pendingAction, List<CharacterState> characters)
         {

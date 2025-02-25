@@ -34,7 +34,7 @@ namespace Ulko.Data.Abilities
             if (actor == null)
                 return;
 
-            if (UnityEngine.Random.Range(0, 100) > percentChance)
+            if (UnityEngine.Random.Range(0, 100) < percentChance)
             {
                 List<string> newTargets = new();
 

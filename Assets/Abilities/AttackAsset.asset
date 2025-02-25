@@ -42,7 +42,7 @@ MonoBehaviour:
         config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
         attackStat: 0
         defenseStat: 0
-        damageMultiplier: 1
+        damageMultiplier: 0.5
         percentDamage: 0
         flatDamage: 0
     - rid: 6273285019555594452
@@ -79,18 +79,20 @@ MonoBehaviour:
         config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
         attackStat: 0
         defenseStat: 0
-        damageMultiplier: 1
+        damageMultiplier: 0.5
         percentDamage: 0
         flatDamage: 0
     - rid: 6273285047090151503
       type: {class: GiveStatus, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
         condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
-        percentChance: 50
+        percentChance: 100
         status: {fileID: 11400000, guid: 31427f9455011cd4c9cf67a29e080d78, type: 2}
+        turns: 3
     - rid: 6273285047090151504
       type: {class: GiveStatus, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
         condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
-        percentChance: 50
+        percentChance: 100
         status: {fileID: 11400000, guid: 31427f9455011cd4c9cf67a29e080d78, type: 2}
+        turns: 3
