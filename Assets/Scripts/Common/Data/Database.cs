@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using Ulko.Data.Abilities;
 
 namespace Ulko
 {
@@ -13,6 +14,7 @@ namespace Ulko
         public static Dictionary<string, Story> Stories { get; private set; } = new Dictionary<string, Story>();
         public static Dictionary<string, Hero> Heroes { get; private set; } = new Dictionary<string, Hero>();
         public static Dictionary<string, Enemy> Enemies { get; private set; } = new Dictionary<string, Enemy>();
+        public static Dictionary<string, StatusAsset> Statuses { get; private set; } = new Dictionary<string, StatusAsset>();
 
         public static async Task Init(List<Story> stories, TextAsset heroesAsset, TextAsset enemiesAsset)
         {
@@ -34,6 +36,14 @@ namespace Ulko
             foreach (var enemy in enemies)
             {
                 Enemies.Add(enemy.id, enemy);
+            }
+
+            Statuses.Clear();
+
+            var statuses = await Addressables.LoadAssetsAsync<StatusAsset>("status", null).Task;
+            foreach (var status in statuses)
+            {
+                Statuses.Add(status.id, status);
             }
         }
 
