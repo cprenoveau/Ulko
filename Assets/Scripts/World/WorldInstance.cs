@@ -142,8 +142,7 @@ namespace Ulko.World
             MilestoneInteractable.OnInteract += StartNextMilestone;
 
             VirtualCameraZone.OnTrigger += OnVirtualCameraEntered;
-            VirtualCameraZone.OnEnabled += OnVirtualCameraEnabled;
-            VirtualCameraZone.OnInitialized += OnVirtualCameraInit;
+            VirtualCameraZone.OnInitialized += OnVirtualCameraInitialized;
 
             Speaker.OnInteract += TalkTo;
             SavePoint.OnInteract += SaveGame;
@@ -162,8 +161,7 @@ namespace Ulko.World
             MilestoneInteractable.OnInteract -= StartNextMilestone;
 
             VirtualCameraZone.OnTrigger -= OnVirtualCameraEntered;
-            VirtualCameraZone.OnEnabled -= OnVirtualCameraEnabled;
-            VirtualCameraZone.OnInitialized -= OnVirtualCameraInit;
+            VirtualCameraZone.OnInitialized -= OnVirtualCameraInitialized;
 
             Speaker.OnInteract -= TalkTo;
             SavePoint.OnInteract -= SaveGame;
@@ -259,7 +257,7 @@ namespace Ulko.World
             if (CurrentArea.ambientAudioConfig != null)
                 CurrentArea.ambientAudioConfig.Play(0.1f);
 
-            Area.SetCurrentArea(CurrentArea.areaTag.id);
+            Area.EnterArea(CurrentArea.areaTag.id, Player, WorldCamera);
 
             OnAreaEntered?.Invoke(CurrentArea);
         }
@@ -275,19 +273,7 @@ namespace Ulko.World
             newZone.Init(WorldCamera, Player.transform, CurrentArea.limits, false);
         }
 
-        private void OnVirtualCameraEnabled(VirtualCameraZone zone)
-        {
-            FindCurrentCameraZone();
-        }
-
-        private void FindCurrentCameraZone()
-        {
-            var currentZone = VirtualCameraZone.FindCurrentZone(Player);
-            if (currentZone != null)
-                currentZone.Init(WorldCamera, Player.transform, CurrentArea.limits, true);
-        }
-
-        private void OnVirtualCameraInit(VirtualCameraZone zone)
+        private void OnVirtualCameraInitialized(VirtualCameraZone zone)
         {
             hideScreenshot?.Invoke();
         }
@@ -311,8 +297,6 @@ namespace Ulko.World
 
             CurrentArea = area;
             PlayerProfile.SetArea(CurrentArea.areaTag.id);
-
-            FindCurrentCameraZone();
         }
 
         private void StartNextMilestone()

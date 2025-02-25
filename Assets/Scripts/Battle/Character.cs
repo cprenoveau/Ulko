@@ -194,7 +194,7 @@ namespace Ulko.Battle
 
         public void ResetPosition()
         {
-            if(transform != null)
+            if(gameObject != null)
             {
                 transform.position = Position;
                 SetAnimationState(CurrentAnimState);

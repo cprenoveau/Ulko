@@ -1,6 +1,7 @@
 ﻿using Ulko.Data;
 using System.Linq;
 using UnityEngine;
+using System.Collections;
 
 namespace Ulko.World
 {
@@ -23,11 +24,29 @@ namespace Ulko.World
             return encounters.TryPickEncounter(steps);
         }
 
-        public static void SetCurrentArea(string areaId)
+        public void InitArea(Player player, Camera worldCamera)
+        {
+            StartCoroutine(FindVirtualCamera(player, worldCamera));
+        }
+
+        private IEnumerator FindVirtualCamera(Player player, Camera worldCamera)
+        {
+            yield return new WaitForEndOfFrame();
+
+            var zone = VirtualCameraZone.FindCurrentZone(player);
+            if(zone != null)
+                zone.Init(worldCamera, player.transform, limits, true);
+        }
+
+        public static void EnterArea(string areaId, Player player, Camera worldCamera)
         {
             foreach(var area in AllAreas)
             {
-                area.gameObject.SetActive(area.areaTag.id == areaId);
+                bool isCurrent = area.areaTag.id == areaId;
+                area.gameObject.SetActive(isCurrent);
+
+                if (isCurrent)
+                    area.InitArea(player, worldCamera);
             }
         }
 
