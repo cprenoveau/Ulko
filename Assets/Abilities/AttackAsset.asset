@@ -27,7 +27,7 @@ MonoBehaviour:
     - rid: 6273285019555594450
       type: {class: AbilityNode, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
-        forceValidTarget: 0
+        forceValidTarget: 1
         applySequence:
           steps:
           - rid: 6273285019555594452
@@ -56,7 +56,7 @@ MonoBehaviour:
     - rid: 6273285047090151498
       type: {class: AbilityNode, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
-        forceValidTarget: 0
+        forceValidTarget: 1
         applySequence:
           steps:
           - rid: 6273285047090151499

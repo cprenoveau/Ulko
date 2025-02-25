@@ -3,7 +3,7 @@
 namespace Ulko.Data.Abilities
 {
     [Serializable]
-    public class CancelEffect : Effect, IEquatable<CancelEffect>
+    public class CancelEffect : Effect
     {
         public override EffectType Type => EffectType.CancelEffect;
 
@@ -11,23 +11,25 @@ namespace Ulko.Data.Abilities
         public float percentChance = 50;
         public EffectType effectType;
 
-        public override void Clone(object source)
+        public override Effect Clone()
         {
-            Clone(source as CancelEffect);
+            return new CancelEffect()
+            {
+                condition = condition,
+                percentChance = percentChance,
+                effectType = effectType
+            };
         }
-
-        private void Clone(CancelEffect source)
+        public override bool IsEqual(Effect otherEffect)
         {
-            condition = source.condition;
-            percentChance = source.percentChance;
-            effectType = source.effectType;
-        }
+            if (otherEffect is CancelEffect other)
+            {
+                return condition == other.condition
+                    && percentChance == other.percentChance
+                    && effectType == other.effectType;
+            }
 
-        public bool Equals(CancelEffect other)
-        {
-            return condition == other.condition
-                && percentChance == other.percentChance
-                && effectType == other.effectType;
+            return false;
         }
 
         public override void Apply(CharacterAction action, ActionState state)

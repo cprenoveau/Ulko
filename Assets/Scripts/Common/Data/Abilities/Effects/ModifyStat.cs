@@ -3,7 +3,7 @@
 namespace Ulko.Data.Abilities
 {
     [Serializable]
-    public class ModifyStat : Effect, IEquatable<ModifyStat>
+    public class ModifyStat : Effect
     {
         public override EffectType Type => EffectType.ModifyStat;
 
@@ -12,25 +12,28 @@ namespace Ulko.Data.Abilities
         public float multiply = 1f;
         public int add;
 
-        public override void Clone(object source)
+        public override Effect Clone()
         {
-            Clone(source as ModifyStat);
+            return new ModifyStat()
+            {
+                condition = condition,
+                stat = stat,
+                multiply = multiply,
+                add = add
+            };
         }
 
-        private void Clone(ModifyStat source)
+        public override bool IsEqual(Effect otherEffect)
         {
-            condition = source.condition;
-            stat = source.stat;
-            multiply = source.multiply;
-            add = source.add;
-        }
+            if (otherEffect is ModifyStat other)
+            {
+                return condition == other.condition
+                    && stat == other.stat
+                    && multiply == other.multiply
+                    && add == other.add;
+            }
 
-        public bool Equals(ModifyStat other)
-        {
-            return condition == other.condition
-                && stat == other.stat
-                && multiply == other.multiply
-                && add == other.add;
+            return false;
         }
 
         public override void Apply(CharacterAction action, ActionState state)

@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Ulko.Data.Abilities
 {
     [Serializable]
-    public class Damage : Effect, IEquatable<Damage>
+    public class Damage : Effect
     {
         public override EffectType Type => EffectType.Damage;
 
@@ -17,31 +17,34 @@ namespace Ulko.Data.Abilities
         public float percentDamage;
         public float flatDamage;
 
-        public override void Clone(object source)
+        public override Effect Clone()
         {
-            Clone(source as Damage);
+            return new Damage()
+            {
+                condition = condition,
+                config = config,
+                attackStat = attackStat,
+                defenseStat = defenseStat,
+                damageMultiplier = damageMultiplier,
+                percentDamage = percentDamage,
+                flatDamage = flatDamage
+            };
         }
 
-        private void Clone(Damage source)
+        public override bool IsEqual(Effect otherEffect)
         {
-            condition = source.condition;
-            config = source.config;
-            attackStat = source.attackStat;
-            defenseStat = source.defenseStat;
-            damageMultiplier = source.damageMultiplier;
-            percentDamage = source.percentDamage;
-            flatDamage = source.flatDamage;
-        }
+            if (otherEffect is Damage other)
+            {
+                return condition == other.condition
+                    && config == other.config
+                    && attackStat == other.attackStat
+                    && defenseStat == other.defenseStat
+                    && damageMultiplier == other.damageMultiplier
+                    && percentDamage == other.percentDamage
+                    && flatDamage == other.flatDamage;
+            }
 
-        public bool Equals(Damage other)
-        {
-            return condition == other.condition
-                && config == other.config
-                && attackStat == other.attackStat
-                && defenseStat == other.defenseStat
-                && damageMultiplier == other.damageMultiplier
-                && percentDamage == other.percentDamage
-                && flatDamage == other.flatDamage;
+            return false;
         }
 
         public override void Apply(CharacterAction action, ActionState state)

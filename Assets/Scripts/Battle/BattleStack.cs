@@ -25,7 +25,7 @@ namespace Ulko.Battle
             foreach (var node in ability.AbilityNodes)
             {
                 var characterAction = new CharacterAction(actorId, targetIds, node.effects.effects);
-                actions.Add(new BattleAction(new ActionState(characterAction, characters), node.applySequence));
+                actions.Add(new BattleAction(new ActionState(characterAction, characters), node));
             }
         }
     }
@@ -33,12 +33,12 @@ namespace Ulko.Battle
     public class BattleAction : IClonable
     {
         public ActionState state;
-        public AbilitySequence sequence;
+        public AbilityNode node;
 
-        public BattleAction(ActionState state, AbilitySequence sequence)
+        public BattleAction(ActionState state, AbilityNode node)
         {
             this.state = state;
-            this.sequence = sequence;
+            this.node = node;
         }
 
         public void Clone(object source)
@@ -49,7 +49,7 @@ namespace Ulko.Battle
         public void Clone(BattleAction source)
         {
             state = source.state.Clone();
-            sequence = source.sequence;
+            node = source.node;
         }
 
         public async Task PlaySequenceAsTask(BattleInstance instance, CancellationToken ct)
@@ -61,7 +61,7 @@ namespace Ulko.Battle
         {
             yield return PlaySequence(
                 instance.Battlefield,
-                sequence,
+                node.applySequence,
                 instance.FindCharacter(state.pendingAction.actorId),
                 instance.FindCharacters(state.pendingAction.targetIds));
         }
@@ -94,7 +94,7 @@ namespace Ulko.Battle
             {
                 var action = CurrentAction;
                 actionStack.Pop();
-                ActionState.Apply(action.state.pendingAction, actionStack.Peek().state);
+                ActionState.EvaluateOutcome(action.state.pendingAction, actionStack.Peek().state);
             }
         }
     }

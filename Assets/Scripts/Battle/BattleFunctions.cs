@@ -69,11 +69,17 @@ namespace Ulko.Battle
             {
                 battleAction.state.characters = instance.CaptureCharacterStates();
 
-                ActionState.Apply(battleAction.state.pendingAction, battleAction.state);
+                if (battleAction.node.forceValidTarget)
+                    ForceValidTarget(instance, action.SelectedAction.ability.target, battleAction.state);
 
-                await battleAction.PlaySequenceAsTask(instance, ct);
+                var oldState = battleAction.state.Clone();
+                ActionState.EvaluateOutcome(battleAction.state.pendingAction, battleAction.state);
 
-                instance.ApplyState(battleAction.state);
+                if(!oldState.Equals(battleAction.state))
+                {
+                    await battleAction.PlaySequenceAsTask(instance, ct);
+                    instance.ApplyState(battleAction.state);
+                }
 
                 await Task.Delay(1000);
 
@@ -83,6 +89,26 @@ namespace Ulko.Battle
             await Task.Delay(1000);
 
             return GetResult(instance);
+        }
+
+        private static void ForceValidTarget(BattleInstance instance, AbilityTarget abilityTarget, ActionState state)
+        {
+            var actor = state.FindCharacter(state.pendingAction.actorId);
+            var candidates = instance.GetTargetCandidates(abilityTarget, actor);
+
+            for (int i = 0; i < state.pendingAction.targetIds.Count; ++i)
+            {
+                var target = state.FindCharacter(state.pendingAction.targetIds[i]);
+
+                if (!abilityTarget.IsValidTarget(actor, target))
+                {
+                    var newTarget = instance.GetRandomSingleTarget(candidates);
+                    if (newTarget != null)
+                    {
+                        state.pendingAction.targetIds[i] = newTarget.Id;
+                    }
+                }
+            }
         }
 
         private static async Task<BattleResult> DoEnemiesTurn(BattleInstance instance, CancellationToken ct)

@@ -3,7 +3,7 @@
 namespace Ulko.Data.Abilities
 {
     [Serializable]
-    public class GiveStatus : Effect, IEquatable<GiveStatus>
+    public class GiveStatus : Effect
     {
         public override EffectType Type => EffectType.GiveStatus;
 
@@ -12,25 +12,28 @@ namespace Ulko.Data.Abilities
         public StatusAsset status;
         public int turns = 3;
 
-        public override void Clone(object source)
+        public override Effect Clone()
         {
-            Clone(source as GiveStatus);
+            return new GiveStatus()
+            {
+                condition = condition,
+                percentChance = percentChance,
+                status = status,
+                turns = turns
+            };
         }
 
-        private void Clone(GiveStatus source)
+        public override bool IsEqual(Effect otherEffect)
         {
-            condition = source.condition;
-            percentChance = source.percentChance;
-            status = source.status;
-            turns = source.turns;
-        }
+            if (otherEffect is GiveStatus other)
+            {
+                return condition == other.condition
+                    && percentChance == other.percentChance
+                    && status == other.status
+                    && turns == other.turns;
+            }
 
-        public bool Equals(GiveStatus other)
-        {
-            return condition == other.condition
-                && percentChance == other.percentChance
-                && status == other.status
-                && turns == other.turns;
+            return false;
         }
 
         public override void Apply(CharacterAction action, ActionState state)

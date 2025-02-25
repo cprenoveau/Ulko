@@ -4,28 +4,31 @@ using System.Collections.Generic;
 namespace Ulko.Data.Abilities
 {
     [Serializable]
-    public class BecomeTarget : Effect, IEquatable<BecomeTarget>
+    public class BecomeTarget : Effect
     {
         public override EffectType Type => EffectType.BecomeTarget;
 
         public TargetConditionAsset condition;
         public float percentChance = 50;
 
-        public override void Clone(object source)
+        public override Effect Clone()
         {
-            Clone(source as BecomeTarget);
+            return new BecomeTarget()
+            {
+                condition = condition,
+                percentChance = percentChance
+            };
         }
 
-        private void Clone(BecomeTarget source)
+        public override bool IsEqual(Effect otherEffect)
         {
-            condition = source.condition;
-            percentChance = source.percentChance;
-        }
+            if(otherEffect is BecomeTarget other)
+            {
+                return condition == other.condition
+                    && percentChance == other.percentChance;
+            }
 
-        public bool Equals(BecomeTarget other)
-        {
-            return condition == other.condition
-                && percentChance == other.percentChance;
+            return false;
         }
 
         public override void Apply(CharacterAction action, ActionState state)

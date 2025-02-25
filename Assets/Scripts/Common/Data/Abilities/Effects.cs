@@ -116,14 +116,33 @@ namespace Ulko.Data.Abilities
         {
             actorId = source.actorId;
             targetIds = source.targetIds.Clone();
-            effects = source.effects.Clone();
+
+            effects = new();
+            foreach(var effect in source.effects)
+            {
+                effects.Add(effect.Clone());
+            }
         }
 
         public bool Equals(CharacterAction other)
         {
             return actorId.Equals(other.actorId)
                 && targetIds.SequenceEqual(other.targetIds)
-                && effects.SequenceEqual(other.effects);
+                && EffectsAreEqual(other);
+        }
+
+        public bool EffectsAreEqual(CharacterAction other)
+        {
+            if(other.effects.Count != effects.Count)
+                return false;
+
+            for(int i = 0; i < effects.Count; ++i)
+            {
+                if (!effects[i].IsEqual(other.effects[i]))
+                    return false;
+            }
+
+            return true;
         }
     }
 
@@ -159,7 +178,7 @@ namespace Ulko.Data.Abilities
                 && characters.SequenceEqual(other.characters);
         }
 
-        public static void Apply(CharacterAction action, ActionState state)
+        public static void EvaluateOutcome(CharacterAction action, ActionState state)
         {
             foreach (var effect in action.effects)
             {
@@ -169,7 +188,7 @@ namespace Ulko.Data.Abilities
     }
 
     [Serializable]
-    public abstract class Effect : IClonable
+    public abstract class Effect
     {
         public enum EffectType
         {
@@ -182,7 +201,8 @@ namespace Ulko.Data.Abilities
 
         public abstract EffectType Type { get; }
 
-        public abstract void Clone(object source);
+        public abstract Effect Clone();
+        public abstract bool IsEqual(Effect other);
         public abstract string Description();
         public abstract void Apply(CharacterAction action, ActionState state);
     }
