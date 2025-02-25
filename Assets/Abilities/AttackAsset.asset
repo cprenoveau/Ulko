@@ -20,6 +20,7 @@ MonoBehaviour:
     targetCondition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
   nodes:
   - rid: 6273285019555594450
+  - rid: 6273285047090151498
   references:
     version: 2
     RefIds:
@@ -51,3 +52,31 @@ MonoBehaviour:
         speed: 50
         distance: 1
         ranged: 0
+    - rid: 6273285047090151498
+      type: {class: AbilityNode, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        forceValidTarget: 0
+        applySequence:
+          steps:
+          - rid: 6273285047090151499
+        effects:
+          effects:
+          - rid: 6273285047090151500
+    - rid: 6273285047090151499
+      type: {class: MoveToTarget, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        blocking: 1
+        delay: 0
+        speed: 50
+        distance: 1
+        ranged: 0
+    - rid: 6273285047090151500
+      type: {class: Damage, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
+        config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
+        attackStat: 0
+        defenseStat: 0
+        damageMultiplier: 1
+        percentDamage: 0
+        flatDamage: 0

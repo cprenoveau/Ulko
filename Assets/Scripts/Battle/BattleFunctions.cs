@@ -63,15 +63,22 @@ namespace Ulko.Battle
 
             var action = await playerAction;
 
-            ActionState.Apply(action.SelectedAction.state.pendingAction, action.SelectedAction.state);
+            Debug.Log(action.SelectedAction.actorId + " uses " + action.SelectedAction.ability.id);
 
-            await action.SelectedAction.PlaySequenceAsTask(instance, ct);
+            foreach(var battleAction in action.SelectedAction.actions)
+            {
+                ActionState.Apply(battleAction.state.pendingAction, battleAction.state);
 
-            instance.ApplyState(action.SelectedAction.state);
+                await battleAction.PlaySequenceAsTask(instance, ct);
+
+                instance.ApplyState(battleAction.state);
+
+                await Task.Delay(1000);
+
+                ResetAllPositions(instance);
+            }
 
             await Task.Delay(1000);
-
-            ResetAllPositions(instance);
 
             return GetResult(instance);
         }

@@ -10,15 +10,15 @@ namespace Ulko.Battle
         public delegate void ActionSelected();
         public event ActionSelected OnActionSelected;
 
-        public List<BattleAction> PossibleActions { get; private set; }
-        public BattleAction SelectedAction { get; private set; }
+        public List<BattleActions> PossibleActions { get; private set; }
+        public BattleActions SelectedAction { get; private set; }
 
-        public PlayerAction(List<BattleAction> possibleActions)
+        public PlayerAction(List<BattleActions> possibleActions)
         {
             PossibleActions = possibleActions;
         }
 
-        public void DeclareAction(BattleAction selectedAction)
+        public void DeclareAction(BattleActions selectedAction)
         {
             SelectedAction = selectedAction;
             OnActionSelected?.Invoke();
@@ -29,23 +29,21 @@ namespace Ulko.Battle
             return new PlayerActionAwaiter(this);
         }
 
-        public static List<BattleAction> GetPossibleActions(BattleInstance instance)
+        public static List<BattleActions> GetPossibleActions(BattleInstance instance)
         {
-            var actions = new List<BattleAction>();
-
-            var characters = instance.GetAllCharacters(BattleInstance.FetchCondition.All).Select(c => c.CaptureState()).ToList();
+            var actions = new List<BattleActions>();
+            var characters = instance.CaptureCharacterStates();
 
             foreach(var hero in instance.GetHeroes(BattleInstance.FetchCondition.AliveOnly))
             {
-                var action = hero.Attack;
-                var targetCandidates = instance.GetTargetCandidates(action.AbilityTarget, hero.CaptureState());
+                var ability = hero.Attack;
+                var targetCandidates = instance.GetTargetCandidates(ability.AbilityTarget, hero.CaptureState());
 
-                if (action.AbilityTarget.targetSize == AbilityTarget.TargetSize.One)
+                if (ability.AbilityTarget.targetSize == AbilityTarget.TargetSize.One)
                 {
                     foreach (var target in targetCandidates)
                     {
-                        var characterAction = new CharacterAction(hero.Id, new List<string> { target.Id }, action.AbilityNodes.First().effects.effects);
-                        actions.Add(new BattleAction(new ActionState(characterAction, characters), action.AbilityNodes.First().applySequence));
+                        actions.Add(new BattleActions(ability, hero.Id, new List<string> { target.Id }, characters));
                     }
                 }
                 else
@@ -55,14 +53,12 @@ namespace Ulko.Battle
 
                     if (enemies.Count > 0)
                     {
-                        var characterAction = new CharacterAction(hero.Id, enemies.Select(e => e.Id).ToList(), action.AbilityNodes.First().effects.effects);
-                        actions.Add(new BattleAction(new ActionState(characterAction, characters), action.AbilityNodes.First().applySequence));
+                        actions.Add(new BattleActions(ability, hero.Id, enemies.Select(e => e.Id).ToList(), characters));
                     }
 
                     if (heroes.Count > 0)
                     {
-                        var characterAction = new CharacterAction(hero.Id, heroes.Select(e => e.Id).ToList(), action.AbilityNodes.First().effects.effects);
-                        actions.Add(new BattleAction(new ActionState(characterAction, characters), action.AbilityNodes.First().applySequence));
+                        actions.Add(new BattleActions(ability, hero.Id, heroes.Select(e => e.Id).ToList(), characters));
                     }
                 }
             }

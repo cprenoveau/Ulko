@@ -9,6 +9,25 @@ using HotChocolate.Utils;
 
 namespace Ulko.Battle
 {
+    public class BattleActions
+    {
+        public AbilityAsset ability;
+        public string actorId;
+        public List<BattleAction> actions = new();
+
+        public BattleActions(AbilityAsset ability, string actorId, List<string> targetIds, List<CharacterState> characters)
+        {
+            this.ability = ability;
+            this.actorId = actorId;
+
+            foreach (var node in ability.AbilityNodes)
+            {
+                var characterAction = new CharacterAction(actorId, targetIds, node.effects.effects);
+                actions.Add(new BattleAction(new ActionState(characterAction, characters), node.applySequence));
+            }
+        }
+    }
+
     public class BattleAction : IClonable
     {
         public ActionState state;

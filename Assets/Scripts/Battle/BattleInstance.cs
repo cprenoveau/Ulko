@@ -242,6 +242,11 @@ namespace Ulko.Battle
             }
         }
 
+        public List<CharacterState> CaptureCharacterStates()
+        {
+            return GetAllCharacters(FetchCondition.All).Select(c => c.CaptureState()).ToList();
+        }
+
         public Character FindCharacter(string id)
         {
             var hero = Heroes.FirstOrDefault(h => h.Id == id);
