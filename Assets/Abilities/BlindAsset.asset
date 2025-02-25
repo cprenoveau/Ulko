@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5aec3336948e648822d18572c5255d, type: 3}
+  m_Name: BlindAsset
+  m_EditorClassIdentifier: 
+  id: blind
+  customDescKey: 
+  icon: {fileID: 0}
+  targetType: 1
+  applyType: 1
+  applyInterval: 0
+  priority: 0
+  vfxOnHead: {fileID: 0}
+  condition:
+    invert: 0
+    union: 0
+    conditions:
+    - rid: 6273285047090151502
+  onGainSequence:
+    steps: []
+  node:
+    forceValidTarget: 0
+    applySequence:
+      steps: []
+    effects:
+      effects:
+      - rid: 6273285047090151501
+  references:
+    version: 2
+    RefIds:
+    - rid: 6273285047090151501
+      type: {class: ModifyStat, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        condition: {fileID: 0}
+        stat: 0
+        multiply: 0.5
+        add: 0
+    - rid: 6273285047090151502
+      type: {class: ActorIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        invert: 0
+        actorType: 0

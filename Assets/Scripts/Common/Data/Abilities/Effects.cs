@@ -132,7 +132,8 @@ namespace Ulko.Data.Abilities
         {
             Damage,
             BecomeTarget,
-            CancelEffect
+            CancelEffect,
+            ModifyStat
         }
 
         public abstract EffectType Type { get; }

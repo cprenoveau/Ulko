@@ -48,7 +48,7 @@ namespace Ulko.Data.Abilities
         public Union union;
 
         [SerializeReference]
-        public List<TargetCondition> conditions = new List<TargetCondition>();
+        public List<TargetCondition> conditions = new();
 
         public bool HasCondition(Type conditionType)
         {
