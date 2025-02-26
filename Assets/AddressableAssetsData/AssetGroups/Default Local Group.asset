@@ -96,6 +96,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9703167c1ba53046b04efed5c8a594b
+    m_Address: Assets/Abilities/DefendAsset.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - status
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf044d85944b5834fb26c80f107e75d0
     m_Address: Assets/UI/Menus/Battle/LevelUpScreen.prefab
     m_ReadOnly: 0

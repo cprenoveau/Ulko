@@ -32,9 +32,9 @@ namespace Ulko.Data.Abilities
         public AbilitySequence applySequence;
         public AbilityEffects effects;
 
-        public bool HasEffectOfType(Type effectType)
+        public bool HasEffectOfType(Effect.EffectType effectType)
         {
-            return effects.effects.Find(e => e.GetType() == effectType) != null;
+            return effects.effects.Find(e => e.Type == effectType) != null;
         }
 
         public string Description()

@@ -54,18 +54,26 @@ namespace Ulko.Battle
             state = source.state.Clone();
         }
 
-        public async Task PlaySequenceAsTask(BattleInstance instance, CancellationToken ct)
+        public static async Task PlaySequenceAsTask(BattleInstance instance, BattleAction action, CancellationToken ct)
         {
-            await instance.Battlefield.StartCoroutineAsync(PlaySequence(instance), ct);
+            await PlaySequenceAsTask(instance, action.node.applySequence, action.state.pendingAction.actorId, action.state.pendingAction.targetIds, ct);
         }
 
-        public IEnumerator PlaySequence(BattleInstance instance)
+        public static async Task PlaySequenceAsTask(BattleInstance instance, AbilitySequence sequence, string actorId, List<string> targetIds, CancellationToken ct)
+        {
+            if (ct.IsCancellationRequested)
+                return;
+
+            await instance.Battlefield.StartCoroutineAsync(PlaySequence(instance, sequence, actorId, targetIds), ct);
+        }
+
+        public static IEnumerator PlaySequence(BattleInstance instance, AbilitySequence sequence, string actorId, List<string> targetIds)
         {
             yield return PlaySequence(
                 instance.Battlefield,
-                node.applySequence,
-                instance.FindCharacter(state.pendingAction.actorId),
-                instance.FindCharacters(state.pendingAction.targetIds));
+                sequence,
+                instance.FindCharacter(actorId),
+                instance.FindCharacters(targetIds));
         }
 
         public static IEnumerator PlaySequence(MonoBehaviour holder, AbilitySequence sequence, Character actor, List<Character> targets)
@@ -92,14 +100,17 @@ namespace Ulko.Battle
 
         public async Task ApplyOutcome(BattleInstance instance, CancellationToken ct)
         {
-            CollapseStack();
+            if (ct.IsCancellationRequested)
+                return;
+
+            await CollapseStack(instance, ct);
 
             var originalState = CurrentAction.state.Clone();
             ActionState.Apply(CurrentAction.state.pendingAction, CurrentAction.state);
 
             if (!originalState.Equals(CurrentAction.state))
             {
-                await CurrentAction.PlaySequenceAsTask(instance, ct);
+                await BattleAction.PlaySequenceAsTask(instance, CurrentAction, ct);
 
                 if (ct.IsCancellationRequested)
                     return;
@@ -108,17 +119,29 @@ namespace Ulko.Battle
             }
         }
 
-        public void CollapseStack()
+        public async Task CollapseStack(BattleInstance instance, CancellationToken ct)
         {
+            if (ct.IsCancellationRequested)
+                return;
+
             while (actionStack.Count > 1)
             {
                 var action = CurrentAction;
                 actionStack.Pop();
 
                 //propagate state down
-                actionStack.Peek().state.characters = action.state.characters;
+                CurrentAction.state.characters = action.state.characters;
 
-                ActionState.Apply(action.state.pendingAction, actionStack.Peek().state);
+                var originalState = CurrentAction.state.Clone();
+                ActionState.Apply(action.state.pendingAction, CurrentAction.state);
+
+                if (!originalState.Equals(CurrentAction.state))
+                {
+                    await BattleAction.PlaySequenceAsTask(instance, action.node.applySequence, action.state.pendingAction.actorId, originalState.pendingAction.targetIds, ct);
+
+                    if (ct.IsCancellationRequested)
+                        return;
+                }
             }
         }
     }

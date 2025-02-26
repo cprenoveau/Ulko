@@ -70,8 +70,8 @@ namespace Ulko.Battle
                     ForceValidTarget(instance, action.SelectedAction.ability.target, battleAction.state);
 
                 var battleStack = new BattleStack(battleAction);
-                ApplyStatusOnAction(battleStack);
 
+                await ApplyStatusOnAction(battleStack, instance, ct);
                 await battleStack.ApplyOutcome(instance, ct);
 
                 await Task.Delay(1000, ct);
@@ -118,8 +118,8 @@ namespace Ulko.Battle
                     ForceValidTarget(instance, action.ability.target, battleAction.state);
 
                 var battleStack = new BattleStack(battleAction);
-                ApplyStatusOnAction(battleStack);
 
+                await ApplyStatusOnAction(battleStack, instance, ct);
                 await battleStack.ApplyOutcome(instance, ct);
 
                 await Task.Delay(1000, ct);
@@ -184,7 +184,7 @@ namespace Ulko.Battle
             }
         }
 
-        private static void ApplyStatusOnAction(BattleStack battleStack)
+        private static async Task ApplyStatusOnAction(BattleStack battleStack, BattleInstance instance, CancellationToken ct)
         {
             Dictionary<string, HashSet<StatusAsset>> usedStatus = new();
 
@@ -195,10 +195,11 @@ namespace Ulko.Battle
 
                 foreach (var character in battleStack.CurrentAction.state.characters)
                 {
-                    ApplyStatusOnAction(battleStack, character, ref usedStatus);
+                    if(character.hp > 0)
+                        ApplyStatusOnAction(battleStack, character, ref usedStatus);
                 }
 
-                battleStack.CollapseStack();
+                await battleStack.CollapseStack(instance, ct);
             }
             while (!originalState.Equals(battleStack.CurrentAction.state));
         }
@@ -209,6 +210,7 @@ namespace Ulko.Battle
             {
                 if (statusState.statusAsset.applyType == StatusAsset.ApplyType.OnAction
                     && (!usedStatus.ContainsKey(actorState.id) || !usedStatus[actorState.id].Contains(statusState.statusAsset))
+                    && (!statusState.statusAsset.node.HasEffectOfType(Effect.EffectType.BecomeTarget) || !ContainsEffectType(Effect.EffectType.BecomeTarget, ref usedStatus))
                     && statusState.statusAsset.condition.IsTrue(actorState, battleStack.CurrentAction.state))
                 {
                     Debug.Log(actorState.id + " reacts with " + statusState.statusAsset.id);
@@ -227,6 +229,17 @@ namespace Ulko.Battle
                     usedStatus[actorState.id].Add(statusState.statusAsset);
                 }
             }
+        }
+
+        private static bool ContainsEffectType(Effect.EffectType effectType, ref Dictionary<string, HashSet<StatusAsset>> usedStatus)
+        {
+            foreach(var status in usedStatus.Values)
+            {
+                if (status.FirstOrDefault(s => s.node.HasEffectOfType(effectType)) != null)
+                    return true;
+            }
+
+            return false;
         }
 
         private static CharacterAction CreateActionFromStatus(BattleAction battleAction, CharacterState actorState, StatusState statusState)

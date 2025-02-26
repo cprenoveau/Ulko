@@ -1,4 +1,5 @@
-﻿using Ulko.Data.Abilities;
+﻿using System.Collections.Generic;
+using Ulko.Data.Abilities;
 using UnityEngine;
 
 namespace Ulko.Data.Characters
@@ -7,5 +8,6 @@ namespace Ulko.Data.Characters
     {
         public string id;
         public AbilityAsset attack;
+        public List<StatusAsset> status = new();
     }
 }

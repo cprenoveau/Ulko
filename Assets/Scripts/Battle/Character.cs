@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Ulko.Data.Abilities;
 using Ulko.Data.Characters;
-using Unity.IO.Archive;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Linq;
@@ -107,6 +106,11 @@ namespace Ulko.Battle
             CharacterInstance.transform.localPosition = Vector3.zero;
 
             CharacterInstance.Stand(FacingDirection);
+
+            foreach(var status in Asset.status)
+            {
+                StatusState.Add(new StatusState(status, 10000, 0));
+            }
         }
 
         public string Description()

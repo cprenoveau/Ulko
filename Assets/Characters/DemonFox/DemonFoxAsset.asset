@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: tough
   attack: {fileID: 11400000, guid: 532594474f233594690389367259c5a9, type: 2}
+  status:
+  - {fileID: 11400000, guid: b9703167c1ba53046b04efed5c8a594b, type: 2}
   level: 1
   prefab:
     m_AssetGUID: 121a66534dce7b04e8ec9062cdbc77b6
