@@ -15,7 +15,7 @@ MonoBehaviour:
   id: blind
   customDescKey: 
   icon: {fileID: 0}
-  targetType: 1
+  targetType: 2
   applyType: 1
   applyInterval: 0
   priority: 0
@@ -24,7 +24,8 @@ MonoBehaviour:
     invert: 0
     union: 0
     conditions:
-    - rid: 6273285047090151502
+    - rid: 6273285063376109643
+    - rid: 6273285063376109644
   onGainSequence:
     steps: []
   node:
@@ -44,8 +45,26 @@ MonoBehaviour:
         stat: 0
         multiply: 0.5
         add: 0
-    - rid: 6273285047090151502
+    - rid: 6273285063376109643
+      type: {class: EffectIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        invert: 0
+        effectType: 0
+    - rid: 6273285063376109644
+      type: {class: CompositeStatusCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        invert: 0
+        union: 1
+        conditions:
+        - rid: 6273285063376109645
+        - rid: 6273285063376109646
+    - rid: 6273285063376109645
       type: {class: ActorIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
         invert: 0
         actorType: 0
+    - rid: 6273285063376109646
+      type: {class: TargetIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        invert: 0
+        targetType: 0

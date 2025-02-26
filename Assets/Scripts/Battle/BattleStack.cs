@@ -25,22 +25,20 @@ namespace Ulko.Battle
             foreach (var node in ability.AbilityNodes)
             {
                 var characterAction = new CharacterAction(actorId, targetIds, node.effects.effects);
-                actions.Add(new BattleAction(ability, node, new ActionState(characterAction, characters)));
+                actions.Add(new BattleAction(node, new ActionState(characterAction, characters)));
             }
         }
     }
 
     public class BattleAction : IClonable
     {
-        public AbilityAsset ability;
         public AbilityNode node;
         public ActionState state;
 
         public BattleAction() { }
 
-        public BattleAction(AbilityAsset ability, AbilityNode node, ActionState state)
+        public BattleAction(AbilityNode node, ActionState state)
         {
-            this.ability = ability;
             this.node = node;
             this.state = state;
         }
@@ -52,7 +50,6 @@ namespace Ulko.Battle
 
         public void Clone(BattleAction source)
         {
-            ability = source.ability;
             node = source.node;
             state = source.state.Clone();
         }
@@ -98,7 +95,7 @@ namespace Ulko.Battle
             CollapseStack();
 
             var originalState = CurrentAction.state.Clone();
-            ActionState.EvaluateOutcome(CurrentAction.state.pendingAction, CurrentAction.state);
+            ActionState.Apply(CurrentAction.state.pendingAction, CurrentAction.state);
 
             if (!originalState.Equals(CurrentAction.state))
             {
@@ -121,7 +118,7 @@ namespace Ulko.Battle
                 //propagate state down
                 actionStack.Peek().state.characters = action.state.characters;
 
-                ActionState.EvaluateOutcome(action.state.pendingAction, actionStack.Peek().state);
+                ActionState.Apply(action.state.pendingAction, actionStack.Peek().state);
             }
         }
     }

@@ -178,7 +178,7 @@ namespace Ulko.Data.Abilities
                 && characters.SequenceEqual(other.characters);
         }
 
-        public static void EvaluateOutcome(CharacterAction action, ActionState state)
+        public static void Apply(CharacterAction action, ActionState state)
         {
             foreach (var effect in action.effects)
             {

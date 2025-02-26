@@ -33,7 +33,6 @@ MonoBehaviour:
         effects:
           effects:
           - rid: 6273285019555594451
-          - rid: 6273285047090151503
     - rid: 6273285019555594451
       type: {class: Damage, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
@@ -52,10 +51,3 @@ MonoBehaviour:
         speed: 50
         distance: 1
         ranged: 0
-    - rid: 6273285047090151503
-      type: {class: GiveStatus, ns: Ulko.Data.Abilities, asm: Ulko.Common}
-      data:
-        condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
-        percentChance: 100
-        status: {fileID: 11400000, guid: 31427f9455011cd4c9cf67a29e080d78, type: 2}
-        turns: 3

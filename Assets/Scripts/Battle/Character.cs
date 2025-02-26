@@ -133,10 +133,17 @@ namespace Ulko.Battle
         private readonly Dictionary<string, CancellationTokenSource> statusCosmeticsTasks = new();
         private void UpdateStatusCosmetics()
         {
+            List<string> toRemove = new();
+
             foreach (string statusId in statusCosmeticsTasks.Keys)
             {
                 if (StatusState.FirstOrDefault(s => s.statusAsset.id == statusId) == null)
-                    RemoveStatusCosmetics(statusId);
+                    toRemove.Add(statusId);
+            }
+
+            foreach(string statusId in toRemove)
+            {
+                RemoveStatusCosmetics(statusId);
             }
 
             foreach (var status in StatusState)

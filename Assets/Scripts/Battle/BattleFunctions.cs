@@ -67,9 +67,11 @@ namespace Ulko.Battle
                 battleAction.state.characters = instance.CaptureCharacterStates();
 
                 if (battleAction.node.forceValidTarget)
-                    ForceValidTarget(instance, battleAction.ability.target, battleAction.state);
+                    ForceValidTarget(instance, action.SelectedAction.ability.target, battleAction.state);
 
                 var battleStack = new BattleStack(battleAction);
+                ApplyStatusOnAction(battleStack);
+
                 await battleStack.ApplyOutcome(instance, ct);
 
                 await Task.Delay(1000, ct);
@@ -113,9 +115,11 @@ namespace Ulko.Battle
                 battleAction.state.characters = instance.CaptureCharacterStates();
 
                 if (battleAction.node.forceValidTarget)
-                    ForceValidTarget(instance, battleAction.ability.target, battleAction.state);
+                    ForceValidTarget(instance, action.ability.target, battleAction.state);
 
                 var battleStack = new BattleStack(battleAction);
+                ApplyStatusOnAction(battleStack);
+
                 await battleStack.ApplyOutcome(instance, ct);
 
                 await Task.Delay(1000, ct);
@@ -178,6 +182,72 @@ namespace Ulko.Battle
                     }
                 }
             }
+        }
+
+        private static void ApplyStatusOnAction(BattleStack battleStack)
+        {
+            Dictionary<string, HashSet<StatusAsset>> usedStatus = new();
+
+            ActionState originalState;
+            do
+            {
+                originalState = battleStack.CurrentAction.state.Clone();
+
+                foreach (var character in battleStack.CurrentAction.state.characters)
+                {
+                    ApplyStatusOnAction(battleStack, character, ref usedStatus);
+                }
+
+                battleStack.CollapseStack();
+            }
+            while (!originalState.Equals(battleStack.CurrentAction.state));
+        }
+
+        private static void ApplyStatusOnAction(BattleStack battleStack, CharacterState actorState, ref Dictionary<string, HashSet<StatusAsset>> usedStatus)
+        {
+            foreach (var statusState in actorState.statuses)
+            {
+                if (statusState.statusAsset.applyType == StatusAsset.ApplyType.OnAction
+                    && (!usedStatus.ContainsKey(actorState.id) || !usedStatus[actorState.id].Contains(statusState.statusAsset))
+                    && statusState.statusAsset.condition.IsTrue(actorState, battleStack.CurrentAction.state))
+                {
+                    Debug.Log(actorState.id + " reacts with " + statusState.statusAsset.id);
+
+                    var characterAction = CreateActionFromStatus(battleStack.CurrentAction, actorState, statusState);
+
+                    var battleAction = new BattleAction(
+                        statusState.statusAsset.node,
+                        new ActionState(characterAction, battleStack.CurrentAction.state.characters));
+
+                    battleStack.Push(battleAction);
+
+                    if (!usedStatus.ContainsKey(actorState.id))
+                        usedStatus.Add(actorState.id, new HashSet<StatusAsset>());
+
+                    usedStatus[actorState.id].Add(statusState.statusAsset);
+                }
+            }
+        }
+
+        private static CharacterAction CreateActionFromStatus(BattleAction battleAction, CharacterState actorState, StatusState statusState)
+        {
+            List<string> targetIds = new();
+            switch (statusState.statusAsset.targetType)
+            {
+                case StatusAsset.TargetType.ActionTarget:
+                    targetIds = battleAction.state.pendingAction.targetIds;
+                    break;
+
+                case StatusAsset.TargetType.ActionActor:
+                    targetIds = new List<string> { battleAction.state.pendingAction.actorId };
+                    break;
+
+                case StatusAsset.TargetType.Wielder:
+                    targetIds = new List<string> { actorState.id };
+                    break;
+            }
+
+            return new CharacterAction(actorState.id, targetIds, statusState.statusAsset.node.effects.effects);
         }
     }
 }
