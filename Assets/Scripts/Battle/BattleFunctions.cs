@@ -1,7 +1,4 @@
-﻿using HotChocolate.Utils;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -81,39 +78,69 @@ namespace Ulko.Battle
                     instance.ApplyState(battleAction.state);
                 }
 
-                await Task.Delay(1000);
+                await Task.Delay(1000, ct);
+
+                if (ct.IsCancellationRequested)
+                    return BattleResult.None;
 
                 ResetAllPositions(instance);
+
+                var result = GetResult(instance);
+                if (result != BattleResult.None)
+                    return result;
             }
 
-            await Task.Delay(1000);
+            await Task.Delay(1000, ct);
 
-            return GetResult(instance);
-        }
-
-        private static void ForceValidTarget(BattleInstance instance, AbilityTarget abilityTarget, ActionState state)
-        {
-            var actor = state.FindCharacter(state.pendingAction.actorId);
-            var candidates = instance.GetTargetCandidates(abilityTarget, actor);
-
-            for (int i = 0; i < state.pendingAction.targetIds.Count; ++i)
-            {
-                var target = state.FindCharacter(state.pendingAction.targetIds[i]);
-
-                if (!abilityTarget.IsValidTarget(actor, target))
-                {
-                    var newTarget = instance.GetRandomSingleTarget(candidates);
-                    if (newTarget != null)
-                    {
-                        state.pendingAction.targetIds[i] = newTarget.Id;
-                    }
-                }
-            }
+            return BattleResult.None;
         }
 
         private static async Task<BattleResult> DoEnemiesTurn(BattleInstance instance, CancellationToken ct)
         {
+            foreach(var enemy in instance.GetEnemies(BattleInstance.FetchCondition.AliveOnly))
+            {
+                var result = await DoEnemyTurn(enemy, instance, ct);
+                if (result != BattleResult.None)
+                    return result;
+            }
+
             return BattleResult.None;
+        }
+
+        private static async Task<BattleResult> DoEnemyTurn(Character enemy, BattleInstance instance, CancellationToken ct)
+        {
+            var possibleActions = instance.GetPossibleActions(new List<Character> { enemy });
+            var action = possibleActions.FirstOrDefault();
+
+            Debug.Log(enemy.Id + " uses " + action.ability.id);
+
+            foreach (var battleAction in action.actions)
+            {
+                battleAction.state.characters = instance.CaptureCharacterStates();
+
+                if (battleAction.node.forceValidTarget)
+                    ForceValidTarget(instance, action.ability.target, battleAction.state);
+
+                var oldState = battleAction.state.Clone();
+                ActionState.EvaluateOutcome(battleAction.state.pendingAction, battleAction.state);
+
+                if (!oldState.Equals(battleAction.state))
+                {
+                    await battleAction.PlaySequenceAsTask(instance, ct);
+                    instance.ApplyState(battleAction.state);
+                }
+
+                await Task.Delay(1000, ct);
+
+                if (ct.IsCancellationRequested)
+                    return BattleResult.None;
+
+                ResetAllPositions(instance);
+            }
+
+            await Task.Delay(1000, ct);
+
+            return GetResult(instance);
         }
 
         public static BattleResult GetResult(BattleInstance instance)
@@ -142,6 +169,26 @@ namespace Ulko.Battle
             foreach (var enemy in instance.Enemies)
             {
                 enemy.ResetPosition();
+            }
+        }
+
+        private static void ForceValidTarget(BattleInstance instance, AbilityTarget abilityTarget, ActionState state)
+        {
+            var actor = state.FindCharacter(state.pendingAction.actorId);
+            var candidates = instance.GetTargetCandidates(abilityTarget, actor);
+
+            for (int i = 0; i < state.pendingAction.targetIds.Count; ++i)
+            {
+                var target = state.FindCharacter(state.pendingAction.targetIds[i]);
+
+                if (!abilityTarget.IsValidTarget(actor, target))
+                {
+                    var newTarget = instance.GetRandomSingleTarget(candidates);
+                    if (newTarget != null)
+                    {
+                        state.pendingAction.targetIds[i] = newTarget.Id;
+                    }
+                }
             }
         }
     }

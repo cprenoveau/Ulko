@@ -393,5 +393,42 @@ namespace Ulko.Battle
             var index = UnityEngine.Random.Range(0, candidates.Count);
             return candidates[index];
         }
+
+        public List<BattleActions> GetPossibleActions(IEnumerable<Character> actors)
+        {
+            var actions = new List<BattleActions>();
+            var characters = CaptureCharacterStates();
+
+            foreach (var actor in actors)
+            {
+                var ability = actor.Attack;
+                var targetCandidates = GetTargetCandidates(ability.AbilityTarget, actor.CaptureState());
+
+                if (ability.AbilityTarget.targetSize == AbilityTarget.TargetSize.One)
+                {
+                    foreach (var target in targetCandidates)
+                    {
+                        actions.Add(new BattleActions(ability, actor.Id, new List<string> { target.Id }, characters));
+                    }
+                }
+                else
+                {
+                    var enemies = targetCandidates.Where(c => c.CharacterSide == CharacterSide.Enemies).ToList();
+                    var heroes = targetCandidates.Where(c => c.CharacterSide == CharacterSide.Heroes).ToList();
+
+                    if (enemies.Count > 0)
+                    {
+                        actions.Add(new BattleActions(ability, actor.Id, enemies.Select(e => e.Id).ToList(), characters));
+                    }
+
+                    if (heroes.Count > 0)
+                    {
+                        actions.Add(new BattleActions(ability, actor.Id, heroes.Select(e => e.Id).ToList(), characters));
+                    }
+                }
+            }
+
+            return actions;
+        }
     }
 }
