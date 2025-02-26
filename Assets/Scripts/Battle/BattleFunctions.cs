@@ -67,16 +67,10 @@ namespace Ulko.Battle
                 battleAction.state.characters = instance.CaptureCharacterStates();
 
                 if (battleAction.node.forceValidTarget)
-                    ForceValidTarget(instance, action.SelectedAction.ability.target, battleAction.state);
+                    ForceValidTarget(instance, battleAction.ability.target, battleAction.state);
 
-                var oldState = battleAction.state.Clone();
-                ActionState.EvaluateOutcome(battleAction.state.pendingAction, battleAction.state);
-
-                if(!oldState.Equals(battleAction.state))
-                {
-                    await battleAction.PlaySequenceAsTask(instance, ct);
-                    instance.ApplyState(battleAction.state);
-                }
+                var battleStack = new BattleStack(battleAction);
+                await battleStack.ApplyOutcome(instance, ct);
 
                 await Task.Delay(1000, ct);
 
@@ -119,16 +113,10 @@ namespace Ulko.Battle
                 battleAction.state.characters = instance.CaptureCharacterStates();
 
                 if (battleAction.node.forceValidTarget)
-                    ForceValidTarget(instance, action.ability.target, battleAction.state);
+                    ForceValidTarget(instance, battleAction.ability.target, battleAction.state);
 
-                var oldState = battleAction.state.Clone();
-                ActionState.EvaluateOutcome(battleAction.state.pendingAction, battleAction.state);
-
-                if (!oldState.Equals(battleAction.state))
-                {
-                    await battleAction.PlaySequenceAsTask(instance, ct);
-                    instance.ApplyState(battleAction.state);
-                }
+                var battleStack = new BattleStack(battleAction);
+                await battleStack.ApplyOutcome(instance, ct);
 
                 await Task.Delay(1000, ct);
 

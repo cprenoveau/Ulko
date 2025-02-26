@@ -25,20 +25,24 @@ namespace Ulko.Battle
             foreach (var node in ability.AbilityNodes)
             {
                 var characterAction = new CharacterAction(actorId, targetIds, node.effects.effects);
-                actions.Add(new BattleAction(new ActionState(characterAction, characters), node));
+                actions.Add(new BattleAction(ability, node, new ActionState(characterAction, characters)));
             }
         }
     }
 
     public class BattleAction : IClonable
     {
-        public ActionState state;
+        public AbilityAsset ability;
         public AbilityNode node;
+        public ActionState state;
 
-        public BattleAction(ActionState state, AbilityNode node)
+        public BattleAction() { }
+
+        public BattleAction(AbilityAsset ability, AbilityNode node, ActionState state)
         {
-            this.state = state;
+            this.ability = ability;
             this.node = node;
+            this.state = state;
         }
 
         public void Clone(object source)
@@ -48,8 +52,9 @@ namespace Ulko.Battle
 
         public void Clone(BattleAction source)
         {
-            state = source.state.Clone();
+            ability = source.ability;
             node = source.node;
+            state = source.state.Clone();
         }
 
         public async Task PlaySequenceAsTask(BattleInstance instance, CancellationToken ct)
@@ -88,12 +93,34 @@ namespace Ulko.Battle
             actionStack.Push(action.Clone());
         }
 
-        public void Evaluate()
+        public async Task ApplyOutcome(BattleInstance instance, CancellationToken ct)
+        {
+            CollapseStack();
+
+            var originalState = CurrentAction.state.Clone();
+            ActionState.EvaluateOutcome(CurrentAction.state.pendingAction, CurrentAction.state);
+
+            if (!originalState.Equals(CurrentAction.state))
+            {
+                await CurrentAction.PlaySequenceAsTask(instance, ct);
+
+                if (ct.IsCancellationRequested)
+                    return;
+
+                instance.ApplyState(CurrentAction.state);
+            }
+        }
+
+        public void CollapseStack()
         {
             while (actionStack.Count > 1)
             {
                 var action = CurrentAction;
                 actionStack.Pop();
+
+                //propagate state down
+                actionStack.Peek().state.characters = action.state.characters;
+
                 ActionState.EvaluateOutcome(action.state.pendingAction, actionStack.Peek().state);
             }
         }
