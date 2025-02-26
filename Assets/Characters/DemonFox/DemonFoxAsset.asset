@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DemonFoxAsset
   m_EditorClassIdentifier: 
   id: tough
-  attack: {fileID: 11400000, guid: 6bf01be8e184b2141b73e83492911e32, type: 2}
+  attack: {fileID: 11400000, guid: 532594474f233594690389367259c5a9, type: 2}
   level: 1
   prefab:
     m_AssetGUID: 121a66534dce7b04e8ec9062cdbc77b6
