@@ -137,7 +137,7 @@ namespace Ulko.Battle
 
                 if (!originalState.Equals(CurrentAction.state))
                 {
-                    await BattleAction.PlaySequenceAsTask(instance, action.node.applySequence, action.state.pendingAction.actorId, originalState.pendingAction.targetIds, ct);
+                    await BattleAction.PlaySequenceAsTask(instance, action, ct);
 
                     if (ct.IsCancellationRequested)
                         return;

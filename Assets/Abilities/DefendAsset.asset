@@ -15,7 +15,7 @@ MonoBehaviour:
   id: defend
   customDescKey: 
   icon: {fileID: 0}
-  targetType: 2
+  targetType: 0
   applyType: 1
   applyInterval: 0
   priority: 0
