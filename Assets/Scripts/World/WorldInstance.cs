@@ -230,18 +230,18 @@ namespace Ulko.World
         }
 
         private Vector2? lastDirection;
-        private void SetPlayerPosition(Vector3 position)
+        private void SetPlayerPosition(Vector3 position, Vector2? standDirection)
         {
             if (Player.transform.position == position)
                 return;
 
             Player.Teleport(position);
-            Player.CharacterInstance.Stand(lastDirection ?? Vector2.zero);
+            Player.CharacterInstance.Stand(standDirection ?? lastDirection ?? Vector2.zero);
 
             foreach (var follower in PlayerFollowers)
             {
                 follower.transform.position = position;
-                follower.CharacterInstance.Stand(lastDirection ?? Vector2.zero);
+                follower.CharacterInstance.Stand(standDirection ?? lastDirection ?? Vector2.zero);
             }
         }
 
@@ -278,7 +278,7 @@ namespace Ulko.World
             hideScreenshot?.Invoke();
         }
 
-        public void Teleport(Vector3 pos, Area area)
+        public void Teleport(Vector3 pos, Area area, Vector2? standDirection)
         {
             showScreenshot?.Invoke();
 
@@ -287,7 +287,7 @@ namespace Ulko.World
                 ExitArea();
             }
 
-            SetPlayerPosition(pos);
+            SetPlayerPosition(pos, standDirection);
 
             if (CurrentArea == null || CurrentArea.areaTag.id != area.areaTag.id)
             {

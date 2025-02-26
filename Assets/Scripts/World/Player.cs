@@ -76,7 +76,7 @@ namespace Ulko.World
             triggerLockFrames++;
             transform.position = position;
 
-            PlayerProfile.SetPosition(transform.position);
+            PlayerProfile.SetPosition(transform.position, CharacterInstance.CurrentDirection);
             ResetSteps();
             Trace.Clear();
         }
@@ -101,7 +101,7 @@ namespace Ulko.World
             distanceWalked += (lastPosition - transform.position).magnitude;
             lastPosition = transform.position;
 
-            PlayerProfile.SetPosition(transform.position);
+            PlayerProfile.SetPosition(transform.position, CharacterInstance.CurrentDirection);
 
             if (Trace.Count == 0 || Trace.Last() != transform.position)
             {

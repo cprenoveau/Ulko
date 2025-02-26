@@ -250,11 +250,13 @@ namespace Ulko
 
         public static Location CurrentLocation => loadedGame.location.Clone();
 
-        public static void SetPosition(Vector3 pos)
+        public static void SetPosition(Vector3 pos, Vector2 standDirection)
         {
             loadedGame.location.x = pos.x;
             loadedGame.location.y = pos.y;
             loadedGame.location.z = pos.z;
+            loadedGame.location.standX = standDirection.x;
+            loadedGame.location.standY = standDirection.y;
         }
 
         public static void SetArea(string area)

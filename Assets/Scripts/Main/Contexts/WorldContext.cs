@@ -59,7 +59,7 @@ namespace Ulko
             var loc = CurrentLocation();
             var area = CurrentArea();
 
-            worldInstance.Teleport(new Vector3(loc.x, loc.y, loc.z), area);
+            worldInstance.Teleport(new Vector3(loc.x, loc.y, loc.z), area, new Vector2(loc.standX, loc.standY));
 
             uiRoot.menuStack.Push(hud.asset, hud.id, new WorldHudData { gameState = Data, worldInstance = worldInstance });
             uiRoot.FadeIn(2f);
@@ -161,6 +161,8 @@ namespace Ulko
                     x = spawnPoint.transform.position.x,
                     y = spawnPoint.transform.position.y,
                     z = spawnPoint.transform.position.z,
+                    standX = spawnPoint.standDirection.x,
+                    standY = spawnPoint.standDirection.y,
                     area = area.areaTag.id
                 };
             }

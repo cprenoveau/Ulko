@@ -5,6 +5,7 @@ namespace Ulko.World
     public class SpawnPoint : MonoBehaviour
     {
         public Data.SpawnPointTag spawnPointTag;
+        public Vector2 standDirection = Vector2.zero;
 
         private void OnDrawGizmos()
         {

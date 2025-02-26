@@ -18,7 +18,7 @@ namespace Ulko.World
         public Data.AreaTag toArea;
         public string toTeleportId = "entrance";
 
-        public delegate void TeleportDelegate(Vector3 pos, Area area);
+        public delegate void TeleportDelegate(Vector3 pos, Area area, Vector2? standDirection);
         public static event TeleportDelegate OnTrigger;
 
         public override void OnEnter(Player player)
@@ -28,7 +28,7 @@ namespace Ulko.World
                 var area = Area.FindArea(toArea.id);
                 var teleport = area.FindTeleport(toTeleportId);
 
-                OnTrigger?.Invoke(teleport.transform.position, area);
+                OnTrigger?.Invoke(teleport.transform.position, area, null);
             }
         }
 
@@ -37,7 +37,7 @@ namespace Ulko.World
             if (exitSide != Side.Any && OnExitSide(player))
             {
                 var area = Area.FindArea(toArea.id);
-                OnTrigger?.Invoke(TeleportPosition(player), area);
+                OnTrigger?.Invoke(TeleportPosition(player), area, null);
             }
         }
 

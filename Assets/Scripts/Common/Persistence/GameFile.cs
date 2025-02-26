@@ -75,6 +75,8 @@ namespace Ulko.Persistence
         public float x;
         public float y;
         public float z;
+        public float standX;
+        public float standY;
 
         public Location() { }
 
@@ -99,6 +101,8 @@ namespace Ulko.Persistence
             x = source.x;
             y = source.y;
             z = source.z;
+            standX = source.standX;
+            standY = source.standY;
         }
 
         public void FromJson(JToken json)
@@ -107,6 +111,8 @@ namespace Ulko.Persistence
             x = json["x"].ToObject<float>();
             y = json["y"].ToObject<float>();
             z = json["z"].ToObject<float>();
+            standX = json["standX"].ToObject<float>();
+            standY = json["standY"].ToObject<float>();
         }
 
         public JToken ToJson()
@@ -116,7 +122,9 @@ namespace Ulko.Persistence
                 { "area", area },
                 { "x", x },
                 { "y", y },
-                { "z", z }
+                { "z", z },
+                { "standX", standX },
+                { "standY", standY }
             };
 
             return json;
