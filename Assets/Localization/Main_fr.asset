@@ -596,7 +596,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 373172125813432320
-    m_Localized: "D\xE9fausser pour effectuer une Attaque Normale"
+    m_Localized: "Lancer cette carte \xE0 l'ennemi (litt\xE9ralement)"
     m_Metadata:
       m_Items: []
   - m_Id: 373245890769444864
@@ -604,7 +604,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 373264549814460416
-    m_Localized: "D\xE9fausser"
+    m_Localized: Jeter
     m_Metadata:
       m_Items: []
   - m_Id: 373269693796966400

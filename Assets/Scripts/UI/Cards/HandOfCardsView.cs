@@ -105,13 +105,10 @@ namespace Ulko.UI
 
         private void OnSelect(CardView selectedCard)
         {
-            if (selectedCard.transform.localScale == Vector3.one)
-            {
-                selectedCard.transform.SetParent(selectedCardAnchor);
+            selectedCard.transform.SetParent(selectedCardAnchor);
+            UpdateIndexes();
 
-                selectedCard.GetComponent<RectTransform>().anchoredPosition += new Vector2(0, selectedOffset);
-                selectedCard.transform.localScale = new Vector3(selectedScale, selectedScale, 0);
-            }
+            RefreshTransforms();
 
             SelectedCardStack.Remove(selectedCard);
             OnCardSelected?.Invoke(selectedCard);
@@ -122,8 +119,7 @@ namespace Ulko.UI
             selectedCard.transform.SetParent(cardsAnchor);
             UpdateIndexes();
 
-            selectedCard.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, selectedOffset);
-            selectedCard.transform.localScale = Vector3.one;
+            RefreshTransforms();
 
             SelectedCardStack.Remove(selectedCard);
             OnCardDeselected?.Invoke(selectedCard);
@@ -150,18 +146,8 @@ namespace Ulko.UI
             }
         }
 
-        private void Refresh()
+        private void RefreshTransforms()
         {
-            foreach(var card in SelectedCardStack)
-            {
-                card.button.SuperSelect(false, false);
-            }
-
-            SelectedCardStack.Clear();
-
-            if (cards.Count == 0)
-                return;
-
             float anchorWidth = cardsAnchor.rect.width;
             float cardWidth = cards[0].GetComponent<RectTransform>().rect.width;
             float spacing = (anchorWidth - cardWidth) / (cards.Count - 1);
@@ -170,7 +156,7 @@ namespace Ulko.UI
             float totalWidth = cardWidth + (cards.Count - 1) * spacing;
             float startX = (cardWidth - totalWidth) / 2f;
 
-            for(int i = 0; i < cards.Count; i++)
+            for (int i = 0; i < cards.Count; i++)
             {
                 float angle = 0;
                 if (cards.Count > 1)
@@ -184,6 +170,33 @@ namespace Ulko.UI
                 float yPos = radius * Mathf.Sin(Mathf.Deg2Rad * (90 - angle)) - radius;
                 cards[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(xPos, yPos);
 
+                cards[i].transform.localScale = Vector3.one;
+
+                if (cards[i].transform.parent == selectedCardAnchor)
+                {
+                    cards[i].GetComponent<RectTransform>().anchoredPosition += new Vector2(0, selectedOffset);
+                    cards[i].transform.localScale = new Vector3(selectedScale, selectedScale, 1);
+                    cards[i].transform.localRotation = Quaternion.identity;
+                }
+            }
+        }
+
+        private void Refresh()
+        {
+            foreach(var card in SelectedCardStack)
+            {
+                card.button.SuperSelect(false, false);
+            }
+
+            SelectedCardStack.Clear();
+
+            if (cards.Count == 0)
+                return;
+
+            RefreshTransforms();
+
+            for(int i = 0; i < cards.Count; i++)
+            {
                 var nav = new Navigation
                 {
                     mode = Navigation.Mode.Explicit,

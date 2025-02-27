@@ -401,29 +401,31 @@ namespace Ulko.Battle
 
             foreach (var actor in actors)
             {
-                var ability = actor.Attack;
-                var targetCandidates = GetTargetCandidates(ability.target, actor.CaptureState());
-
-                if (ability.target.targetSize == AbilityTarget.TargetSize.One)
+                foreach(var ability in actor.Abilities)
                 {
-                    foreach (var target in targetCandidates)
-                    {
-                        actions.Add(new BattleActions(ability, actor.Id, new List<string> { target.Id }, characters));
-                    }
-                }
-                else
-                {
-                    var enemies = targetCandidates.Where(c => c.CharacterSide == CharacterSide.Enemies).ToList();
-                    var heroes = targetCandidates.Where(c => c.CharacterSide == CharacterSide.Heroes).ToList();
+                    var targetCandidates = GetTargetCandidates(ability.target, actor.CaptureState());
 
-                    if (enemies.Count > 0)
+                    if (ability.target.targetSize == AbilityTarget.TargetSize.One)
                     {
-                        actions.Add(new BattleActions(ability, actor.Id, enemies.Select(e => e.Id).ToList(), characters));
+                        foreach (var target in targetCandidates)
+                        {
+                            actions.Add(new BattleActions(ability, actor.Id, new List<string> { target.Id }, characters));
+                        }
                     }
-
-                    if (heroes.Count > 0)
+                    else
                     {
-                        actions.Add(new BattleActions(ability, actor.Id, heroes.Select(e => e.Id).ToList(), characters));
+                        var enemies = targetCandidates.Where(c => c.CharacterSide == CharacterSide.Enemies).ToList();
+                        var heroes = targetCandidates.Where(c => c.CharacterSide == CharacterSide.Heroes).ToList();
+
+                        if (enemies.Count > 0)
+                        {
+                            actions.Add(new BattleActions(ability, actor.Id, enemies.Select(e => e.Id).ToList(), characters));
+                        }
+
+                        if (heroes.Count > 0)
+                        {
+                            actions.Add(new BattleActions(ability, actor.Id, heroes.Select(e => e.Id).ToList(), characters));
+                        }
                     }
                 }
             }

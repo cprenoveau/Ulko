@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5792312ed36db064cbedc1bef273b452, type: 3}
-  m_Name: AttackAsset
+  m_Name: ThrowRandomObjectsAsset
   m_EditorClassIdentifier: 
-  id: attack
+  id: throw_random_objects
   target:
     usabilityScope: 1
     targetType: 0
     targetSize: 0
     targetCondition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
+  mainStat: 0
   nodes:
   - rid: 6273285019555594450
   - rid: 6273285047090151498
@@ -34,7 +35,6 @@ MonoBehaviour:
         effects:
           effects:
           - rid: 6273285019555594451
-          - rid: 6273285047090151503
     - rid: 6273285019555594451
       type: {class: Damage, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
@@ -63,7 +63,6 @@ MonoBehaviour:
         effects:
           effects:
           - rid: 6273285047090151500
-          - rid: 6273285047090151504
     - rid: 6273285047090151499
       type: {class: MoveToTarget, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
@@ -82,17 +81,3 @@ MonoBehaviour:
         damageMultiplier: 0.8
         percentDamage: 0
         flatDamage: 0
-    - rid: 6273285047090151503
-      type: {class: GiveStatus, ns: Ulko.Data.Abilities, asm: Ulko.Common}
-      data:
-        condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
-        percentChance: 100
-        status: {fileID: 11400000, guid: 31427f9455011cd4c9cf67a29e080d78, type: 2}
-        turns: 3
-    - rid: 6273285047090151504
-      type: {class: GiveStatus, ns: Ulko.Data.Abilities, asm: Ulko.Common}
-      data:
-        condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
-        percentChance: 100
-        status: {fileID: 11400000, guid: 31427f9455011cd4c9cf67a29e080d78, type: 2}
-        turns: 3

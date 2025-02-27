@@ -595,7 +595,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 373172125813432320
-    m_Localized: Discard to perform a Normal Attack
+    m_Localized: Throw this card at the enemy (literally)
     m_Metadata:
       m_Items: []
   - m_Id: 373245890769444864
@@ -603,7 +603,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 373264549814460416
-    m_Localized: Discard
+    m_Localized: Throw
     m_Metadata:
       m_Items: []
   - m_Id: 373269693796966400

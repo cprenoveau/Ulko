@@ -21,7 +21,6 @@ namespace Ulko.Battle
         int Exp { get; }
         int HP { get; set; }
         Level Stats { get; }
-        AbilityAsset Attack { get; }
 
         Vector2 FacingDirection { get; }
         CharacterAsset Asset { get; }
@@ -53,7 +52,7 @@ namespace Ulko.Battle
         public int HP => characterInternal.HP;
         public bool IsDead => HP <= 0;
         public Level Stats => characterInternal.Stats;
-        public AbilityAsset Attack => characterInternal.Attack;
+        public List<AbilityAsset> Abilities => Asset.abilities;
         public List<StatusState> StatusState { get; private set; } = new List<StatusState>();
 
         public Vector3 Position { get; private set; }

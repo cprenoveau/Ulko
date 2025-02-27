@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: UlkoAsset
   m_EditorClassIdentifier: 
   id: ulko
-  attack: {fileID: 11400000, guid: 6bf01be8e184b2141b73e83492911e32, type: 2}
+  abilities:
+  - {fileID: 11400000, guid: 6bf01be8e184b2141b73e83492911e32, type: 2}
+  - {fileID: 11400000, guid: 62e49bc86aa397e42bbc4e726d70c14d, type: 2}
+  status: []
   displayName: ulko
   prefab:
     m_AssetGUID: 782ac91376fc48b43991e37a007f05f9

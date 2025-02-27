@@ -17,7 +17,6 @@ namespace Ulko.Battle
         public int Exp => EnemyData.GetLevelData(Level).exp;
         public int HP { get; set; }
         public Level Stats => EnemyData.GetLevelData(Level);
-        public AbilityAsset Attack => EnemyAsset.attack;
 
         public ICharacterInternal.InstantiateDelegate Instantiate { get; private set; }
         public Vector2 FacingDirection { get; private set; }

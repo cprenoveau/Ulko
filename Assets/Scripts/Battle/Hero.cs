@@ -25,7 +25,6 @@ namespace Ulko.Battle
             }
         }
         public Level Stats => PlayerProfile.GetHeroStats(Id, Level);
-        public AbilityAsset Attack => HeroAsset.attack;
 
         public ICharacterInternal.InstantiateDelegate Instantiate { get; private set; }
         public Vector2 FacingDirection { get; private set; }
