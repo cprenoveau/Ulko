@@ -1,6 +1,4 @@
 ﻿using System;
-using Unity.IO.Archive;
-using UnityEngine;
 
 namespace Ulko.Data.Abilities
 {

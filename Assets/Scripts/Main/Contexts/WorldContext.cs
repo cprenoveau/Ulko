@@ -290,6 +290,9 @@ namespace Ulko
 
         protected override void _OpenMenu()
         {
+            if (mainMenu == null)
+                return;
+
             if (CanInteract())
             {
                 Audio.Player.PlayUISound(Audio.UISoundId.Swish);
