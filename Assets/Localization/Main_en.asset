@@ -326,14 +326,6 @@ MonoBehaviour:
     m_Localized: Inflicts {0} {1}
     m_Metadata:
       m_Items: []
-  - m_Id: 372643240050941952
-    m_Localized: '{0}% chance of giving {1}'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 372643200288940032
-    m_Localized: '{0}% chance of giving {1} for {2} turns'
-    m_Metadata:
-      m_Items: []
   - m_Id: 373172125813432320
     m_Localized: Throw this card at the enemy (literally)
     m_Metadata:

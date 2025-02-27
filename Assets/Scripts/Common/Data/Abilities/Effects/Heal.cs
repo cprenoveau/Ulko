@@ -106,5 +106,29 @@ namespace Ulko.Data.Abilities
 
             return str;
         }
+
+        public string Description(CharacterState actor)
+        {
+            int value = (int)RawValue(actor);
+            string str = "";
+
+            if (revive)
+                str = string.Format("{0} + ", Localization.LocalizeFormat("revives"));
+
+            if (healMultiplier != 0)
+            {
+                str += Localization.LocalizeFormat("heal_flat_desc", value);
+            }
+            else if (percentHeal != 0)
+            {
+                str += Localization.LocalizeFormat("heal_percent_desc", percentHeal);
+            }
+            else if (flatHeal != 0)
+            {
+                str += Localization.LocalizeFormat("heal_flat_desc", flatHeal);
+            }
+
+            return str;
+        }
     }
 }

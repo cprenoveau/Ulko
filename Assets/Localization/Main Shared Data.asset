@@ -99,16 +99,8 @@ MonoBehaviour:
     m_Key: game_over
     m_Metadata:
       m_Items: []
-  - m_Id: 372643240050941952
-    m_Key: give_status_infinite_chance_desc
-    m_Metadata:
-      m_Items: []
   - m_Id: 279766114759598080
     m_Key: give_status_infinite_desc
-    m_Metadata:
-      m_Items: []
-  - m_Id: 372643200288940032
-    m_Key: give_status_turn_chance_desc
     m_Metadata:
       m_Items: []
   - m_Id: 50391762420760576

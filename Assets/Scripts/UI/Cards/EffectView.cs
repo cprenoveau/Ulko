@@ -42,41 +42,12 @@ namespace Ulko.UI
             if (Effect is Damage damage)
             {
                 image.sprite = attackIcon;
-
-                if (damage.damageMultiplier != 0)
-                {
-                    powerText.text = string.Format("{0} HP", (int)damage.RawValue(Owner.CaptureState()));
-                }
-                else if (damage.percentDamage != 0)
-                {
-                    powerText.text = string.Format("{0}% HP", damage.percentDamage);
-                }
-                else
-                {
-                    powerText.text = string.Format("{0} HP", damage.flatDamage);
-                }
+                powerText.text = damage.Description(Owner.CaptureState());
             }
             else if (Effect is Heal heal)
             {
                 image.sprite = healIcon;
-
-                powerText.text = "";
-
-                if (heal.revive)
-                    powerText.text = string.Format("{0} +", Localization.Localize("revives"));
-
-                if (heal.healMultiplier != 0)
-                {
-                    powerText.text += string.Format("<color=#00FF00>{0}</color> HP", (int)heal.RawValue(Owner.CaptureState()));
-                }
-                else if (heal.percentHeal != 0)
-                {
-                    powerText.text += Localization.LocalizeFormat("heal_percent_desc", heal.percentHeal);
-                }
-                else if (heal.flatHeal != 0)
-                {
-                    powerText.text += string.Format("<color=#00FF00>{0}</color> HP", heal.flatHeal);
-                }
+                powerText.text = heal.Description(Owner.CaptureState());
             }
             else if (Effect is GiveStatus giveStatus)
             {

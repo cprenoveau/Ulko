@@ -326,14 +326,6 @@ MonoBehaviour:
     m_Localized: '{0} {1}'
     m_Metadata:
       m_Items: []
-  - m_Id: 372643200288940032
-    m_Localized: '{0}% de chance de donner {1} pour {2} tours'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 372643240050941952
-    m_Localized: '{0}% de chance de donner {1}'
-    m_Metadata:
-      m_Items: []
   - m_Id: 373172125813432320
     m_Localized: "Lancer cette carte \xE0 l'ennemi (litt\xE9ralement)"
     m_Metadata:
