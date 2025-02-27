@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System.Linq;
+using Ulko.Battle;
 
 namespace Ulko.UI
 {
@@ -13,6 +14,7 @@ namespace Ulko.UI
         public RectTransform effectsAnchor;
 
         public IEnumerable<Effect> Effects { get; private set; } = new List<Effect>();
+        public Character Owner { get; private set; }
 
         private void Start()
         {
@@ -24,9 +26,10 @@ namespace Ulko.UI
             Localization.LocaleChanged -= Refresh;
         }
 
-        public void Init(List<Effect> effects)
+        public void Init(List<Effect> effects, Character owner)
         {
             Effects = effects;
+            Owner = owner;
 
             foreach(Transform child in effectsAnchor)
             {
@@ -36,7 +39,7 @@ namespace Ulko.UI
             foreach(var effect in effects)
             {
                 var effectView = Instantiate(effectPrefab, effectsAnchor);
-                effectView.Init(effect);
+                effectView.Init(effect, owner);
             }
 
             Refresh();

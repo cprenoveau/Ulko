@@ -67,14 +67,21 @@ namespace Ulko.Data.Abilities
         {
             if(target.hp > 0 || revive)
             {
-                float stat = actor.stats.GetStat(healStat);
-                float heal = stat * healMultiplier;
+                float heal = RawValue(actor);
 
                 heal += target.stats.MaxHP * percentHeal / 100f;
                 heal += flatHeal;
 
                 target.hp += (int)heal;
             }
+        }
+
+        public float RawValue(CharacterState actor)
+        {
+            float stat = actor.stats.GetStat(healStat);
+            float heal = stat * healMultiplier;
+
+            return heal;
         }
 
         public override string Description()

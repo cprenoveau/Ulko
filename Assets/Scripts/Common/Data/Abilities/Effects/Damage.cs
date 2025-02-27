@@ -65,11 +65,9 @@ namespace Ulko.Data.Abilities
 
         public void Apply(CharacterState actor, CharacterState target)
         {
-            float atk = actor.stats.GetStat(attackStat);
+            float damage = RawValue(actor);
+
             float def = target.stats.GetStat(defenseStat);
-
-            float damage = atk * damageMultiplier;
-
             if (def != 0)
                 damage = damage * config.flatModifier / (config.flatModifier + def);
 
@@ -79,6 +77,14 @@ namespace Ulko.Data.Abilities
             damage = Mathf.Clamp(damage, 1, damage);
 
             target.hp -= (int)damage;
+        }
+
+        public float RawValue(CharacterState actor)
+        {
+            float atk = actor.stats.GetStat(attackStat);
+            float damage = atk * damageMultiplier;
+
+            return damage;
         }
 
         public override string Description()

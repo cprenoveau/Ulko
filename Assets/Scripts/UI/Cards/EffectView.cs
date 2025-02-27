@@ -3,6 +3,8 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Ulko.Battle;
+using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 
 namespace Ulko.UI
 {
@@ -15,6 +17,7 @@ namespace Ulko.UI
         public TMP_Text powerText;
 
         public Effect Effect { get; private set; }
+        public Character Owner { get; private set; }
 
         private void Start()
         {
@@ -26,9 +29,11 @@ namespace Ulko.UI
             Localization.LocaleChanged -= Refresh;
         }
 
-        public void Init(Effect effect)
+        public void Init(Effect effect, Character owner)
         {
             Effect = effect;
+            Owner = owner;
+
             Refresh();
         }
 
@@ -40,15 +45,15 @@ namespace Ulko.UI
 
                 if (damage.damageMultiplier != 0)
                 {
-                    powerText.text = string.Format("{0}% {1}", damage.damageMultiplier * 100, TextFormat.Localize(damage.attackStat));
+                    powerText.text = string.Format("{0} HP", (int)damage.RawValue(Owner.CaptureState()));
                 }
                 else if (damage.percentDamage != 0)
                 {
-                    powerText.text = string.Format("{0}%", damage.percentDamage);
+                    powerText.text = string.Format("{0}% HP", damage.percentDamage);
                 }
                 else
                 {
-                    powerText.text = string.Format("{0}<color=#00000000>-</color>", damage.flatDamage);
+                    powerText.text = string.Format("{0} HP", damage.flatDamage);
                 }
             }
             else if (Effect is Heal heal)
@@ -62,15 +67,15 @@ namespace Ulko.UI
 
                 if (heal.healMultiplier != 0)
                 {
-                    powerText.text += " " + string.Format("{0}% {1}", heal.healMultiplier * 100, TextFormat.Localize(heal.healStat));
+                    powerText.text += string.Format("<color=#00FF00>{0}</color> HP", (int)heal.RawValue(Owner.CaptureState()));
                 }
                 else if (heal.percentHeal != 0)
                 {
-                    powerText.text += " " + Localization.LocalizeFormat("heal_percent_desc", heal.percentHeal);
+                    powerText.text += Localization.LocalizeFormat("heal_percent_desc", heal.percentHeal);
                 }
                 else if (heal.flatHeal != 0)
                 {
-                    powerText.text +=  " " + Localization.LocalizeFormat("heal_flat_desc", heal.flatHeal);
+                    powerText.text += string.Format("<color=#00FF00>{0}</color> HP", heal.flatHeal);
                 }
             }
             else if (Effect is GiveStatus giveStatus)

@@ -40,7 +40,7 @@ namespace Ulko.UI
                 effects.AddRange(node.effects.effects);
             }
 
-            effectsView.Init(effects);
+            effectsView.Init(effects, owner);
 
             Refresh();
         }
