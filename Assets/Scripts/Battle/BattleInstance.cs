@@ -402,9 +402,9 @@ namespace Ulko.Battle
             foreach (var actor in actors)
             {
                 var ability = actor.Attack;
-                var targetCandidates = GetTargetCandidates(ability.AbilityTarget, actor.CaptureState());
+                var targetCandidates = GetTargetCandidates(ability.target, actor.CaptureState());
 
-                if (ability.AbilityTarget.targetSize == AbilityTarget.TargetSize.One)
+                if (ability.target.targetSize == AbilityTarget.TargetSize.One)
                 {
                     foreach (var target in targetCandidates)
                     {

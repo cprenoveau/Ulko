@@ -17,6 +17,24 @@ namespace Ulko.UI
         public Color defaultTextColor = Color.white;
 
         [Serializable]
+        public class StatIcon
+        {
+            public Stat stat;
+            public Sprite icon;
+        }
+
+        public List<StatIcon> statIcons = new();
+
+        public Sprite FindStatIcon(Stat stat)
+        {
+            var statIcon = statIcons.FirstOrDefault(s => s.stat == stat);
+            if (statIcon == null)
+                return null;
+
+            return statIcon.icon;
+        }
+
+        [Serializable]
         public class StatProgress
         {
             public Stat stat;
@@ -25,7 +43,7 @@ namespace Ulko.UI
         }
 
         public int defaultMaxStat = 100;
-        public List<StatProgress> statProgress = new List<StatProgress>();
+        public List<StatProgress> statProgress = new();
 
         public (int min, int max) FindMinMaxStat(Stat stat)
         {

@@ -92,13 +92,10 @@ namespace Ulko.Data.Abilities
     {
         public string id;
         public AbilityTarget target;
+        public Stat mainStat;
 
         [SerializeReference]
         public List<AbilityNode> nodes = new();
-
-        public string Id => id;
-        public AbilityTarget AbilityTarget => target;
-        public IEnumerable<AbilityNode> AbilityNodes => nodes;
 
         public string Description()
         {

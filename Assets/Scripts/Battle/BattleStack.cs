@@ -22,7 +22,7 @@ namespace Ulko.Battle
             this.actorId = actorId;
             this.targetIds = targetIds;
 
-            foreach (var node in ability.AbilityNodes)
+            foreach (var node in ability.nodes)
             {
                 var characterAction = new CharacterAction(actorId, targetIds, node.effects.effects);
                 actions.Add(new BattleAction(node, new ActionState(characterAction, characters)));
