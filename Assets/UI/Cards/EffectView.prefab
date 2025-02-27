@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
+  m_fontSize: 16
   m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -264,4 +264,5 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 645d861f89d95b84aa0b6b311d1bd1c1, type: 2}
   attackIcon: {fileID: 21300000, guid: 3fe300b8131fb404da3e74aab6b128d9, type: 3}
   healIcon: {fileID: 21300000, guid: 6045987abc6123d428669293a829320f, type: 3}
+  image: {fileID: 6640255371698782328}
   powerText: {fileID: 4278867171261220935}

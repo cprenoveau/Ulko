@@ -2,6 +2,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Ulko.UI
 {
@@ -10,6 +11,7 @@ namespace Ulko.UI
         public UiConfig config;
         public Sprite attackIcon;
         public Sprite healIcon;
+        public Image image;
         public TMP_Text powerText;
 
         public Effect Effect { get; private set; }
@@ -34,6 +36,8 @@ namespace Ulko.UI
         {
             if (Effect is Damage damage)
             {
+                image.sprite = attackIcon;
+
                 if (damage.damageMultiplier != 0)
                 {
                     powerText.text = string.Format("{0}% {1}", damage.damageMultiplier * 100, TextFormat.Localize(damage.attackStat));
@@ -49,6 +53,8 @@ namespace Ulko.UI
             }
             else if (Effect is Heal heal)
             {
+                image.sprite = healIcon;
+
                 powerText.text = "";
 
                 if (heal.revive)
