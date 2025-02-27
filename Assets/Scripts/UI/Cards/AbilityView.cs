@@ -1,13 +1,13 @@
 ﻿using Ulko.Battle;
 using Ulko.Data.Abilities;
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine;
 
 namespace Ulko.UI
 {
-    public class AbilityCardView : CardView
+    public class AbilityView : MonoBehaviour
     {
         public UiConfig config;
         public TMP_Text nameText;
@@ -15,9 +15,6 @@ namespace Ulko.UI
         public Image abilityTypeIcon;
         public TMP_Text ownerNameText;
         public EffectsView effectsView;
-
-        public event Action<CardView> OnAttack;
-        public bool AttackSelected => SelectedExtraButton == extraButtons[0];
 
         public AbilityAsset AbilityAsset { get; private set; }
         public Character Owner { get; private set; }
@@ -44,9 +41,6 @@ namespace Ulko.UI
             }
 
             effectsView.Init(effects);
-
-            extraButtons[0].onClick.RemoveAllListeners();
-            extraButtons[0].onClick.AddListener(() => { extraButtons[0].SuperSelect(true); OnAttack?.Invoke(this); });
 
             Refresh();
         }

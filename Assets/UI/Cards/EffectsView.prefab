@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f316284d4f189a0489db93b597c9e433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nothingText: {fileID: 0}
+  nothingText: {fileID: 2156627478582874506}
   effectPrefab: {fileID: 3809057135387530950, guid: 2827e0059e027ae4f93f81388398cad8, type: 3}
   effectsAnchor: {fileID: 1860072306800969683}
 --- !u!222 &9032218652055525276
@@ -191,7 +191,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4278867171261220935, guid: 2827e0059e027ae4f93f81388398cad8, type: 3}
       propertyPath: m_fontSize
-      value: 16
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4278867171261220935, guid: 2827e0059e027ae4f93f81388398cad8, type: 3}
       propertyPath: m_fontAsset
@@ -305,7 +305,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4278867171261220935, guid: 2827e0059e027ae4f93f81388398cad8, type: 3}
       propertyPath: m_fontSize
-      value: 16
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4278867171261220935, guid: 2827e0059e027ae4f93f81388398cad8, type: 3}
       propertyPath: m_fontAsset

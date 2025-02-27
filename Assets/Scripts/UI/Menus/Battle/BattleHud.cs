@@ -1,9 +1,7 @@
 ﻿using Ulko.Battle;
 using HotChocolate.UI;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 using Ulko.Data.Abilities;
 
 namespace Ulko.UI
