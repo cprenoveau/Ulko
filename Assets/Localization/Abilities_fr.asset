@@ -26,6 +26,10 @@ MonoBehaviour:
     m_Localized: "<s>Magn\xE9sium</s> <nobr>Mal\xE9diction Aveuglante</nobr>"
     m_Metadata:
       m_Items: []
+  - m_Id: 4334535303168
+    m_Localized: Fiole Magique
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

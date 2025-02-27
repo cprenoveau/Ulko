@@ -193,6 +193,7 @@ namespace Ulko.Data.Abilities
         public enum EffectType
         {
             Damage,
+            Heal,
             BecomeTarget,
             CancelEffect,
             ModifyStat,

@@ -23,6 +23,10 @@ MonoBehaviour:
     m_Key: blinding_curse
     m_Metadata:
       m_Items: []
+  - m_Id: 4334535303168
+    m_Key: magic_vial
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

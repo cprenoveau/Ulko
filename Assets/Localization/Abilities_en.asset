@@ -26,6 +26,10 @@ MonoBehaviour:
     m_Localized: <s>Magnesium</s> <nobr>Blinding Curse</nobr>
     m_Metadata:
       m_Items: []
+  - m_Id: 4334535303168
+    m_Localized: Magic Vial
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

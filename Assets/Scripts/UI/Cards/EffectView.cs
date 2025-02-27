@@ -47,26 +47,26 @@ namespace Ulko.UI
                     powerText.text = string.Format("{0}<color=#00000000>-</color>", damage.flatDamage);
                 }
             }
-            //else if(Effect is Heal heal)
-            //{
-            //    powerText.text = "";
+            else if (Effect is Heal heal)
+            {
+                powerText.text = "";
 
-            //    if (heal.revive)
-            //        powerText.text = string.Format("{0} +", Localization.Localize("revives"));
+                if (heal.revive)
+                    powerText.text = string.Format("{0} +", Localization.Localize("revives"));
 
-            //    if (heal.healMultiplier != 0)
-            //    {
-            //        powerText.text +=  " " + config.FindHealLabel(heal.healMultiplier * 100);
-            //    }
-            //    else if (heal.percentHeal != 0)
-            //    {
-            //        powerText.text += Localization.LocalizeFormat("heal_percent_desc", heal.percentHeal);
-            //    }
-            //    else if(heal.flatHeal != 0)
-            //    {
-            //        powerText.text += Localization.LocalizeFormat("heal_flat_desc", heal.flatHeal);
-            //    }
-            //}
+                if (heal.healMultiplier != 0)
+                {
+                    powerText.text += " " + string.Format("{0}% {1}", heal.healMultiplier * 100, TextFormat.Localize(heal.healStat));
+                }
+                else if (heal.percentHeal != 0)
+                {
+                    powerText.text += " " + Localization.LocalizeFormat("heal_percent_desc", heal.percentHeal);
+                }
+                else if (heal.flatHeal != 0)
+                {
+                    powerText.text +=  " " + Localization.LocalizeFormat("heal_flat_desc", heal.flatHeal);
+                }
+            }
             else if (Effect is GiveStatus giveStatus)
             {
                 powerText.text = giveStatus.Description();
