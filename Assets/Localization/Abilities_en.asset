@@ -30,6 +30,10 @@ MonoBehaviour:
     m_Localized: Magic Vial
     m_Metadata:
       m_Items: []
+  - m_Id: 48935635771392
+    m_Localized: Blind
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

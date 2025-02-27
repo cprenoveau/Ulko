@@ -27,6 +27,10 @@ MonoBehaviour:
     m_Key: magic_vial
     m_Metadata:
       m_Items: []
+  - m_Id: 48935635771392
+    m_Key: blind
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

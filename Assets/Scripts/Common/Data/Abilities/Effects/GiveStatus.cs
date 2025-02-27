@@ -1,4 +1,6 @@
 ﻿using System;
+using Unity.IO.Archive;
+using UnityEngine;
 
 namespace Ulko.Data.Abilities
 {
@@ -64,7 +66,13 @@ namespace Ulko.Data.Abilities
 
         public override string Description()
         {
-            string str = "";
+            string str;
+
+            if(turns < 100)
+                str = Localization.LocalizeFormat("main", "give_status_turn_desc", Localization.Localize(status.id), turns);
+            else
+                str = Localization.LocalizeFormat("main", "give_status_infinite_desc", Localization.Localize(status.id));
+
             return str;
         }
     }

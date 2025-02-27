@@ -143,7 +143,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 50391762420760576
-    m_Localized: '{0} for {1} turns'
+    m_Localized: Gives status {0} for {1} turns
     m_Metadata:
       m_Items: []
   - m_Id: 51399724786384896
@@ -315,7 +315,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 279766114759598080
-    m_Localized: '{0}'
+    m_Localized: Gives status {0}
     m_Metadata:
       m_Items: []
   - m_Id: 279773480372658176

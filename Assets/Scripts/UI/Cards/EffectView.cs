@@ -51,6 +51,7 @@ namespace Ulko.UI
             }
             else if (Effect is GiveStatus giveStatus)
             {
+                image.sprite = giveStatus.status.icon;
                 powerText.text = giveStatus.Description();
             }
             //else if(effect is RemoveStatus removeStatus)
