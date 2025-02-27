@@ -52,7 +52,7 @@ MonoBehaviour:
         delay: 0
         speed: 50
         distance: 1
-        ranged: 0
+        ranged: 1
     - rid: 6273285047090151498
       type: {class: AbilityNode, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
@@ -70,7 +70,7 @@ MonoBehaviour:
         delay: 0
         speed: 50
         distance: 1
-        ranged: 0
+        ranged: 1
     - rid: 6273285047090151500
       type: {class: Damage, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
