@@ -42,18 +42,6 @@ MonoBehaviour:
     m_Localized: Delete successful!
     m_Metadata:
       m_Items: []
-  - m_Id: 46306197475819520
-    m_Localized: You already own the maximum amount for this item.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 46306515617972224
-    m_Localized: You don't have enough GP for this transaction.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 46318634920968192
-    m_Localized: You can't sell equipped items.
-    m_Metadata:
-      m_Items: []
   - m_Id: 48957776720953344
     m_Localized: Press Ok on your controller to join as backseat player.
     m_Metadata:
@@ -65,10 +53,6 @@ MonoBehaviour:
   - m_Id: 58356108329353216
     m_Localized: Are you sure you want to start a new game? Your current progress
       will be lost.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 59347693586219008
-    m_Localized: Do you want to heal your party for {0} GP?
     m_Metadata:
       m_Items: []
   - m_Id: 59352714029694976

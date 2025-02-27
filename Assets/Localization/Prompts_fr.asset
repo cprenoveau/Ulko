@@ -43,18 +43,6 @@ MonoBehaviour:
     m_Localized: "Fichier d\xE9truit avec succ\xE8s!"
     m_Metadata:
       m_Items: []
-  - m_Id: 46306197475819520
-    m_Localized: "Vous poss\xE9dez d\xE9j\xE0 la quantit\xE9 maximale pour cet item."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 46306515617972224
-    m_Localized: Vous n'avez pas assez de PO pour cette transaction.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 46318634920968192
-    m_Localized: "Vous ne pouvez pas vendre les items qui sont \xE9quipp\xE9s."
-    m_Metadata:
-      m_Items: []
   - m_Id: 48957776720953344
     m_Localized: Appuyez sur Ok depuis votre manette pour joindre comme joueur backseat.
     m_Metadata:
@@ -67,10 +55,6 @@ MonoBehaviour:
   - m_Id: 58356108329353216
     m_Localized: "\xCAtes-vous s\xFBr de vouloir commencer une nouvelle partie? Votre
       progr\xE8s courant sera perdu."
-    m_Metadata:
-      m_Items: []
-  - m_Id: 59347693586219008
-    m_Localized: "Voulez-vous gu\xE9rir votre groupe pour {0} PO?"
     m_Metadata:
       m_Items: []
   - m_Id: 59352714029694976

@@ -9,14 +9,12 @@ namespace Ulko.Data.Abilities
         public override EffectType Type => EffectType.BecomeTarget;
 
         public TargetConditionAsset condition;
-        public float percentChance = 50;
 
         public override Effect Clone()
         {
             return new BecomeTarget()
             {
-                condition = condition,
-                percentChance = percentChance
+                condition = condition
             };
         }
 
@@ -24,8 +22,7 @@ namespace Ulko.Data.Abilities
         {
             if(otherEffect is BecomeTarget other)
             {
-                return condition == other.condition
-                    && percentChance == other.percentChance;
+                return condition == other.condition;
             }
 
             return false;
@@ -37,25 +34,22 @@ namespace Ulko.Data.Abilities
             if (actor == null)
                 return;
 
-            if (UnityEngine.Random.Range(0, 100) < percentChance)
+            List<string> newTargets = new();
+
+            foreach (var targetId in state.pendingAction.targetIds)
             {
-                List<string> newTargets = new();
-
-                foreach (var targetId in state.pendingAction.targetIds)
+                var target = state.FindCharacter(targetId);
+                if (target != null && (condition == null || condition.IsTrue(actor, target)))
                 {
-                    var target = state.FindCharacter(targetId);
-                    if (target != null && (condition == null || condition.IsTrue(actor, target)))
-                    {
-                        newTargets.Add(action.actorId);
-                    }
-                    else
-                    {
-                        newTargets.Add(targetId);
-                    }
+                    newTargets.Add(action.actorId);
                 }
-
-                state.pendingAction.targetIds = newTargets;
+                else
+                {
+                    newTargets.Add(targetId);
+                }
             }
+
+            state.pendingAction.targetIds = newTargets;
         }
 
         public override string Description()

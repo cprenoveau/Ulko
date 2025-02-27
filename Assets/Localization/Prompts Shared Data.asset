@@ -39,18 +39,6 @@ MonoBehaviour:
     m_Key: delete_successful_message
     m_Metadata:
       m_Items: []
-  - m_Id: 46306197475819520
-    m_Key: item_maxed_out_message
-    m_Metadata:
-      m_Items: []
-  - m_Id: 46306515617972224
-    m_Key: not_enough_money_message
-    m_Metadata:
-      m_Items: []
-  - m_Id: 46318634920968192
-    m_Key: item_sold_out_message
-    m_Metadata:
-      m_Items: []
   - m_Id: 48957776720953344
     m_Key: assist_message
     m_Metadata:
@@ -61,10 +49,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 58356108329353216
     m_Key: new_file_message
-    m_Metadata:
-      m_Items: []
-  - m_Id: 59347693586219008
-    m_Key: healing_fountain_message
     m_Metadata:
       m_Items: []
   - m_Id: 59352714029694976

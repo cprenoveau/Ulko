@@ -8,7 +8,6 @@ namespace Ulko.Data.Abilities
         public override EffectType Type => EffectType.CancelEffect;
 
         public TargetConditionAsset condition;
-        public float percentChance = 50;
         public EffectType effectType;
 
         public override Effect Clone()
@@ -16,7 +15,6 @@ namespace Ulko.Data.Abilities
             return new CancelEffect()
             {
                 condition = condition,
-                percentChance = percentChance,
                 effectType = effectType
             };
         }
@@ -25,7 +23,6 @@ namespace Ulko.Data.Abilities
             if (otherEffect is CancelEffect other)
             {
                 return condition == other.condition
-                    && percentChance == other.percentChance
                     && effectType == other.effectType;
             }
 
@@ -38,13 +35,10 @@ namespace Ulko.Data.Abilities
             if (actor == null)
                 return;
 
-            if (UnityEngine.Random.Range(0, 100) < percentChance)
+            var pendingActionActor = state.FindCharacter(state.pendingAction.actorId);
+            if (pendingActionActor != null && (condition == null || condition.IsTrue(actor, pendingActionActor)))
             {
-                var pendingActionActor = state.FindCharacter(state.pendingAction.actorId);
-                if (pendingActionActor != null && (condition == null || condition.IsTrue(actor, pendingActionActor)))
-                {
-                    state.pendingAction.effects.RemoveAll(e => e.Type == effectType);
-                }
+                state.pendingAction.effects.RemoveAll(e => e.Type == effectType);
             }
         }
 

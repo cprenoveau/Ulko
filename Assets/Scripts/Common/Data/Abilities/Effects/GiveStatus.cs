@@ -8,7 +8,6 @@ namespace Ulko.Data.Abilities
         public override EffectType Type => EffectType.GiveStatus;
 
         public TargetConditionAsset condition;
-        public float percentChance = 50;
         public StatusAsset status;
         public int turns = 3;
 
@@ -17,7 +16,6 @@ namespace Ulko.Data.Abilities
             return new GiveStatus()
             {
                 condition = condition,
-                percentChance = percentChance,
                 status = status,
                 turns = turns
             };
@@ -28,7 +26,6 @@ namespace Ulko.Data.Abilities
             if (otherEffect is GiveStatus other)
             {
                 return condition == other.condition
-                    && percentChance == other.percentChance
                     && status == other.status
                     && turns == other.turns;
             }
@@ -42,15 +39,12 @@ namespace Ulko.Data.Abilities
             if (actor == null)
                 return;
 
-            if (UnityEngine.Random.Range(0, 100) < percentChance)
+            foreach (string targetId in action.targetIds)
             {
-                foreach (string targetId in action.targetIds)
+                var target = state.FindCharacter(targetId);
+                if (target != null && (condition == null || condition.IsTrue(actor, target)))
                 {
-                    var target = state.FindCharacter(targetId);
-                    if (target != null && (condition == null || condition.IsTrue(actor, target)))
-                    {
-                        Apply(target);
-                    }
+                    Apply(target);
                 }
             }
         }

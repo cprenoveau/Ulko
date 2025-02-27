@@ -26,10 +26,6 @@ MonoBehaviour:
     m_Localized: PV:{0}/{1}
     m_Metadata:
       m_Items: []
-  - m_Id: 1758141034303488
-    m_Localized: PM:{0}/{1}
-    m_Metadata:
-      m_Items: []
   - m_Id: 1801418378874880
     m_Localized: Nouvelle Partie
     m_Metadata:
@@ -46,20 +42,8 @@ MonoBehaviour:
     m_Localized: Stats
     m_Metadata:
       m_Items: []
-  - m_Id: 1802341029285888
-    m_Localized: "\xC9quiper"
-    m_Metadata:
-      m_Items: []
   - m_Id: 1802393374199808
     m_Localized: "Capacit\xE9s"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1802431357816832
-    m_Localized: Items
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1802468737454080
-    m_Localized: "\xC9changer"
     m_Metadata:
       m_Items: []
   - m_Id: 1802505244676096
@@ -72,10 +56,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1819980455776256
     m_Localized: '{0:D2}h {1:D2}m {2:D2}s'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1820294894358528
-    m_Localized: '{0} PO'
     m_Metadata:
       m_Items: []
   - m_Id: 1822046137913344
@@ -102,10 +82,6 @@ MonoBehaviour:
     m_Localized: Effacer
     m_Metadata:
       m_Items: []
-  - m_Id: 11925279038636032
-    m_Localized: Attaquer
-    m_Metadata:
-      m_Items: []
   - m_Id: 373179914614988800
     m_Localized: Jeter la Main
     m_Metadata:
@@ -114,173 +90,28 @@ MonoBehaviour:
     m_Localized: Fuir
     m_Metadata:
       m_Items: []
-  - m_Id: 12280467169513472
-    m_Localized: "Rat\xE9"
-    m_Metadata:
-      m_Items: []
   - m_Id: 37303286104195072
     m_Localized: Nouveau Fichier
-    m_Metadata:
-      m_Items: []
-  - m_Id: 37756764987457536
-    m_Localized: '{0} PM'
     m_Metadata:
       m_Items: []
   - m_Id: 42451405260156928
     m_Localized: MaxPV
     m_Metadata:
       m_Items: []
-  - m_Id: 42451644838801408
-    m_Localized: MaxPM
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42451691039059968
-    m_Localized: Atq
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42452065472966656
-    m_Localized: Mag
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42452102949072896
-    m_Localized: "D\xE9f"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42452145999409152
-    m_Localized: "D\xE9fM"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42452193273409536
-    m_Localized: "\xC9va"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42452234516000768
-    m_Localized: "Pr\xE9c"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42452278241619968
-    m_Localized: Crit
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42452354036887552
-    m_Localized: Vit
-    m_Metadata:
-      m_Items: []
   - m_Id: 47979241759965184
     m_Localized: Aucun
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49328415336169472
-    m_Localized: '{0} PO'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49630715397144576
-    m_Localized: "Poss\xE9d\xE9:"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49961717898280960
-    m_Localized: Maximum Permis
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49961871829237760
-    m_Localized: "Co\xFBt: {0} PO"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49961961587343360
-    m_Localized: 'Acheter: x{0}'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49965207827644416
-    m_Localized: Acheter
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49965235963035648
-    m_Localized: Vendre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49982270323425280
-    m_Localized: 'Vendre: x{0}'
     m_Metadata:
       m_Items: []
   - m_Id: 49982347339235328
     m_Localized: 'Valeur: {0} PO'
     m_Metadata:
       m_Items: []
-  - m_Id: 49985151009161216
-    m_Localized: Tout Vendu
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055159361961984
-    m_Localized: Points de Magie Maximum
-    m_Metadata:
-      m_Items: []
   - m_Id: 50054746659225600
     m_Localized: Points de Vie Maximum
     m_Metadata:
       m_Items: []
-  - m_Id: 50055368108277760
-    m_Localized: Puissance de l'Attaque Physique
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055485712367616
-    m_Localized: Puissance de l'Attaque Magique
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055529333129216
-    m_Localized: "D\xE9fense Physique"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055640939364352
-    m_Localized: "D\xE9fense Magique"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055693548519424
-    m_Localized: '% de chance d''Esquiver une attaque'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055787538677760
-    m_Localized: '% de chance de Toucher une cible'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055910947684352
-    m_Localized: '% de chance de faire un Coup Critique'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055999573327872
-    m_Localized: Taux de remplissage de la barre de temps
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50070534543769600
-    m_Localized: Foi
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50070618106888192
-    m_Localized: Effroi
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50070740446347264
-    m_Localized: Narquois
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50322820452974592
-    m_Localized: "Inflige des d\xE9g\xE2ts bas\xE9 sur {0}% {2} de type {1} contre
-      la {3}"
-    m_Metadata:
-      m_Items: []
   - m_Id: 50327723816648704
     m_Localized: "Inflige des d\xE9g\xE2ts bas\xE9 sur {0}% {1} contre la {2}"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50355782821216256
-    m_Localized: "Ne Peut \xCAtre Utilis\xE9 Ici"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50355865771966464
-    m_Localized: Pas Assez de PM
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50357543850082304
-    m_Localized: "Utiliser la Capacit\xE9"
     m_Metadata:
       m_Items: []
   - m_Id: 50365899465687040
@@ -331,32 +162,12 @@ MonoBehaviour:
     m_Localized: "Se d\xE9bloque au Niveau {0}"
     m_Metadata:
       m_Items: []
-  - m_Id: 52173570904817664
-    m_Localized: 'Argent: {0} PO'
-    m_Metadata:
-      m_Items: []
   - m_Id: 52173637481005056
     m_Localized: 'EXP Totale: {0}'
     m_Metadata:
       m_Items: []
   - m_Id: 52175051104059392
     m_Localized: Victoire!
-    m_Metadata:
-      m_Items: []
-  - m_Id: 52570910203445248
-    m_Localized: Participer
-    m_Metadata:
-      m_Items: []
-  - m_Id: 52571115426545664
-    m_Localized: Rendre
-    m_Metadata:
-      m_Items: []
-  - m_Id: 53245774170030080
-    m_Localized: 'Valeur: {0}'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 53324276298809344
-    m_Localized: "Le h\xE9ros n'est pas dans le groupe"
     m_Metadata:
       m_Items: []
   - m_Id: 55133969086283776
@@ -419,32 +230,8 @@ MonoBehaviour:
     m_Localized: '{0} {1} contre {2}'
     m_Metadata:
       m_Items: []
-  - m_Id: 61195238297960448
-    m_Localized: Volant
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61195508016873472
-    m_Localized: Tous
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61195752960032768
-    m_Localized: et
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61195808358400000
-    m_Localized: ou
-    m_Metadata:
-      m_Items: []
   - m_Id: 61196649165357056
     m_Localized: "Inflige {0} {1} \xE0 {2}"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61199493935267840
-    m_Localized: "B\xEAte"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61200086691086336
-    m_Localized: "Humano\xEFde"
     m_Metadata:
       m_Items: []
   - m_Id: 61210188873596928
@@ -457,18 +244,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 61213211796570112
     m_Localized: "La cible est s\xE9lectionn\xE9e au hasard"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61214840801329152
-    m_Localized: '{0:F0}% de chance'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61897339743371264
-    m_Localized: "\xE0 chaque seconde"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61897611702042624
-    m_Localized: "\xE0 chaque {0} secondes"
     m_Metadata:
       m_Items: []
   - m_Id: 61898014707548160
@@ -485,10 +260,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 62001658798931968
     m_Localized: Pause
-    m_Metadata:
-      m_Items: []
-  - m_Id: 63020911090073600
-    m_Localized: 'Votre argent: {0} PO'
     m_Metadata:
       m_Items: []
   - m_Id: 63021473865007104
@@ -515,16 +286,8 @@ MonoBehaviour:
     m_Localized: Ennemis
     m_Metadata:
       m_Items: []
-  - m_Id: 114122130159960064
-    m_Localized: L'Aube de la Victoire
-    m_Metadata:
-      m_Items: []
   - m_Id: 114255180428607488
     m_Localized: "\xC9vanoui"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 118940081652367360
-    m_Localized: 6 ans plus tard
     m_Metadata:
       m_Items: []
   - m_Id: 179774903081394176
@@ -541,14 +304,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 273697502483439616
     m_Localized: "Gu\xE9rit {0}"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 273842509668409344
-    m_Localized: "x{0} bonus d'affinit\xE9"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 273842629822636032
-    m_Localized: "x{0} malus d'affinit\xE9"
     m_Metadata:
       m_Items: []
   - m_Id: 273935132563333120
@@ -571,10 +326,6 @@ MonoBehaviour:
     m_Localized: '{0} {1}'
     m_Metadata:
       m_Items: []
-  - m_Id: 279784078762303488
-    m_Localized: "<nobr>(pas d'\xE9chec)</nobr>"
-    m_Metadata:
-      m_Items: []
   - m_Id: 372643200288940032
     m_Localized: '{0}% de chance de donner {1} pour {2} tours'
     m_Metadata:
@@ -583,32 +334,12 @@ MonoBehaviour:
     m_Localized: '{0}% de chance de donner {1}'
     m_Metadata:
       m_Items: []
-  - m_Id: 372874942300020736
-    m_Localized: "Petite Gu\xE9rison"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 372875911234576384
-    m_Localized: "Gu\xE9rison Moyenne"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 372875973759066112
-    m_Localized: "Grande Gu\xE9rison"
-    m_Metadata:
-      m_Items: []
   - m_Id: 373172125813432320
     m_Localized: "Lancer cette carte \xE0 l'ennemi (litt\xE9ralement)"
     m_Metadata:
       m_Items: []
-  - m_Id: 373245890769444864
-    m_Localized: Action {0}/{1}
-    m_Metadata:
-      m_Items: []
   - m_Id: 373264549814460416
     m_Localized: Jeter
-    m_Metadata:
-      m_Items: []
-  - m_Id: 373269693796966400
-    m_Localized: "Ne peut \xEAtre utilis\xE9e"
     m_Metadata:
       m_Items: []
   - m_Id: 375727145037586432
@@ -619,8 +350,8 @@ MonoBehaviour:
     m_Localized: "D\xE9fausse"
     m_Metadata:
       m_Items: []
-  - m_Id: 384945061280866304
-    m_Localized: Test
+  - m_Id: 386647019653947392
+    m_Localized: Force Morale
     m_Metadata:
       m_Items: []
   references:

@@ -26,10 +26,6 @@ MonoBehaviour:
     m_Localized: HP:{0}/{1}
     m_Metadata:
       m_Items: []
-  - m_Id: 1758141034303488
-    m_Localized: MP:{0}/{1}
-    m_Metadata:
-      m_Items: []
   - m_Id: 1801418378874880
     m_Localized: New Game
     m_Metadata:
@@ -46,20 +42,8 @@ MonoBehaviour:
     m_Localized: Stats
     m_Metadata:
       m_Items: []
-  - m_Id: 1802341029285888
-    m_Localized: Equip
-    m_Metadata:
-      m_Items: []
   - m_Id: 1802393374199808
     m_Localized: Abilities
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1802431357816832
-    m_Localized: Items
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1802468737454080
-    m_Localized: Swap
     m_Metadata:
       m_Items: []
   - m_Id: 1802505244676096
@@ -72,10 +56,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1819980455776256
     m_Localized: '{0:D2}h {1:D2}m {2:D2}s'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1820294894358528
-    m_Localized: '{0} GP'
     m_Metadata:
       m_Items: []
   - m_Id: 1822046137913344
@@ -102,10 +82,6 @@ MonoBehaviour:
     m_Localized: Delete
     m_Metadata:
       m_Items: []
-  - m_Id: 11925279038636032
-    m_Localized: Attack
-    m_Metadata:
-      m_Items: []
   - m_Id: 373179914614988800
     m_Localized: Trash Hand
     m_Metadata:
@@ -114,172 +90,28 @@ MonoBehaviour:
     m_Localized: Run
     m_Metadata:
       m_Items: []
-  - m_Id: 12280467169513472
-    m_Localized: Miss
-    m_Metadata:
-      m_Items: []
   - m_Id: 37303286104195072
     m_Localized: New File
-    m_Metadata:
-      m_Items: []
-  - m_Id: 37756764987457536
-    m_Localized: '{0} MP'
     m_Metadata:
       m_Items: []
   - m_Id: 42451405260156928
     m_Localized: MaxHP
     m_Metadata:
       m_Items: []
-  - m_Id: 42451644838801408
-    m_Localized: MaxMP
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42451691039059968
-    m_Localized: Atk
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42452065472966656
-    m_Localized: Mag
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42452102949072896
-    m_Localized: Def
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42452145999409152
-    m_Localized: MDef
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42452193273409536
-    m_Localized: Eva
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42452234516000768
-    m_Localized: Acc
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42452278241619968
-    m_Localized: Crit
-    m_Metadata:
-      m_Items: []
-  - m_Id: 42452354036887552
-    m_Localized: Spd
-    m_Metadata:
-      m_Items: []
   - m_Id: 47979241759965184
     m_Localized: None
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49328415336169472
-    m_Localized: '{0} GP'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49630715397144576
-    m_Localized: 'Owned:'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49961717898280960
-    m_Localized: Maxed Out
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49961871829237760
-    m_Localized: 'Cost: {0} GP'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49961961587343360
-    m_Localized: 'Buy: x{0}'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49965207827644416
-    m_Localized: Buy
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49965235963035648
-    m_Localized: Sell
-    m_Metadata:
-      m_Items: []
-  - m_Id: 49982270323425280
-    m_Localized: 'Sell: x{0}'
     m_Metadata:
       m_Items: []
   - m_Id: 49982347339235328
     m_Localized: 'Value: {0} GP'
     m_Metadata:
       m_Items: []
-  - m_Id: 49985151009161216
-    m_Localized: Sold Out
-    m_Metadata:
-      m_Items: []
   - m_Id: 50054746659225600
     m_Localized: Maximum Health Points
     m_Metadata:
       m_Items: []
-  - m_Id: 50055159361961984
-    m_Localized: Maximum Magic Points
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055368108277760
-    m_Localized: Physical Attack Power
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055485712367616
-    m_Localized: Magic Attack Power
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055529333129216
-    m_Localized: Physical Defense
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055640939364352
-    m_Localized: Magic Defense
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055693548519424
-    m_Localized: '% chance of Evading an attack'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055787538677760
-    m_Localized: '% chance of Hitting a target'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055910947684352
-    m_Localized: '% chance of landing a Critical Hit'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50055999573327872
-    m_Localized: Rate of time gauge fill
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50070534543769600
-    m_Localized: Holy
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50070618106888192
-    m_Localized: Spooky
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50070740446347264
-    m_Localized: Savvy
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50322820452974592
-    m_Localized: Deals damage based on {0}% {1} {2} against {3}
-    m_Metadata:
-      m_Items: []
   - m_Id: 50327723816648704
     m_Localized: Deals damage based on {0}% {1} against {2}
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50355782821216256
-    m_Localized: Can't Be Used Here
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50355865771966464
-    m_Localized: Not Enough MP
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50357543850082304
-    m_Localized: Use Ability
     m_Metadata:
       m_Items: []
   - m_Id: 50365899465687040
@@ -330,32 +162,12 @@ MonoBehaviour:
     m_Localized: Unlocks at Level {0}
     m_Metadata:
       m_Items: []
-  - m_Id: 52173570904817664
-    m_Localized: 'Money: {0} GP'
-    m_Metadata:
-      m_Items: []
   - m_Id: 52173637481005056
     m_Localized: 'Total EXP: {0}'
     m_Metadata:
       m_Items: []
   - m_Id: 52175051104059392
     m_Localized: Victory!
-    m_Metadata:
-      m_Items: []
-  - m_Id: 52570910203445248
-    m_Localized: Assist
-    m_Metadata:
-      m_Items: []
-  - m_Id: 52571115426545664
-    m_Localized: Release
-    m_Metadata:
-      m_Items: []
-  - m_Id: 53245774170030080
-    m_Localized: 'Value: {0}'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 53324276298809344
-    m_Localized: Hero is not in party
     m_Metadata:
       m_Items: []
   - m_Id: 55133969086283776
@@ -418,32 +230,8 @@ MonoBehaviour:
     m_Localized: '{0} {1} against {2}'
     m_Metadata:
       m_Items: []
-  - m_Id: 61195238297960448
-    m_Localized: Flying
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61195508016873472
-    m_Localized: All
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61195752960032768
-    m_Localized: and
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61195808358400000
-    m_Localized: or
-    m_Metadata:
-      m_Items: []
   - m_Id: 61196649165357056
     m_Localized: Inflicts {0} {1} to {2}
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61199493935267840
-    m_Localized: Beast
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61200086691086336
-    m_Localized: Humanoid
     m_Metadata:
       m_Items: []
   - m_Id: 61210188873596928
@@ -456,18 +244,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 61213211796570112
     m_Localized: A random target is picked
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61214840801329152
-    m_Localized: '{0:F0}% chance'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61897339743371264
-    m_Localized: every second
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61897611702042624
-    m_Localized: every {0} seconds
     m_Metadata:
       m_Items: []
   - m_Id: 61898014707548160
@@ -484,10 +260,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 62001658798931968
     m_Localized: Pause
-    m_Metadata:
-      m_Items: []
-  - m_Id: 63020911090073600
-    m_Localized: 'Your money: {0} GP'
     m_Metadata:
       m_Items: []
   - m_Id: 63021473865007104
@@ -514,16 +286,8 @@ MonoBehaviour:
     m_Localized: Enemies
     m_Metadata:
       m_Items: []
-  - m_Id: 114122130159960064
-    m_Localized: Dawn of Victory
-    m_Metadata:
-      m_Items: []
   - m_Id: 114255180428607488
     m_Localized: Fainted
-    m_Metadata:
-      m_Items: []
-  - m_Id: 118940081652367360
-    m_Localized: 6 years later
     m_Metadata:
       m_Items: []
   - m_Id: 179774903081394176
@@ -540,14 +304,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 273697502483439616
     m_Localized: Heals {0}
-    m_Metadata:
-      m_Items: []
-  - m_Id: 273842509668409344
-    m_Localized: x{0} affinity bonus
-    m_Metadata:
-      m_Items: []
-  - m_Id: 273842629822636032
-    m_Localized: x{0} affinity malus
     m_Metadata:
       m_Items: []
   - m_Id: 273935132563333120
@@ -570,10 +326,6 @@ MonoBehaviour:
     m_Localized: Inflicts {0} {1}
     m_Metadata:
       m_Items: []
-  - m_Id: 279784078762303488
-    m_Localized: <nobr>(no miss)</nobr>
-    m_Metadata:
-      m_Items: []
   - m_Id: 372643240050941952
     m_Localized: '{0}% chance of giving {1}'
     m_Metadata:
@@ -582,32 +334,12 @@ MonoBehaviour:
     m_Localized: '{0}% chance of giving {1} for {2} turns'
     m_Metadata:
       m_Items: []
-  - m_Id: 372874942300020736
-    m_Localized: Small Heal
-    m_Metadata:
-      m_Items: []
-  - m_Id: 372875911234576384
-    m_Localized: Medium Heal
-    m_Metadata:
-      m_Items: []
-  - m_Id: 372875973759066112
-    m_Localized: Large Heal
-    m_Metadata:
-      m_Items: []
   - m_Id: 373172125813432320
     m_Localized: Throw this card at the enemy (literally)
     m_Metadata:
       m_Items: []
-  - m_Id: 373245890769444864
-    m_Localized: Move {0}/{1}
-    m_Metadata:
-      m_Items: []
   - m_Id: 373264549814460416
     m_Localized: Throw
-    m_Metadata:
-      m_Items: []
-  - m_Id: 373269693796966400
-    m_Localized: Cannot be used
     m_Metadata:
       m_Items: []
   - m_Id: 375727145037586432
@@ -618,8 +350,8 @@ MonoBehaviour:
     m_Localized: Discard Pile
     m_Metadata:
       m_Items: []
-  - m_Id: 384945061280866304
-    m_Localized: Test
+  - m_Id: 386647019653947392
+    m_Localized: Fortitude
     m_Metadata:
       m_Items: []
   references:
