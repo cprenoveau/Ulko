@@ -403,30 +403,40 @@ namespace Ulko.Battle
             {
                 foreach(var ability in actor.Abilities)
                 {
-                    var targetCandidates = GetTargetCandidates(ability.target, actor.CaptureState());
+                    actions.AddRange(CreateActions(ability, false, actor, characters));
+                }
+            }
 
-                    if (ability.target.targetSize == AbilityTarget.TargetSize.One)
-                    {
-                        foreach (var target in targetCandidates)
-                        {
-                            actions.Add(new BattleActions(ability, actor.Id, new List<string> { target.Id }, characters));
-                        }
-                    }
-                    else
-                    {
-                        var enemies = targetCandidates.Where(c => c.CharacterSide == CharacterSide.Enemies).ToList();
-                        var heroes = targetCandidates.Where(c => c.CharacterSide == CharacterSide.Heroes).ToList();
+            actions.AddRange(CreateActions(Config.cardThrowAbility, true, actors.First(), characters));
 
-                        if (enemies.Count > 0)
-                        {
-                            actions.Add(new BattleActions(ability, actor.Id, enemies.Select(e => e.Id).ToList(), characters));
-                        }
+            return actions;
+        }
 
-                        if (heroes.Count > 0)
-                        {
-                            actions.Add(new BattleActions(ability, actor.Id, heroes.Select(e => e.Id).ToList(), characters));
-                        }
-                    }
+        private List<BattleActions> CreateActions(AbilityAsset ability, bool isCardThrow, Character actor, List<CharacterState> characters)
+        {
+            var actions = new List<BattleActions>();
+            var targetCandidates = GetTargetCandidates(ability.target, actor.CaptureState());
+
+            if (ability.target.targetSize == AbilityTarget.TargetSize.One)
+            {
+                foreach (var target in targetCandidates)
+                {
+                    actions.Add(new BattleActions(ability, isCardThrow, actor.Id, new List<string> { target.Id }, characters));
+                }
+            }
+            else
+            {
+                var enemies = targetCandidates.Where(c => c.CharacterSide == CharacterSide.Enemies).ToList();
+                var heroes = targetCandidates.Where(c => c.CharacterSide == CharacterSide.Heroes).ToList();
+
+                if (enemies.Count > 0)
+                {
+                    actions.Add(new BattleActions(ability, isCardThrow, actor.Id, enemies.Select(e => e.Id).ToList(), characters));
+                }
+
+                if (heroes.Count > 0)
+                {
+                    actions.Add(new BattleActions(ability, isCardThrow, actor.Id, heroes.Select(e => e.Id).ToList(), characters));
                 }
             }
 

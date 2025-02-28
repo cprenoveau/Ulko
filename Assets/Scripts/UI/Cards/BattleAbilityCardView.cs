@@ -11,8 +11,8 @@ namespace Ulko.UI
 
         public IEnumerable<BattleActions> Actions { get; private set; } = new List<BattleActions>();
 
-        public event Action<CardView> OnAttack;
-        public bool AttackSelected => SelectedExtraButton == extraButtons[0];
+        public event Action<CardView> OnThrow;
+        public bool ThrowSelected => SelectedExtraButton == extraButtons[0];
 
         public void Init(AbilityAsset abilityAsset, Character owner, IEnumerable<BattleActions> actions)
         {
@@ -21,7 +21,7 @@ namespace Ulko.UI
             abilityView.Init(abilityAsset, owner);
 
             extraButtons[0].onClick.RemoveAllListeners();
-            extraButtons[0].onClick.AddListener(() => { extraButtons[0].SuperSelect(true); OnAttack?.Invoke(this); });
+            extraButtons[0].onClick.AddListener(() => { extraButtons[0].SuperSelect(true); OnThrow?.Invoke(this); });
         }
     }
 }

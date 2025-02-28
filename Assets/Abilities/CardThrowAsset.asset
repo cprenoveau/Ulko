@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5792312ed36db064cbedc1bef273b452, type: 3}
+  m_Name: CardThrowAsset
+  m_EditorClassIdentifier: 
+  id: card_throw
+  target:
+    usabilityScope: 1
+    targetType: 0
+    targetSize: 0
+    targetCondition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
+  mainStat: 0
+  nodes:
+  - rid: 6273285019555594450
+  references:
+    version: 2
+    RefIds:
+    - rid: 6273285019555594450
+      type: {class: AbilityNode, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        forceValidTarget: 1
+        applySequence:
+          steps: []
+        effects:
+          effects:
+          - rid: 6273285019555594451
+    - rid: 6273285019555594451
+      type: {class: Damage, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
+        config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
+        attackStat: 0
+        defenseStat: 0
+        damageMultiplier: 0
+        percentDamage: 0
+        flatDamage: 5

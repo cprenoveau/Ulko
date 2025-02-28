@@ -422,7 +422,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 8946636114948511396}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -597,6 +598,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6270427668689975506, guid: 4bb57ccb94c43c94b923cd26563d8a14, type: 3}
+      propertyPath: m_AllowMSAA
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -616,5 +621,10 @@ MonoBehaviour:
 --- !u!4 &2792317227803006177 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1003620067675667095, guid: 4bb57ccb94c43c94b923cd26563d8a14, type: 3}
+  m_PrefabInstance: {fileID: 3111387675826073206}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &8946636114948511396 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6270427668689975506, guid: 4bb57ccb94c43c94b923cd26563d8a14, type: 3}
   m_PrefabInstance: {fileID: 3111387675826073206}
   m_PrefabAsset: {fileID: 0}

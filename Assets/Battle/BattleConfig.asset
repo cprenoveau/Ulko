@@ -13,9 +13,4 @@ MonoBehaviour:
   m_Name: BattleConfig
   m_EditorClassIdentifier: 
   maxHeroCount: 3
-  hudTextInterval: 1
-  hudTextDuration: 2
-  hudTextSpeed: 5
-  damageTextColor: {r: 1, g: 1, b: 1, a: 1}
-  healTextColor: {r: 0, g: 1, b: 0, a: 1}
-  defaultTextColor: {r: 1, g: 1, b: 1, a: 1}
+  cardThrowAbility: {fileID: 11400000, guid: 904f54fa707cc41498722fabff81dace, type: 2}

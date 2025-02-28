@@ -35,7 +35,7 @@ namespace Ulko.Contexts
             battleInstance = BattleInstance.Create(
                 Data.CurrentBattle,
                 FindFirstObjectByType<Battlefield>(),
-            heroPrefab,
+                heroPrefab,
                 enemyPrefab,
                 transform,
                 Data.CurrentMilestone,

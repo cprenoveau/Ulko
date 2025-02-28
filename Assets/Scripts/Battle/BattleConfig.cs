@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ulko.Data.Abilities;
+using UnityEngine;
 
 namespace Ulko.Battle
 {
@@ -6,5 +7,6 @@ namespace Ulko.Battle
     public class BattleConfig : ScriptableObject
     {
         public int maxHeroCount = 3;
+        public AbilityAsset cardThrowAbility;
     }
 }

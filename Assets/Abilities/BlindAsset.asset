@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: blind
   customDescKey: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b013b3f9657b6c24e8080be1270f58eb, type: 3}
   targetType: 2
   applyType: 1
   applyInterval: 0

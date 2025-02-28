@@ -70,7 +70,8 @@ namespace Ulko.UI
             var abilities = new HashSet<AbilityAsset>();
             foreach (var action in possibleActions)
             {
-                abilities.Add(action.ability);
+                if(!action.isCardThrow)
+                    abilities.Add(action.ability);
             }
 
             var actorIds = new HashSet<string>();
@@ -90,7 +91,7 @@ namespace Ulko.UI
                     var abilityCard = handOfCardsView.AddCard(abilityPrefab);
                     abilityCard.Init(ability, owner, actions);
 
-                    abilityCard.OnAttack += OnAttackClicked;
+                    abilityCard.OnThrow += OnThrowClicked;
                 }
             }
 
@@ -106,16 +107,24 @@ namespace Ulko.UI
         {
             if (cardView is BattleAbilityCardView battleAbility)
             {
-                if (battleAbility.AttackSelected)
+                if (battleAbility.ThrowSelected)
                     data.uiRoot.SetInfo(Localization.Localize("discard_desc"));
                 else
                     data.uiRoot.SetInfo(battleAbility.abilityView.AbilityAsset.Description());
             }
         }
 
-        private void OnAttackClicked(CardView cardView)
+        private void OnThrowClicked(CardView cardView)
         {
-            //todo
+            if (cardView is BattleAbilityCardView abilityView)
+            {
+                var possibleActions = data.playerAction.PossibleActions.Where(a => a.isCardThrow);
+
+                ShowTargetMenu(
+                    possibleActions,
+                    null,
+                    DeclareAction);
+            }
         }
 
         private void OnCardClicked(CardView cardView)
