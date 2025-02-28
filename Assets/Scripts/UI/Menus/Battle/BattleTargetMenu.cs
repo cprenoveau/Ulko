@@ -129,7 +129,7 @@ namespace Ulko.UI
                 var instance = Instantiate(arrowPrefab, arrowParent);
 
                 var arrowPos = target.GetComponentInChildren<ArrowAnchor>().transform.position;
-                Vector2 viewportPoint = Camera.main.WorldToViewportPoint(arrowPos);
+                Vector2 viewportPoint = data.gameState.Camera.WorldToViewportPoint(arrowPos);
                 instance.anchorMin = viewportPoint;
                 instance.anchorMax = viewportPoint;
             }

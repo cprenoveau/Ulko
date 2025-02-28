@@ -71,7 +71,9 @@ namespace Ulko.Battle
 
                 var battleStack = new BattleStack(battleAction);
 
-                await ApplyStatusOnAction(battleStack, instance, ct);
+                if(!action.SelectedAction.isCardThrow)
+                    await ApplyStatusOnAction(battleStack, instance, ct);
+
                 await battleStack.ApplyOutcome(instance, ct);
 
                 await Task.Delay(1000, ct);

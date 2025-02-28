@@ -54,6 +54,7 @@ MonoBehaviour:
   gameOverMenu: {fileID: 11400000, guid: e2bfd1534a060bf4099bd5faf9b6e0cb, type: 2}
   dialogueMenu: {fileID: 11400000, guid: 28cc7e734c24e754b830e6dba7b37b9d, type: 2}
   cam: {fileID: 8452861772244995460}
+  uiCam: {fileID: 8946636114948511396}
   heroPrefab: {fileID: 3388132748427593631, guid: 3a909d90a0a063949a7ca046b6d1e777, type: 3}
   enemyPrefab: {fileID: 2697140048063973346, guid: e7f72d958085a8440ba5afd235142733, type: 3}
 --- !u!1 &8452861772244995463

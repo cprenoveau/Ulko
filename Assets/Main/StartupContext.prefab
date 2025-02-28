@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiRoot: {fileID: 8442621195702620100}
   cam: {fileID: 6803488081064891399}
+  uiCam: {fileID: 1097024011730106714}
   startMenu: {fileID: 11400000, guid: dbf37c9928d08de43822792dfe5b05ea, type: 2}
   music: {fileID: 0}
 --- !u!1001 &6358063670696919432

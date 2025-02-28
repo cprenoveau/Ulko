@@ -30,6 +30,7 @@ namespace Ulko
         public Data.BattleAsset CurrentBattle { get; private set; }
         public Context Context(ContextType type) => contexts[type];
         public Camera Camera => CurrentContext != ContextType.None ? contexts[CurrentContext].Camera : null;
+        public Camera UICamera => CurrentContext != ContextType.None ? contexts[CurrentContext].UICamera : null;
         public UIRoot UIRoot => CurrentContext != ContextType.None ? contexts[CurrentContext].UIRoot : uiRoot;
 
         public event Action OnShowNext;

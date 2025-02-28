@@ -19,6 +19,7 @@ namespace Ulko
         public abstract ContextType ContextType { get; }
         public abstract UIRoot UIRoot { get; }
         public abstract Camera Camera { get; }
+        public abstract Camera UICamera { get; }
 
         public abstract void Init(object data);
 

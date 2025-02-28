@@ -3,6 +3,10 @@ using Ulko.Data.Abilities;
 using HotChocolate.UI;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using System.Collections;
+using static Rewired.ComponentControls.Effects.RotateAroundAxis;
+using UnityEngine.UIElements;
 
 namespace Ulko.UI
 {
@@ -21,6 +25,7 @@ namespace Ulko.UI
 
         public HandOfCardsView handOfCardsView;
         public BattleAbilityCardView abilityPrefab;
+        public RectTransform cardThrowParent;
 
         private MenuStack stack;
         private BattleMenuData data;
@@ -116,14 +121,14 @@ namespace Ulko.UI
 
         private void OnThrowClicked(CardView cardView)
         {
-            if (cardView is BattleAbilityCardView abilityView)
+            if (cardView is BattleAbilityCardView battleAbility)
             {
                 var possibleActions = data.playerAction.PossibleActions.Where(a => a.isCardThrow);
 
                 ShowTargetMenu(
                     possibleActions,
                     null,
-                    DeclareAction);
+                    (BattleActions actions) => DeclareAction(actions, battleAbility));
             }
         }
 
@@ -134,7 +139,7 @@ namespace Ulko.UI
                 ShowTargetMenu(
                     battleAbility.Actions,
                     null,
-                    DeclareAction);
+                    (BattleActions actions) => DeclareAction(actions, battleAbility));
 
             }
         }
@@ -157,8 +162,41 @@ namespace Ulko.UI
             stack.Push(battleTargetMenu.asset, battleTargetMenu.id, targetData);
         }
 
-        private void DeclareAction(BattleActions action)
+        private void DeclareAction(BattleActions action, BattleAbilityCardView cardView)
         {
+            if (action.isCardThrow)
+            {
+                StartCoroutine(ThrowCardAsync(action, cardView));
+            }
+            else
+            {
+                data.playerAction.DeclareAction(action);
+            }
+        }
+
+        private IEnumerator ThrowCardAsync(BattleActions action, BattleAbilityCardView cardView)
+        {
+            var targets = data.battleInstance.FindCharacters(action.targetIds);
+
+            cardView.transform.SetParent(cardThrowParent);
+            cardView.transform.localPosition = Vector3.zero;
+
+            float elapsed = 0;
+            while (elapsed < 0.5f)
+            {
+                var headPos = targets[0].GetComponentInChildren<HeadAnchor>().transform.position;
+                Vector2 viewportPoint = data.gameState.Camera.WorldToViewportPoint(headPos);
+
+                cardView.transform.localScale -= Vector3.one * Time.deltaTime;
+
+                cardView.GetComponent<RectTransform>().anchorMin = viewportPoint;
+                cardView.GetComponent<RectTransform>().anchorMax = viewportPoint;
+
+                elapsed += Time.deltaTime;
+
+                yield return null;
+            }
+
             data.playerAction.DeclareAction(action);
         }
     }

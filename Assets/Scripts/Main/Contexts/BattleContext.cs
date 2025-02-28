@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Ulko;
 using UnityEngine;
+using System.Collections;
 
 namespace Ulko.Contexts
 {
@@ -13,6 +14,7 @@ namespace Ulko.Contexts
     {
         public override ContextType ContextType => ContextType.Battle;
         public override Camera Camera => cam;
+        public override Camera UICamera => uiCam;
 
         public BattleConfig config;
 
@@ -23,6 +25,7 @@ namespace Ulko.Contexts
         public MenuDefinition dialogueMenu;
 
         public Camera cam;
+        public Camera uiCam;
         public Character heroPrefab;
         public Character enemyPrefab;
 
@@ -129,8 +132,8 @@ namespace Ulko.Contexts
                 playerAction = playerAction
             });
 
-            playerAction.OnActionSelected -= PopAllAboveHud;
-            playerAction.OnActionSelected += PopAllAboveHud;
+            playerAction.OnActionSelected -= OnActionSelected;
+            playerAction.OnActionSelected += OnActionSelected;
         }
 
         private void ShowDialogue(Data.Dialogue dialogue, Action callback)
@@ -138,7 +141,7 @@ namespace Ulko.Contexts
             uiRoot.menuStack.Push(dialogueMenu.asset, dialogueMenu.id, new DialogueMenuData { dialogue = dialogue, onClose = callback });
         }
 
-        private void PopAllAboveHud()
+        private void OnActionSelected(BattleActions action)
         {
             uiRoot.menuStack.PopAllAbove(hud.id);
         }

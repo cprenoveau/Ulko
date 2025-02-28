@@ -16,6 +16,7 @@ namespace Ulko
     {
         public override ContextType ContextType => ContextType.World;
         public override Camera Camera => cam;
+        public override Camera UICamera => uiCam;
 
         public WorldConfig config;
 
@@ -25,6 +26,7 @@ namespace Ulko
         public MenuDefinition saveMenu;
 
         public Camera cam;
+        public Camera uiCam;
         public RawImage screenshotImage;
         public CinemachineVirtualCamera dummyCamera;
         public Player playerPrefab;

@@ -55,6 +55,7 @@ MonoBehaviour:
   dialogueMenu: {fileID: 11400000, guid: 28cc7e734c24e754b830e6dba7b37b9d, type: 2}
   saveMenu: {fileID: 11400000, guid: b082c561253377a4daca5103bdb82122, type: 2}
   cam: {fileID: 8452861772244995460}
+  uiCam: {fileID: 8946636114948511396}
   screenshotImage: {fileID: 800625312397580216}
   dummyCamera: {fileID: 2980458059257486998}
   playerPrefab: {fileID: 4272024976958334546, guid: 2988eee1c4ab0a049af482ab6d9a9cae, type: 3}

@@ -5,7 +5,7 @@ namespace Ulko.Battle
 {
     public class PlayerAction
     {
-        public delegate void ActionSelected();
+        public delegate void ActionSelected(BattleActions action);
         public event ActionSelected OnActionSelected;
 
         public List<BattleActions> PossibleActions { get; private set; }
@@ -19,7 +19,7 @@ namespace Ulko.Battle
         public void DeclareAction(BattleActions selectedAction)
         {
             SelectedAction = selectedAction;
-            OnActionSelected?.Invoke();
+            OnActionSelected?.Invoke(selectedAction);
         }
 
         public PlayerActionAwaiter GetAwaiter()
@@ -52,7 +52,7 @@ namespace Ulko.Battle
             }
             else
             {
-                playerAction.OnActionSelected += () =>
+                playerAction.OnActionSelected += (BattleActions actions) =>
                 {
                     continuation?.Invoke();
                 };

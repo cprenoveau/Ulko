@@ -19,6 +19,7 @@ namespace Ulko
         Data.Timeline.Level CurrentLevel { get; }
         Data.BattleAsset CurrentBattle { get; }
         Camera Camera { get; }
+        Camera UICamera { get; }
 
         Task GoToStartup(CancellationToken ct);
         Task StartMilestone(Data.Timeline.IMilestone milestone, CancellationToken ct);

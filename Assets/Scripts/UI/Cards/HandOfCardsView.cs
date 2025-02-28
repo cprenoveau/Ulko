@@ -23,13 +23,13 @@ namespace Ulko.UI
 
         public int CardCount => cards.Count;
 
-        public List<CardView> SelectedCardStack { get; private set; } = new List<CardView>();
+        public List<CardView> ClickedCardStack { get; private set; } = new List<CardView>();
 
         public event Action<CardView> OnCardSelected;
         public event Action<CardView> OnCardDeselected;
         public event Action<CardView> OnCardClicked;
 
-        private List<CardView> cards = new List<CardView>();
+        private List<CardView> cards = new();
 
         public T AddCard<T>(T cardPrefab) where T : CardView
         {
@@ -61,10 +61,10 @@ namespace Ulko.UI
 
         public bool Cancel()
         {
-            if (SelectedCardStack.Count > 0)
+            if (ClickedCardStack.Count > 0)
             {
-                var card = SelectedCardStack[0];
-                SelectedCardStack.RemoveAt(0);
+                var card = ClickedCardStack[0];
+                ClickedCardStack.RemoveAt(0);
                 card.button.SuperSelect(false);
 
                 return true;
@@ -110,7 +110,7 @@ namespace Ulko.UI
 
             RefreshTransforms();
 
-            SelectedCardStack.Remove(selectedCard);
+            ClickedCardStack.Remove(selectedCard);
             OnCardSelected?.Invoke(selectedCard);
         }
 
@@ -121,14 +121,14 @@ namespace Ulko.UI
 
             RefreshTransforms();
 
-            SelectedCardStack.Remove(selectedCard);
+            ClickedCardStack.Remove(selectedCard);
             OnCardDeselected?.Invoke(selectedCard);
         }
 
         private void OnClick(CardView clickedCard)
         {
-            SelectedCardStack.Remove(clickedCard);
-            SelectedCardStack.Insert(0, clickedCard);
+            ClickedCardStack.Remove(clickedCard);
+            ClickedCardStack.Insert(0, clickedCard);
 
             OnCardClicked?.Invoke(clickedCard);
         }
@@ -183,12 +183,12 @@ namespace Ulko.UI
 
         private void Refresh()
         {
-            foreach(var card in SelectedCardStack)
+            foreach(var card in ClickedCardStack)
             {
                 card.button.SuperSelect(false, false);
             }
 
-            SelectedCardStack.Clear();
+            ClickedCardStack.Clear();
 
             if (cards.Count == 0)
                 return;

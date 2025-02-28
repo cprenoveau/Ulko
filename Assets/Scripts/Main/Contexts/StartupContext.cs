@@ -9,8 +9,10 @@ namespace Ulko
     {
         public override ContextType ContextType => ContextType.Startup;
         public override Camera Camera => cam;
+        public override Camera UICamera => uiCam;
 
         public Camera cam;
+        public Camera uiCam;
         public MenuDefinition startMenu;
         public AudioDefinition music;
 
