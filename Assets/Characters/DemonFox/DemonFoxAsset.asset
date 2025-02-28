@@ -24,4 +24,8 @@ MonoBehaviour:
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  animations: []
+  animations:
+  - tag: {fileID: 11400000, guid: 062d7c818afcd5649a0ac964cc14962f, type: 2}
+    animation: {fileID: 11400000, guid: 84246a1718127374f8063d0bf857bdb9, type: 2}
+  - tag: {fileID: 11400000, guid: 596f3e284d854034c9fbdde789183ca9, type: 2}
+    animation: {fileID: 11400000, guid: 472b9de2916fc0f44b42b93f90de21a0, type: 2}

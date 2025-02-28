@@ -127,10 +127,25 @@ namespace Ulko.Battle
 
         public void ApplyState(CharacterState state)
         {
+            int originalHP = characterInternal.HP;
             characterInternal.HP = Mathf.Clamp(state.hp, 0, Stats.MaxHP);
-            StatusState = state.statuses.Clone();
 
+            StatusState = state.statuses.Clone();
             UpdateStatusCosmetics();
+
+            if (IsDead)
+            {
+                CurrentAnimState = AnimState.Dead;
+            }
+            else if (CurrentAnimState == AnimState.Dead)
+            {
+                SetAnimationState(AnimState.Idle);
+            }
+
+            if (originalHP > characterInternal.HP)
+            {
+                PlayHurtAnimation();
+            }
         }
 
         private readonly Dictionary<string, CancellationTokenSource> statusCosmeticsTasks = new();
