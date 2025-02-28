@@ -77,6 +77,9 @@ namespace Ulko.Data.Abilities
             damage = Mathf.Clamp(damage, 1, damage);
 
             target.hp -= (int)damage;
+
+            if (target.hp <= 0)
+                target.statuses.Clear();
         }
 
         public float RawValue(CharacterState actor)
