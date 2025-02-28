@@ -27,6 +27,10 @@ namespace Ulko.UI
         public BattleAbilityCardView abilityPrefab;
         public RectTransform cardThrowParent;
 
+        public Vector3 cardThrowAcceleration = new(0.1f, 0.1f, 0);
+        public Vector3 cardThrowVelocity = new(-1, -1, 0);
+        public Vector3 cardThrowRotation = new(1000f, 500f, 0f);
+
         private MenuStack stack;
         private BattleMenuData data;
 
@@ -176,21 +180,32 @@ namespace Ulko.UI
 
         private IEnumerator ThrowCardAsync(BattleActions action, BattleAbilityCardView cardView)
         {
+            cardView.SelectedExtraButton.gameObject.SetActive(false);
+
             var targets = data.battleInstance.FindCharacters(action.targetIds);
 
             cardView.transform.SetParent(cardThrowParent);
+
+            Vector2 startPoint = data.gameState.UICamera.WorldToViewportPoint(cardView.transform.position);
+
+            var headPos = targets[0].GetComponentInChildren<HeadAnchor>().transform.position;
+            Vector2 targetPoint = data.gameState.Camera.WorldToViewportPoint(headPos);
+
             cardView.transform.localPosition = Vector3.zero;
 
             float elapsed = 0;
             while (elapsed < 0.5f)
             {
-                var headPos = targets[0].GetComponentInChildren<HeadAnchor>().transform.position;
-                Vector2 viewportPoint = data.gameState.Camera.WorldToViewportPoint(headPos);
+                cardView.GetComponent<RectTransform>().anchorMin = Vector3.Lerp(startPoint, targetPoint, elapsed * 2f + 0.5f);
+                cardView.GetComponent<RectTransform>().anchorMax = Vector3.Lerp(startPoint, targetPoint, elapsed * 2f + 0.5f);
 
-                cardView.transform.localScale -= Vector3.one * Time.deltaTime;
+                Vector3 v = cardThrowAcceleration * elapsed + cardThrowVelocity;
+                Vector3 s = 0.5f * elapsed * elapsed * cardThrowAcceleration + v * elapsed + Vector3.one;
 
-                cardView.GetComponent<RectTransform>().anchorMin = viewportPoint;
-                cardView.GetComponent<RectTransform>().anchorMax = viewportPoint;
+                cardView.transform.localScale = s;
+                if (cardView.transform.localScale.x < 0) cardView.transform.localScale = Vector3.zero;
+
+                cardView.transform.Rotate(cardThrowRotation * Time.deltaTime);
 
                 elapsed += Time.deltaTime;
 
