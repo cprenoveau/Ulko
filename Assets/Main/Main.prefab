@@ -47,6 +47,7 @@ MonoBehaviour:
   startingMilestone: 
   startingEncounter: {fileID: 0}
   settingsConfig: {fileID: 11400000, guid: f70b650cee4a9d747994b9fb873669bf, type: 2}
+  cheats: {fileID: 3330746383273945773, guid: 78bbc7225c1c57b43a7a297e99819d53, type: 3}
   newGame: {fileID: 4900000, guid: 635572a924045834a9ee75883a81bdb9, type: 3}
   heroes: {fileID: 4900000, guid: 5ff6c7bf1a9dd924ba58e067e2eb0507, type: 3}
   enemies: {fileID: 4900000, guid: f6f850d162ae4e14a994756b5f0c0266, type: 3}

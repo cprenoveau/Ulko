@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0902712ed3d46174f8a6dffea7d50a3a
+    m_Address: Assets/Cheats/HeroCheatWidget.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 112146e36a24c8044ae198397e836292
     m_Address: Assets/UI/Menus/Battle/BattleMenu.prefab
     m_ReadOnly: 0

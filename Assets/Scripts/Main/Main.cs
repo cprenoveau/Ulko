@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 using System.Threading;
 using HotChocolate.Utils;
 using System.Collections.Generic;
+using HotChocolate.UI.Cheats;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -19,6 +21,7 @@ namespace Ulko
         public Data.BattleAsset startingEncounter;
 
         public SettingsConfig settingsConfig;
+        public CheatUi cheats;
 
         public TextAsset newGame;
         public TextAsset heroes;
@@ -99,6 +102,16 @@ namespace Ulko
 
             var gameInstance = Instantiate(main.gameInstancePrefab, permanentContainer.transform);
             await gameInstance.Init(main.playerControllerPrefab, main.contextPrefabs, ct);
+
+#if UNITY_EDITOR || DEVELOPMENT_BUILD || ALLOW_CHEATS
+            var cheatsInstance = Instantiate(main.cheats, permanentContainer.transform);
+            cheatsInstance.Init();
+
+            cheatsInstance.OnOpen += () => { gameInstance.OnCheatOpen(); };
+            cheatsInstance.OnClose += () => { gameInstance.OnCheatClosed(); };
+
+            gameInstance.OnToggleCheats += () => { cheatsInstance.Toggle(); };
+#endif
 
 #if UNITY_EDITOR
 

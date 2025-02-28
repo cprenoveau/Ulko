@@ -100,6 +100,8 @@ namespace Ulko.Contexts
 
         public void ForceWinBattle()
         {
+            uiRoot.menuStack.PopAllAbove(hud.id);
+
             ctSource.Cancel();
             ctSource.Dispose();
             ctSource = new CancellationTokenSource();
@@ -109,17 +111,25 @@ namespace Ulko.Contexts
                 gameState = Data,
                 uiRoot = uiRoot,
                 battleInstance = battleInstance,
-                onClose = () => { Data.EndBattle(ctSource.Token).FireAndForgetTask(); }
+                onClose = () => { Data.EndBattle(default).FireAndForgetTask(); }
             });
         }
 
         public void ForceLoseBattle()
         {
+            uiRoot.menuStack.PopAllAbove(hud.id);
+
             ctSource.Cancel();
             ctSource.Dispose();
             ctSource = new CancellationTokenSource();
 
-            Data.EndBattle(ctSource.Token).FireAndForgetTask();
+            uiRoot.menuStack.Push(gameOverMenu.asset, gameOverMenu.id, new GameOverMenuData()
+            {
+                gameState = Data,
+                uiRoot = uiRoot,
+                battleInstance = battleInstance,
+                onRetry = () => { RetryBattle(default); }
+            });
         }
 
         private void WaitForPlayer(PlayerAction playerAction)
