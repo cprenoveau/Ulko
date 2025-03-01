@@ -32,3 +32,5 @@ MonoBehaviour:
     animation: {fileID: 11400000, guid: 6c6eb1c893fe63b4d92a482577afe00f, type: 2}
   - tag: {fileID: 11400000, guid: 596f3e284d854034c9fbdde789183ca9, type: 2}
     animation: {fileID: 11400000, guid: 91e1f759a878160469efeb6d825af2cf, type: 2}
+  - tag: {fileID: 11400000, guid: 3291aaaf301bf9144850077897990ea9, type: 2}
+    animation: {fileID: 11400000, guid: 57d681e2ca2c39a44b9736e9e5af508b, type: 2}
