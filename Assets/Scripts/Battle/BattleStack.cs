@@ -11,14 +11,16 @@ namespace Ulko.Battle
 {
     public class BattleActions
     {
+        public int cardIndex;
         public AbilityAsset ability;
         public bool isCardThrow;
         public string actorId;
         public List<string> targetIds;
         public List<BattleAction> actions = new();
 
-        public BattleActions(AbilityAsset ability, bool isCardThrow, string actorId, List<string> targetIds, List<CharacterState> characters)
+        public BattleActions(int cardIndex, AbilityAsset ability, bool isCardThrow, string actorId, List<string> targetIds, List<CharacterState> characters)
         {
+            this.cardIndex = cardIndex;
             this.ability = ability;
             this.isCardThrow = isCardThrow;
             this.actorId = actorId;

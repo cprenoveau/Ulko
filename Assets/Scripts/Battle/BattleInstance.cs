@@ -399,20 +399,22 @@ namespace Ulko.Battle
             var actions = new List<BattleActions>();
             var characters = CaptureCharacterStates();
 
+            int cardIndex = 0;
             foreach (var actor in actors)
             {
-                foreach(var ability in actor.Abilities)
-                {
-                    actions.AddRange(CreateActions(ability, false, actor, characters));
-                }
+                actions.AddRange(CreateActions(cardIndex, actor.Abilities[UnityEngine.Random.Range(0, actor.Abilities.Count)], false, actor, characters));
+                cardIndex++;
             }
 
-            actions.AddRange(CreateActions(Config.cardThrowAbility, true, actors.First(), characters));
+            int actorIndex = UnityEngine.Random.Range(0, actors.Count());
+            actions.AddRange(CreateActions(cardIndex, actors.ElementAt(actorIndex).Abilities[UnityEngine.Random.Range(0, actors.ElementAt(actorIndex).Abilities.Count)], false, actors.ElementAt(actorIndex), characters));
+
+            actions.AddRange(CreateActions(-1,Config.cardThrowAbility, true, actors.First(), characters));
 
             return actions;
         }
 
-        private List<BattleActions> CreateActions(AbilityAsset ability, bool isCardThrow, Character actor, List<CharacterState> characters)
+        private List<BattleActions> CreateActions(int cardIndex, AbilityAsset ability, bool isCardThrow, Character actor, List<CharacterState> characters)
         {
             var actions = new List<BattleActions>();
             var targetCandidates = GetTargetCandidates(ability.target, actor.CaptureState());
@@ -421,7 +423,7 @@ namespace Ulko.Battle
             {
                 foreach (var target in targetCandidates)
                 {
-                    actions.Add(new BattleActions(ability, isCardThrow, actor.Id, new List<string> { target.Id }, characters));
+                    actions.Add(new BattleActions(cardIndex, ability, isCardThrow, actor.Id, new List<string> { target.Id }, characters));
                 }
             }
             else
@@ -431,12 +433,12 @@ namespace Ulko.Battle
 
                 if (enemies.Count > 0)
                 {
-                    actions.Add(new BattleActions(ability, isCardThrow, actor.Id, enemies.Select(e => e.Id).ToList(), characters));
+                    actions.Add(new BattleActions(cardIndex, ability, isCardThrow, actor.Id, enemies.Select(e => e.Id).ToList(), characters));
                 }
 
                 if (heroes.Count > 0)
                 {
-                    actions.Add(new BattleActions(ability, isCardThrow, actor.Id, heroes.Select(e => e.Id).ToList(), characters));
+                    actions.Add(new BattleActions(cardIndex, ability, isCardThrow, actor.Id, heroes.Select(e => e.Id).ToList(), characters));
                 }
             }
 

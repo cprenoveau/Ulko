@@ -1,12 +1,9 @@
 ﻿using Ulko.Battle;
-using Ulko.Data.Abilities;
 using HotChocolate.UI;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using System.Collections;
-using static Rewired.ComponentControls.Effects.RotateAroundAxis;
-using UnityEngine.UIElements;
 
 namespace Ulko.UI
 {
@@ -76,34 +73,19 @@ namespace Ulko.UI
 
             var possibleActions = data.playerAction.PossibleActions;
 
-            var abilities = new HashSet<AbilityAsset>();
-            foreach (var action in possibleActions)
+            int maxCardIndex = data.playerAction.PossibleActions.Max(a => a.cardIndex);
+            for(int i = 0; i <= maxCardIndex; ++i)
             {
-                if(!action.isCardThrow)
-                    abilities.Add(action.ability);
-            }
+                var actions = possibleActions.Where(a => a.cardIndex == i).ToList();
 
-            var actorIds = new HashSet<string>();
-            foreach (var action in possibleActions)
-            {
-                actorIds.Add(action.actorId);
-            }
-
-            foreach(var actorId in actorIds)
-            {
-                var owner = data.battleInstance.FindCharacter(actorId);
-
-                foreach (var ability in abilities)
+                if (actions.Count() > 0)
                 {
-                    var actions = possibleActions.Where(a => a.ability.id == ability.id && a.actorId == actorId);
+                    var owner = data.battleInstance.FindCharacter(actions.First().actorId);
 
-                    if(actions.Count() > 0)
-                    {
-                        var abilityCard = handOfCardsView.AddCard(abilityPrefab);
-                        abilityCard.Init(ability, owner, actions);
+                    var abilityCard = handOfCardsView.AddCard(abilityPrefab);
+                    abilityCard.Init(actions.First().ability, owner, actions);
 
-                        abilityCard.OnThrow += OnThrowClicked;
-                    }
+                    abilityCard.OnThrow += OnThrowClicked;
                 }
             }
 
