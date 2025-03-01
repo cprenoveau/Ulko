@@ -25,7 +25,7 @@ namespace Ulko.World
         {
             Target = target;
             Rank = rank;
-            transform.position = Target.transform.position;
+            transform.position = Target.transform.position + new Vector3(0, 0, 0.1f);
         }
 
         public void SetCharacter(GameObject instance)
