@@ -34,6 +34,18 @@ MonoBehaviour:
     m_Localized: Blind
     m_Metadata:
       m_Items: []
+  - m_Id: 695071904096256
+    m_Localized: Mind-Controlled Swords
+    m_Metadata:
+      m_Items: []
+  - m_Id: 695192393867264
+    m_Localized: Healing Spell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 695401135988736
+    m_Localized: Wind Gust
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

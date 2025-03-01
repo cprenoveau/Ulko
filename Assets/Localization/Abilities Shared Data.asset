@@ -31,6 +31,18 @@ MonoBehaviour:
     m_Key: blind
     m_Metadata:
       m_Items: []
+  - m_Id: 695071904096256
+    m_Key: mind_controlled_swords
+    m_Metadata:
+      m_Items: []
+  - m_Id: 695192393867264
+    m_Key: healing_spell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 695401135988736
+    m_Key: wind_gust
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

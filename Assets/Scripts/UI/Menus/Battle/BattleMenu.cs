@@ -95,12 +95,15 @@ namespace Ulko.UI
 
                 foreach (var ability in abilities)
                 {
-                    var actions = possibleActions.Where(a => a.ability.id == ability.id);
+                    var actions = possibleActions.Where(a => a.ability.id == ability.id && a.actorId == actorId);
 
-                    var abilityCard = handOfCardsView.AddCard(abilityPrefab);
-                    abilityCard.Init(ability, owner, actions);
+                    if(actions.Count() > 0)
+                    {
+                        var abilityCard = handOfCardsView.AddCard(abilityPrefab);
+                        abilityCard.Init(ability, owner, actions);
 
-                    abilityCard.OnThrow += OnThrowClicked;
+                        abilityCard.OnThrow += OnThrowClicked;
+                    }
                 }
             }
 

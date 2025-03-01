@@ -35,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ee151693cdf21b499927a2bf995fb2a
+    m_Address: Assets/Characters/Heroes/Phoebey/Phoebey.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3069093c6d5c3a443a36f0a5f858f870
     m_Address: Assets/UI/Menus/Battle/VictoryScreen.prefab
     m_ReadOnly: 0
@@ -48,6 +53,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 31fcdc3de9f1d8944be9d6b8d7320fb2
     m_Address: Assets/UI/Menus/PauseMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39423d94ce83b954c98273f6e9bbc303
+    m_Address: Assets/Characters/Heroes/Ferlin/Ferlin.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -82,7 +92,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 782ac91376fc48b43991e37a007f05f9
-    m_Address: Assets/Characters/Ulko/Ulko.prefab
+    m_Address: Assets/Characters/Heroes/Ulko/Ulko.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -139,6 +149,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5e15e54081678d459d5ba86ddb4d1dc
     m_Address: Assets/UI/Prompts/ChoicePrompt.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff32988c16b732d4c841339c6d12fde2
+    m_Address: Assets/Characters/Heroes/Bob/Bob.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

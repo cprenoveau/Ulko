@@ -22,6 +22,18 @@ MonoBehaviour:
     m_Localized: Ulko
     m_Metadata:
       m_Items: []
+  - m_Id: 2113142946521088
+    m_Localized: Ferlin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2113182129709056
+    m_Localized: Phoebey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2113253197996032
+    m_Localized: Bob
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

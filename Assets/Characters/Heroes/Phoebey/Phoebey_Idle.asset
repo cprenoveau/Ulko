@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503b0f19a62c3b24d8aa2a8a05ed8b11, type: 3}
+  m_Name: Phoebey_Idle
+  m_EditorClassIdentifier: 
+  down: {fileID: 11400000, guid: d2cd243da33a2dd40b20409ee2e6512e, type: 2}
+  up: {fileID: 11400000, guid: d33556d986a75dc4e8a2c25f7beecad5, type: 2}
+  left: {fileID: 11400000, guid: c519e385d4599e74f87a05ded67ea5c1, type: 2}
+  right: {fileID: 11400000, guid: 39207f1cc81cd5f499548b78c932357c, type: 2}

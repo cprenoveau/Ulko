@@ -346,6 +346,18 @@ MonoBehaviour:
     m_Localized: Force Morale
     m_Metadata:
       m_Items: []
+  - m_Id: 387342891018608640
+    m_Localized: Intelligence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387342955040464896
+    m_Localized: Sagesse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387342996815732736
+    m_Localized: Intuition
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

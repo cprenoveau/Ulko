@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503b0f19a62c3b24d8aa2a8a05ed8b11, type: 3}
+  m_Name: Ferlin_Idle
+  m_EditorClassIdentifier: 
+  down: {fileID: 11400000, guid: 4b2dfe233cec79f42a6b026e33b7b29b, type: 2}
+  up: {fileID: 11400000, guid: 6a8c4a59aa644104fb826bdf2b00001c, type: 2}
+  left: {fileID: 11400000, guid: 8fd632f74c95bc94ab096dea30cde4dc, type: 2}
+  right: {fileID: 11400000, guid: 5b3ee600fa0ed8843977e35d76bc7a9e, type: 2}

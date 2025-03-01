@@ -339,6 +339,18 @@ MonoBehaviour:
     m_Key: stat_fortitude
     m_Metadata:
       m_Items: []
+  - m_Id: 387342891018608640
+    m_Key: stat_intelligence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387342955040464896
+    m_Key: stat_wisdom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387342996815732736
+    m_Key: stat_intuition
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

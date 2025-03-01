@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ede958062ca9594fa5dd814a3433bc0, type: 3}
   m_Name: BattleConfig
   m_EditorClassIdentifier: 
-  maxHeroCount: 3
+  maxHeroCount: 4
   cardThrowAbility: {fileID: 11400000, guid: 904f54fa707cc41498722fabff81dace, type: 2}
