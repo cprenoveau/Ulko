@@ -21,6 +21,7 @@ namespace Ulko.UI
         {
             public Stat stat;
             public Sprite icon;
+            public Color color = Color.white;
         }
 
         public List<StatIcon> statIcons = new();
@@ -32,6 +33,15 @@ namespace Ulko.UI
                 return null;
 
             return statIcon.icon;
+        }
+
+        public Color FindStatColor(Stat stat)
+        {
+            var statIcon = statIcons.FirstOrDefault(s => s.stat == stat);
+            if (statIcon == null)
+                return Color.white;
+
+            return statIcon.color;
         }
 
         [Serializable]

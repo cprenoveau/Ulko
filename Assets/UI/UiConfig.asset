@@ -21,12 +21,16 @@ MonoBehaviour:
   statIcons:
   - stat: 0
     icon: {fileID: 21300000, guid: bec1851e259cae144adc9400e1aa5a19, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
   - stat: 1
     icon: {fileID: 21300000, guid: 593e1f924651f3749a5a370dcb892c6b, type: 3}
+    color: {r: 0.22629598, g: 0.6698113, b: 0.19272871, a: 1}
   - stat: 2
     icon: {fileID: 21300000, guid: cab97566febb79248b089721bb91cf71, type: 3}
+    color: {r: 0.8773585, g: 0.16140087, b: 0.2366413, a: 1}
   - stat: 3
     icon: {fileID: 21300000, guid: 5f701eb339a23f142adfd8c39013c572, type: 3}
+    color: {r: 0.17528482, g: 0.34431618, b: 0.9528302, a: 1}
   defaultMaxStat: 100
   statProgress:
   - stat: 0

@@ -50,7 +50,9 @@ namespace Ulko.UI
             nameText.text = Localization.Localize(AbilityAsset.id);
             targetSizeText.text = Localization.Localize("size_" + AbilityAsset.target.targetSize.ToString().ToLower());
             ownerNameText.text = Owner.Name;
+
             abilityTypeIcon.sprite = config.FindStatIcon(AbilityAsset.mainStat);
+            abilityTypeIcon.color = config.FindStatColor(AbilityAsset.mainStat);
         }
     }
 }
