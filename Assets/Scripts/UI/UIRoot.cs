@@ -36,23 +36,23 @@ namespace Ulko
 
             inputBlocker.SetActive(inputBlockCount > 0 || !allowMouseInputs);
 
-            menuStack.OnBlockInput -= DisableUISubmit;
-            menuStack.OnBlockInput += DisableUISubmit;
+            menuStack.OnBlockInput -= OnMenuStackBlockInput;
+            menuStack.OnBlockInput += OnMenuStackBlockInput;
         }
 
-        private static void DisableUISubmit(bool disable)
+        private static void OnMenuStackBlockInput(bool blockInput)
         {
-            PlayerController.DisableUISubmit(disable, "MenuStack");
+            PlayerController.DisableUISubmit(blockInput, "MenuStack");
         }
 
         public readonly struct BlockInputScope : IDisposable
         {
             private readonly UIRoot uiRoot;
 
-            public BlockInputScope(UIRoot uiRoot)
+            public BlockInputScope(UIRoot uiRoot, bool disableUISubmit = true)
             {
                 this.uiRoot = uiRoot;
-                uiRoot.BlockInput(false);
+                uiRoot.BlockInput(false, disableUISubmit);
             }
 
             public void Dispose()
@@ -64,7 +64,7 @@ namespace Ulko
         private GameObject lastSelectedObject;
         private readonly List<Selectable> blockedSelectables = new();
 
-        public void BlockInput(bool releaseAllOtherBlockers)
+        public void BlockInput(bool releaseAllOtherBlockers, bool disableUISubmit = false)
         {
             inputBlocker.SetActive(true);
 
@@ -87,6 +87,9 @@ namespace Ulko
 
             inputBlockCount++;
             if (releaseAllOtherBlockers) inputBlockCount = 1;
+
+            if (disableUISubmit)
+                PlayerController.DisableUISubmit(true, "BlockInput");
         }
 
         public void UnblockInput(bool releaseAllBlockers)
@@ -107,6 +110,8 @@ namespace Ulko
 
                 EventSystem.current.SetSelectedGameObject(lastSelectedObject);
             }
+
+            PlayerController.DisableUISubmit(false, "BlockInput");
         }
 
         public void SetInfo(string text, float alpha = 1f)
