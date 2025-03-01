@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Ulko.Data;
 using Ulko.Data.Abilities;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ namespace Ulko.Battle
         public List<Character> Enemies { get; private set; } = new List<Character>();
         public Data.Timeline.IMilestone Milestone { get; private set; }
         public BattleConfig Config { get; private set; }
+        public DeckOfCards<AbilityCard> CurrentDeck { get; private set; } = new DeckOfCards<AbilityCard>();
+        public HandOfCards<AbilityCard> CurrentHand { get; private set; } = new HandOfCards<AbilityCard>();
 
         private readonly Character heroPrefab;
         private readonly Character enemyPrefab;
@@ -82,7 +85,7 @@ namespace Ulko.Battle
         }
 
         public static BattleInstance Create(
-            Data.BattleAsset battleAsset,
+            BattleAsset battleAsset,
             Battlefield battlefield,
             Character heroPrefab,
             Character enemyPrefab,
@@ -99,7 +102,7 @@ namespace Ulko.Battle
         }
 
         private BattleInstance(
-            Data.BattleAsset battleAsset,
+            BattleAsset battleAsset,
             Battlefield battlefield,
             Character heroPrefab,
             Character enemyPrefab,
@@ -136,6 +139,25 @@ namespace Ulko.Battle
                     Heroes[i].SetAnimationState(Character.AnimState.Idle);
                 }
             }
+
+            RefreshDeck();
+            CurrentHand.Flush();
+        }
+
+        private void RefreshDeck()
+        {
+            CurrentDeck.Flush();
+
+            foreach (var hero in Heroes)
+            {
+                foreach (var ability in hero.Abilities)
+                {
+                    for(int i = 0; i < 2; ++i)
+                        CurrentDeck.TryAddCard(new Card<AbilityCard>(new AbilityCard(ability, hero.Id)));
+                }
+            }
+
+            CurrentDeck.Shuffle();
         }
 
         private ICharacterInternal GetOrCreateHero(string heroId)
@@ -394,22 +416,35 @@ namespace Ulko.Battle
             return candidates[index];
         }
 
-        public List<BattleActions> GetPossibleActions(IEnumerable<Character> actors)
+        public List<BattleActions> GetPossibleHeroActions()
         {
             var actions = new List<BattleActions>();
             var characters = CaptureCharacterStates();
 
+            CurrentDeck.DrawCards(Heroes.Count + 1 - CurrentHand.Count(), CurrentHand);
+
             int cardIndex = 0;
-            foreach (var actor in actors)
+            foreach(var card in CurrentHand)
             {
-                actions.AddRange(CreateActions(cardIndex, actor.Abilities[UnityEngine.Random.Range(0, actor.Abilities.Count)], false, actor, characters));
-                cardIndex++;
+                var actor = FindCharacter(card.Data.ownerId);
+                if(actor != null)
+                {
+                    actions.AddRange(CreateActions(cardIndex, card.Data.abilityAsset, false, actor, characters));
+                    cardIndex++;
+                }
             }
 
-            int actorIndex = UnityEngine.Random.Range(0, actors.Count());
-            actions.AddRange(CreateActions(cardIndex, actors.ElementAt(actorIndex).Abilities[UnityEngine.Random.Range(0, actors.ElementAt(actorIndex).Abilities.Count)], false, actors.ElementAt(actorIndex), characters));
+            actions.AddRange(CreateActions(-1,Config.cardThrowAbility, true, Heroes.First(), characters));
 
-            actions.AddRange(CreateActions(-1,Config.cardThrowAbility, true, actors.First(), characters));
+            return actions;
+        }
+
+        public List<BattleActions> GetPossibleEnemyActions(Character actor)
+        {
+            var actions = new List<BattleActions>();
+            var characters = CaptureCharacterStates();
+
+            actions.AddRange(CreateActions(0, actor.Abilities[UnityEngine.Random.Range(0, actor.Abilities.Count)], false, actor, characters));
 
             return actions;
         }
@@ -418,6 +453,9 @@ namespace Ulko.Battle
         {
             var actions = new List<BattleActions>();
             var targetCandidates = GetTargetCandidates(ability.target, actor.CaptureState());
+
+            if (targetCandidates.Count() == 0)
+                return actions;
 
             if (ability.target.targetSize == AbilityTarget.TargetSize.One)
             {

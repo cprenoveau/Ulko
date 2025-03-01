@@ -29,7 +29,7 @@ namespace Ulko.Battle
 
         public static List<BattleActions> GetPossibleActions(BattleInstance instance)
         {
-            return instance.GetPossibleActions(instance.GetHeroes(BattleInstance.FetchCondition.AliveOnly));
+            return instance.GetPossibleHeroActions();
         }
     }
 

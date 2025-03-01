@@ -351,6 +351,10 @@ MonoBehaviour:
     m_Key: stat_intuition
     m_Metadata:
       m_Items: []
+  - m_Id: 387430384376209408
+    m_Key: owner_is_dead
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

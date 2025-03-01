@@ -17,7 +17,7 @@ MonoBehaviour:
     usabilityScope: 0
     targetType: 1
     targetSize: 0
-    targetCondition: {fileID: 0}
+    targetCondition: {fileID: 11400000, guid: eadf067ed4464b84bbe84e931be17834, type: 2}
   mainStat: 3
   nodes:
   - rid: 6273285019555594450
@@ -36,7 +36,7 @@ MonoBehaviour:
     - rid: 6273285092736237654
       type: {class: Heal, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
-        condition: {fileID: 0}
+        condition: {fileID: 11400000, guid: eadf067ed4464b84bbe84e931be17834, type: 2}
         config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
         healStat: 3
         healMultiplier: 1

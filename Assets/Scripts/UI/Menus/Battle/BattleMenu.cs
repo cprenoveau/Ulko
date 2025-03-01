@@ -73,23 +73,22 @@ namespace Ulko.UI
 
             var possibleActions = data.playerAction.PossibleActions;
 
-            int maxCardIndex = data.playerAction.PossibleActions.Max(a => a.cardIndex);
-            for(int i = 0; i <= maxCardIndex; ++i)
+            int cardIndex = 0;
+            foreach(var card in data.battleInstance.CurrentHand)
             {
-                var actions = possibleActions.Where(a => a.cardIndex == i).ToList();
+                var actions = possibleActions.Where(a => a.cardIndex == cardIndex).ToList();
+                var owner = data.battleInstance.FindCharacter(card.Data.ownerId);
 
-                if (actions.Count() > 0)
-                {
-                    var owner = data.battleInstance.FindCharacter(actions.First().actorId);
+                var abilityCard = handOfCardsView.AddCard(abilityPrefab);
+                abilityCard.Init(cardIndex, card.Data.abilityAsset, owner, actions);
 
-                    var abilityCard = handOfCardsView.AddCard(abilityPrefab);
-                    abilityCard.Init(actions.First().ability, owner, actions);
+                abilityCard.OnThrow += OnThrowClicked;
 
-                    abilityCard.OnThrow += OnThrowClicked;
-                }
+                cardIndex++;
             }
 
-            Select(handOfCardsView.GetCard(0).button.gameObject);
+            if(data.battleInstance.CurrentHand.Count() > 0)
+                Select(handOfCardsView.GetCard(0).button.gameObject);
         }
 
         private void OnCardSelected(CardView cardView)
@@ -115,9 +114,10 @@ namespace Ulko.UI
                 var possibleActions = data.playerAction.PossibleActions.Where(a => a.isCardThrow);
 
                 ShowTargetMenu(
+                    null,
                     possibleActions,
                     null,
-                    (BattleActions actions) => DeclareAction(actions, battleAbility));
+                    (BattleActions actions) => DeclareAction(battleAbility.CardIndex, actions, battleAbility));
             }
         }
 
@@ -126,14 +126,16 @@ namespace Ulko.UI
             if (cardView is BattleAbilityCardView battleAbility)
             {
                 ShowTargetMenu(
+                    battleAbility.abilityView.Owner,
                     battleAbility.Actions,
                     null,
-                    (BattleActions actions) => DeclareAction(actions, battleAbility));
+                    (BattleActions actions) => DeclareAction(battleAbility.CardIndex, actions, battleAbility));
 
             }
         }
 
         private void ShowTargetMenu(
+            Character cardOwner,
             IEnumerable<BattleActions> possibleActions,
             BattleTargetMenuData.OnTargetSelected onTargetSelected,
             BattleTargetMenuData.OnTargetSelected onTargetConfirmed)
@@ -143,6 +145,7 @@ namespace Ulko.UI
                 gameState = data.gameState,
                 uiRoot = data.uiRoot,
                 battleInstance = data.battleInstance,
+                cardOwner = cardOwner,
                 possibleActions = possibleActions,
                 onTargetSelected = onTargetSelected,
                 onTargetConfirmed = onTargetConfirmed
@@ -151,8 +154,10 @@ namespace Ulko.UI
             stack.Push(battleTargetMenu.asset, battleTargetMenu.id, targetData);
         }
 
-        private void DeclareAction(BattleActions action, BattleAbilityCardView cardView)
+        private void DeclareAction(int cardIndex, BattleActions action, BattleAbilityCardView cardView)
         {
+            action.cardIndex = cardIndex;
+
             if (action.isCardThrow)
             {
                 StartCoroutine(ThrowCardAsync(action, cardView));

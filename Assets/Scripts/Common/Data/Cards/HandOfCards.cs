@@ -38,7 +38,12 @@ namespace Ulko.Data
         public bool TryRemoveCard(Card<T> card)
         {
             int index = cards.FindIndex(c => c.Id == card.Id);
-            if (index != -1)
+            return TryRemoveCardAt(index);
+        }
+
+        public bool TryRemoveCardAt(int index)
+        {
+            if (index >= 0 && index < cards.Count)
             {
                 cards.RemoveAt(index);
                 return true;

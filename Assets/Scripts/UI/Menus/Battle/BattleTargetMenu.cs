@@ -13,6 +13,7 @@ namespace Ulko.UI
         public IGameState gameState;
         public UIRoot uiRoot;
         public BattleInstance battleInstance;
+        public Character cardOwner;
         public IEnumerable<BattleActions> possibleActions;
 
         public delegate void OnTargetSelected(BattleActions action);
@@ -54,6 +55,12 @@ namespace Ulko.UI
             if (data.possibleActions.Count() == 0)
             {
                 data.uiRoot.SetInfo(Localization.Localize("no_valid_target"));
+                return;
+            }
+
+            if(data.cardOwner != null && data.cardOwner.IsDead)
+            {
+                data.uiRoot.SetInfo(Localization.Localize("owner_is_dead"));
                 return;
             }
 

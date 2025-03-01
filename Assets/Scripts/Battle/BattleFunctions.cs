@@ -62,8 +62,14 @@ namespace Ulko.Battle
 
             Debug.Log(action.SelectedAction.actorId + " uses " + action.SelectedAction.ability.id);
 
+            instance.CurrentHand.TryRemoveCardAt(action.SelectedAction.cardIndex);
+
             foreach(var battleAction in action.SelectedAction.actions)
             {
+                var actor = instance.FindCharacter(battleAction.state.pendingAction.actorId);
+                if (actor.IsDead && !action.SelectedAction.isCardThrow)
+                    continue;
+
                 battleAction.state.characters = instance.CaptureCharacterStates();
 
                 if (battleAction.node.forceValidTarget)
@@ -107,13 +113,19 @@ namespace Ulko.Battle
 
         private static async Task<BattleResult> DoEnemyTurn(Character enemy, BattleInstance instance, CancellationToken ct)
         {
-            var possibleActions = instance.GetPossibleActions(new List<Character> { enemy });
-            var action = possibleActions.FirstOrDefault();
+            var possibleActions = instance.GetPossibleEnemyActions(enemy);
+
+            int actionIndex = UnityEngine.Random.Range(0, possibleActions.Count);
+            var action = possibleActions[actionIndex];
 
             Debug.Log(enemy.Id + " uses " + action.ability.id);
 
             foreach (var battleAction in action.actions)
             {
+                var actor = instance.FindCharacter(battleAction.state.pendingAction.actorId);
+                if (actor.IsDead)
+                    continue;
+
                 battleAction.state.characters = instance.CaptureCharacterStates();
 
                 if (battleAction.node.forceValidTarget)

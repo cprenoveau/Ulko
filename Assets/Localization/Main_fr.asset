@@ -358,6 +358,10 @@ MonoBehaviour:
     m_Localized: Intuition
     m_Metadata:
       m_Items: []
+  - m_Id: 387430384376209408
+    m_Localized: "Le Propri\xE9taire est Mort"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
