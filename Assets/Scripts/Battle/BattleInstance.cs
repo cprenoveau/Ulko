@@ -448,11 +448,15 @@ namespace Ulko.Battle
         public void RedrawHand(PlayerAction playerAction)
         {
             CurrentHand.Discard(CurrentHand.ToList(), DiscardPile);
-            DrawHand();
 
             if(FreeRedrawInTurns > 0)
             {
+                DrawHand();
                 playerAction.CancelAction();
+            }
+            else
+            {
+                playerAction.PossibleActions = GetPossibleHeroActions();
             }
 
             FreeRedrawInTurns = 3;

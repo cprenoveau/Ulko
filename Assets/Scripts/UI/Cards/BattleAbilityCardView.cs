@@ -2,12 +2,14 @@
 using Ulko.Data.Abilities;
 using System;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 namespace Ulko.UI
 {
     public class BattleAbilityCardView : CardView
     {
         public AbilityView abilityView;
+        public Image deadIcon;
 
         public int CardIndex { get; private set; }
         public IEnumerable<BattleActions> Actions { get; private set; } = new List<BattleActions>();
@@ -21,6 +23,8 @@ namespace Ulko.UI
             Actions = actions;
 
             abilityView.Init(abilityAsset, owner);
+
+            deadIcon.gameObject.SetActive(owner.IsDead);
 
             extraButtons[0].onClick.RemoveAllListeners();
             extraButtons[0].onClick.AddListener(() => { extraButtons[0].SuperSelect(true); OnThrow?.Invoke(this); });

@@ -55,7 +55,7 @@ namespace Ulko.Battle
             PlayerTurn onPlayerTurn,
             CancellationToken ct)
         {
-            var playerAction = new PlayerAction(PlayerAction.GetPossibleActions(instance));
+            var playerAction = new PlayerAction(instance.GetPossibleHeroActions());
             onPlayerTurn?.Invoke(playerAction);
 
             var action = await playerAction;

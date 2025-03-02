@@ -8,7 +8,7 @@ namespace Ulko.Battle
         public delegate void ActionSelected(BattleActions action);
         public event ActionSelected OnActionSelected;
 
-        public List<BattleActions> PossibleActions { get; private set; }
+        public List<BattleActions> PossibleActions { get; set; }
         public BattleActions SelectedAction { get; private set; }
 
         public bool IsCancelled { get; private set; }
@@ -33,11 +33,6 @@ namespace Ulko.Battle
         public PlayerActionAwaiter GetAwaiter()
         {
             return new PlayerActionAwaiter(this);
-        }
-
-        public static List<BattleActions> GetPossibleActions(BattleInstance instance)
-        {
-            return instance.GetPossibleHeroActions();
         }
     }
 
