@@ -216,6 +216,10 @@ namespace Ulko.UI
                             selectOnLeft = nextSelectable != null ? nextSelectable : cards.Last().button
                         };
                     }
+                    else if(nextSelectable != null)
+                    {
+                        nav.selectOnLeft = nextSelectable;
+                    }
                     else
                     {
                         nav.selectOnLeft = cards.Last().button;
@@ -238,8 +242,14 @@ namespace Ulko.UI
                             selectOnRight = previousSelectable != null ? previousSelectable : cards.First().button
                         };
                     }
+                    else if(previousSelectable != null)
+                    {
+                        nav.selectOnRight = previousSelectable;
+                    }
                     else
+                    {
                         nav.selectOnRight = cards[0].button;
+                    }
                 }
                 else
                 {
