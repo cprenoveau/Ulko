@@ -14,24 +14,44 @@ namespace Ulko.UI
         public RectTransform statsParent;
         public HudStatView statPrefab;
 
+        private CharacterState currentState;
+        private Level originalStats;
         private Transform worldParent;
         private Camera worldCamera;
 
+        private void Start()
+        {
+            Localization.LocaleChanged += Refresh;
+        }
+
+        private void OnDestroy()
+        {
+            Localization.LocaleChanged -= Refresh;
+        }
+
         public void Init(CharacterState currentState, Level originalStats, Transform worldParent, Camera worldCamera)
         {
+            this.currentState = currentState;
+            this.originalStats = originalStats;
             this.worldParent = worldParent;
             this.worldCamera = worldCamera;
 
+            Refresh();
+            UpdatePosition();
+        }
+
+        private void Refresh()
+        {
             hpText.text = Localization.LocalizeFormat("hp_value", currentState.hp, currentState.stats.maxHP);
             hpSlider.maxValue = currentState.stats.maxHP;
             hpSlider.value = currentState.hp;
 
-            foreach(Transform child in statsParent)
+            foreach (Transform child in statsParent)
             {
                 Destroy(child.gameObject);
             }
 
-            foreach(Stat stat in Enum.GetValues(typeof(Stat)))
+            foreach (Stat stat in Enum.GetValues(typeof(Stat)))
             {
                 if (originalStats.GetStat(stat) <= 0)
                     continue;
@@ -39,8 +59,6 @@ namespace Ulko.UI
                 var statInstance = Instantiate(statPrefab, statsParent);
                 statInstance.Init(stat, currentState.stats, originalStats);
             }
-
-            UpdatePosition();
         }
 
         private void UpdatePosition()

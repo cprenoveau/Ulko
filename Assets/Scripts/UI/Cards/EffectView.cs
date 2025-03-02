@@ -69,7 +69,7 @@ namespace Ulko.UI
 
             if(TargetSize == TargetSize.Group)
             {
-                powerText.text += " to all";
+                powerText.text += " " + Localization.Localize("to_all");
             }
         }
     }

@@ -362,6 +362,10 @@ MonoBehaviour:
     m_Localized: "Le Propri\xE9taire est Mort"
     m_Metadata:
       m_Items: []
+  - m_Id: 387765669102346240
+    m_Localized: "\xE0 tous"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
