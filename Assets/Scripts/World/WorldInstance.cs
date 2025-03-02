@@ -232,7 +232,7 @@ namespace Ulko.World
         private Vector2? lastDirection;
         private void SetPlayerPosition(Vector3 position, Vector2? standDirection)
         {
-            if (Player.transform.position == position)
+            if (Vector3.SqrMagnitude(Player.transform.position - position) < 0.1f)
                 return;
 
             Player.Teleport(position);
@@ -240,7 +240,7 @@ namespace Ulko.World
 
             foreach (var follower in PlayerFollowers)
             {
-                follower.transform.position = position + new Vector3(0, 0, 0.1f);
+                follower.transform.position = position + new Vector3(0, 0, 0.2f);
                 follower.CharacterInstance.Stand(standDirection ?? lastDirection ?? Vector2.zero);
             }
         }
