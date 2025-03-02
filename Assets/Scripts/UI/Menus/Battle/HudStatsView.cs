@@ -30,6 +30,9 @@ namespace Ulko.UI
 
             foreach(Stat stat in Enum.GetValues(typeof(Stat)))
             {
+                if (originalStats.GetStat(stat) <= 0)
+                    continue;
+
                 var statInstance = Instantiate(statPrefab, statsParent);
                 statInstance.Init(stat, currentState.stats, originalStats);
             }

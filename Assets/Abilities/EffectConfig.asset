@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ccfadd3aede084fb2c6913e9715d81, type: 3}
   m_Name: EffectConfig
   m_EditorClassIdentifier: 
-  flatModifier: 100
+  attackMultipliers:
+  - stat: 1
+    against: 3
+    multiplier: 2
+  - stat: 3
+    against: 2
+    multiplier: 2
+  - stat: 2
+    against: 1
+    multiplier: 2
+  - stat: 1
+    against: 2
+    multiplier: 0.5
+  - stat: 2
+    against: 3
+    multiplier: 0.5
+  - stat: 3
+    against: 1
+    multiplier: 0.5

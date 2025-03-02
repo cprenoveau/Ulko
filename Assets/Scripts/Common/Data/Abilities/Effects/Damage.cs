@@ -11,7 +11,6 @@ namespace Ulko.Data.Abilities
         public TargetConditionAsset condition;
         public EffectConfig config;
         public Stat attackStat = Stat.Wisdom;
-        public Stat defenseStat = Stat.Intuition;
         [Tooltip("Multiplier applied to stat damage")]
         public float damageMultiplier = 1f;
         public float percentDamage;
@@ -24,7 +23,6 @@ namespace Ulko.Data.Abilities
                 condition = condition,
                 config = config,
                 attackStat = attackStat,
-                defenseStat = defenseStat,
                 damageMultiplier = damageMultiplier,
                 percentDamage = percentDamage,
                 flatDamage = flatDamage
@@ -38,7 +36,6 @@ namespace Ulko.Data.Abilities
                 return condition == other.condition
                     && config == other.config
                     && attackStat == other.attackStat
-                    && defenseStat == other.defenseStat
                     && damageMultiplier == other.damageMultiplier
                     && percentDamage == other.percentDamage
                     && flatDamage == other.flatDamage;
@@ -67,13 +64,17 @@ namespace Ulko.Data.Abilities
         {
             float damage = RawValue(actor);
 
-            float def = target.stats.GetStat(defenseStat);
-            if (def != 0)
-                damage = damage * config.flatModifier / (config.flatModifier + def);
-
             damage += target.stats.maxHP * percentDamage / 100f;
             damage += flatDamage;
 
+            float attackMult = 1f;
+            foreach(Stat stat in Enum.GetValues(typeof(Stat)))
+            {
+                if(target.stats.GetStat(stat) > 0)
+                    attackMult *= config.GetAttackMultiplier(attackStat, stat);
+            }
+
+            damage = Mathf.RoundToInt(damage * attackMult);
             damage = Mathf.Clamp(damage, 1, damage);
 
             target.hp -= (int)damage;
@@ -96,7 +97,7 @@ namespace Ulko.Data.Abilities
 
             if (damageMultiplier != 0)
             {
-                str = Localization.LocalizeFormat("damage_desc", damageMultiplier * 100, TextFormat.Localize(attackStat), TextFormat.Localize(defenseStat));
+                str = Localization.LocalizeFormat("damage_desc", damageMultiplier * 100, TextFormat.Localize(attackStat));
             }
             else if (percentDamage != 0)
             {

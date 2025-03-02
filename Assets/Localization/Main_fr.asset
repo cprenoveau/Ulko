@@ -111,7 +111,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 50327723816648704
-    m_Localized: "Inflige des d\xE9g\xE2ts bas\xE9 sur {0}% {1} contre la {2}"
+    m_Localized: "Inflige des d\xE9g\xE2ts bas\xE9 sur {0}% {1}"
     m_Metadata:
       m_Items: []
   - m_Id: 50365899465687040

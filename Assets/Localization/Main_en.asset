@@ -111,7 +111,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 50327723816648704
-    m_Localized: Deals damage based on {0}% {1} against {2}
+    m_Localized: Deals damage based on {0}% {1}
     m_Metadata:
       m_Items: []
   - m_Id: 50365899465687040
