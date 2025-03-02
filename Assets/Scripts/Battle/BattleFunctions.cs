@@ -62,7 +62,7 @@ namespace Ulko.Battle
 
             Debug.Log(action.SelectedAction.actorId + " uses " + action.SelectedAction.ability.id);
 
-            instance.CurrentHand.TryRemoveCardAt(action.SelectedAction.cardIndex);
+            instance.CurrentHand.DiscardAt(action.SelectedAction.cardIndex, instance.DiscardPile);
 
             foreach(var battleAction in action.SelectedAction.actions)
             {

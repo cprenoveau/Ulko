@@ -18,7 +18,9 @@ namespace Ulko.Battle
         public List<Character> Enemies { get; private set; } = new List<Character>();
         public Data.Timeline.IMilestone Milestone { get; private set; }
         public BattleConfig Config { get; private set; }
-        public DeckOfCards<AbilityCard> CurrentDeck { get; private set; } = new DeckOfCards<AbilityCard>();
+
+        public DeckOfCards<AbilityCard> DrawPile { get; private set; } = new DeckOfCards<AbilityCard>();
+        public DeckOfCards<AbilityCard> DiscardPile { get; private set; } = new DeckOfCards<AbilityCard>();
         public HandOfCards<AbilityCard> CurrentHand { get; private set; } = new HandOfCards<AbilityCard>();
 
         private readonly Character heroPrefab;
@@ -146,18 +148,19 @@ namespace Ulko.Battle
 
         private void RefreshDeck()
         {
-            CurrentDeck.Flush();
+            DiscardPile.Flush();
+            DrawPile.Flush();
 
             foreach (var hero in Heroes)
             {
                 foreach (var ability in hero.Abilities)
                 {
                     for(int i = 0; i < 2; ++i)
-                        CurrentDeck.TryAddCard(new Card<AbilityCard>(new AbilityCard(ability, hero.Id)));
+                        DrawPile.TryAddCard(new Card<AbilityCard>(new AbilityCard(ability, hero.Id)));
                 }
             }
 
-            CurrentDeck.Shuffle();
+            DrawPile.Shuffle();
         }
 
         private ICharacterInternal GetOrCreateHero(string heroId)
@@ -421,7 +424,7 @@ namespace Ulko.Battle
             var actions = new List<BattleActions>();
             var characters = CaptureCharacterStates();
 
-            CurrentDeck.DrawCards(Heroes.Count + 1 - CurrentHand.Count(), CurrentHand);
+            DrawPile.DrawCards(Heroes.Count + 1 - CurrentHand.Count(), CurrentHand);
 
             int cardIndex = 0;
             foreach(var card in CurrentHand)

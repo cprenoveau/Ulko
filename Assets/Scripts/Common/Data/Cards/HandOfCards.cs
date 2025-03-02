@@ -65,7 +65,16 @@ namespace Ulko.Data
             return result;
         }
 
-        public void DiscardCards(IEnumerable<Card<T>> cards, DeckOfCards<T> discardPile)
+        public void DiscardAt(int index, DeckOfCards<T> discardPile)
+        {
+            if (index >= 0 && index < cards.Count)
+            {
+                discardPile.TryAddCard(cards[index]);
+                cards.RemoveAt(index);
+            }
+        }
+
+        public void Discard(IEnumerable<Card<T>> cards, DeckOfCards<T> discardPile)
         {
             discardPile.TryAddCards(TryRemoveCards(cards));
         }
