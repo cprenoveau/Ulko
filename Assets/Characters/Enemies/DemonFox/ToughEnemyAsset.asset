@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13fe2d8047e95542bef27d7bc984ae4, type: 3}
+  m_Name: ToughEnemyAsset
+  m_EditorClassIdentifier: 
+  id: tough
+  abilities:
+  - {fileID: 11400000, guid: 532594474f233594690389367259c5a9, type: 2}
+  status:
+  - {fileID: 11400000, guid: b9703167c1ba53046b04efed5c8a594b, type: 2}
+  level: 1
+  prefab:
+    m_AssetGUID: 121a66534dce7b04e8ec9062cdbc77b6
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  animations:
+  - tag: {fileID: 11400000, guid: 062d7c818afcd5649a0ac964cc14962f, type: 2}
+    animation: {fileID: 11400000, guid: 84246a1718127374f8063d0bf857bdb9, type: 2}
+  - tag: {fileID: 11400000, guid: 596f3e284d854034c9fbdde789183ca9, type: 2}
+    animation: {fileID: 11400000, guid: 472b9de2916fc0f44b42b93f90de21a0, type: 2}

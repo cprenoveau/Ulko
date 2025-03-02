@@ -1,4 +1,5 @@
 ﻿using System;
+using TMPro;
 using Ulko.Data;
 using Ulko.Data.Abilities;
 using UnityEngine;
@@ -8,6 +9,7 @@ namespace Ulko.UI
 {
     public class HudStatsView : MonoBehaviour
     {
+        public TMP_Text hpText;
         public Slider hpSlider;
         public RectTransform statsParent;
         public HudStatView statPrefab;
@@ -20,6 +22,7 @@ namespace Ulko.UI
             this.worldParent = worldParent;
             this.worldCamera = worldCamera;
 
+            hpText.text = Localization.LocalizeFormat("hp_value", currentState.hp, currentState.stats.maxHP);
             hpSlider.maxValue = currentState.stats.maxHP;
             hpSlider.value = currentState.hp;
 

@@ -18,3 +18,9 @@ MonoBehaviour:
   encounters:
   - frequency: 1
     battle: {fileID: 11400000, guid: 4559b86dc63ce804d95e6115baf63742, type: 2}
+  - frequency: 1
+    battle: {fileID: 11400000, guid: 1bc3b070fbba921498c50bc995618458, type: 2}
+  - frequency: 1
+    battle: {fileID: 11400000, guid: bb3ec8b9a692c3f47ba27ffb7ff3fa9c, type: 2}
+  - frequency: 1
+    battle: {fileID: 11400000, guid: 2f7bb681c60a019458642411f18e9dbc, type: 2}
