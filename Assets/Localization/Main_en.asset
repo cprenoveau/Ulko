@@ -367,7 +367,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 387771951649644544
-    m_Localized: Draw
+    m_Localized: Redraw Hand
     m_Metadata:
       m_Items: []
   references:

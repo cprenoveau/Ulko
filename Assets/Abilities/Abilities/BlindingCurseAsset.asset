@@ -16,7 +16,7 @@ MonoBehaviour:
   target:
     usabilityScope: 1
     targetType: 0
-    targetSize: 0
+    targetSize: 1
     targetCondition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
   mainStat: 3
   nodes:

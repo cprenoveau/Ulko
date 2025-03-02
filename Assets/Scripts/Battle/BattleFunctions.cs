@@ -60,6 +60,11 @@ namespace Ulko.Battle
 
             var action = await playerAction;
 
+            if (action.IsCancelled)
+            {
+                return BattleResult.None;
+            }
+
             Debug.Log(action.SelectedAction.actorId + " uses " + action.SelectedAction.ability.id);
 
             instance.CurrentHand.DiscardAt(action.SelectedAction.cardIndex, instance.DiscardPile);

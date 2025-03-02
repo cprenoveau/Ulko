@@ -22,6 +22,7 @@ namespace Ulko.Battle
         public DeckOfCards<AbilityCard> DrawPile { get; private set; } = new DeckOfCards<AbilityCard>();
         public DeckOfCards<AbilityCard> DiscardPile { get; private set; } = new DeckOfCards<AbilityCard>();
         public HandOfCards<AbilityCard> CurrentHand { get; private set; } = new HandOfCards<AbilityCard>();
+        public int FreeRedrawInTurns { get; private set; } = 4;
 
         private readonly Character heroPrefab;
         private readonly Character enemyPrefab;
@@ -423,13 +424,10 @@ namespace Ulko.Battle
             var actions = new List<BattleActions>();
             var characters = CaptureCharacterStates();
 
-            int drawCards = Heroes.Count + 1 - CurrentHand.Count();
-            if (drawCards > DrawPile.Count())
-            {
-                DrawPile.ShuffleDeckInto(DiscardPile);
-            }
+            DrawHand();
 
-            DrawPile.DrawCards(drawCards, CurrentHand);
+            FreeRedrawInTurns--;
+            if (FreeRedrawInTurns < 0) FreeRedrawInTurns = 0;
 
             int cardIndex = 0;
             foreach(var card in CurrentHand)
@@ -445,6 +443,30 @@ namespace Ulko.Battle
             actions.AddRange(CreateActions(-1,Config.cardThrowAbility, true, Heroes.First(), characters));
 
             return actions;
+        }
+
+        public void RedrawHand(PlayerAction playerAction)
+        {
+            CurrentHand.Discard(CurrentHand.ToList(), DiscardPile);
+            DrawHand();
+
+            if(FreeRedrawInTurns > 0)
+            {
+                playerAction.CancelAction();
+            }
+
+            FreeRedrawInTurns = 3;
+        }
+
+        private void DrawHand()
+        {
+            int drawCards = Heroes.Count + 1 - CurrentHand.Count();
+            if (drawCards > DrawPile.Count())
+            {
+                DrawPile.ShuffleDeckInto(DiscardPile);
+            }
+
+            DrawPile.DrawCards(drawCards, CurrentHand);
         }
 
         public List<BattleActions> GetPossibleEnemyActions(Character actor)

@@ -11,6 +11,8 @@ namespace Ulko.Battle
         public List<BattleActions> PossibleActions { get; private set; }
         public BattleActions SelectedAction { get; private set; }
 
+        public bool IsCancelled { get; private set; }
+
         public PlayerAction(List<BattleActions> possibleActions)
         {
             PossibleActions = possibleActions;
@@ -20,6 +22,12 @@ namespace Ulko.Battle
         {
             SelectedAction = selectedAction;
             OnActionSelected?.Invoke(selectedAction);
+        }
+
+        public void CancelAction()
+        {
+            IsCancelled = true;
+            OnActionSelected?.Invoke(null);
         }
 
         public PlayerActionAwaiter GetAwaiter()
@@ -36,6 +44,7 @@ namespace Ulko.Battle
     public class PlayerActionAwaiter : INotifyCompletion
     {
         public bool IsCompleted => playerAction.SelectedAction != null;
+        public bool IsCancelled => playerAction.IsCancelled;
 
         private readonly PlayerAction playerAction;
 
@@ -46,7 +55,7 @@ namespace Ulko.Battle
 
         public void OnCompleted(System.Action continuation)
         {
-            if (IsCompleted)
+            if (IsCompleted || IsCancelled)
             {
                 continuation?.Invoke();
             }

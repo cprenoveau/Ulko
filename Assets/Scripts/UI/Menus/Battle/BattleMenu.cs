@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 namespace Ulko.UI
 {
@@ -19,6 +20,11 @@ namespace Ulko.UI
     {
         public MenuDefinition battleMenu;
         public MenuDefinition battleTargetMenu;
+
+        public TMP_Text redrawLabel;
+        public PointedButton redrawButton;
+        public PointedButton drawPileButton;
+        public PointedButton discardPileButton;
 
         public HandOfCardsView handOfCardsView;
         public BattleAbilityCardView abilityPrefab;
@@ -37,12 +43,26 @@ namespace Ulko.UI
         {
             handOfCardsView.OnCardSelected += OnCardSelected;
             handOfCardsView.OnCardClicked += OnCardClicked;
+
+            redrawButton.OnSelected += OnRedrawSelected;
+            redrawButton.onClick.AddListener(RedrawHand);
+
+            drawPileButton.OnSelected += OnDrawPileSelected;
+            discardPileButton.OnSelected += OnDiscardPileSelected;
+
+            Localization.LocaleChanged += RefreshLabels;
         }
 
         private void OnDestroy()
         {
             handOfCardsView.OnCardSelected -= OnCardSelected;
             handOfCardsView.OnCardClicked -= OnCardClicked;
+
+            redrawButton.OnSelected -= OnRedrawSelected;
+            drawPileButton.OnSelected -= OnDrawPileSelected;
+            discardPileButton.OnSelected -= OnDiscardPileSelected;
+
+            Localization.LocaleChanged -= RefreshLabels;
         }
 
         protected override void _OnPush(MenuStack stack, object data)
@@ -50,7 +70,10 @@ namespace Ulko.UI
             this.stack = stack;
             this.data = data as BattleMenuData;
 
-            Refresh();
+            RefreshCards();
+
+            if (this.data.battleInstance.CurrentHand.Count() > 0)
+                Select(handOfCardsView.GetCard(0).button.gameObject);
         }
 
         protected override void _OnPop() { }
@@ -67,7 +90,7 @@ namespace Ulko.UI
             return handOfCardsView.Cancel();
         }
 
-        private void Refresh()
+        private void RefreshCards()
         {
             handOfCardsView.RemoveAllCards();
 
@@ -87,8 +110,48 @@ namespace Ulko.UI
                 cardIndex++;
             }
 
-            if(data.battleInstance.CurrentHand.Count() > 0)
-                Select(handOfCardsView.GetCard(0).button.gameObject);
+            RefreshLabels();
+        }
+
+        private void RefreshLabels()
+        {
+            redrawLabel.text = GetRedrawLabel();
+        }
+
+        private void RedrawHand()
+        {
+            data.battleInstance.RedrawHand(data.playerAction);
+            RefreshCards();
+        }
+
+        private void OnRedrawSelected()
+        {
+            data.uiRoot.SetInfo(GetRedrawLabel());
+        }
+
+        private string GetRedrawLabel()
+        {
+            string str = Localization.Localize("redraw");
+            if (data.battleInstance.FreeRedrawInTurns <= 0)
+            {
+                str += " (free)";
+            }
+            else
+            {
+                str += " <nobr>(free in " + data.battleInstance.FreeRedrawInTurns + ")</nobr>";
+            }
+
+            return str;
+        }
+
+        private void OnDrawPileSelected()
+        {
+            data.uiRoot.SetInfo(Localization.Localize("draw_pile"));
+        }
+
+        private void OnDiscardPileSelected()
+        {
+            data.uiRoot.SetInfo(Localization.Localize("discard_pile"));
         }
 
         private void OnCardSelected(CardView cardView)
