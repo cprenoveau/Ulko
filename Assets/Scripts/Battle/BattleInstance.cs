@@ -155,8 +155,7 @@ namespace Ulko.Battle
             {
                 foreach (var ability in hero.Abilities)
                 {
-                    for(int i = 0; i < 2; ++i)
-                        DrawPile.TryAddCard(new Card<AbilityCard>(new AbilityCard(ability, hero.Id)));
+                    DrawPile.TryAddCard(new Card<AbilityCard>(new AbilityCard(ability, hero.Id)));
                 }
             }
 
@@ -424,7 +423,13 @@ namespace Ulko.Battle
             var actions = new List<BattleActions>();
             var characters = CaptureCharacterStates();
 
-            DrawPile.DrawCards(Heroes.Count + 1 - CurrentHand.Count(), CurrentHand);
+            int drawCards = Heroes.Count + 1 - CurrentHand.Count();
+            if (drawCards > DrawPile.Count())
+            {
+                DrawPile.ShuffleDeckInto(DiscardPile);
+            }
+
+            DrawPile.DrawCards(drawCards, CurrentHand);
 
             int cardIndex = 0;
             foreach(var card in CurrentHand)

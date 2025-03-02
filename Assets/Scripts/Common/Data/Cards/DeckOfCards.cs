@@ -75,6 +75,13 @@ namespace Ulko.Data
             return result;
         }
 
+        public void ShuffleDeckInto(DeckOfCards<T> discardPile)
+        {
+            TryAddCards(discardPile);
+            discardPile.Flush();
+            Shuffle();
+        }
+
         public bool IsInDeck(Card<T> card)
         {
             return cards.FindIndex(c => c.Id == card.Id) != -1;
