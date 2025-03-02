@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 063052cb1a033f743a0260a8eaa6899c
+    m_Address: Assets/UI/Menus/Battle/DiscardPileMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0902712ed3d46174f8a6dffea7d50a3a
     m_Address: Assets/Cheats/HeroCheatWidget.prefab
     m_ReadOnly: 0
@@ -58,6 +63,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39423d94ce83b954c98273f6e9bbc303
     m_Address: Assets/Characters/Heroes/Ferlin/Ferlin.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3dd4c5032f068ce419b5e1efa97d0fed
+    m_Address: Assets/UI/Menus/Battle/DrawPileMenu.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

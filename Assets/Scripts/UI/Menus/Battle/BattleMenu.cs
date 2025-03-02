@@ -20,6 +20,8 @@ namespace Ulko.UI
     {
         public MenuDefinition battleMenu;
         public MenuDefinition battleTargetMenu;
+        public MenuDefinition drawPileMenu;
+        public MenuDefinition discardPileMenu;
 
         public TMP_Text redrawLabel;
         public PointedButton redrawButton;
@@ -48,7 +50,10 @@ namespace Ulko.UI
             redrawButton.onClick.AddListener(RedrawHand);
 
             drawPileButton.OnSelected += OnDrawPileSelected;
+            drawPileButton.onClick.AddListener(ShowDrawPileMenu);
+
             discardPileButton.OnSelected += OnDiscardPileSelected;
+            discardPileButton.onClick.AddListener(ShowDiscardPileMenu);
 
             Localization.LocaleChanged += RefreshLabels;
         }
@@ -152,6 +157,30 @@ namespace Ulko.UI
         private void OnDiscardPileSelected()
         {
             data.uiRoot.SetInfo(Localization.Localize("discard_pile"));
+        }
+
+        private void ShowDrawPileMenu()
+        {
+            drawPileButton.SuperSelect(true);
+
+            stack.Push(drawPileMenu.asset, drawPileMenu.id, new DrawPileMenuData
+            {
+                gameState = data.gameState,
+                uiRoot = data.uiRoot,
+                battleInstance = data.battleInstance
+            });
+        }
+
+        private void ShowDiscardPileMenu()
+        {
+            discardPileButton.SuperSelect(true);
+
+            stack.Push(discardPileMenu.asset, discardPileMenu.id, new DiscardPileMenuData
+            {
+                gameState = data.gameState,
+                uiRoot = data.uiRoot,
+                battleInstance = data.battleInstance
+            });
         }
 
         private void OnCardSelected(CardView cardView)

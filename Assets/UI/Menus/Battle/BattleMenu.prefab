@@ -130,6 +130,8 @@ MonoBehaviour:
   firstSelected: {fileID: 0}
   battleMenu: {fileID: 11400000, guid: 98245058702e1b54eab421b961d2cf90, type: 2}
   battleTargetMenu: {fileID: 11400000, guid: 7e2a736b42d07654bb47ee310bcdab7f, type: 2}
+  drawPileMenu: {fileID: 11400000, guid: 30127715d6d993d4b9c183e1b75dea17, type: 2}
+  discardPileMenu: {fileID: 11400000, guid: ecb1183e7040c9b4d9078959e984891f, type: 2}
   redrawLabel: {fileID: 4387550461462649011}
   redrawButton: {fileID: 8948543494299492424}
   drawPileButton: {fileID: 365086878485837930}

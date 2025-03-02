@@ -73,7 +73,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 481680749858046833, guid: 1c17fcc328872ff478dfa12cfa4cd440, type: 3}
       propertyPath: m_Name
-      value: AbilityCardView
+      value: AbilityView
       objectReference: {fileID: 0}
     - target: {fileID: 647020159725175532, guid: 1c17fcc328872ff478dfa12cfa4cd440, type: 3}
       propertyPath: m_fontSize

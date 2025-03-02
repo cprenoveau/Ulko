@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Ulko.UI
 {
-    public abstract class CardView : MonoBehaviour
+    public class CardView : MonoBehaviour
     {
         public PointedButton button;
         public List<PointedButton> extraButtons = new();
