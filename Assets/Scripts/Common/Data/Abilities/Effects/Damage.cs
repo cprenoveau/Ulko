@@ -67,20 +67,26 @@ namespace Ulko.Data.Abilities
             damage += target.stats.maxHP * percentDamage / 100f;
             damage += flatDamage;
 
-            float attackMult = 1f;
-            foreach(Stat stat in Enum.GetValues(typeof(Stat)))
-            {
-                if(target.stats.GetStat(stat) > 0)
-                    attackMult *= config.GetAttackMultiplier(attackStat, stat);
-            }
-
-            damage = Mathf.RoundToInt(damage * attackMult);
+            damage = Mathf.RoundToInt(damage * GetAttackMultiplier(target));
             damage = Mathf.Clamp(damage, 1, damage);
 
             target.hp -= (int)damage;
 
             if (target.hp <= 0)
                 target.statuses.Clear();
+        }
+
+        public float GetAttackMultiplier(CharacterState target)
+        {
+            float attackMult = 1f;
+
+            var characterType = target.GetCharacterType();
+            foreach (var stat in characterType)
+            {
+                attackMult *= config.GetAttackMultiplier(attackStat, stat);
+            }
+
+            return attackMult;
         }
 
         public float RawValue(CharacterState actor)

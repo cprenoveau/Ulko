@@ -247,7 +247,7 @@ namespace Ulko.Battle
             Enemies.Clear();
         }
 
-        public delegate void CharacterStateChanged(CharacterState oldState, CharacterState newState);
+        public delegate void CharacterStateChanged(CharacterState oldState, CharacterState newState, CharacterAction action);
         public event CharacterStateChanged OnCharacterStateChanged;
 
         public void ApplyState(ActionState state)
@@ -262,7 +262,7 @@ namespace Ulko.Battle
                     if(!oldState.Equals(characterState))
                     {
                         character.ApplyState(characterState);
-                        OnCharacterStateChanged?.Invoke(oldState, characterState);
+                        OnCharacterStateChanged?.Invoke(oldState, characterState, state.pendingAction);
                     }
                 }
             }

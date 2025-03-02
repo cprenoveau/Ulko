@@ -6,7 +6,7 @@
       {
         "level": 1.0,
         "exp": 0.0,
-        "maxHP": 20.0,
+        "maxHP": 40.0,
         "strength": 20.0,
         "wisdom": 2.0,
         "intuition": 8.0,
@@ -21,7 +21,7 @@
       {
         "level": 1.0,
         "exp": 0.0,
-        "maxHP": 12.0,
+        "maxHP": 32.0,
         "strength": 12.0,
         "wisdom": 20.0,
         "intuition": 12.0,
@@ -36,7 +36,7 @@
       {
         "level": 1.0,
         "exp": 0.0,
-        "maxHP": 10.0,
+        "maxHP": 30.0,
         "strength": 10.0,
         "wisdom": 12.0,
         "intuition": 20.0,
@@ -51,7 +51,7 @@
       {
         "level": 1.0,
         "exp": 0.0,
-        "maxHP": 14.0,
+        "maxHP": 34.0,
         "strength": 14.0,
         "wisdom": 12.0,
         "intuition": 6.0,

@@ -92,7 +92,7 @@ namespace Ulko.UI
             }
         }
 
-        private void ShowCharacterStateChanged(CharacterState oldState, CharacterState newState)
+        private void ShowCharacterStateChanged(CharacterState oldState, CharacterState newState, CharacterAction action)
         {
             var character = data.battleInstance.FindCharacter(oldState.id);
             if (character != null)
@@ -105,6 +105,19 @@ namespace Ulko.UI
                 if (hpDiff < 0)
                 {
                     ShowText(character, (-hpDiff).ToString(), config.damageTextColor);
+
+                    foreach (var effect in action.effects)
+                    {
+                        if (effect is Damage damage)
+                        {
+                            float bonus = damage.GetAttackMultiplier(oldState);
+
+                            if (bonus > 1f)
+                                ShowText(character, "Bonus x" + bonus.ToString(), config.damageTextColor);
+                            else if (bonus < 1f)
+                                ShowText(character, "Malus x" + bonus.ToString(), config.damageTextColor);
+                        }
+                    }
                 }
                 else if (hpDiff > 0)
                 {
@@ -131,7 +144,7 @@ namespace Ulko.UI
                 config.battleTextSpeed,
                 config.battleTextInterval,
                 config.battleTextDuration,
-                character.GetComponentInChildren<ArrowAnchor>().transform);
+                character.GetComponentInChildren<ArrowAnchor>().transform.position);
         }
     }
 }

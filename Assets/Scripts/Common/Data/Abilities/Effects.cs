@@ -66,6 +66,18 @@ namespace Ulko.Data.Abilities
             this.statuses = statuses;
         }
 
+        public List<Stat> GetCharacterType()
+        {
+            var characterType = new List<Stat>();
+            foreach (Stat stat in Enum.GetValues(typeof(Stat)))
+            {
+                if (stats.GetStat(stat) > 0)
+                    characterType.Add(stat);
+            }
+
+            return characterType;
+        }
+
         public void Clone(object source)
         {
             Clone(source as CharacterState);

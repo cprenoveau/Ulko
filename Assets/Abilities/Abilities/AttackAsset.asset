@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5792312ed36db064cbedc1bef273b452, type: 3}
-  m_Name: SmallAttackAsset
+  m_Name: AttackAsset
   m_EditorClassIdentifier: 
   id: attack
   target:
@@ -18,6 +18,7 @@ MonoBehaviour:
     targetType: 0
     targetSize: 0
     targetCondition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
+  mainStat: 0
   nodes:
   - rid: 6273285019555594450
   references:
@@ -39,8 +40,7 @@ MonoBehaviour:
         condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
         config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
         attackStat: 0
-        defenseStat: 0
-        damageMultiplier: 0.2
+        damageMultiplier: 1
         percentDamage: 0
         flatDamage: 0
     - rid: 6273285019555594452

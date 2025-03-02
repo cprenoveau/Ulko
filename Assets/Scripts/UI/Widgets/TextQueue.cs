@@ -16,7 +16,7 @@ namespace Ulko.UI
             public float speed;
             public float showNextDelay;
             public float duration;
-            public Transform target;
+            public Vector3 position;
         }
 
         private readonly Queue<TextData> textData = new();
@@ -27,9 +27,9 @@ namespace Ulko.UI
             cam = camera;
         }
 
-        public void Enqueue(string text, Color color, float speed, float showNextDelay, float duration, Transform target)
+        public void Enqueue(string text, Color color, float speed, float showNextDelay, float duration, Vector3 position)
         {
-            textData.Enqueue(new TextData { text = text, color = color, speed = speed, showNextDelay = showNextDelay, duration = duration, target = target });
+            textData.Enqueue(new TextData { text = text, color = color, speed = speed, showNextDelay = showNextDelay, duration = duration, position = position });
             if (textData.Count == 1)
                 StartCoroutine(Play());
         }
@@ -44,7 +44,7 @@ namespace Ulko.UI
                 instance.text = next.text;
                 instance.color = next.color;
 
-                Vector2 viewportPoint = Camera.main.WorldToViewportPoint(next.target.position);
+                Vector2 viewportPoint = cam.WorldToViewportPoint(next.position);
 
                 instance.GetComponent<RectTransform>().anchorMin = viewportPoint;
                 instance.GetComponent<RectTransform>().anchorMax = viewportPoint;
@@ -62,7 +62,7 @@ namespace Ulko.UI
             float elapsed = 0;
             while (elapsed < duration)
             {
-                instance.GetComponent<RectTransform>().anchoredPosition += Vector2.up * speed * Time.deltaTime;
+                instance.GetComponent<RectTransform>().anchoredPosition += speed * Time.deltaTime * Vector2.up;
                 elapsed += Time.deltaTime;
 
                 yield return null;

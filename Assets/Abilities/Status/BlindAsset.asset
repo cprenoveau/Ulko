@@ -43,7 +43,7 @@ MonoBehaviour:
       data:
         condition: {fileID: 0}
         stat: 0
-        multiply: 0.5
+        multiply: 0.25
         add: 0
     - rid: 6273285063376109643
       type: {class: EffectIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
