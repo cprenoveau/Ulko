@@ -253,7 +253,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 326751004927487933, guid: 8d67a35ada1aea045988262f7882fe1f, type: 3}
       propertyPath: m_Name
-      value: AttackButton
+      value: ThrowButton
       objectReference: {fileID: 0}
     - target: {fileID: 326751004927487933, guid: 8d67a35ada1aea045988262f7882fe1f, type: 3}
       propertyPath: m_IsActive
@@ -265,15 +265,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1685835240945650976, guid: 8d67a35ada1aea045988262f7882fe1f, type: 3}
       propertyPath: bgDefaultColor.b
-      value: 0.1792453
+      value: 0.18039216
       objectReference: {fileID: 0}
     - target: {fileID: 1685835240945650976, guid: 8d67a35ada1aea045988262f7882fe1f, type: 3}
       propertyPath: bgDefaultColor.g
-      value: 0.1792453
+      value: 0.18039216
       objectReference: {fileID: 0}
     - target: {fileID: 1685835240945650976, guid: 8d67a35ada1aea045988262f7882fe1f, type: 3}
       propertyPath: bgDefaultColor.r
-      value: 0.1792453
+      value: 0.18039216
       objectReference: {fileID: 0}
     - target: {fileID: 1685835240945650976, guid: 8d67a35ada1aea045988262f7882fe1f, type: 3}
       propertyPath: bgSelectedColor.a
@@ -281,15 +281,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1685835240945650976, guid: 8d67a35ada1aea045988262f7882fe1f, type: 3}
       propertyPath: bgSelectedColor.b
-      value: 0.49056602
+      value: 0.32941177
       objectReference: {fileID: 0}
     - target: {fileID: 1685835240945650976, guid: 8d67a35ada1aea045988262f7882fe1f, type: 3}
       propertyPath: bgSelectedColor.g
-      value: 0.49056602
+      value: 0.32941177
       objectReference: {fileID: 0}
     - target: {fileID: 1685835240945650976, guid: 8d67a35ada1aea045988262f7882fe1f, type: 3}
       propertyPath: bgSelectedColor.r
-      value: 0.49056602
+      value: 0.32941177
       objectReference: {fileID: 0}
     - target: {fileID: 1685835240945650976, guid: 8d67a35ada1aea045988262f7882fe1f, type: 3}
       propertyPath: m_Navigation.m_Mode
