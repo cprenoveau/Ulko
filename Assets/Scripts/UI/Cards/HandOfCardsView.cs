@@ -209,11 +209,17 @@ namespace Ulko.UI
                     if (previousSelectable != null)
                     {
                         nav.selectOnLeft = previousSelectable;
+
+                        var selectOnUp = previousSelectable.navigation.selectOnUp;
+                        var selectOnDown = previousSelectable.navigation.selectOnDown;
+
                         previousSelectable.navigation = new Navigation
                         {
                             mode = Navigation.Mode.Explicit,
                             selectOnRight = cards[i].button,
-                            selectOnLeft = nextSelectable != null ? nextSelectable : cards.Last().button
+                            selectOnLeft = nextSelectable != null ? nextSelectable : cards.Last().button,
+                            selectOnUp = selectOnUp,
+                            selectOnDown = selectOnDown
                         };
                     }
                     else if(nextSelectable != null)
@@ -235,11 +241,29 @@ namespace Ulko.UI
                     if (nextSelectable != null)
                     {
                         nav.selectOnRight = nextSelectable;
+
+                        var selectOnUp = nextSelectable.navigation.selectOnUp;
+                        var selectOnDown = nextSelectable.navigation.selectOnDown;
+
+                        if(selectOnUp != null)
+                        {
+                            selectOnUp.navigation = new Navigation
+                            {
+                                mode = Navigation.Mode.Explicit,
+                                selectOnLeft = cards[i].button,
+                                selectOnRight = previousSelectable != null ? previousSelectable : cards.First().button,
+                                selectOnUp = selectOnUp.navigation.selectOnUp,
+                                selectOnDown = selectOnUp.navigation.selectOnDown
+                            };
+                        }
+
                         nextSelectable.navigation = new Navigation
                         {
                             mode = Navigation.Mode.Explicit,
                             selectOnLeft = cards[i].button,
-                            selectOnRight = previousSelectable != null ? previousSelectable : cards.First().button
+                            selectOnRight = previousSelectable != null ? previousSelectable : cards.First().button,
+                            selectOnUp = selectOnUp,
+                            selectOnDown = selectOnDown
                         };
                     }
                     else if(previousSelectable != null)
