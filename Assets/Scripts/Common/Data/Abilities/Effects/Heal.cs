@@ -69,7 +69,7 @@ namespace Ulko.Data.Abilities
             {
                 float heal = RawValue(actor);
 
-                heal += target.stats.MaxHP * percentHeal / 100f;
+                heal += target.stats.maxHP * percentHeal / 100f;
                 heal += flatHeal;
 
                 target.hp += (int)heal;

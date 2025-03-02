@@ -16,7 +16,7 @@ MonoBehaviour:
   customDescKey: 
   icon: {fileID: 0}
   targetType: 0
-  applyType: 1
+  applyType: 2
   applyInterval: 0
   priority: 0
   vfxOnHead: {fileID: 0}
@@ -72,7 +72,6 @@ MonoBehaviour:
       type: {class: BecomeTarget, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
         condition: {fileID: 0}
-        percentChance: 100
     - rid: 6273285063376109655
       type: {class: MoveToTarget, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:

@@ -16,12 +16,11 @@ namespace Ulko.Data
     {
         public int level;
         public int exp;
+        public int maxHP;
         public float fortitude;
         public float wisdom;
         public float intuition;
         public float intelligence;
-
-        public int MaxHP => (int)GetStat(Stat.Fortitude);
 
         public void Clone(object source)
         {
@@ -32,6 +31,7 @@ namespace Ulko.Data
         {
             level = source.level;
             exp = source.exp;
+            maxHP = source.maxHP;
             fortitude = source.fortitude;
             wisdom = source.wisdom;
             intuition = source.intuition;
@@ -73,6 +73,7 @@ namespace Ulko.Data
         {
             level = json["level"].ToObject<int>();
             exp = json["exp"].ToObject<int>();
+            maxHP = json["maxHP"].ToObject<int>();
             fortitude = json["fortitude"].ToObject<float>();
             wisdom = json["wisdom"].ToObject<float>();
             intuition = json["intuition"].ToObject<float>();
@@ -85,6 +86,7 @@ namespace Ulko.Data
             {
                 { "level", level },
                 { "exp", exp },
+                { "maxHP", maxHP },
                 { "fortitude", fortitude },
                 { "wisdom", wisdom },
                 { "intuition", intuition },
@@ -98,6 +100,7 @@ namespace Ulko.Data
         {
             return level.Equals(other.level)
                 && exp.Equals(other.exp)
+                && maxHP.Equals(other.maxHP)
                 && fortitude.Equals(other.fortitude)
                 && wisdom.Equals(other.wisdom)
                 && intuition.Equals(other.intuition)

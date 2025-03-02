@@ -116,7 +116,7 @@ namespace Ulko.Data.Abilities
     {
         protected override bool _IsTrue(CharacterState actor, CharacterState target)
         {
-            return target.hp >= target.stats.MaxHP;
+            return target.hp >= target.stats.maxHP;
         }
     }
 }

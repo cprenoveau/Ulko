@@ -20,6 +20,9 @@ namespace Ulko.UI
         public BattleHeroView heroPrefab;
         public RectTransform heroParent;
 
+        public HudStatsView enemyStatsPrefab;
+        public RectTransform enemyStatsParent;
+
         public TextQueue textQueuePrefab;
         public RectTransform textQueueParent;
 
@@ -49,6 +52,8 @@ namespace Ulko.UI
         protected override void _OnFocusIn(bool fromPush, string previousMenu)
         {
             RefreshHeroes();
+            RefreshEnemies();
+
             data.uiRoot.SetInfo(null);
         }
 
@@ -69,11 +74,32 @@ namespace Ulko.UI
             }
         }
 
+        private void RefreshEnemies()
+        {
+            foreach(Transform child in enemyStatsParent)
+            {
+                HotChocolate.UI.Menu.DisposeAllAnimations(child.gameObject);
+                Destroy(child.gameObject);
+            }
+
+            foreach(var enemy in data.battleInstance.Enemies)
+            {
+                if (!enemy.IsDead)
+                {
+                    var instance = Instantiate(enemyStatsPrefab, enemyStatsParent);
+                    instance.Init(enemy.CaptureState(), enemy.Stats, enemy.transform, data.gameState.Camera);
+                }
+            }
+        }
+
         private void ShowCharacterStateChanged(CharacterState oldState, CharacterState newState)
         {
             var character = data.battleInstance.FindCharacter(oldState.id);
             if (character != null)
             {
+                if (character.CharacterSide == CharacterSide.Enemies)
+                    RefreshEnemies();
+
                 int hpDiff = newState.hp - oldState.hp;
 
                 if (hpDiff < 0)

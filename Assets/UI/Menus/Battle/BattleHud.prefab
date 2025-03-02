@@ -1,5 +1,40 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &889896740601666766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2924573455520121789}
+  m_Layer: 5
+  m_Name: EnemyStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2924573455520121789
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889896740601666766}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1504777749729570017}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1961888807256936029
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,6 +65,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2924573455520121789}
   - {fileID: 6061216650932680833}
   - {fileID: 4454389685937231142}
   m_Father: {fileID: 659879833591843476}
@@ -130,6 +166,8 @@ MonoBehaviour:
   config: {fileID: 11400000, guid: 645d861f89d95b84aa0b6b311d1bd1c1, type: 2}
   heroPrefab: {fileID: 5437854231109359395, guid: 499114981eac03f419443feab4d75de3, type: 3}
   heroParent: {fileID: 4454389685937231142}
+  enemyStatsPrefab: {fileID: 9026172087061297690, guid: 6ae15edbcb035454485c1f70bda976c6, type: 3}
+  enemyStatsParent: {fileID: 2924573455520121789}
   textQueuePrefab: {fileID: 5219196247395689284, guid: e6d577c668638b24982686dbfbc34b2f, type: 3}
   textQueueParent: {fileID: 6061216650932680833}
 --- !u!1 &4049927907345292136
@@ -177,6 +215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4454389685937231142}
   - component: {fileID: 1393680415603491365}
+  - component: {fileID: 74606282212414581}
   m_Layer: 5
   m_Name: Heroes
   m_TagString: Untagged
@@ -233,6 +272,29 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!223 &74606282212414581
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7708225250269362382}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 101
+  m_TargetDisplay: 0
 --- !u!1001 &3560946485460661345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -255,7 +317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3333930545463089208, guid: 499114981eac03f419443feab4d75de3, type: 3}
       propertyPath: m_fontSize
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3429163203735458441, guid: 499114981eac03f419443feab4d75de3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -397,7 +459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3333930545463089208, guid: 499114981eac03f419443feab4d75de3, type: 3}
       propertyPath: m_fontSize
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3429163203735458441, guid: 499114981eac03f419443feab4d75de3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -535,7 +597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3333930545463089208, guid: 499114981eac03f419443feab4d75de3, type: 3}
       propertyPath: m_fontSize
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3429163203735458441, guid: 499114981eac03f419443feab4d75de3, type: 3}
       propertyPath: m_AnchorMax.x
@@ -673,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3333930545463089208, guid: 499114981eac03f419443feab4d75de3, type: 3}
       propertyPath: m_fontSize
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3429163203735458441, guid: 499114981eac03f419443feab4d75de3, type: 3}
       propertyPath: m_AnchorMax.x

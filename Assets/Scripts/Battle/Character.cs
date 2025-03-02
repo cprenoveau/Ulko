@@ -115,20 +115,37 @@ namespace Ulko.Battle
         public string Description()
         {
             string str = Name;
-            str += " " + Localization.LocalizeFormat("hp_value", HP, Stats.MaxHP);
+            str += " " + Localization.LocalizeFormat("hp_value", HP, Stats.maxHP);
 
             return str;
         }
 
         public CharacterState CaptureState()
         {
-            return new(Id, Name, HP, CharacterSide, Stats, StatusState.Clone());
+            var characterState = new CharacterState(Id, Name, HP, CharacterSide, Stats.Clone(), StatusState.Clone());
+
+            foreach (var statusState in StatusState)
+            {
+                if(statusState.statusAsset.targetType == StatusAsset.TargetType.Wielder
+                    && statusState.statusAsset.applyType == StatusAsset.ApplyType.Permanent)
+                {
+                    foreach(var effect in statusState.statusAsset.node.effects.effects)
+                    {
+                        if(effect is ModifyStat modifyStat)
+                        {
+                            modifyStat.Apply(characterState);
+                        }
+                    }
+                }
+            }
+
+            return characterState;
         }
 
         public void ApplyState(CharacterState state)
         {
             int originalHP = characterInternal.HP;
-            characterInternal.HP = Mathf.Clamp(state.hp, 0, Stats.MaxHP);
+            characterInternal.HP = Mathf.Clamp(state.hp, 0, Stats.maxHP);
 
             StatusState = state.statuses.Clone();
             UpdateStatusCosmetics();

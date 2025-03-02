@@ -81,9 +81,9 @@ namespace Ulko.UI
                 expBar.value = currentExp;
             }
 
-            hpText.text = Localization.LocalizeFormat("hp_value", saved.hp, PlayerProfile.GetHeroStats(saved.id).MaxHP);
+            hpText.text = Localization.LocalizeFormat("hp_value", saved.hp, PlayerProfile.GetHeroStats(saved.id).maxHP);
 
-            hpSlider.maxValue = PlayerProfile.GetHeroStats(saved.id).MaxHP;
+            hpSlider.maxValue = PlayerProfile.GetHeroStats(saved.id).maxHP;
             hpSlider.value = saved.hp;
 
             portrait.sprite = Data.portrait;

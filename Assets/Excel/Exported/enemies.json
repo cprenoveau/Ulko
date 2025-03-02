@@ -6,6 +6,7 @@
       {
         "level": 1.0,
         "exp": 0.0,
+        "maxHP": 30.0,
         "fortitude": 30.0,
         "wisdom": 5.0,
         "intuition": 10.0,
@@ -20,6 +21,7 @@
       {
         "level": 1.0,
         "exp": 0.0,
+        "maxHP": 15.0,
         "fortitude": 15.0,
         "wisdom": 5.0,
         "intuition": 10.0,
@@ -34,6 +36,7 @@
       {
         "level": 1.0,
         "exp": 0.0,
+        "maxHP": 15.0,
         "fortitude": 15.0,
         "wisdom": 20.0,
         "intuition": 5.0,
@@ -48,6 +51,7 @@
       {
         "level": 1.0,
         "exp": 0.0,
+        "maxHP": 15.0,
         "fortitude": 15.0,
         "wisdom": 10.0,
         "intuition": 20.0,
