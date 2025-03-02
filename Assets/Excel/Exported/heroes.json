@@ -7,7 +7,7 @@
         "level": 1.0,
         "exp": 0.0,
         "maxHP": 20.0,
-        "fortitude": 20.0,
+        "strength": 20.0,
         "wisdom": 2.0,
         "intuition": 8.0,
         "intelligence": 20.0
@@ -22,7 +22,7 @@
         "level": 1.0,
         "exp": 0.0,
         "maxHP": 12.0,
-        "fortitude": 12.0,
+        "strength": 12.0,
         "wisdom": 20.0,
         "intuition": 12.0,
         "intelligence": 6.0
@@ -37,7 +37,7 @@
         "level": 1.0,
         "exp": 0.0,
         "maxHP": 10.0,
-        "fortitude": 10.0,
+        "strength": 10.0,
         "wisdom": 12.0,
         "intuition": 20.0,
         "intelligence": 8.0
@@ -52,7 +52,7 @@
         "level": 1.0,
         "exp": 0.0,
         "maxHP": 14.0,
-        "fortitude": 14.0,
+        "strength": 14.0,
         "wisdom": 12.0,
         "intuition": 6.0,
         "intelligence": 18.0

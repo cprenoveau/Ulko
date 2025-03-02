@@ -5,7 +5,7 @@ namespace Ulko.Data
 {
     public enum Stat
     {
-        Fortitude,
+        Strength,
         Wisdom,
         Intuition,
         Intelligence
@@ -17,7 +17,7 @@ namespace Ulko.Data
         public int level;
         public int exp;
         public int maxHP;
-        public float fortitude;
+        public float strength;
         public float wisdom;
         public float intuition;
         public float intelligence;
@@ -32,7 +32,7 @@ namespace Ulko.Data
             level = source.level;
             exp = source.exp;
             maxHP = source.maxHP;
-            fortitude = source.fortitude;
+            strength = source.strength;
             wisdom = source.wisdom;
             intuition = source.intuition;
             intelligence = source.intelligence;
@@ -42,7 +42,7 @@ namespace Ulko.Data
         {
             switch (stat)
             {
-                case Stat.Fortitude: return fortitude;
+                case Stat.Strength: return strength;
                 case Stat.Wisdom: return wisdom;
                 case Stat.Intuition: return intuition;
                 case Stat.Intelligence: return intelligence;
@@ -55,7 +55,7 @@ namespace Ulko.Data
         {
             switch (stat)
             {
-                case Stat.Fortitude: fortitude = value; break;
+                case Stat.Strength: strength = value; break;
                 case Stat.Wisdom: wisdom = value; break;
                 case Stat.Intuition: intuition = value; break;
                 case Stat.Intelligence: intelligence = value; break;
@@ -74,7 +74,7 @@ namespace Ulko.Data
             level = json["level"].ToObject<int>();
             exp = json["exp"].ToObject<int>();
             maxHP = json["maxHP"].ToObject<int>();
-            fortitude = json["fortitude"].ToObject<float>();
+            strength = json["strength"].ToObject<float>();
             wisdom = json["wisdom"].ToObject<float>();
             intuition = json["intuition"].ToObject<float>();
             intelligence = json["intelligence"].ToObject<float>();
@@ -87,7 +87,7 @@ namespace Ulko.Data
                 { "level", level },
                 { "exp", exp },
                 { "maxHP", maxHP },
-                { "fortitude", fortitude },
+                { "strength", strength },
                 { "wisdom", wisdom },
                 { "intuition", intuition },
                 { "intelligence", intelligence }
@@ -101,7 +101,7 @@ namespace Ulko.Data
             return level.Equals(other.level)
                 && exp.Equals(other.exp)
                 && maxHP.Equals(other.maxHP)
-                && fortitude.Equals(other.fortitude)
+                && strength.Equals(other.strength)
                 && wisdom.Equals(other.wisdom)
                 && intuition.Equals(other.intuition)
                 && intelligence.Equals(other.intelligence);
