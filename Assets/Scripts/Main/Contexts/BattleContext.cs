@@ -48,6 +48,8 @@ namespace Ulko.Contexts
             uiRoot.SetInfo(null);
 
             uiRoot.menuStack.Push(hud.asset, hud.id, new BattleHudData { gameState = Data, uiRoot = UIRoot, battleInstance = battleInstance });
+
+            uiRoot.FadeAmount(1f);
             uiRoot.FadeIn(1f);
 
             DoBattle(ctSource.Token).FireAndForgetTask();

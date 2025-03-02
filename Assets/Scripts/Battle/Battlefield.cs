@@ -19,7 +19,7 @@ namespace Ulko.Battle
         public float runDuration = 1f;
 
         public Line heroesLine;
-        public List<EnemyPosition> enemyPositions = new List<EnemyPosition>();
+        public List<EnemyPosition> enemyPositions = new();
 
         public Vector3 HeroPosition(int heroIndex, int heroCount)
         {
