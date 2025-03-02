@@ -11,7 +11,6 @@ namespace Ulko.UI
     {
         public UiConfig config;
         public TMP_Text nameText;
-        public TMP_Text targetSizeText;
         public Image abilityTypeIcon;
         public TMP_Text ownerNameText;
         public EffectsView effectsView;
@@ -40,7 +39,7 @@ namespace Ulko.UI
                 effects.AddRange(node.effects.effects);
             }
 
-            effectsView.Init(effects, owner);
+            effectsView.Init(effects, owner, abilityAsset.target.targetSize);
 
             Refresh();
         }
@@ -48,7 +47,6 @@ namespace Ulko.UI
         private void Refresh()
         {
             nameText.text = Localization.Localize(AbilityAsset.id);
-            targetSizeText.text = Localization.Localize("size_" + AbilityAsset.target.targetSize.ToString().ToLower());
             ownerNameText.text = Owner.Name;
 
             abilityTypeIcon.sprite = config.FindStatIcon(AbilityAsset.mainStat);

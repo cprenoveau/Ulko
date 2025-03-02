@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using System.Linq;
 using Ulko.Battle;
+using static Ulko.Data.Abilities.AbilityTarget;
 
 namespace Ulko.UI
 {
@@ -26,7 +27,7 @@ namespace Ulko.UI
             Localization.LocaleChanged -= Refresh;
         }
 
-        public void Init(List<Effect> effects, Character owner)
+        public void Init(List<Effect> effects, Character owner, TargetSize targetSize)
         {
             Effects = effects;
             Owner = owner;
@@ -39,7 +40,7 @@ namespace Ulko.UI
             foreach(var effect in effects)
             {
                 var effectView = Instantiate(effectPrefab, effectsAnchor);
-                effectView.Init(effect, owner);
+                effectView.Init(effect, owner, targetSize);
             }
 
             Refresh();

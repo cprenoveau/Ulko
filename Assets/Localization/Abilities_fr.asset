@@ -46,6 +46,14 @@ MonoBehaviour:
     m_Localized: Rafale de Vent
     m_Metadata:
       m_Items: []
+  - m_Id: 1112218472013824
+    m_Localized: Souffrance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1112335136579584
+    m_Localized: Ouragan
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

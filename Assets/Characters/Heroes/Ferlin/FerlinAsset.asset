@@ -15,6 +15,7 @@ MonoBehaviour:
   id: ferlin
   abilities:
   - {fileID: 11400000, guid: 256da18838cb2e54abcdd1fe0b6d847a, type: 2}
+  - {fileID: 11400000, guid: f99761e588a686e49a04fc26115fe18f, type: 2}
   status: []
   displayName: ferlin
   prefab:

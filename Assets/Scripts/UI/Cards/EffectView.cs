@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Ulko.Battle;
 using Unity.VisualScripting.YamlDotNet.Core.Tokens;
+using static Ulko.Data.Abilities.AbilityTarget;
 
 namespace Ulko.UI
 {
@@ -18,6 +19,7 @@ namespace Ulko.UI
 
         public Effect Effect { get; private set; }
         public Character Owner { get; private set; }
+        public TargetSize TargetSize { get; private set; }
 
         private void Start()
         {
@@ -29,10 +31,11 @@ namespace Ulko.UI
             Localization.LocaleChanged -= Refresh;
         }
 
-        public void Init(Effect effect, Character owner)
+        public void Init(Effect effect, Character owner, TargetSize targetSize)
         {
             Effect = effect;
             Owner = owner;
+            TargetSize = targetSize;
 
             Refresh();
         }
@@ -62,6 +65,11 @@ namespace Ulko.UI
             else
             {
                 gameObject.SetActive(false);
+            }
+
+            if(TargetSize == TargetSize.Group)
+            {
+                powerText.text += " to all";
             }
         }
     }

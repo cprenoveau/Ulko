@@ -46,6 +46,14 @@ MonoBehaviour:
     m_Localized: Wind Gust
     m_Metadata:
       m_Items: []
+  - m_Id: 1112218472013824
+    m_Localized: Pain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1112335136579584
+    m_Localized: Hurricane
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

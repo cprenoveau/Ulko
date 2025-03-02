@@ -15,6 +15,7 @@ MonoBehaviour:
   id: bob
   abilities:
   - {fileID: 11400000, guid: ae8afabd16bce77469821dea8be31e15, type: 2}
+  - {fileID: 11400000, guid: 7dd936ccd9672ed4b84be63bb90d5a1d, type: 2}
   status: []
   displayName: bob
   prefab:

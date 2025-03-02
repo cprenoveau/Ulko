@@ -53,6 +53,7 @@ MonoBehaviour:
         - rid: 6273285063376109651
         - rid: 6273285063376109652
         - rid: 6273285063376109653
+        - rid: 8319834101643214939
     - rid: 6273285063376109651
       type: {class: ActorIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
@@ -80,3 +81,8 @@ MonoBehaviour:
         speed: 50
         distance: -2
         ranged: 0
+    - rid: 8319834101643214939
+      type: {class: TargetIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        invert: 0
+        targetType: 3
