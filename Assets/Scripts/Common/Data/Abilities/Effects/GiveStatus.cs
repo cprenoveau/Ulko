@@ -9,7 +9,9 @@ namespace Ulko.Data.Abilities
 
         public TargetConditionAsset condition;
         public StatusAsset status;
-        public int turns = 3;
+        public int baseTurns = 1;
+        public Stat bonusStat = Stat.Intelligence;
+        public float bonusTurnsPerTenPoints = 1; 
 
         public override Effect Clone()
         {
@@ -17,7 +19,9 @@ namespace Ulko.Data.Abilities
             {
                 condition = condition,
                 status = status,
-                turns = turns
+                baseTurns = baseTurns,
+                bonusStat = bonusStat,
+                bonusTurnsPerTenPoints = bonusTurnsPerTenPoints
             };
         }
 
@@ -27,7 +31,9 @@ namespace Ulko.Data.Abilities
             {
                 return condition == other.condition
                     && status == other.status
-                    && turns == other.turns;
+                    && baseTurns == other.baseTurns
+                    && bonusStat == other.bonusStat
+                    && bonusTurnsPerTenPoints == other.bonusTurnsPerTenPoints;
             }
 
             return false;
@@ -44,21 +50,29 @@ namespace Ulko.Data.Abilities
                 var target = state.FindCharacter(targetId);
                 if (target != null && (condition == null || condition.IsTrue(actor, target)))
                 {
-                    Apply(target);
+                    Apply(actor, target);
                 }
             }
         }
 
-        public void Apply(CharacterState actor)
+        public int NumberOfTurns(Level actorStats)
         {
-            int index = actor.statuses.FindIndex(s => s.statusAsset.id == status.id);
+            int bonus = (int)(actorStats.GetStat(bonusStat) / 10f * bonusTurnsPerTenPoints);
+            return baseTurns + bonus;
+        }
+
+        public void Apply(CharacterState actor, CharacterState target)
+        {
+            int turns = NumberOfTurns(actor.stats);
+
+            int index = target.statuses.FindIndex(s => s.statusAsset.id == status.id);
             if(index == -1)
             {
-                actor.statuses.Add(new StatusState(status, turns, 0));
+                target.statuses.Add(new StatusState(status, turns, 0));
             }
             else
             {
-                actor.statuses[index].maxTurns += turns;
+                target.statuses[index].maxTurns += turns;
             }
         }
 
@@ -66,7 +80,9 @@ namespace Ulko.Data.Abilities
         {
             string str;
 
-            if(turns < 100)
+            int turns = NumberOfTurns(actorStats);
+
+            if (turns < 100)
                 str = Localization.LocalizeFormat("main", "give_status_turn_desc", Localization.Localize(status.id), turns);
             else
                 str = Localization.LocalizeFormat("main", "give_status_infinite_desc", Localization.Localize(status.id));
