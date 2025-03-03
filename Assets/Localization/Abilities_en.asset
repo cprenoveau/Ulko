@@ -97,6 +97,14 @@ MonoBehaviour:
     m_Localized: Just throw whatever you find at them. It works.
     m_Metadata:
       m_Items: []
+  - m_Id: 1425666842025984
+    m_Localized: Magic Missile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1425739583840256
+    m_Localized: You're attacking the darkness.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

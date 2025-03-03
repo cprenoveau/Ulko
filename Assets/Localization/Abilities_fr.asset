@@ -58,6 +58,10 @@ MonoBehaviour:
     m_Localized: Tu n'Existes Pas
     m_Metadata:
       m_Items: []
+  - m_Id: 1425666842025984
+    m_Localized: Missile Magique
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
