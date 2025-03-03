@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ThrowRandomObjectsAsset
   m_EditorClassIdentifier: 
   id: throw_random_objects
+  flavorText: throw_random_objects_desc
   target:
     usabilityScope: 1
     targetType: 0

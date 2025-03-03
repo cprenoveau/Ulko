@@ -67,7 +67,7 @@ namespace Ulko.Data.Abilities
         {
             if(target.hp > 0 || revive)
             {
-                float heal = RawValue(actor);
+                float heal = RawValue(actor.stats);
 
                 heal += target.stats.maxHP * percentHeal / 100f;
                 heal += flatHeal;
@@ -76,40 +76,17 @@ namespace Ulko.Data.Abilities
             }
         }
 
-        public float RawValue(CharacterState actor)
+        public float RawValue(Level actorStats)
         {
-            float stat = actor.stats.GetStat(healStat);
+            float stat = actorStats.GetStat(healStat);
             float heal = stat * healMultiplier;
 
             return heal;
         }
 
-        public override string Description()
+        public override string Description(Level actorStats)
         {
-            string str = "";
-
-            if (revive)
-                str = string.Format("{0} + ", Localization.LocalizeFormat("revives"));
-
-            if (healMultiplier != 0)
-            {
-                str += Localization.LocalizeFormat("heal_desc", healMultiplier * 100, TextFormat.Localize(healStat));
-            }
-            else if (percentHeal != 0)
-            {
-                str += Localization.LocalizeFormat("heal_percent_desc", percentHeal);
-            }
-            else if (flatHeal != 0)
-            {
-                str += Localization.LocalizeFormat("heal_flat_desc", flatHeal);
-            }
-
-            return str;
-        }
-
-        public string Description(CharacterState actor)
-        {
-            int value = (int)RawValue(actor);
+            int value = (int)RawValue(actorStats);
             string str = "";
 
             if (revive)

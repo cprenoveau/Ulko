@@ -18,6 +18,7 @@ namespace Ulko.Data.Abilities
             EditorGUILayout.BeginVertical();
 
             EditorGUILayout.PropertyField(serializedObject.FindProperty("id"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("flavorText"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("mainStat"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("target"));
 

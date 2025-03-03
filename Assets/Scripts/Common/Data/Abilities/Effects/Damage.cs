@@ -62,7 +62,7 @@ namespace Ulko.Data.Abilities
 
         public void Apply(CharacterState actor, CharacterState target)
         {
-            float damage = RawValue(actor);
+            float damage = RawValue(actor.stats);
 
             damage += target.stats.maxHP * percentDamage / 100f;
             damage += flatDamage;
@@ -89,37 +89,17 @@ namespace Ulko.Data.Abilities
             return attackMult;
         }
 
-        public float RawValue(CharacterState actor)
+        public float RawValue(Level actorStats)
         {
-            float atk = actor.stats.GetStat(attackStat);
+            float atk = actorStats.GetStat(attackStat);
             float damage = atk * damageMultiplier;
 
             return damage;
         }
 
-        public override string Description()
+        public override string Description(Level actorStats)
         {
-            string str = "";
-
-            if (damageMultiplier != 0)
-            {
-                str = Localization.LocalizeFormat("damage_desc", damageMultiplier * 100, TextFormat.Localize(attackStat));
-            }
-            else if (percentDamage != 0)
-            {
-                str = Localization.LocalizeFormat("damage_percent_desc", percentDamage);
-            }
-            else if (flatDamage != 0)
-            {
-                str = Localization.LocalizeFormat("damage_flat_desc", flatDamage);
-            }
-
-            return str;
-        }
-
-        public string Description(CharacterState actor)
-        {
-            int value = (int)RawValue(actor);
+            int value = (int)RawValue(actorStats);
             string str = "";
 
             if (damageMultiplier != 0)

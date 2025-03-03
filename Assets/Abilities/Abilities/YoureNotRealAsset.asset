@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5792312ed36db064cbedc1bef273b452, type: 3}
-  m_Name: HurricaneAsset
+  m_Name: YoureNotRealAsset
   m_EditorClassIdentifier: 
-  id: hurricane
-  flavorText: hurricane_desc
+  id: youre_not_real
+  flavorText: youre_not_real_desc
   target:
     usabilityScope: 1
     targetType: 0
-    targetSize: 1
+    targetSize: 0
     targetCondition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
-  mainStat: 1
+  mainStat: 3
   nodes:
   - rid: 6273285019555594450
   references:
@@ -39,7 +39,7 @@ MonoBehaviour:
       data:
         condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
         config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
-        attackStat: 1
-        damageMultiplier: 0.5
+        attackStat: 3
+        damageMultiplier: 1
         percentDamage: 0
         flatDamage: 0

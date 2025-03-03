@@ -195,7 +195,7 @@ namespace Ulko.UI
                 if (battleAbility.ThrowSelected)
                     data.uiRoot.SetInfo(Localization.Localize("discard_desc"));
                 else
-                    data.uiRoot.SetInfo(battleAbility.abilityView.AbilityAsset.Description());
+                    data.uiRoot.SetInfo(battleAbility.abilityView.AbilityAsset.FlavorText);
             }
         }
 

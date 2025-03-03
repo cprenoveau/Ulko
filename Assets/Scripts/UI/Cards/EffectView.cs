@@ -45,17 +45,17 @@ namespace Ulko.UI
             if (Effect is Damage damage)
             {
                 image.sprite = attackIcon;
-                powerText.text = damage.Description(Owner.CaptureState());
+                powerText.text = damage.Description(Owner.CaptureState().stats);
             }
             else if (Effect is Heal heal)
             {
                 image.sprite = healIcon;
-                powerText.text = heal.Description(Owner.CaptureState());
+                powerText.text = heal.Description(Owner.CaptureState().stats);
             }
             else if (Effect is GiveStatus giveStatus)
             {
                 image.sprite = giveStatus.status.icon;
-                powerText.text = giveStatus.Description();
+                powerText.text = giveStatus.Description(Owner.CaptureState().stats);
             }
             //else if(effect is RemoveStatus removeStatus)
             //{

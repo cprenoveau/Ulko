@@ -42,7 +42,7 @@ namespace Ulko.Data.Abilities
             }
         }
 
-        public override string Description()
+        public override string Description(Level actorStats)
         {
             string str = "";
             return str;

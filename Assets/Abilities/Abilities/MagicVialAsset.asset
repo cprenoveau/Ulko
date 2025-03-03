@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MagicVialAsset
   m_EditorClassIdentifier: 
   id: magic_vial
+  flavorText: magic_vial_desc
   target:
     usabilityScope: 0
     targetType: 1

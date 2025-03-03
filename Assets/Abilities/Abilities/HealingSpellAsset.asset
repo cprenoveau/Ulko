@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HealingSpellAsset
   m_EditorClassIdentifier: 
   id: healing_spell
+  flavorText: healing_spell_desc
   target:
     usabilityScope: 0
     targetType: 1

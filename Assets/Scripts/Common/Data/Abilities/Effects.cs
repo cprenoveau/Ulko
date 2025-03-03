@@ -216,7 +216,7 @@ namespace Ulko.Data.Abilities
 
         public abstract Effect Clone();
         public abstract bool IsEqual(Effect other);
-        public abstract string Description();
+        public abstract string Description(Level actorStats);
         public abstract void Apply(CharacterAction action, ActionState state);
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MindControlledSwordsAsset
   m_EditorClassIdentifier: 
   id: mind_controlled_swords
+  flavorText: mind_controlled_swords_desc
   target:
     usabilityScope: 1
     targetType: 0

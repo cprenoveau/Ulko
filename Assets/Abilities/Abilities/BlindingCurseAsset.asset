@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BlindingCurseAsset
   m_EditorClassIdentifier: 
   id: blinding_curse
+  flavorText: blinding_curse_desc
   target:
     usabilityScope: 1
     targetType: 0

@@ -12,12 +12,12 @@ namespace Ulko.Data.Abilities
         [SerializeReference]
         public List<Effect> effects = new();
 
-        public string Description()
+        public string Description(Level actorStats)
         {
             string str = "";
             for(int i = 0; i < effects.Count; ++i)
             {
-                str += effects[i].Description();
+                str += effects[i].Description(actorStats);
                 if (i < effects.Count - 1)
                     str += ",";
             }
@@ -37,9 +37,9 @@ namespace Ulko.Data.Abilities
             return effects.effects.Find(e => e.Type == effectType) != null;
         }
 
-        public string Description()
+        public string Description(Level actorStats)
         {
-            return effects.Description();
+            return effects.Description(actorStats);
         }
     }
 
@@ -91,13 +91,16 @@ namespace Ulko.Data.Abilities
     public class AbilityAsset : ScriptableObject
     {
         public string id;
+        public string flavorText;
         public AbilityTarget target;
         public Stat mainStat;
 
         [SerializeReference]
         public List<AbilityNode> nodes = new();
 
-        public string Description()
+        public string FlavorText => Localization.Localize(flavorText);
+
+        public string Description(Level actorStats)
         {
             if (nodes.Count == 0)
             {
@@ -108,7 +111,7 @@ namespace Ulko.Data.Abilities
 
             for(int i = 0; i < nodes.Count; ++i)
             {
-                string desc = nodes[i].Description();
+                string desc = nodes[i].Description(actorStats);
 
                 str += desc;
                 if (i < nodes.Count - 1)
@@ -116,7 +119,7 @@ namespace Ulko.Data.Abilities
                     int descCount = 1;
                     int nextNode = i + 1;
 
-                    while (nextNode < nodes.Count && nodes[nextNode].Description() == desc)
+                    while (nextNode < nodes.Count && nodes[nextNode].Description(actorStats) == desc)
                     {
                         nextNode++;
                         descCount++;

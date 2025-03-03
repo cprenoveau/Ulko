@@ -51,6 +51,46 @@ MonoBehaviour:
     m_Key: hurricane
     m_Metadata:
       m_Items: []
+  - m_Id: 1409281692786688
+    m_Key: youre_not_real
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1412596249911296
+    m_Key: youre_not_real_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413407390556160
+    m_Key: pain_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413725490765824
+    m_Key: healing_spell_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413849306619904
+    m_Key: magic_vial_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413933834428416
+    m_Key: mind_controlled_swords_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1414548954275840
+    m_Key: wind_gust_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1414787702448128
+    m_Key: hurricane_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1414884070776832
+    m_Key: blinding_curse_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1415105026711552
+    m_Key: throw_random_objects_desc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

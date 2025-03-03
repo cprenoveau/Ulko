@@ -61,7 +61,7 @@ namespace Ulko.Data.Abilities
             actor.stats.SetStat(stat, statValue);
         }
 
-        public override string Description()
+        public override string Description(Level actorStats)
         {
             string str = "";
             return str;

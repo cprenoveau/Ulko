@@ -54,6 +54,49 @@ MonoBehaviour:
     m_Localized: Hurricane
     m_Metadata:
       m_Items: []
+  - m_Id: 1409281692786688
+    m_Localized: You're Not Real
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1412596249911296
+    m_Localized: You're smart. You can talk anything that is not you out of existence.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413407390556160
+    m_Localized: Causes excruciating pain that doesn't go away with painkillers.
+      Wow, better keep Bob on your good side.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413725490765824
+    m_Localized: Bob has a few tricks up his sleeve in the white magic department.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413849306619904
+    m_Localized: Teaching you the recipe of this potion wouldn't be legal.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1413933834428416
+    m_Localized: A pair of swords controlled by telekinesis. You think Phoebey is
+      quite the badass.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1414548954275840
+    m_Localized: It's a good thing you managed to dodge that.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1414787702448128
+    m_Localized: I don't think you could have dodged that.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1414884070776832
+    m_Localized: Something you remember from college. It got you suspended but it
+      was totally worth it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1415105026711552
+    m_Localized: Just throw whatever you find at them. It works.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

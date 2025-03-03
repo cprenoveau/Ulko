@@ -37,9 +37,9 @@ namespace Ulko.Data.Abilities
         public AbilitySequence onGainSequence;
         public AbilityNode node;
 
-        public string Description()
+        public string Description(Level actorStats)
         {
-            string str = !string.IsNullOrEmpty(customDescKey) ? Localization.Localize(customDescKey) : node.Description();
+            string str = !string.IsNullOrEmpty(customDescKey) ? Localization.Localize(customDescKey) : node.Description(actorStats);
 
             if (applyType == ApplyType.OnTurnStart)
             {

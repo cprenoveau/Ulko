@@ -56,7 +56,7 @@ namespace Ulko.UI
             var abilityView = cardView.GetComponentInChildren<AbilityView>();
             if (abilityView != null)
             {
-                data.uiRoot.SetInfo(abilityView.AbilityAsset.Description());
+                data.uiRoot.SetInfo(abilityView.AbilityAsset.FlavorText);
             }
         }
     }

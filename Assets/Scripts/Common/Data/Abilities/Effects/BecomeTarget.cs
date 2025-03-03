@@ -52,7 +52,7 @@ namespace Ulko.Data.Abilities
             state.pendingAction.targetIds = newTargets;
         }
 
-        public override string Description()
+        public override string Description(Level actorStats)
         {
             string str = "";
             return str;

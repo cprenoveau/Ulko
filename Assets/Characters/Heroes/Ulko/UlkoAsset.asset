@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: UlkoAsset
   m_EditorClassIdentifier: 
   id: ulko
+  turnCooldown: 2
   abilities:
   - {fileID: 11400000, guid: 6bf01be8e184b2141b73e83492911e32, type: 2}
   - {fileID: 11400000, guid: 62e49bc86aa397e42bbc4e726d70c14d, type: 2}
   - {fileID: 11400000, guid: dad6f97a27dca8d40a80cdd7811ace29, type: 2}
+  - {fileID: 11400000, guid: 442a52cab6ab75a4c9cf0f7d3a1964f3, type: 2}
   status: []
   displayName: ulko
   prefab:
