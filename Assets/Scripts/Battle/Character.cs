@@ -61,6 +61,8 @@ namespace Ulko.Battle
         public Transform Transform => transform;
         public CharacterAsset Asset => characterInternal.Asset;
 
+        public int CurrentTurn { get; private set; }
+
         public enum AnimState
         {
             Idle,
@@ -165,6 +167,11 @@ namespace Ulko.Battle
             }
         }
 
+        public int TurnCooldown()
+        {
+            return (Asset.turnCooldown - 1) - (CurrentTurn % Asset.turnCooldown);
+        }
+
         public void IncrementTurnCount()
         {
             for(int i = 0; i < StatusState.Count;)
@@ -182,6 +189,8 @@ namespace Ulko.Battle
                     i++;
                 }
             }
+
+            CurrentTurn++;
         }
 
         private readonly Dictionary<string, CancellationTokenSource> statusCosmeticsTasks = new();

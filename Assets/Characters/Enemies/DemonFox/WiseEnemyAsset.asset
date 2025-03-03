@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: WiseEnemyAsset
   m_EditorClassIdentifier: 
   id: wise
+  turnCooldown: 2
   abilities:
   - {fileID: 11400000, guid: 532594474f233594690389367259c5a9, type: 2}
   status:

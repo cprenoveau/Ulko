@@ -29,8 +29,6 @@ namespace Ulko.Battle
 
             while (!ct.IsCancellationRequested)
             {
-                instance.IncrementTurnCount();
-
                 battleResult = await DoHeroesTurn(instance, onPlayerTurn, ct);
 
                 if (battleResult != BattleResult.None)
@@ -45,6 +43,8 @@ namespace Ulko.Battle
 
                 if (ct.IsCancellationRequested)
                     break;
+
+                instance.IncrementTurnCount();
 
                 battleResult = GetResult(instance);
             }
@@ -110,9 +110,12 @@ namespace Ulko.Battle
         {
             foreach(var enemy in instance.GetEnemies(BattleInstance.FetchCondition.AliveOnly))
             {
-                var result = await DoEnemyTurn(enemy, instance, ct);
-                if (result != BattleResult.None)
-                    return result;
+                if(enemy.TurnCooldown() == 0)
+                {
+                    var result = await DoEnemyTurn(enemy, instance, ct);
+                    if (result != BattleResult.None)
+                        return result;
+                }
             }
 
             return BattleResult.None;

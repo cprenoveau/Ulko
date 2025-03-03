@@ -1,7 +1,7 @@
 ﻿using System;
 using TMPro;
+using Ulko.Battle;
 using Ulko.Data;
-using Ulko.Data.Abilities;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,12 +11,11 @@ namespace Ulko.UI
     {
         public TMP_Text hpText;
         public Slider hpSlider;
+        public TMP_Text turnText;
         public RectTransform statsParent;
         public HudStatView statPrefab;
 
-        private CharacterState currentState;
-        private Level originalStats;
-        private Transform worldParent;
+        private Character character;
         private Camera worldCamera;
 
         private void Start()
@@ -29,11 +28,9 @@ namespace Ulko.UI
             Localization.LocaleChanged -= Refresh;
         }
 
-        public void Init(CharacterState currentState, Level originalStats, Transform worldParent, Camera worldCamera)
+        public void Init(Character character, Camera worldCamera)
         {
-            this.currentState = currentState;
-            this.originalStats = originalStats;
-            this.worldParent = worldParent;
+            this.character = character;
             this.worldCamera = worldCamera;
 
             Refresh();
@@ -42,30 +39,32 @@ namespace Ulko.UI
 
         private void Refresh()
         {
-            hpText.text = Localization.LocalizeFormat("hp_value", currentState.hp, currentState.stats.maxHP);
-            hpSlider.maxValue = currentState.stats.maxHP;
-            hpSlider.value = currentState.hp;
+            hpText.text = Localization.LocalizeFormat("hp_value", character.HP, character.Stats.maxHP);
+            hpSlider.maxValue = character.Stats.maxHP;
+            hpSlider.value = character.HP;
+            turnText.text = character.TurnCooldown().ToString();
 
             foreach (Transform child in statsParent)
             {
                 Destroy(child.gameObject);
             }
 
+            var characterState = character.CaptureState();
             foreach (Stat stat in Enum.GetValues(typeof(Stat)))
             {
-                if (originalStats.GetStat(stat) <= 0)
+                if (character.Stats.GetStat(stat) <= 0)
                     continue;
 
                 var statInstance = Instantiate(statPrefab, statsParent);
-                statInstance.Init(stat, currentState.stats, originalStats);
+                statInstance.Init(stat, characterState.stats, character.Stats);
             }
         }
 
         private void UpdatePosition()
         {
-            if (worldParent != null)
+            if (character != null)
             {
-                Vector2 viewportPoint = worldCamera.WorldToViewportPoint(worldParent.position);
+                Vector2 viewportPoint = worldCamera.WorldToViewportPoint(character.transform.position);
                 GetComponent<RectTransform>().anchorMin = viewportPoint;
                 GetComponent<RectTransform>().anchorMax = viewportPoint;
             }

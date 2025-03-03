@@ -39,14 +39,18 @@ namespace Ulko.UI
             PlayerProfile.OnPartyChanged += RefreshHeroes;
 
             this.data.battleInstance.OnCharacterStateChanged += ShowCharacterStateChanged;
+            this.data.battleInstance.OnIncrementTurnCount += RefreshEnemies;
         }
 
         protected override void _OnPop() 
         {
             PlayerProfile.OnPartyChanged -= RefreshHeroes;
 
-            if(data != null)
+            if (data != null)
+            {
                 data.battleInstance.OnCharacterStateChanged -= ShowCharacterStateChanged;
+                data.battleInstance.OnIncrementTurnCount -= RefreshEnemies;
+            }
         }
 
         protected override void _OnFocusIn(bool fromPush, string previousMenu)
@@ -87,7 +91,7 @@ namespace Ulko.UI
                 if (!enemy.IsDead)
                 {
                     var instance = Instantiate(enemyStatsPrefab, enemyStatsParent);
-                    instance.Init(enemy.CaptureState(), enemy.Stats, enemy.transform, data.gameState.Camera);
+                    instance.Init(enemy, data.gameState.Camera);
                 }
             }
         }
