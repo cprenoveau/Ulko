@@ -29,6 +29,8 @@ namespace Ulko.Battle
 
             while (!ct.IsCancellationRequested)
             {
+                instance.IncrementTurnCount();
+
                 battleResult = await DoHeroesTurn(instance, onPlayerTurn, ct);
 
                 if (battleResult != BattleResult.None)
@@ -43,8 +45,6 @@ namespace Ulko.Battle
 
                 if (ct.IsCancellationRequested)
                     break;
-
-                instance.IncrementTurnCount();
 
                 battleResult = GetResult(instance);
             }
