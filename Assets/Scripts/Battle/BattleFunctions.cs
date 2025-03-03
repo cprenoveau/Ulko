@@ -44,6 +44,8 @@ namespace Ulko.Battle
                 if (ct.IsCancellationRequested)
                     break;
 
+                instance.IncrementTurnCount();
+
                 battleResult = GetResult(instance);
             }
 

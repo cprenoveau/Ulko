@@ -274,6 +274,14 @@ namespace Ulko.Battle
             return GetAllCharacters(FetchCondition.All).Select(c => c.CaptureState()).ToList();
         }
 
+        public void IncrementTurnCount()
+        {
+            foreach(var character in GetAllCharacters(FetchCondition.AliveOnly))
+            {
+                character.IncrementTurnCount();
+            }
+        }
+
         public Character FindCharacter(string id)
         {
             var hero = Heroes.FirstOrDefault(h => h.Id == id);

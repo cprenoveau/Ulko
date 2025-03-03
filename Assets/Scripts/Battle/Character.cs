@@ -165,6 +165,25 @@ namespace Ulko.Battle
             }
         }
 
+        public void IncrementTurnCount()
+        {
+            for(int i = 0; i < StatusState.Count;)
+            {
+                var statusState = StatusState[i];
+
+                statusState.nTurns++;
+                if(statusState.nTurns >= statusState.maxTurns)
+                {
+                    RemoveStatusCosmetics(statusState.statusAsset.id);
+                    StatusState.RemoveAt(i);
+                }
+                else
+                {
+                    i++;
+                }
+            }
+        }
+
         private readonly Dictionary<string, CancellationTokenSource> statusCosmeticsTasks = new();
         private void UpdateStatusCosmetics()
         {
