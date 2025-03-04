@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AttackAsset
   m_EditorClassIdentifier: 
   id: attack
-  flavorText: attack_desc
+  flavorText: 
   target:
     usabilityScope: 1
     targetType: 0

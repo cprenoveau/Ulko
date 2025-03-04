@@ -15,6 +15,7 @@ namespace Ulko.Data.Characters
             public SpriteAnimation animation;
         }
 
+        public string nameKey;
         public int level = 1;
         public AssetReferenceT<GameObject> prefab;
         public List<AnimationData> animations = new();

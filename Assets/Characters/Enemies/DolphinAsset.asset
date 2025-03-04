@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b13fe2d8047e95542bef27d7bc984ae4, type: 3}
-  m_Name: IntelligentEnemyAsset
+  m_Name: DolphinAsset
   m_EditorClassIdentifier: 
   id: intelligent
   turnCooldown: 2
   abilities:
   - {fileID: 11400000, guid: 532594474f233594690389367259c5a9, type: 2}
-  status:
-  - {fileID: 11400000, guid: b9703167c1ba53046b04efed5c8a594b, type: 2}
+  - {fileID: 11400000, guid: 88c5486c98bf4da4884d1f0c8108feff, type: 2}
+  status: []
+  nameKey: dolphin
   level: 1
   prefab:
     m_AssetGUID: 121a66534dce7b04e8ec9062cdbc77b6

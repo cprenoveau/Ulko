@@ -6,7 +6,6 @@ namespace Ulko.Data.Characters
     public class Enemy : IJsonObject
     {
         public string id;
-        public string name;
         public List<Level> levels = new();
 
         public Enemy() { }
@@ -28,7 +27,6 @@ namespace Ulko.Data.Characters
         public void FromJson(JToken json)
         {
             id = json["id"].ToString();
-            name = json["name"].ToString();
             levels = json["levels"].ParseList<Level>();
         }
 
@@ -37,7 +35,6 @@ namespace Ulko.Data.Characters
             var json = new JObject
             {
                 { "id", id },
-                { "name", name },
                 { "levels", levels.ToJson() }
             };
 
