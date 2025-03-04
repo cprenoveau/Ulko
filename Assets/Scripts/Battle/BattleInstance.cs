@@ -479,12 +479,14 @@ namespace Ulko.Battle
         public void DrawHand()
         {
             int drawCards = Heroes.Count + 1 - CurrentHand.Count();
-            if (drawCards > DrawPile.Count())
-            {
-                DrawPile.ShuffleDeckInto(DiscardPile);
-            }
 
-            DrawPile.DrawCards(drawCards, CurrentHand);
+            for(int i = 0; i < drawCards; ++i)
+            {
+                if (DrawPile.Count() == 0)
+                    DrawPile.ShuffleDeckInto(DiscardPile);
+
+                DrawPile.DrawCards(1, CurrentHand);
+            }
         }
 
         public List<BattleActions> GetPossibleEnemyActions(Character actor)
