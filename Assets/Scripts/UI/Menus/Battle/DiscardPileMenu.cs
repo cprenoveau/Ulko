@@ -22,11 +22,13 @@ namespace Ulko.UI
         private void Start()
         {
             cardDeckView.OnCardSelected += UpdateInfo;
+            cardDeckView.OnCardClicked += OnCardClicked;
         }
 
         private void OnDestroy()
         {
             cardDeckView.OnCardSelected -= UpdateInfo;
+            cardDeckView.OnCardClicked -= OnCardClicked;
         }
 
         protected override void _OnPush(MenuStack stack, object data)
@@ -58,6 +60,11 @@ namespace Ulko.UI
             {
                 data.uiRoot.SetInfo(abilityView.AbilityAsset.FlavorText);
             }
+        }
+
+        private void OnCardClicked(CardView cardView)
+        {
+            cardView.button.SuperSelect(false);
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Ulko.UI
         public List<CardView> Cards { get; private set; } = new List<CardView>();
 
         public event Action<CardView> OnCardSelected;
+        public event Action<CardView> OnCardClicked;
 
         public void Init()
         {
@@ -33,7 +34,9 @@ namespace Ulko.UI
                 var abilityView = cardInstance.GetComponentInChildren<AbilityView>();
                 abilityView.Init(card.Data.abilityAsset, instance.FindCharacter(card.Data.ownerId));
 
-                cardInstance.button.OnSelected += () => { OnCardSelected?.Invoke(cardInstance); };
+                cardInstance.OnSelected += (CardView cardView) => { OnCardSelected?.Invoke(cardView); };
+                cardInstance.OnClick += (CardView cardView) => { OnCardClicked?.Invoke(cardView); };
+
                 Cards.Add(cardInstance);
             }
 
