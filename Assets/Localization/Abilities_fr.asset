@@ -78,6 +78,18 @@ MonoBehaviour:
     m_Localized: "M\xE9ga Sort de Gu\xE9rison"
     m_Metadata:
       m_Items: []
+  - m_Id: 1820714771406848
+    m_Localized: Seul
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820754726346752
+    m_Localized: Vide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820784057114624
+    m_Localized: Confus
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

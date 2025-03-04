@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: lonely
   customDescKey: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1ea5628923671154ab3c4b452b9d2165, type: 3}
   targetType: 2
   applyType: 0
   applyInterval: 0

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: confused
   customDescKey: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f5cb98ac3cfd641489820c87d54a280a, type: 3}
   targetType: 2
   applyType: 0
   applyInterval: 0

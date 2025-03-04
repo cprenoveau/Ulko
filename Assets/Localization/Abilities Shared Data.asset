@@ -131,6 +131,18 @@ MonoBehaviour:
     m_Key: mega_healing_spell_desc
     m_Metadata:
       m_Items: []
+  - m_Id: 1820714771406848
+    m_Key: lonely
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820754726346752
+    m_Key: empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820784057114624
+    m_Key: confused
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

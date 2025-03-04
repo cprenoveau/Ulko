@@ -137,6 +137,18 @@ MonoBehaviour:
     m_Localized: Bob has a few more tricks up his sleeve in the white magic department.
     m_Metadata:
       m_Items: []
+  - m_Id: 1820714771406848
+    m_Localized: Lonely
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820754726346752
+    m_Localized: Empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1820784057114624
+    m_Localized: Confused
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
