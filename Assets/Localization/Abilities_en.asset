@@ -105,6 +105,38 @@ MonoBehaviour:
     m_Localized: You're attacking the darkness.
     m_Metadata:
       m_Items: []
+  - m_Id: 1816988467847168
+    m_Localized: Quantum Physics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1817060265943040
+    m_Localized: Nobody really understands quantum physics.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1817233301954560
+    m_Localized: Heartbreak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1817307524358144
+    m_Localized: No one loves you.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1817758168768512
+    m_Localized: Wither
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1817989627240448
+    m_Localized: You feel something is missing but you don't know what.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1818199615070208
+    m_Localized: Mega Healing Spell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1818315042316288
+    m_Localized: Bob has a few more tricks up his sleeve in the white magic department.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

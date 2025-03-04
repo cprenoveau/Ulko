@@ -99,6 +99,38 @@ MonoBehaviour:
     m_Key: magic_missile_desc
     m_Metadata:
       m_Items: []
+  - m_Id: 1816988467847168
+    m_Key: quantum_physics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1817060265943040
+    m_Key: quantum_physics_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1817233301954560
+    m_Key: heartbreak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1817307524358144
+    m_Key: heartbreak_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1817758168768512
+    m_Key: wither
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1817989627240448
+    m_Key: wither_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1818199615070208
+    m_Key: mega_healing_spell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1818315042316288
+    m_Key: mega_healing_spell_desc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

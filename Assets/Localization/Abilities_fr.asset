@@ -62,6 +62,22 @@ MonoBehaviour:
     m_Localized: Missile Magique
     m_Metadata:
       m_Items: []
+  - m_Id: 1816988467847168
+    m_Localized: Physique Quantique
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1817233301954560
+    m_Localized: "Cr\xE8ve-Coeur"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1817758168768512
+    m_Localized: "Fl\xE9trissement"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1818199615070208
+    m_Localized: "M\xE9ga Sort de Gu\xE9rison"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
