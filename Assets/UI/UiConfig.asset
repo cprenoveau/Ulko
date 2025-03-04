@@ -31,20 +31,20 @@ MonoBehaviour:
   - stat: 3
     icon: {fileID: 21300000, guid: 5f701eb339a23f142adfd8c39013c572, type: 3}
     color: {r: 0.23740657, g: 0.38458115, b: 0.9150943, a: 1}
-  defaultMaxStat: 100
+  defaultMaxStat: 10
   statProgress:
   - stat: 0
     minValue: 0
-    maxValue: 20
+    maxValue: 40
   - stat: 1
     minValue: 0
-    maxValue: 20
+    maxValue: 40
   - stat: 2
     minValue: 0
-    maxValue: 20
+    maxValue: 40
   - stat: 3
     minValue: 0
-    maxValue: 20
+    maxValue: 40
   disabledItemColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   positiveDiffColor: {r: 0, g: 1, b: 0, a: 1}
   negativeDiffColor: {r: 1, g: 0, b: 0, a: 1}

@@ -49,7 +49,7 @@ namespace Ulko.UI
 
             if (slider != null)
             {
-                (int min, int max) = Stat.HasValue ? config.FindMinMaxStat(Stat.Value) : (0, 50);
+                (int min, int max) = Stat.HasValue ? config.FindMinMaxStat(Stat.Value) : (0, 10);
 
                 slider.maxValue = max - min;
                 slider.value = Value - min;
