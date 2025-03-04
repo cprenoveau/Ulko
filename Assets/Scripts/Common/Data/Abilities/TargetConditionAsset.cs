@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Codice.CM.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -13,6 +14,11 @@ namespace Ulko.Data.Abilities
         public bool IsTrue(CharacterState actor, CharacterState target)
         {
             return condition.IsTrue(actor, target);
+        }
+
+        public TargetCondition FindCondition(Type conditionType)
+        {
+            return condition.FindCondition(conditionType);
         }
 
         public bool HasCondition(Type conditionType)
@@ -50,9 +56,14 @@ namespace Ulko.Data.Abilities
         [SerializeReference]
         public List<TargetCondition> conditions = new();
 
+        public TargetCondition FindCondition(Type conditionType)
+        {
+            return conditions.FirstOrDefault(c => c.GetType() == conditionType);
+        }
+
         public bool HasCondition(Type conditionType)
         {
-            return conditions.FirstOrDefault(c => c.GetType() == conditionType) != null;
+            return FindCondition(conditionType) != null;
         }
 
         protected override bool _IsTrue(CharacterState actor, CharacterState target)
@@ -117,6 +128,17 @@ namespace Ulko.Data.Abilities
         protected override bool _IsTrue(CharacterState actor, CharacterState target)
         {
             return target.hp >= target.stats.maxHP;
+        }
+    }
+
+    [Serializable]
+    public class HasType : TargetCondition
+    {
+        public Stat stat;
+
+        protected override bool _IsTrue(CharacterState actor, CharacterState target)
+        {
+            return target.stats.GetStat(stat) > 0;
         }
     }
 }

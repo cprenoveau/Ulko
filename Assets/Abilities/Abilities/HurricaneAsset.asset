@@ -28,7 +28,7 @@ MonoBehaviour:
     - rid: 6273285019555594450
       type: {class: AbilityNode, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
-        forceValidTarget: 1
+        forceValidTarget: 0
         applySequence:
           steps: []
         effects:
@@ -40,6 +40,6 @@ MonoBehaviour:
         condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
         config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
         attackStat: 1
-        damageMultiplier: 0.5
+        damageMultiplier: 0.75
         percentDamage: 0
         flatDamage: 0

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Ulko.Battle;
 using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using static Ulko.Data.Abilities.AbilityTarget;
+using Ulko.Data;
 
 namespace Ulko.UI
 {
@@ -42,10 +43,20 @@ namespace Ulko.UI
 
         private void Refresh()
         {
+            string extraDesc = "";
+
             if (Effect is Damage damage)
             {
                 image.sprite = attackIcon;
                 powerText.text = damage.Description(Owner.CaptureState().stats);
+
+                if(damage.condition.FindCondition(typeof(HasType)) is HasType hasType)
+                {
+                    if (hasType.invert)
+                        extraDesc = "without " + TextFormat.Localize(hasType.stat);
+                    else
+                        extraDesc = "with " + TextFormat.Localize(hasType.stat);
+                }
             }
             else if (Effect is Heal heal)
             {
@@ -70,6 +81,11 @@ namespace Ulko.UI
             if(TargetSize == TargetSize.Group)
             {
                 powerText.text += " " + Localization.Localize("to_all");
+            }
+
+            if(!string.IsNullOrEmpty(extraDesc))
+            {
+                powerText.text += " " + extraDesc;
             }
         }
     }

@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5792312ed36db064cbedc1bef273b452, type: 3}
-  m_Name: BlindingCurseAsset
+  m_Name: HeartbreakAsset
   m_EditorClassIdentifier: 
-  id: blinding_curse
-  flavorText: blinding_curse_desc
+  id: heartbreak
+  flavorText: heartbreak_desc
   target:
     usabilityScope: 1
     targetType: 0
     targetSize: 1
     targetCondition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
-  mainStat: 3
+  mainStat: 2
   nodes:
   - rid: 6273285019555594450
   references:
@@ -33,12 +33,22 @@ MonoBehaviour:
           steps: []
         effects:
           effects:
+          - rid: 8319834129809539349
           - rid: 6273285092736237642
     - rid: 6273285092736237642
       type: {class: GiveStatus, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
         condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
-        status: {fileID: 11400000, guid: 31427f9455011cd4c9cf67a29e080d78, type: 2}
+        status: {fileID: 11400000, guid: dfda5b99ac85a6944ad60ac3d2a2b0d2, type: 2}
         baseTurns: 1
-        bonusStat: 3
+        bonusStat: 2
         bonusTurnsPerTenPoints: 1
+    - rid: 8319834129809539349
+      type: {class: Damage, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        condition: {fileID: 11400000, guid: 1ac0b16c0a3fb0e41892f7463a47c709, type: 2}
+        config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
+        attackStat: 2
+        damageMultiplier: 0.5
+        percentDamage: 0
+        flatDamage: 0

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca9169f8795a0e344b234e976f42198e, type: 3}
+  m_Name: UnwiseTargetCondition
+  m_EditorClassIdentifier: 
+  condition:
+    invert: 0
+    union: 0
+    conditions:
+    - rid: 6273285019555594453
+    - rid: 6273285019555594456
+    - rid: 8319834129809539346
+  references:
+    version: 2
+    RefIds:
+    - rid: 6273285019555594453
+      type: {class: IsAliveCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        invert: 0
+    - rid: 6273285019555594456
+      type: {class: IsOnSameSideCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        invert: 1
+    - rid: 8319834129809539346
+      type: {class: HasType, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        invert: 1
+        stat: 1

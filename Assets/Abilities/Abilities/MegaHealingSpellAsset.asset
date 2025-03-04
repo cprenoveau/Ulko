@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5792312ed36db064cbedc1bef273b452, type: 3}
-  m_Name: HealingSpellAsset
+  m_Name: MegaHealingSpellAsset
   m_EditorClassIdentifier: 
-  id: healing_spell
-  flavorText: healing_spell_desc
+  id: mega_healing_spell
+  flavorText: mega_healing_spell_desc
   target:
     usabilityScope: 0
     targetType: 1
-    targetSize: 0
+    targetSize: 1
     targetCondition: {fileID: 11400000, guid: eadf067ed4464b84bbe84e931be17834, type: 2}
   mainStat: 3
   nodes:
@@ -40,7 +40,7 @@ MonoBehaviour:
         condition: {fileID: 11400000, guid: eadf067ed4464b84bbe84e931be17834, type: 2}
         config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
         healStat: 3
-        healMultiplier: 1.5
+        healMultiplier: 1
         percentHeal: 0
         flatHeal: 0
         revive: 1

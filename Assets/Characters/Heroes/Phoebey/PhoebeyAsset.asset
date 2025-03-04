@@ -17,7 +17,9 @@ MonoBehaviour:
   abilities:
   - {fileID: 11400000, guid: 52cb1ac95117eca41a7b593d49603e82, type: 2}
   - {fileID: 11400000, guid: 52cb1ac95117eca41a7b593d49603e82, type: 2}
+  - {fileID: 11400000, guid: 52cb1ac95117eca41a7b593d49603e82, type: 2}
   - {fileID: 11400000, guid: 1894d56f77f745e408823a9ac1fb4e8a, type: 2}
+  - {fileID: 11400000, guid: 31d358ce6d601e947bb69c4eb04eebf6, type: 2}
   status: []
   displayName: phoebey
   prefab:

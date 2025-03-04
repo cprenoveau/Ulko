@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5792312ed36db064cbedc1bef273b452, type: 3}
-  m_Name: BlindingCurseAsset
+  m_Name: QuantumPhysicsAsset
   m_EditorClassIdentifier: 
-  id: blinding_curse
-  flavorText: blinding_curse_desc
+  id: quantum_physics
+  flavorText: quantum_physics_desc
   target:
     usabilityScope: 1
     targetType: 0
@@ -33,12 +33,22 @@ MonoBehaviour:
           steps: []
         effects:
           effects:
+          - rid: 8319834129809539347
           - rid: 6273285092736237642
     - rid: 6273285092736237642
       type: {class: GiveStatus, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
         condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
-        status: {fileID: 11400000, guid: 31427f9455011cd4c9cf67a29e080d78, type: 2}
+        status: {fileID: 11400000, guid: cd9309d12763ff14399ca6ccce345380, type: 2}
         baseTurns: 1
         bonusStat: 3
         bonusTurnsPerTenPoints: 1
+    - rid: 8319834129809539347
+      type: {class: Damage, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        condition: {fileID: 11400000, guid: 0bdcead13743d2b4491412e895043d98, type: 2}
+        config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
+        attackStat: 3
+        damageMultiplier: 0.5
+        percentDamage: 0
+        flatDamage: 0

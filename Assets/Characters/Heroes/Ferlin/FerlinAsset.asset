@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: FerlinAsset
   m_EditorClassIdentifier: 
   id: ferlin
+  turnCooldown: 3
   abilities:
   - {fileID: 11400000, guid: 256da18838cb2e54abcdd1fe0b6d847a, type: 2}
+  - {fileID: 11400000, guid: 256da18838cb2e54abcdd1fe0b6d847a, type: 2}
   - {fileID: 11400000, guid: f99761e588a686e49a04fc26115fe18f, type: 2}
+  - {fileID: 11400000, guid: 23db4c12fc88ee44b991756f885872c3, type: 2}
   status: []
   displayName: ferlin
   prefab:
