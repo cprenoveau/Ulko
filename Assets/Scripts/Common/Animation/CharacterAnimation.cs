@@ -12,7 +12,7 @@ namespace Ulko
         public DirectionalSpriteAnimation walk;
         public int footstepFrameInterval = 4;
 
-        public List<CharacterAnimation> children = new List<CharacterAnimation>();
+        public List<CharacterAnimation> children = new();
 
         public enum State
         {

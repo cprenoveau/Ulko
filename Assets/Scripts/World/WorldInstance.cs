@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Ulko.Data.Abilities;
 
 namespace Ulko.World
 {
@@ -146,6 +147,7 @@ namespace Ulko.World
 
             Speaker.OnInteract += TalkTo;
             SavePoint.OnInteract += SaveGame;
+            HealingPoint.OnInteract += HealParty;
         }
 
         private void UnregisterEvents()
@@ -165,6 +167,7 @@ namespace Ulko.World
 
             Speaker.OnInteract -= TalkTo;
             SavePoint.OnInteract -= SaveGame;
+            HealingPoint.OnInteract -= HealParty;
         }
 
         private void RefreshParty()
@@ -304,10 +307,20 @@ namespace Ulko.World
             OnNextMilestone?.Invoke();
         }
 
-        private void SaveGame()
+        private void SaveGame(SavePoint savePoint)
         {
             Audio.Player.PlayUISound(Audio.UISoundId.MenuBlip);
             OnSaveGame?.Invoke();
+        }
+
+        private void HealParty(HealingPoint healingPoint)
+        {
+            PlayerProfile.HealParty();
+
+            var allParty = new List<ICharacterCosmetics>() { Player };
+            allParty.AddRange(PlayerFollowers);
+
+            Player.StartCoroutine(healingPoint.healSequence.Play(Player, Player, allParty));
         }
 
         public bool FreezePlayer { get; private set; }

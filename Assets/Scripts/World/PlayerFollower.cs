@@ -1,10 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections;
+using System.Linq;
+using Ulko.Data.Abilities;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace Ulko.World
 {
-    public class PlayerFollower : MonoBehaviour
+    public class PlayerFollower : MonoBehaviour, ICharacterCosmetics
     {
         public float maxDistance = 1f;
         public Transform visualAnchor;
@@ -12,6 +14,9 @@ namespace Ulko.World
         public Player Target { get; private set; }
         public int Rank { get; private set; }
         public CharacterAnimation CharacterInstance { get; private set; }
+
+        public Vector2 FacingDirection => CharacterInstance.CurrentDirection;
+        public Transform Transform => transform;
 
         private void OnDestroy()
         {
@@ -173,6 +178,11 @@ namespace Ulko.World
         private float ManhattanLengthNoHeight(Vector3 a, Vector3 b)
         {
             return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.z - b.z);
+        }
+
+        public IEnumerator PlayAnimationAsync(string id, bool loop, bool holdPose, float speed, float duration)
+        {
+            yield break;
         }
     }
 }

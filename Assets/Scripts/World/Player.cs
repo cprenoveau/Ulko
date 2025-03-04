@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Ulko.Data.Abilities;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace Ulko.World
 {
     [RequireComponent(typeof(SphereCollider))]
-    public class Player : MonoBehaviour
+    public class Player : MonoBehaviour, ICharacterCosmetics
     {
         public Rigidbody rigidBody;
         public Transform visualAnchor;
@@ -16,6 +18,9 @@ namespace Ulko.World
         public CharacterAnimation CharacterInstance { get; private set; }
         public bool InTrigger => triggerCount > 0;
         public List<Vector3> Trace { get; private set; } = new List<Vector3>();
+
+        public Vector2 FacingDirection => CharacterInstance.CurrentDirection;
+        public Transform Transform => transform;
 
         public event Action OnMoved;
 
@@ -174,6 +179,11 @@ namespace Ulko.World
                 direction,
                 collider.radius * 2f,
                 ~LayerMask.GetMask("Player", "Ghost"));
+        }
+
+        public IEnumerator PlayAnimationAsync(string id, bool loop, bool holdPose, float speed = 1f, float duration = float.PositiveInfinity)
+        {
+            yield break;
         }
     }
 }
