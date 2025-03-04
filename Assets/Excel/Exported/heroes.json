@@ -52,10 +52,10 @@
         "level": 1.0,
         "exp": 0.0,
         "maxHP": 34.0,
-        "strength": 14.0,
+        "strength": 12.0,
         "wisdom": 12.0,
-        "intuition": 6.0,
-        "intelligence": 18.0
+        "intuition": 12.0,
+        "intelligence": 14.0
       }
     ]
   }

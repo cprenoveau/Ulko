@@ -148,7 +148,7 @@ namespace Ulko.Battle
             CurrentHand.Flush();
             DrawHand();
 
-            FreeRedrawInTurns = Config.freeRedrawInTurns;
+            FreeRedrawInTurns = Heroes.Count;
         }
 
         private void RefreshDeck()
@@ -473,7 +473,7 @@ namespace Ulko.Battle
                 playerAction.PossibleActions = GetPossibleHeroActions();
             }
 
-            FreeRedrawInTurns = Config.freeRedrawInTurns;
+            FreeRedrawInTurns = Heroes.Count;
         }
 
         public void DrawHand()

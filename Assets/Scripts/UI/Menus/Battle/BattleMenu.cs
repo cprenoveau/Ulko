@@ -78,7 +78,14 @@ namespace Ulko.UI
             RefreshCards();
 
             if (this.data.battleInstance.CurrentHand.Count() > 0)
+            {
                 Select(handOfCardsView.GetCard(0).button.gameObject);
+            }
+            else
+            {
+                RedrawHand();
+                Select(handOfCardsView.GetCard(0).button.gameObject);
+            }
         }
 
         protected override void _OnPop() { }
