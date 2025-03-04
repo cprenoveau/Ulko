@@ -34,6 +34,38 @@ MonoBehaviour:
     m_Localized: Bob
     m_Metadata:
       m_Items: []
+  - m_Id: 3282941307248640
+    m_Localized: Loup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3282980888895488
+    m_Localized: Ours
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3283024941670400
+    m_Localized: Renard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3283058194112512
+    m_Localized: Licorne
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3283106038538240
+    m_Localized: Dauphin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3283147826388992
+    m_Localized: "V\xE9lociraptor"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3283213618241536
+    m_Localized: Chat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3283245864050688
+    m_Localized: "Sorci\xE8re"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
