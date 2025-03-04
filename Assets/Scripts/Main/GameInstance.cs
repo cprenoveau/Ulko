@@ -170,8 +170,6 @@ namespace Ulko
         {
             CurrentBattle = null;
 
-            PlayerProfile.HealParty();
-
             if (GetCurrentMilestone() is Data.Timeline.BossBattle)
             {
                 await StartNextMilestone(ct);
