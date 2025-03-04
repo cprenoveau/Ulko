@@ -370,6 +370,10 @@ MonoBehaviour:
     m_Localized: Repiger la Main
     m_Metadata:
       m_Items: []
+  - m_Id: 388532161406296064
+    m_Localized: Poursuivre
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

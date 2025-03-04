@@ -19,6 +19,18 @@ namespace Ulko.Data
         public float probability = 1;
         public List<Encounter> encounters = new();
 
+        public int TryFindEncounterIndex(Encounter encounter)
+        {
+            return encounters.IndexOf(encounter);
+        }
+
+        public Encounter TryFindEncounter(int index)
+        {
+            if(index >= 0 && index < encounters.Count)
+                return encounters[index];
+            else return null;
+        }
+
         public Encounter TryPickEncounter(int stepCount)
         {
             if (stepCount < minSteps)

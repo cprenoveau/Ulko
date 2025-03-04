@@ -156,6 +156,7 @@ namespace Ulko
             if (ct.IsCancellationRequested)
                 return;
 
+            PlayerProfile.SaveTempState();
             CurrentBattle = battle;
 
             await sceneStack.Jump(battle.sceneAddress, null);
@@ -169,6 +170,9 @@ namespace Ulko
         public async Task EndBattle(CancellationToken ct)
         {
             CurrentBattle = null;
+
+            PlayerProfile.DeleteTempState();
+            PlayerProfile.SetEncounterIndex(-1);
             PlayerProfile.ReviveParty();
 
             if (GetCurrentMilestone() is Data.Timeline.BossBattle)

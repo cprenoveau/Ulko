@@ -30,6 +30,9 @@ namespace Ulko.UI
 
         private void Quit()
         {
+            PlayerProfile.RestoreTempState();
+            PlayerProfile.SuspendGame();
+
             stack.Pop();
             data.gameState.GoToStartup(default).FireAndForgetTask();
         }

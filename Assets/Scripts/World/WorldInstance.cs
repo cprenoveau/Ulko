@@ -393,7 +393,6 @@ namespace Ulko.World
 
                     return encounter;
                 }
-
             }
 
             return null;

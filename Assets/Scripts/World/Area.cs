@@ -16,6 +16,19 @@ namespace Ulko.World
 
         public static Area[] AllAreas => FindObjectsByType<Area>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 
+        public int TryFindEncounterIndex(Encounters.Encounter encounter)
+        {
+            return encounters.TryFindEncounterIndex(encounter);
+        }
+
+        public Encounters.Encounter TryFindEncounter(int index)
+        {
+            if (encounters == null)
+                return null;
+
+            return encounters.TryFindEncounter(index);
+        }
+
         public Encounters.Encounter TryPickEncounter(int steps)
         {
             if (encounters == null)

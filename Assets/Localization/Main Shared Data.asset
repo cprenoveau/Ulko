@@ -363,6 +363,10 @@ MonoBehaviour:
     m_Key: redraw
     m_Metadata:
       m_Items: []
+  - m_Id: 388532161406296064
+    m_Key: resume
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -65,6 +65,12 @@ namespace Ulko
 
             uiRoot.menuStack.Push(hud.asset, hud.id, new WorldHudData { gameState = Data, worldInstance = worldInstance });
             uiRoot.FadeIn(2f);
+
+            var encounter = worldInstance.CurrentArea.TryFindEncounter(PlayerProfile.CurrentLocation.encounterIndex);
+            if (encounter != null)
+            {
+                StartBattleAsync(encounter, default).FireAndForgetTask();
+            }
         }
 
         protected override async Task _End(CancellationToken ct)
@@ -217,6 +223,7 @@ namespace Ulko
                 var encounter = worldInstance.Walk(new Vector3(direction.x, 0, direction.y), deltaTime);
                 if (encounter != null)
                 {
+                    PlayerProfile.SetEncounterIndex(worldInstance.CurrentArea.TryFindEncounterIndex(encounter));
                     StartBattleAsync(encounter, default).FireAndForgetTask();
                 }
             }

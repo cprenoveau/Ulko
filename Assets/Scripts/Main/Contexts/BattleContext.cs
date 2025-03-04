@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Ulko;
 using UnityEngine;
 using System.Collections;
+using static Ulko.Data.Encounters;
+using Ulko.World;
 
 namespace Ulko.Contexts
 {
@@ -57,8 +59,6 @@ namespace Ulko.Contexts
 
         private async Task DoBattle(CancellationToken ct)
         {
-            PlayerProfile.SaveState();
-
             var result = await BattleFunctions.DoBattle(
                 battleInstance,
                 cam,
@@ -92,7 +92,7 @@ namespace Ulko.Contexts
 
         private void RetryBattle(CancellationToken ct)
         {
-            PlayerProfile.RestoreState();
+            PlayerProfile.RestoreTempState();
 
             uiRoot.menuStack.PopAll();
 

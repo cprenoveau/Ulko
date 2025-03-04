@@ -28,14 +28,23 @@ namespace Ulko
             RefreshFiles();
         }
 
-        public static void SaveState()
+        public static void SaveTempState()
         {
             gameCopy = loadedGame.Clone();
         }
 
-        public static void RestoreState()
+        public static void DeleteTempState()
         {
-            loadedGame = gameCopy.Clone();
+            gameCopy = null;
+        }
+
+        public static void RestoreTempState()
+        {
+            if (gameCopy != null)
+            {
+                loadedGame = gameCopy;
+                gameCopy = null;
+            }
         }
 
         public static IEnumerable<Hero> Party => loadedGame.party;
@@ -268,6 +277,11 @@ namespace Ulko
             loadedGame.location.standY = standDirection.y;
         }
 
+        public static void SetEncounterIndex(int index)
+        {
+            loadedGame.location.encounterIndex = index;
+        }
+
         public static void SetArea(string area)
         {
             loadedGame.location.area = area;
@@ -396,6 +410,8 @@ namespace Ulko
 
         public static void NewGame()
         {
+            DeleteGame(SUSPENDED_FILENAME);
+
             loadedGame = new GameFile(JObject.Parse(newGameAsset.text));
             HealParty();
 
@@ -425,6 +441,22 @@ namespace Ulko
             return false;
         }
 
+        public static string SUSPENDED_FILENAME => GameFile.GameFileName("suspended");
+        public static bool SuspendGame()
+        {
+            return SaveGame(SUSPENDED_FILENAME);
+        }
+
+        public static bool ResumeGame()
+        {
+            return LoadGame(SUSPENDED_FILENAME);
+        }
+
+        public static bool HasSuspendedGame()
+        {
+            return File.Exists(Path.Combine(GameFile.GameSavePath, SUSPENDED_FILENAME));
+        }
+
         public static bool DeleteGame(string filename)
         {
             if(GameFile.Delete(GameFile.GameSavePath, filename))
@@ -447,9 +479,12 @@ namespace Ulko
 
                 foreach (FileInfo file in files)
                 {
-                    if(GameFile.Load(GameFile.GameSavePath, file.Name, out GameFile game))
+                    if(file.Name != SUSPENDED_FILENAME)
                     {
-                        games.Add((file, game));
+                        if (GameFile.Load(GameFile.GameSavePath, file.Name, out GameFile game))
+                        {
+                            games.Add((file, game));
+                        }
                     }
                 }
             }

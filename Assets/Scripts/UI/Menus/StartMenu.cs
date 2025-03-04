@@ -1,5 +1,6 @@
 ﻿using HotChocolate.UI;
 using HotChocolate.Utils;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ namespace Ulko.UI
         public MenuDefinition loadMenu;
         public MenuDefinition settingsMenu;
 
+        public TMP_Text newGameLabel;
         public Button newGameButton;
         public Button loadButton;
         public Button settingsButton;
@@ -20,27 +22,48 @@ namespace Ulko.UI
 
         private void Start()
         {
-            newGameButton.onClick.AddListener(NewGame);
+            newGameButton.onClick.AddListener(StartGame);
             loadButton.onClick.AddListener(LoadGame);
             settingsButton.onClick.AddListener(ShowSettings);
             quitButton.onClick.AddListener(Quit);
+
+            Localization.LocaleChanged += Refresh;
+        }
+
+        private void OnDestroy()
+        {
+            Localization.LocaleChanged -= Refresh;
         }
 
         protected override void _OnPush(MenuStack stack, object data)
         {
             this.stack = stack;
             this.data = data as MenuData;
+
+            Refresh();
         }
 
         protected override void _OnPop() { }
         protected override void _OnFocusIn(bool fromPush, string previousMenu) { }
         protected override void _OnFocusOut(bool fromPop, string nextMenu) { }
 
-        private void NewGame()
+        private void Refresh()
+        {
+            newGameLabel.text = PlayerProfile.HasSuspendedGame() ? Localization.Localize("resume") : Localization.Localize("new_game");
+        }
+
+        private void StartGame()
         {
             Audio.Player.PlayUISound(Audio.UISoundId.NewGame);
 
-            PlayerProfile.NewGame();
+            if (PlayerProfile.HasSuspendedGame())
+            {
+                PlayerProfile.ResumeGame();
+            }
+            else
+            {
+                PlayerProfile.NewGame();
+            }
 
             data.gameState.StartMilestone(data.gameState.CurrentMilestone, default).FireAndForgetTask();
             stack.Pop();
