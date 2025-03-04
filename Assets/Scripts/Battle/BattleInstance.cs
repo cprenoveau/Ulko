@@ -12,7 +12,7 @@ namespace Ulko.Battle
         public delegate void ShowDialogueDelegate(Data.Dialogue dialogue, System.Action callback);
         public event ShowDialogueDelegate OnShowDialogue;
 
-        public Data.BattleAsset BattleAsset { get; private set; }
+        public BattleAsset BattleAsset { get; private set; }
         public Battlefield Battlefield { get; private set; }
         public List<Character> Heroes { get; private set; } = new List<Character>();
         public List<Character> Enemies { get; private set; } = new List<Character>();
@@ -22,7 +22,7 @@ namespace Ulko.Battle
         public DeckOfCards<AbilityCard> DrawPile { get; private set; } = new DeckOfCards<AbilityCard>();
         public DeckOfCards<AbilityCard> DiscardPile { get; private set; } = new DeckOfCards<AbilityCard>();
         public HandOfCards<AbilityCard> CurrentHand { get; private set; } = new HandOfCards<AbilityCard>();
-        public int FreeRedrawInTurns { get; private set; } = 4;
+        public int FreeRedrawInTurns { get; private set; }
 
         private readonly Character heroPrefab;
         private readonly Character enemyPrefab;
@@ -144,7 +144,11 @@ namespace Ulko.Battle
             }
 
             RefreshDeck();
+
             CurrentHand.Flush();
+            DrawHand();
+
+            FreeRedrawInTurns = Config.freeRedrawInTurns;
         }
 
         private void RefreshDeck()
@@ -282,6 +286,9 @@ namespace Ulko.Battle
             {
                 character.IncrementTurnCount();
             }
+
+            FreeRedrawInTurns--;
+            if (FreeRedrawInTurns < 0) FreeRedrawInTurns = 0;
 
             OnIncrementTurnCount?.Invoke();
         }
@@ -436,11 +443,6 @@ namespace Ulko.Battle
             var actions = new List<BattleActions>();
             var characters = CaptureCharacterStates();
 
-            DrawHand();
-
-            FreeRedrawInTurns--;
-            if (FreeRedrawInTurns < 0) FreeRedrawInTurns = 0;
-
             int cardIndex = 0;
             foreach(var card in CurrentHand)
             {
@@ -460,10 +462,10 @@ namespace Ulko.Battle
         public void RedrawHand(PlayerAction playerAction)
         {
             CurrentHand.Discard(CurrentHand.ToList(), DiscardPile);
+            DrawHand();
 
-            if(FreeRedrawInTurns > 0)
+            if (FreeRedrawInTurns > 0)
             {
-                DrawHand();
                 playerAction.CancelAction();
             }
             else
@@ -471,10 +473,10 @@ namespace Ulko.Battle
                 playerAction.PossibleActions = GetPossibleHeroActions();
             }
 
-            FreeRedrawInTurns = 3;
+            FreeRedrawInTurns = Config.freeRedrawInTurns;
         }
 
-        private void DrawHand()
+        public void DrawHand()
         {
             int drawCards = Heroes.Count + 1 - CurrentHand.Count();
             if (drawCards > DrawPile.Count())
