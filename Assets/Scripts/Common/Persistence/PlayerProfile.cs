@@ -182,6 +182,15 @@ namespace Ulko
             return hero;
         }
 
+        public static void ReviveParty()
+        {
+            foreach (var hero in Party)
+            {
+                if (hero.hp == 0)
+                    hero.hp = 1;
+            }
+        }
+
         public static bool HealParty()
         {
             bool healed = false;

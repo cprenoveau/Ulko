@@ -169,6 +169,7 @@ namespace Ulko
         public async Task EndBattle(CancellationToken ct)
         {
             CurrentBattle = null;
+            PlayerProfile.ReviveParty();
 
             if (GetCurrentMilestone() is Data.Timeline.BossBattle)
             {
