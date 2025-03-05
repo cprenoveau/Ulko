@@ -478,7 +478,7 @@ namespace Ulko.Battle
 
         public void DrawHand()
         {
-            int drawCards = Heroes.Count + 2 - CurrentHand.Count();
+            int drawCards = Heroes.Count + 1 - CurrentHand.Count();
 
             for(int i = 0; i < drawCards; ++i)
             {
