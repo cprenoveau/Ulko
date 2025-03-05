@@ -76,17 +76,17 @@ namespace Ulko.Data.Abilities
             }
         }
 
-        public float RawValue(Level actorStats)
+        public int RawValue(Level actorStats)
         {
             float stat = actorStats.GetStat(healStat);
             float heal = stat * healMultiplier;
 
-            return heal;
+            return (int)heal;
         }
 
         public override string Description(Level actorStats)
         {
-            int value = (int)RawValue(actorStats);
+            int value = RawValue(actorStats);
             string str = "";
 
             if (revive)

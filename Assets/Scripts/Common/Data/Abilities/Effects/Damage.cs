@@ -89,17 +89,17 @@ namespace Ulko.Data.Abilities
             return attackMult;
         }
 
-        public float RawValue(Level actorStats)
+        public int RawValue(Level actorStats)
         {
             float atk = actorStats.GetStat(attackStat);
             float damage = atk * damageMultiplier;
 
-            return damage;
+            return (int)damage;
         }
 
         public override string Description(Level actorStats)
         {
-            int value = (int)RawValue(actorStats);
+            int value = RawValue(actorStats);
             string str = "";
 
             if (damageMultiplier != 0)
