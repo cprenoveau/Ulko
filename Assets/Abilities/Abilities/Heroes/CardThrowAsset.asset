@@ -42,4 +42,4 @@ MonoBehaviour:
         attackStat: 0
         damageMultiplier: 0
         percentDamage: 0
-        flatDamage: 10
+        flatDamage: 5
