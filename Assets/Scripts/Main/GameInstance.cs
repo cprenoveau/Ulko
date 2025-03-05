@@ -261,5 +261,10 @@ namespace Ulko
             defaultPostProcess.enabled = !enabled;
             vhsGlitchEffect.enabled = enabled;
         }
+
+        private void OnApplicationQuit()
+        {
+            PlayerProfile.SuspendGame();
+        }
     }
 }

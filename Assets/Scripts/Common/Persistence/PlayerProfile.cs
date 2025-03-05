@@ -444,6 +444,7 @@ namespace Ulko
         public static string SUSPENDED_FILENAME => GameFile.GameFileName("suspended");
         public static bool SuspendGame()
         {
+            RestoreTempState();
             return SaveGame(SUSPENDED_FILENAME);
         }
 
