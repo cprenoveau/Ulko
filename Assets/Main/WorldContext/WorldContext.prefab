@@ -51,7 +51,7 @@ MonoBehaviour:
   uiRoot: {fileID: 449102795477950522}
   config: {fileID: 11400000, guid: 9e69f1b1a96a5b64581eeaff28b3bfce, type: 2}
   hud: {fileID: 11400000, guid: 45441c3c93ec7dc4dbd18251516b6873, type: 2}
-  mainMenu: {fileID: 0}
+  mainMenu: {fileID: 11400000, guid: fc8d9524d90b2404d9527a6869330084, type: 2}
   dialogueMenu: {fileID: 11400000, guid: 28cc7e734c24e754b830e6dba7b37b9d, type: 2}
   saveMenu: {fileID: 11400000, guid: b082c561253377a4daca5103bdb82122, type: 2}
   cam: {fileID: 8452861772244995460}

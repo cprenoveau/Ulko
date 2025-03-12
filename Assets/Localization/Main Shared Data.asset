@@ -367,6 +367,14 @@ MonoBehaviour:
     m_Key: resume
     m_Metadata:
       m_Items: []
+  - m_Id: 391373494303055872
+    m_Key: swap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 391373546979319808
+    m_Key: assist
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

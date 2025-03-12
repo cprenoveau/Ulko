@@ -121,6 +121,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9693e97595478aa4cbf35a9bfcf736bb
+    m_Address: Assets/UI/Menus/World/MainMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 987a4d0ba7bf0014aa0486312b5779c6
     m_Address: Assets/UI/Prompts/MessagePrompt.prefab
     m_ReadOnly: 0
