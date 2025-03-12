@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Ulko.Battle;
 using Ulko.Data;
+using Ulko.Data.Abilities;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,14 +26,15 @@ namespace Ulko.UI
             }
         }
 
-        public void AddCards(DeckOfCards<AbilityCard> cardDeck, BattleInstance instance)
+        public delegate CharacterState GetCharacterDelegate(string id);
+        public void AddCards(DeckOfCards<AbilityCard> cardDeck, GetCharacterDelegate getCharacter)
         {
             foreach (var card in cardDeck)
             {
                 var cardInstance = Instantiate(cardPrefab, cardsAnchor.transform);
 
                 var abilityView = cardInstance.GetComponentInChildren<AbilityView>();
-                abilityView.Init(card.Data.abilityAsset, instance.FindCharacter(card.Data.ownerId));
+                abilityView.Init(card.Data.abilityAsset, getCharacter(card.Data.ownerId));
 
                 cardInstance.OnSelected += (CardView cardView) => { OnCardSelected?.Invoke(cardView); };
                 cardInstance.OnClick += (CardView cardView) => { OnCardClicked?.Invoke(cardView); };

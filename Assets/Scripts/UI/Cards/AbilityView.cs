@@ -16,7 +16,7 @@ namespace Ulko.UI
         public EffectsView effectsView;
 
         public AbilityAsset AbilityAsset { get; private set; }
-        public Character Owner { get; private set; }
+        public CharacterState Owner { get; private set; }
 
         private void Start()
         {
@@ -28,7 +28,7 @@ namespace Ulko.UI
             Localization.LocaleChanged -= Refresh;
         }
 
-        public void Init(AbilityAsset abilityAsset, Character owner)
+        public void Init(AbilityAsset abilityAsset, CharacterState owner)
         {
             AbilityAsset = abilityAsset;
             Owner = owner;
@@ -47,7 +47,7 @@ namespace Ulko.UI
         private void Refresh()
         {
             nameText.text = Localization.Localize(AbilityAsset.id);
-            ownerNameText.text = Owner.Name;
+            ownerNameText.text = Owner.name;
 
             abilityTypeIcon.sprite = config.FindStatIcon(AbilityAsset.mainStat);
             abilityTypeIcon.color = config.FindStatColor(AbilityAsset.mainStat);

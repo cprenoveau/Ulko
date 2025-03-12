@@ -40,13 +40,32 @@ namespace Ulko.UI
             }
         }
 
+        private Transform FindSelectedRoot(Transform parent)
+        {
+            while(parent != null)
+            {
+                if (parent.parent == scrollRect.content)
+                    return parent;
+
+                parent = parent.parent;
+            }
+
+            return null;
+        }
+
         private Vector2? ScrollToPosition()
         {
             var selected = EventSystem.current.currentSelectedGameObject;
-            if (selected == null || selected.transform.parent != scrollRect.content)
+
+            if (selected == null)
                 return null;
 
-            var rt = selected.GetComponent<RectTransform>();
+            var selectedRoot = FindSelectedRoot(selected.transform);
+
+            if(selectedRoot == null)
+                return null;
+
+            var rt = selectedRoot.GetComponent<RectTransform>();
 
             if (scrollRect.vertical)
             {

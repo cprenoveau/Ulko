@@ -22,7 +22,7 @@ namespace Ulko.UI
             CardIndex = cardIndex;
             Actions = actions;
 
-            abilityView.Init(abilityAsset, owner);
+            abilityView.Init(abilityAsset, owner.CaptureState());
 
             deadIcon.gameObject.SetActive(owner.IsDead);
 

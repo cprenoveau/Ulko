@@ -375,6 +375,10 @@ MonoBehaviour:
     m_Key: assist
     m_Metadata:
       m_Items: []
+  - m_Id: 391377801274449920
+    m_Key: cards
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -14,7 +14,7 @@ namespace Ulko.UI
         public enum ButtonType
         {
             Stats,
-            Abilities,
+            Cards,
             Swap,
             StatusInfo,
             Settings,
@@ -75,6 +75,8 @@ namespace Ulko.UI
 
         protected override void _OnFocusIn(bool fromPush, string previousMenu)
         {
+            data.uiRoot.SetInfo(null);
+
             RefreshHeroes();
             RefreshText();
 

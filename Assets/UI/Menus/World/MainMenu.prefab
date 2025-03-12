@@ -938,8 +938,8 @@ MonoBehaviour:
     selectHero: 1
   - type: 1
     button: {fileID: 3535776497177517498}
-    menu: {fileID: 11400000, guid: 32196e0e92b9d6b408762d31af8d2c6c, type: 2}
-    selectHero: 1
+    menu: {fileID: 11400000, guid: 82e4c1ae326409d4ba05dac87203db41, type: 2}
+    selectHero: 0
   - type: 2
     button: {fileID: 6133423975901672160}
     menu: {fileID: 11400000, guid: 2e9d8f4cde79d1347a4248c8ee1f8ec7, type: 2}
@@ -2630,7 +2630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6316689060457428443, guid: 8d67a35ada1aea045988262f7882fe1f, type: 3}
       propertyPath: m_text
-      value: Abilities
+      value: Cards
       objectReference: {fileID: 0}
     - target: {fileID: 6316689060457428443, guid: 8d67a35ada1aea045988262f7882fe1f, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -2677,7 +2677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7444dc31c8641854c952939a4f343f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: abilities
+  key: cards
 --- !u!1001 &3405076188200377158
 PrefabInstance:
   m_ObjectHideFlags: 0

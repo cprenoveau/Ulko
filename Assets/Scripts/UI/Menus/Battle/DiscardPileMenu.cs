@@ -1,5 +1,6 @@
 ﻿using Ulko.Battle;
 using HotChocolate.UI;
+using Ulko.Data;
 
 namespace Ulko.UI
 {
@@ -47,7 +48,7 @@ namespace Ulko.UI
         {
             cardDeckView.Init();
 
-            cardDeckView.AddCards(data.battleInstance.DiscardPile, data.battleInstance);
+            cardDeckView.AddCards(data.battleInstance.DiscardPile, (string id) => { return data.battleInstance.FindCharacter(id).CaptureState(); });
 
             if (cardDeckView.Cards.Count > 0)
                 Select(cardDeckView.Cards[0].button.gameObject);

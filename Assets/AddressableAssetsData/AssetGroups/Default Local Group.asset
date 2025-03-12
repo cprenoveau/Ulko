@@ -40,6 +40,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 166a540ac166e984db45d4d83e31c424
+    m_Address: Assets/UI/Menus/World/CardsMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ee151693cdf21b499927a2bf995fb2a
     m_Address: Assets/Characters/Heroes/Phoebey/Phoebey.prefab
     m_ReadOnly: 0

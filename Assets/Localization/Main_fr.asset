@@ -382,6 +382,10 @@ MonoBehaviour:
     m_Localized: Participer
     m_Metadata:
       m_Items: []
+  - m_Id: 391377801274449920
+    m_Localized: Cartes
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

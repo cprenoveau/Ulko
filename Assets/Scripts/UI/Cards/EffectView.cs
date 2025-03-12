@@ -3,10 +3,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Ulko.Battle;
-using Unity.VisualScripting.YamlDotNet.Core.Tokens;
 using static Ulko.Data.Abilities.AbilityTarget;
-using Ulko.Data;
 
 namespace Ulko.UI
 {
@@ -19,7 +16,7 @@ namespace Ulko.UI
         public TMP_Text powerText;
 
         public Effect Effect { get; private set; }
-        public Character Owner { get; private set; }
+        public CharacterState Owner { get; private set; }
         public TargetSize TargetSize { get; private set; }
 
         private void Start()
@@ -32,7 +29,7 @@ namespace Ulko.UI
             Localization.LocaleChanged -= Refresh;
         }
 
-        public void Init(Effect effect, Character owner, TargetSize targetSize)
+        public void Init(Effect effect, CharacterState owner, TargetSize targetSize)
         {
             Effect = effect;
             Owner = owner;
@@ -48,7 +45,7 @@ namespace Ulko.UI
             if (Effect is Damage damage)
             {
                 image.sprite = attackIcon;
-                powerText.text = damage.Description(Owner.CaptureState().stats);
+                powerText.text = damage.Description(Owner.stats);
 
                 if(damage.condition.FindCondition(typeof(HasType)) is HasType hasType)
                 {
@@ -61,12 +58,12 @@ namespace Ulko.UI
             else if (Effect is Heal heal)
             {
                 image.sprite = healIcon;
-                powerText.text = heal.Description(Owner.CaptureState().stats);
+                powerText.text = heal.Description(Owner.stats);
             }
             else if (Effect is GiveStatus giveStatus)
             {
                 image.sprite = giveStatus.status.icon;
-                powerText.text = giveStatus.Description(Owner.CaptureState().stats);
+                powerText.text = giveStatus.Description(Owner.stats);
             }
             //else if(effect is RemoveStatus removeStatus)
             //{

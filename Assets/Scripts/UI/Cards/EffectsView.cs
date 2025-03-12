@@ -15,7 +15,7 @@ namespace Ulko.UI
         public RectTransform effectsAnchor;
 
         public IEnumerable<Effect> Effects { get; private set; } = new List<Effect>();
-        public Character Owner { get; private set; }
+        public CharacterState Owner { get; private set; }
 
         private void Start()
         {
@@ -27,7 +27,7 @@ namespace Ulko.UI
             Localization.LocaleChanged -= Refresh;
         }
 
-        public void Init(List<Effect> effects, Character owner, TargetSize targetSize)
+        public void Init(List<Effect> effects, CharacterState owner, TargetSize targetSize)
         {
             Effects = effects;
             Owner = owner;
