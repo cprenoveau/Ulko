@@ -59,6 +59,7 @@ namespace Ulko.World
         {
             CurrentZone = this;
 
+            yield return null;
             _Init(cam, playerTransform, limits);
 
             //switch to this vcam
