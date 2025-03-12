@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 157713217916450856}
   - component: {fileID: 6575895800738230910}
   m_Layer: 5
-  m_Name: CardDeckView
+  m_Name: DeckOfCardsView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,8 +118,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -27.099487, y: 56.782166}
-  m_SizeDelta: {x: -97.8761, y: -471.5887}
+  m_AnchoredPosition: {x: -27.099487, y: 78.54596}
+  m_SizeDelta: {x: -97.8761, y: -515.1163}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6575895800738230910
 MonoBehaviour:
@@ -375,8 +375,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7414219688630655256}
   m_HandleRect: {fileID: 2771722174757839820}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.9962676
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
