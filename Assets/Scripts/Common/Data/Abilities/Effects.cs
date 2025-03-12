@@ -48,7 +48,7 @@ namespace Ulko.Data.Abilities
     public class CharacterState : IClonable, IEquatable<CharacterState>
     {
         public string id;
-        public string name;
+        public string nameKey;
         public int hp;
         public CharacterSide characterSide;
         public Level stats;
@@ -56,10 +56,10 @@ namespace Ulko.Data.Abilities
 
         public CharacterState(){}
 
-        public CharacterState(string id, string name, int hp, CharacterSide characterSide, Level stats, List<StatusState> statuses)
+        public CharacterState(string id, string nameKey, int hp, CharacterSide characterSide, Level stats, List<StatusState> statuses)
         {
             this.id = id;
-            this.name = name;
+            this.nameKey = nameKey;
             this.hp = hp;
             this.characterSide = characterSide;
             this.stats = stats;
@@ -86,7 +86,7 @@ namespace Ulko.Data.Abilities
         public void Clone(CharacterState source)
         {
             id = source.id;
-            name = source.name;
+            nameKey = source.nameKey;
             hp = source.hp;
             characterSide = source.characterSide;
             stats = source.stats.Clone();
@@ -96,7 +96,7 @@ namespace Ulko.Data.Abilities
         public bool Equals(CharacterState other)
         {
             return id.Equals(other.id)
-                && name.Equals(other.name)
+                && nameKey.Equals(other.nameKey)
                 && hp.Equals(other.hp)
                 && characterSide.Equals(other.characterSide)
                 && stats.Equals(other.stats)

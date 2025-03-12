@@ -10,7 +10,8 @@ namespace Ulko.Battle
     {
         public string Id => HeroData.id;
         public string IdWithoutSuffix => HeroData.id;
-        public string Name => Localization.Localize(HeroAsset.displayName);
+        public string Name => Localization.Localize(NameKey);
+        public string NameKey => HeroAsset.displayName;
         public CharacterSide CharacterSide => CharacterSide.Heroes;
         public int Level => HeroData.GetLevelDataFromExp(SavedData.exp).level;
         public int Exp => SavedData.exp;

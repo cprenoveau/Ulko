@@ -15,6 +15,7 @@ namespace Ulko.Battle
     {
         string Id { get; }
         string IdWithoutSuffix { get; }
+        string NameKey { get; }
         string Name { get; }
         CharacterSide CharacterSide { get; }
         int Level { get; }
@@ -45,6 +46,7 @@ namespace Ulko.Battle
 
         public string Id => characterInternal.Id;
         public string IdWithoutSuffix => characterInternal.IdWithoutSuffix;
+        public string NameKey => characterInternal.NameKey;
         public string Name => characterInternal.Name;
         public CharacterSide CharacterSide => characterInternal.CharacterSide;
         public int Level => characterInternal.Level;
@@ -124,7 +126,7 @@ namespace Ulko.Battle
 
         public CharacterState CaptureState()
         {
-            var characterState = new CharacterState(Id, Name, HP, CharacterSide, Stats.Clone(), StatusState.Clone());
+            var characterState = new CharacterState(Id, NameKey, HP, CharacterSide, Stats.Clone(), StatusState.Clone());
 
             foreach (var statusState in StatusState)
             {

@@ -11,7 +11,8 @@ namespace Ulko.Battle
         public string Id => EnemyData.id + Suffix;
         public string IdWithoutSuffix => EnemyData.id;
         public string Suffix { get; private set; }
-        public string Name => Localization.Localize(EnemyAsset.nameKey) + (!string.IsNullOrEmpty(Suffix) ? " " + Suffix : "");
+        public string Name => Localization.Localize(NameKey) + (!string.IsNullOrEmpty(Suffix) ? " " + Suffix : "");
+        public string NameKey => EnemyAsset.nameKey;
         public CharacterSide CharacterSide => CharacterSide.Enemies;
         public int Level => EnemyAsset.level;
         public int Exp => EnemyData.GetLevelData(Level).exp;
