@@ -52,7 +52,7 @@ namespace Ulko.UI
             var characterState = character.CaptureState();
             foreach (Stat stat in Enum.GetValues(typeof(Stat)))
             {
-                if (character.Stats.GetStat(stat) <= 0)
+                if (stat == Stat.MaxHP || character.Stats.GetStat(stat) <= 0)
                     continue;
 
                 var statInstance = Instantiate(statPrefab, statsParent);

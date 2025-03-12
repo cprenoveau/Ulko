@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: EffectConfig
   m_EditorClassIdentifier: 
   attackMultipliers:
-  - stat: 1
+  - stat: 2
+    against: 4
+    multiplier: 2
+  - stat: 4
     against: 3
     multiplier: 2
   - stat: 3
     against: 2
     multiplier: 2
   - stat: 2
-    against: 1
-    multiplier: 2
-  - stat: 1
-    against: 2
-    multiplier: 0.5
-  - stat: 2
     against: 3
     multiplier: 0.5
   - stat: 3
-    against: 1
+    against: 4
+    multiplier: 0.5
+  - stat: 4
+    against: 2
     multiplier: 0.5

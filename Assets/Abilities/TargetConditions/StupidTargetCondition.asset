@@ -34,4 +34,4 @@ MonoBehaviour:
       type: {class: HasType, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
         invert: 1
-        stat: 3
+        stat: 4

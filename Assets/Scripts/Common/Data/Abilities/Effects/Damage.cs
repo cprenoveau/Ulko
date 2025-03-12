@@ -92,6 +92,10 @@ namespace Ulko.Data.Abilities
         public int RawValue(Level actorStats)
         {
             float atk = actorStats.GetStat(attackStat);
+
+            if (attackStat != Stat.Strength)
+                atk += actorStats.GetStat(Stat.Strength);
+
             float damage = atk * damageMultiplier;
 
             return (int)damage;

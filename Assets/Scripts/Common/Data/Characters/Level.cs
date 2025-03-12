@@ -5,6 +5,7 @@ namespace Ulko.Data
 {
     public enum Stat
     {
+        MaxHP,
         Strength,
         Wisdom,
         Intuition,
@@ -16,7 +17,7 @@ namespace Ulko.Data
     {
         public int level;
         public int exp;
-        public int maxHP;
+        public float maxHP;
         public float strength;
         public float wisdom;
         public float intuition;
@@ -42,6 +43,7 @@ namespace Ulko.Data
         {
             switch (stat)
             {
+                case Stat.MaxHP: return maxHP;
                 case Stat.Strength: return strength;
                 case Stat.Wisdom: return wisdom;
                 case Stat.Intuition: return intuition;
@@ -55,6 +57,7 @@ namespace Ulko.Data
         {
             switch (stat)
             {
+                case Stat.MaxHP: maxHP = value; break;
                 case Stat.Strength: strength = value; break;
                 case Stat.Wisdom: wisdom = value; break;
                 case Stat.Intuition: intuition = value; break;

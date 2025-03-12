@@ -19,23 +19,23 @@ MonoBehaviour:
   healTextColor: {r: 0, g: 1, b: 0, a: 1}
   defaultTextColor: {r: 1, g: 1, b: 1, a: 1}
   statIcons:
-  - stat: 0
+  - stat: 1
     icon: {fileID: 21300000, guid: bec1851e259cae144adc9400e1aa5a19, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-  - stat: 1
+  - stat: 2
     icon: {fileID: 21300000, guid: 593e1f924651f3749a5a370dcb892c6b, type: 3}
     color: {r: 0.27269456, g: 0.6509434, b: 0.24256852, a: 1}
-  - stat: 2
+  - stat: 3
     icon: {fileID: 21300000, guid: cab97566febb79248b089721bb91cf71, type: 3}
     color: {r: 0.8962264, g: 0.2494215, b: 0.3165761, a: 1}
-  - stat: 3
+  - stat: 4
     icon: {fileID: 21300000, guid: 5f701eb339a23f142adfd8c39013c572, type: 3}
     color: {r: 0.23740657, g: 0.38458115, b: 0.9150943, a: 1}
   defaultMaxStat: 10
   statProgress:
   - stat: 0
     minValue: 0
-    maxValue: 40
+    maxValue: 100
   - stat: 1
     minValue: 0
     maxValue: 40
@@ -43,6 +43,9 @@ MonoBehaviour:
     minValue: 0
     maxValue: 40
   - stat: 3
+    minValue: 0
+    maxValue: 40
+  - stat: 4
     minValue: 0
     maxValue: 40
   disabledItemColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

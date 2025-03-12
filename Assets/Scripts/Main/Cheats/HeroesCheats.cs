@@ -53,7 +53,7 @@ namespace Ulko.Cheats
                 return hero;
 
             var data = Database.Heroes[heroId];
-            return new Persistence.Hero(data, PlayerProfile.GetHeroStats(heroId).maxHP, PlayerProfile.GetHeroExp(heroId));
+            return new Persistence.Hero(data, PlayerProfile.GetHeroMaxHP(heroId), PlayerProfile.GetHeroExp(heroId));
         }
     }
 }

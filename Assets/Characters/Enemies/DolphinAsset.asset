@@ -15,9 +15,9 @@ MonoBehaviour:
   id: intelligent
   turnCooldown: 2
   abilities:
-  - {fileID: 11400000, guid: 532594474f233594690389367259c5a9, type: 2}
   - {fileID: 11400000, guid: 88c5486c98bf4da4884d1f0c8108feff, type: 2}
-  status: []
+  status:
+  - {fileID: 11400000, guid: b9703167c1ba53046b04efed5c8a594b, type: 2}
   nameKey: dolphin
   level: 1
   prefab:

@@ -149,7 +149,7 @@ namespace Ulko.Battle
         public void ApplyState(CharacterState state)
         {
             int originalHP = characterInternal.HP;
-            characterInternal.HP = Mathf.Clamp(state.hp, 0, Stats.maxHP);
+            characterInternal.HP = (int)Mathf.Clamp(state.hp, 0, Stats.maxHP);
 
             StatusState = state.statuses.Clone();
             UpdateStatusCosmetics();

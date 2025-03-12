@@ -40,6 +40,6 @@ MonoBehaviour:
       type: {class: ModifyStat, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
         condition: {fileID: 0}
-        stat: 1
-        multiply: 0.25
+        stat: 2
+        multiply: 0
         add: 0

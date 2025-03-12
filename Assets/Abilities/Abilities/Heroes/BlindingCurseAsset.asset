@@ -19,7 +19,7 @@ MonoBehaviour:
     targetType: 0
     targetSize: 1
     targetCondition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
-  mainStat: 3
+  mainStat: 4
   nodes:
   - rid: 6273285019555594450
   references:
@@ -40,5 +40,5 @@ MonoBehaviour:
         condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
         status: {fileID: 11400000, guid: 31427f9455011cd4c9cf67a29e080d78, type: 2}
         baseTurns: 1
-        bonusStat: 3
+        bonusStat: 4
         bonusTurnsPerTenPoints: 1

@@ -19,7 +19,7 @@ MonoBehaviour:
     targetType: 0
     targetSize: 1
     targetCondition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
-  mainStat: 3
+  mainStat: 4
   nodes:
   - rid: 6273285019555594450
   references:
@@ -41,14 +41,14 @@ MonoBehaviour:
         condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
         status: {fileID: 11400000, guid: cd9309d12763ff14399ca6ccce345380, type: 2}
         baseTurns: 1
-        bonusStat: 3
+        bonusStat: 4
         bonusTurnsPerTenPoints: 1
     - rid: 8319834129809539347
       type: {class: Damage, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
         condition: {fileID: 11400000, guid: 0bdcead13743d2b4491412e895043d98, type: 2}
         config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
-        attackStat: 3
+        attackStat: 4
         damageMultiplier: 0.5
         percentDamage: 0
         flatDamage: 0

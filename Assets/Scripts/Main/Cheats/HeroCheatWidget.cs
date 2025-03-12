@@ -40,9 +40,9 @@ namespace Ulko.Cheats
 
         private void Refresh()
         {
-            hpLabel.text = "HP: " + Data.hp + "/" + PlayerProfile.GetHeroStats(Data.id).maxHP;
+            hpLabel.text = "HP: " + Data.hp + "/" + PlayerProfile.GetHeroMaxHP(Data.id);
 
-            hpSlider.maxValue = PlayerProfile.GetHeroStats(Data.id).maxHP;
+            hpSlider.maxValue = PlayerProfile.GetHeroMaxHP(Data.id);
             hpSlider.value = Data.hp;
 
             var hero = Database.Heroes[Data.id];
