@@ -205,16 +205,24 @@ namespace Ulko
             bool healed = false;
             foreach (var hero in Party)
             {
-                int maxHp = GetHeroMaxHP(hero.id);
-
-                if (hero.hp < maxHp)
-                {
-                    hero.hp = maxHp;
+                if (HealHero(hero.id))
                     healed = true;
-                }
+            }
+            return healed;
+        }
+
+        public static bool HealHero(string heroId)
+        {
+            var hero = CreateOrGetHero(heroId);
+            int maxHp = GetHeroMaxHP(heroId);
+
+            if(hero.hp < maxHp)
+            {
+                hero.hp = maxHp;
+                return true;
             }
 
-            return healed;
+            return false;
         }
 
         public static void AddHeroExp(string heroId, int exp)

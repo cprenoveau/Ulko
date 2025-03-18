@@ -30,8 +30,8 @@ namespace Ulko.Battle
 
         private readonly List<ICharacterInternal> heroInfos = new();
 
-        private List<(string hero, int exp)> expEarned;
-        public List<(string hero, int exp)> GetExp()
+        private List<(string heroId, int exp)> expEarned;
+        public List<(string heroId, int exp)> GetExp()
         {
             if (expEarned != null)
                 return expEarned;

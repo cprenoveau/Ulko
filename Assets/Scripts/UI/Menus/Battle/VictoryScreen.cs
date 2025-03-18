@@ -83,17 +83,19 @@ namespace Ulko.UI
             {
                 var hero = expPerHero[heroIndex];
 
-                int oldLevel = PlayerProfile.GetHeroLevel(hero.hero);
-                PlayerProfile.AddHeroExp(hero.hero, hero.exp);
-                int newLevel = PlayerProfile.GetHeroLevel(hero.hero);
+                int oldLevel = PlayerProfile.GetHeroLevel(hero.heroId);
+                PlayerProfile.AddHeroExp(hero.heroId, hero.exp);
+                int newLevel = PlayerProfile.GetHeroLevel(hero.heroId);
 
                 if(oldLevel != newLevel)
                 {
+                    PlayerProfile.HealHero(hero.heroId);
+
                     stack.Push(levelUp.asset, levelUp.id, new LevelUpScreenData()
                     {
                         gameState = data.gameState,
                         uiRoot = data.uiRoot,
-                        heroId = hero.hero,
+                        heroId = hero.heroId,
                         oldLevel = oldLevel,
                         onClose = ApplyNextExp
                     });
