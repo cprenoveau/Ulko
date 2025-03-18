@@ -86,6 +86,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49b18cbb84c6d4b428f52bbce77ea921
+    m_Address: Assets/UI/Menus/World/StatsMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 52218ce30faabfb4ba3ab324600717f6
     m_Address: TestEncounter
     m_ReadOnly: 0
