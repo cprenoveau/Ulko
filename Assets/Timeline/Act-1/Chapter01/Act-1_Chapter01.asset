@@ -40,7 +40,7 @@ MonoBehaviour:
       data:
         name: Waking up on the beach
         sceneAddress: CutsceneTest
-        lightingAndWeather: {fileID: 0}
+        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         isInterior: 0
         setPartyOrder: 0
         party: []
