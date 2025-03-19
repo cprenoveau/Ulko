@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 9dcadb48a584dd24083f93a1c1a00aba, type: 2}
+  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -93,8 +93,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 6b3a26967d81c0b4ebbc262a6e57d2a7, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 72ea2de631167eb488338e9e6af3c863, type: 2}
+  m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -283,14 +283,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 756230068}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalRotation: {x: 0.03318497, y: -0, z: -0, w: 0.99944925}
   m_LocalPosition: {x: 17.185646, y: 3.3, z: -1.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1220631276}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 3.803, y: 0, z: 0}
 --- !u!1 &793824445
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,11 +426,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5358735364265941295, guid: 628c17956a7c8bd4cbbf5b2a57400688, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9848078
+      value: 0.99944925
       objectReference: {fileID: 0}
     - target: {fileID: 5358735364265941295, guid: 628c17956a7c8bd4cbbf5b2a57400688, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.17364816
+      value: 0.03318497
       objectReference: {fileID: 0}
     - target: {fileID: 5358735364265941295, guid: 628c17956a7c8bd4cbbf5b2a57400688, type: 3}
       propertyPath: m_LocalRotation.y
