@@ -146,7 +146,7 @@ namespace Ulko.UI
             data.uiRoot.ShowMessagePrompt(UIRoot.OkCancelPrompt(
                 "delete_confirm",
                 Localization.Localize("delete_message"),
-                () => { Delete(filename); }));
+                () => { data.uiRoot.menuStack.Pop(); Delete(filename); }));
         }
 
         private void Delete(string filename)
