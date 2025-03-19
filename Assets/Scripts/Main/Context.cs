@@ -1,19 +1,9 @@
 using UnityEngine;
 using System.Threading.Tasks;
-using System;
 using System.Threading;
 
 namespace Ulko
 {
-    public enum ContextType
-    {
-        None,
-        Startup,
-        World,
-        Battle,
-        Cutscene
-    }
-
     public abstract class Context : MonoBehaviour
     {
         public abstract ContextType ContextType { get; }

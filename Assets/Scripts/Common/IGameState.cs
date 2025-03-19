@@ -5,6 +5,16 @@ using UnityEngine;
 
 namespace Ulko
 {
+    public enum ContextType
+    {
+        None,
+        Startup,
+        World,
+        Battle,
+        Cutscene,
+        Puzzle
+    }
+
     public enum AddBackseatPlayerResult
     {
         Success,
@@ -14,10 +24,12 @@ namespace Ulko
 
     public interface IGameState
     {
+        ContextType CurrentContext { get; }
         Persistence.Location CurrentLocation { get; }
         Data.Timeline.IMilestone CurrentMilestone { get; }
         Data.Timeline.Level CurrentLevel { get; }
         Data.BattleAsset CurrentBattle { get; }
+
         Camera Camera { get; }
         Camera UICamera { get; }
 

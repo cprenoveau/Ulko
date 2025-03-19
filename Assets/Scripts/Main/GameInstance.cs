@@ -108,29 +108,15 @@ namespace Ulko
             if (ct.IsCancellationRequested)
                 return;
 
-            if (milestone is Data.Timeline.Level level)
-            {
-                await sceneStack.Jump(level.SceneAddress, null);
-                LightingAndWeatherConfig.SetCurrent(milestone.LightingAndWeather, false);
+            await sceneStack.Jump(milestone.SceneAddress, null);
+            LightingAndWeatherConfig.SetCurrent(milestone.LightingAndWeather, milestone.IsInterior);
 
-                await SetContext(ContextType.World, ct);
-            }
-            else if (milestone is Data.Timeline.Cutscene cutscene)
-            {
-                await sceneStack.Jump(cutscene.SceneAddress, null);
-                LightingAndWeatherConfig.SetCurrent(milestone.LightingAndWeather, cutscene.isInterior);
-
-                await SetContext(ContextType.Cutscene, ct);
-            }
-            else if (milestone is Data.Timeline.BossBattle battle)
+            if (milestone is Data.Timeline.BossBattle battle)
             {
                 CurrentBattle = battle.battleAsset;
-
-                await sceneStack.Jump(CurrentBattle.sceneAddress, null);
-                LightingAndWeatherConfig.SetCurrent(milestone.LightingAndWeather, battle.isInterior);
-
-                await SetContext(ContextType.Battle, ct);
             }
+
+            await SetContext(milestone.Context, ct);
         }
 
         public async Task StartNextMilestone(CancellationToken ct)
