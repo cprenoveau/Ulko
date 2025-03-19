@@ -779,6 +779,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1360665457847583915, guid: 7110f6e025c7997418212fc8fca6b8b6, type: 3}
+      propertyPath: startingMilestone
+      value: The Coast
+      objectReference: {fileID: 0}
     - target: {fileID: 8132017264807802678, guid: 7110f6e025c7997418212fc8fca6b8b6, type: 3}
       propertyPath: m_Name
       value: Main

@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Rendering;
+using TMPro;
 
 namespace Ulko
 {
@@ -19,6 +20,7 @@ namespace Ulko
         public MenuDefinition pauseMenu;
         public MenuDefinition saveMenu;
         public AudioListener audioListener;
+        public TMP_Text debugMilestoneText;
 
         public Volume defaultPostProcess;
         public Volume vhsGlitchEffect;
@@ -65,6 +67,9 @@ namespace Ulko
                 contexts.Add(instance.ContextType, instance);
             }
 
+#if !UNITY_EDITOR && !DEVELOPMENT_BUILD
+            debugMilestoneText.gameObject.SetActive(false);
+#endif
             Scene.UseAddressables(sceneStack);
             await SetContext(ContextType.None, ct);
         }
@@ -93,6 +98,9 @@ namespace Ulko
 
             CurrentBattle = null;
 
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            debugMilestoneText.text = milestone.Name;
+#endif
             await SetContext(ContextType.None, ct);
 
             PlayerProfile.SetParty(milestone.Party, milestone.SetPartyOrder);

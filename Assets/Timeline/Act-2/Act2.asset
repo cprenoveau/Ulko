@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8839339e8e0282d478f53e0a9bf9280d, type: 3}
-  m_Name: MainStory
+  m_Script: {fileID: 11500000, guid: 793f6d25140d3a64caba5c573cb729d1, type: 3}
+  m_Name: Act2
   m_EditorClassIdentifier: 
-  id: main
-  acts:
-  - {fileID: 11400000, guid: b883bbf7c9bf88a44a32d2656c2ca573, type: 2}
-  - {fileID: 11400000, guid: a89db58202a9a9745a608dc0c6bf60bd, type: 2}
+  chapters:
+  - {fileID: 11400000, guid: 486a581ec0500b54488365608e351fe5, type: 2}
