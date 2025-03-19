@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a89dde1f9022845994ad20534dc27b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSelected: {fileID: 0}
+  firstSelected: {fileID: 4607650768476894606}
   glyphStreamConfig: {fileID: 11400000, guid: e7e5c713385cdad49b67d0299ed69a82, type: 2}
   choiceMenu: {fileID: 11400000, guid: b6b98216672f8e141b9664c35fec8e31, type: 2}
   text: {fileID: 1930479212479083921}

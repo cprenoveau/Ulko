@@ -8,7 +8,7 @@ namespace Ulko.Data
     {
         public class Line
         {
-            private event Action OnPlay;
+            public event Action OnPlay;
 
             public string speakerKey;
             public Dictionary<string, string> textByLanguage = new();

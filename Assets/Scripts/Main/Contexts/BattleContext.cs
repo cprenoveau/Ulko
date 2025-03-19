@@ -4,11 +4,7 @@ using HotChocolate.Utils;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Ulko;
 using UnityEngine;
-using System.Collections;
-using static Ulko.Data.Encounters;
-using Ulko.World;
 
 namespace Ulko.Contexts
 {
@@ -33,7 +29,7 @@ namespace Ulko.Contexts
 
         private BattleInstance battleInstance;
 
-        private CancellationTokenSource ctSource = new CancellationTokenSource();
+        private CancellationTokenSource ctSource = new();
 
         protected override async Task _Begin(CancellationToken ct)
         {

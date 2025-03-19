@@ -46,6 +46,7 @@ namespace Ulko.UI
 
             var orderedFiles = PlayerProfile.AllFiles;
 
+            bool selected = false;
             foreach (var (file, game) in orderedFiles)
             {
                 var gameFileView = Instantiate(gameFilePrefab, gamesParent);
@@ -58,11 +59,12 @@ namespace Ulko.UI
 
                 if (file.Name == PlayerProfile.LoadedFile)
                 {
+                    selected = true;
                     Select(gameFileView.gameObject);
                 }
             }
 
-            if (string.IsNullOrEmpty(PlayerProfile.LoadedFile))
+            if (!selected)
             {
                 Select(newGameInstance.gameObject);
             }

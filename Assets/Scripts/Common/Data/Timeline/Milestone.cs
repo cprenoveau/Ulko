@@ -42,7 +42,9 @@ namespace Ulko.Data.Timeline
     {
         public string name;
         public string Name => name;
-        public string SceneAddress => name;
+
+        public string SceneAddress => sceneAddress;
+        public string sceneAddress;
 
         public LightingAndWeatherConfig LightingAndWeather => lightingAndWeather;
         public LightingAndWeatherConfig lightingAndWeather;

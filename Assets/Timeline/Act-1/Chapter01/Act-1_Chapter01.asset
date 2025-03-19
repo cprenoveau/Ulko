@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Act-1_Chapter01
   m_EditorClassIdentifier: 
   chapterName: Chapter 1
-  description: Test
+  description: The Lighthouse
   milestones:
+  - rid: 8319834483457523796
   - rid: 6273284956353200204
   references:
     version: 2
@@ -34,3 +35,13 @@ MonoBehaviour:
         showSavePrompt: 0
         area: {fileID: 11400000, guid: 90fc23306b565ad4da4088653883701d, type: 2}
         spawnPoint: {fileID: 11400000, guid: dd34cea886fa6924e85be34c2ef5e3f6, type: 2}
+    - rid: 8319834483457523796
+      type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
+      data:
+        name: Waking up on the beach
+        sceneAddress: CutsceneTest
+        lightingAndWeather: {fileID: 0}
+        isInterior: 0
+        setPartyOrder: 0
+        party: []
+        showSavePrompt: 0
