@@ -170,10 +170,10 @@ PrefabInstance:
     - target: {fileID: 1360665457847583915, guid: 7110f6e025c7997418212fc8fca6b8b6, type: 3}
       propertyPath: startingEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: 1bc3b070fbba921498c50bc995618458, type: 2}
+      objectReference: {fileID: 11400000, guid: 4559b86dc63ce804d95e6115baf63742, type: 2}
     - target: {fileID: 1360665457847583915, guid: 7110f6e025c7997418212fc8fca6b8b6, type: 3}
       propertyPath: startingMilestone
-      value: LevelTest
+      value: The Coast
       objectReference: {fileID: 0}
     - target: {fileID: 8132017264807802678, guid: 7110f6e025c7997418212fc8fca6b8b6, type: 3}
       propertyPath: m_Name
