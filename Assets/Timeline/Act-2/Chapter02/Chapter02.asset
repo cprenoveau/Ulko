@@ -62,7 +62,7 @@ MonoBehaviour:
       data:
         name: The Rocky Hill
         sceneAddress: LevelTest
-        lightingAndWeather: {fileID: 11400000, guid: 7587c4c1b9cad0548a22e8713550040b, type: 2}
+        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         setPartyOrder: 0
         party:
         - {fileID: 11400000, guid: b75ccacbaebd95546aac0918add8b32e, type: 2}
