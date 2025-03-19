@@ -50,6 +50,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29187364e27072f4883cbb03510382f8
+    m_Address: Assets/UI/Menus/PuzzleTestMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3069093c6d5c3a443a36f0a5f858f870
     m_Address: Assets/UI/Menus/Battle/VictoryScreen.prefab
     m_ReadOnly: 0
@@ -118,6 +123,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 782ac91376fc48b43991e37a007f05f9
     m_Address: Assets/Characters/Heroes/Ulko/Ulko.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78ae230aad44e5740973302757bf589b
+    m_Address: PuzzleTest
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

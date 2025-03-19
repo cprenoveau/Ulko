@@ -9,9 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 793f6d25140d3a64caba5c573cb729d1, type: 3}
-  m_Name: Act2
+  m_Script: {fileID: 11500000, guid: 692ce7614ae62c34f935fed22168e769, type: 3}
+  m_Name: PuzzleTestMenu
   m_EditorClassIdentifier: 
-  chapters:
-  - {fileID: 11400000, guid: 486a581ec0500b54488365608e351fe5, type: 2}
-  - {fileID: 11400000, guid: 64460b18e6cbf1b4bbe84784825b3fa7, type: 2}
+  asset:
+    m_AssetGUID: 29187364e27072f4883cbb03510382f8
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  id: puzzle_test

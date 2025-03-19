@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Rendering;
 using TMPro;
+using Ulko.Data.Timeline;
 
 namespace Ulko
 {
@@ -26,9 +27,9 @@ namespace Ulko
         public Volume vhsGlitchEffect;
 
         public Location CurrentLocation => PlayerProfile.CurrentLocation;
-        public Data.Timeline.IMilestone CurrentMilestone => GetCurrentMilestone();
-        public Data.Timeline.Level CurrentLevel => GetCurrentMilestone() as Data.Timeline.Level;
-        public Data.Timeline.Cutscene CurrentCutscene => GetCurrentMilestone() as Data.Timeline.Cutscene;
+        public IMilestone CurrentMilestone => GetCurrentMilestone();
+        public Level CurrentLevel => GetCurrentMilestone() as Level;
+        public Cutscene CurrentCutscene => GetCurrentMilestone() as Cutscene;
         public Data.BattleAsset CurrentBattle { get; private set; }
         public Context Context(ContextType type) => contexts[type];
         public Camera Camera => CurrentContext != ContextType.None ? contexts[CurrentContext].Camera : null;
@@ -44,7 +45,7 @@ namespace Ulko
 
         private PlayerController playerControllerPrefab;
 
-        private Data.Timeline.IMilestone GetCurrentMilestone()
+        private IMilestone GetCurrentMilestone()
         {
             var progression = PlayerProfile.GetProgression();
             return Database.GetMilestone(PlayerProfile.CurrentStory, progression.act, progression.chapter, progression.milestone);
@@ -79,6 +80,9 @@ namespace Ulko
             if (ct.IsCancellationRequested)
                 return;
 
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            debugMilestoneText.text = "";
+#endif
             Time.timeScale = 1f;
 
             audioListener.transform.SetParent(transform);
@@ -91,7 +95,7 @@ namespace Ulko
             await SetContext(ContextType.Startup, ct);
         }
 
-        public async Task StartMilestone(Data.Timeline.IMilestone milestone, CancellationToken ct)
+        public async Task StartMilestone(IMilestone milestone, CancellationToken ct)
         {
             if (ct.IsCancellationRequested)
                 return;
@@ -111,7 +115,7 @@ namespace Ulko
             await sceneStack.Jump(milestone.SceneAddress, null);
             LightingAndWeatherConfig.SetCurrent(milestone.LightingAndWeather, milestone.IsInterior);
 
-            if (milestone is Data.Timeline.BossBattle battle)
+            if (milestone is BossBattle battle)
             {
                 CurrentBattle = battle.battleAsset;
             }

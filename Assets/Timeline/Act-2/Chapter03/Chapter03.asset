@@ -10,119 +10,52 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d181e62724c6f84783247ec6a565380, type: 3}
-  m_Name: Chapter01
+  m_Name: Chapter03
   m_EditorClassIdentifier: 
-  chapterName: Chapter 1
-  description: The Lighthouse
+  chapterName: Chapter 3
+  description: The Curse
   milestones:
   - rid: 8319834483457523796
-  - rid: 8319834483457523821
-  - rid: 8319834483457523822
-  - rid: 8319834483457523823
-  - rid: 8319834483457523824
-  - rid: 6273284956353200204
   - rid: 8319834483457523825
-  - rid: 8319834483457523826
+  - rid: 8319834483457523842
   - rid: 8319834483457523827
   - rid: 8319834483457523828
-  - rid: 8319834483457523829
-  - rid: 8319834483457523830
-  - rid: 8319834483457523831
-  - rid: 8319834483457523832
-  - rid: 8319834483457523833
+  - rid: 8319834483457523843
+  - rid: 8319834483457523844
+  - rid: 8319834483457523845
+  - rid: 8319834483457523857
+  - rid: 8319834483457523846
+  - rid: 8319834483457523858
+  - rid: 8319834483457523859
   references:
     version: 2
     RefIds:
-    - rid: 6273284956353200204
-      type: {class: Level, ns: Ulko.Data.Timeline, asm: Ulko.Common}
-      data:
-        name: The Coast
-        sceneAddress: LevelTest
-        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
-        setPartyOrder: 1
-        party:
-        - {fileID: 11400000, guid: b75ccacbaebd95546aac0918add8b32e, type: 2}
-        showSavePrompt: 0
-        area: {fileID: 11400000, guid: 90fc23306b565ad4da4088653883701d, type: 2}
-        spawnPoint: {fileID: 11400000, guid: dd34cea886fa6924e85be34c2ef5e3f6, type: 2}
     - rid: 8319834483457523796
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
-        name: Waking up on the beach
+        name: Doing research
         sceneAddress: CutsceneTest
         lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
-        isInterior: 0
-        setPartyOrder: 0
-        party: []
-        showSavePrompt: 0
-    - rid: 8319834483457523821
-      type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
-      data:
-        name: Meeting Phoebey
-        sceneAddress: CutsceneTest
-        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
-        isInterior: 0
-        setPartyOrder: 0
-        party: []
-        showSavePrompt: 0
-    - rid: 8319834483457523822
-      type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
-      data:
-        name: Looking at the photograph of a man
-        sceneAddress: CutsceneTest
-        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
-        isInterior: 0
-        setPartyOrder: 0
-        party: []
-        showSavePrompt: 0
-    - rid: 8319834483457523823
-      type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
-      data:
-        name: Leaving the house
-        sceneAddress: CutsceneTest
-        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
-        isInterior: 0
-        setPartyOrder: 0
-        party: []
-        showSavePrompt: 0
-    - rid: 8319834483457523824
-      type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
-      data:
-        name: Letting out Rey
-        sceneAddress: CutsceneTest
-        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
-        isInterior: 0
+        isInterior: 1
         setPartyOrder: 0
         party: []
         showSavePrompt: 0
     - rid: 8319834483457523825
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
-        name: Stopping to admire the view
+        name: Out in the yard
         sceneAddress: CutsceneTest
         lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         isInterior: 0
         setPartyOrder: 0
         party: []
         showSavePrompt: 0
-    - rid: 8319834483457523826
-      type: {class: Level, ns: Ulko.Data.Timeline, asm: Ulko.Common}
-      data:
-        name: The Lighthouse
-        sceneAddress: LevelTest
-        lightingAndWeather: {fileID: 11400000, guid: 7587c4c1b9cad0548a22e8713550040b, type: 2}
-        setPartyOrder: 0
-        party:
-        - {fileID: 11400000, guid: b75ccacbaebd95546aac0918add8b32e, type: 2}
-        showSavePrompt: 0
-        area: {fileID: 11400000, guid: 90fc23306b565ad4da4088653883701d, type: 2}
-        spawnPoint: {fileID: 11400000, guid: dd34cea886fa6924e85be34c2ef5e3f6, type: 2}
     - rid: 8319834483457523827
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
-        name: Meeting the wizard
+        name: Have a safe journey home
         sceneAddress: CutsceneTest
-        lightingAndWeather: {fileID: 11400000, guid: 7587c4c1b9cad0548a22e8713550040b, type: 2}
+        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         isInterior: 0
         setPartyOrder: 0
         party: []
@@ -130,61 +63,95 @@ MonoBehaviour:
     - rid: 8319834483457523828
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
-        name: Entering the lighthouse
+        name: Is it normal for people to disappear into thin air
         sceneAddress: CutsceneTest
-        lightingAndWeather: {fileID: 11400000, guid: 7587c4c1b9cad0548a22e8713550040b, type: 2}
+        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
+        isInterior: 1
+        setPartyOrder: 0
+        party: []
+        showSavePrompt: 0
+    - rid: 8319834483457523842
+      type: {class: Puzzle, ns: Ulko.Data.Timeline, asm: Ulko.Common}
+      data:
+        name: The Portal
+        sceneAddress: PuzzleTest
+        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
+        isInterior: 0
+        setPartyOrder: 0
+        party:
+        - {fileID: 11400000, guid: b75ccacbaebd95546aac0918add8b32e, type: 2}
+        showSavePrompt: 1
+        startingMenu: {fileID: 11400000, guid: d1edb66d90ff5ca48a73309af0443321, type: 2}
+    - rid: 8319834483457523843
+      type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
+      data:
+        name: Debrief in Bob's office
+        sceneAddress: CutsceneTest
+        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
+        isInterior: 1
+        setPartyOrder: 0
+        party: []
+        showSavePrompt: 0
+    - rid: 8319834483457523844
+      type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
+      data:
+        name: Ulko gets his bag stolen
+        sceneAddress: CutsceneTest
+        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
+        isInterior: 1
+        setPartyOrder: 0
+        party: []
+        showSavePrompt: 0
+    - rid: 8319834483457523845
+      type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
+      data:
+        name: The chase
+        sceneAddress: CutsceneTest
+        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         isInterior: 0
         setPartyOrder: 0
         party: []
         showSavePrompt: 0
-    - rid: 8319834483457523829
+    - rid: 8319834483457523846
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
-        name: Finding the wizard upstairs
-        sceneAddress: CutsceneTest
-        lightingAndWeather: {fileID: 11400000, guid: 7587c4c1b9cad0548a22e8713550040b, type: 2}
-        isInterior: 1
-        setPartyOrder: 0
-        party: []
-        showSavePrompt: 0
-    - rid: 8319834483457523830
-      type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
-      data:
-        name: The following morning
-        sceneAddress: CutsceneTest
-        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
-        isInterior: 1
-        setPartyOrder: 0
-        party: []
-        showSavePrompt: 0
-    - rid: 8319834483457523831
-      type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
-      data:
-        name: Eating with the wizard
-        sceneAddress: CutsceneTest
-        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
-        isInterior: 1
-        setPartyOrder: 0
-        party: []
-        showSavePrompt: 0
-    - rid: 8319834483457523832
-      type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
-      data:
-        name: The duel on the beach
+        name: Phoebey wins the fight
         sceneAddress: CutsceneTest
         lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         isInterior: 0
         setPartyOrder: 0
         party: []
         showSavePrompt: 0
-    - rid: 8319834483457523833
+    - rid: 8319834483457523857
+      type: {class: BossBattle, ns: Ulko.Data.Timeline, asm: Ulko.Common}
+      data:
+        name: The Witches
+        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
+        isInterior: 0
+        setPartyOrder: 0
+        party:
+        - {fileID: 11400000, guid: 45887f0254b8b0c40bdd089a9367e04d, type: 2}
+        showSavePrompt: 1
+        battleAsset: {fileID: 11400000, guid: 4559b86dc63ce804d95e6115baf63742, type: 2}
+    - rid: 8319834483457523858
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
-        name: Planning to go to the library
+        name: Back into Bob's office
+        sceneAddress: CutsceneTest
+        lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
+        isInterior: 1
+        setPartyOrder: 0
+        party: []
+        showSavePrompt: 0
+    - rid: 8319834483457523859
+      type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
+      data:
+        name: Ulko and Phoebey in the corridor
         sceneAddress: CutsceneTest
         lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         isInterior: 1
         setPartyOrder: 0
         party:
         - {fileID: 11400000, guid: b75ccacbaebd95546aac0918add8b32e, type: 2}
+        - {fileID: 11400000, guid: 45887f0254b8b0c40bdd089a9367e04d, type: 2}
         showSavePrompt: 1
