@@ -10,11 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 793f6d25140d3a64caba5c573cb729d1, type: 3}
-  m_Name: Act2
+  m_Name: Act3
   m_EditorClassIdentifier: 
   chapters:
-  - {fileID: 11400000, guid: 486a581ec0500b54488365608e351fe5, type: 2}
-  - {fileID: 11400000, guid: 64460b18e6cbf1b4bbe84784825b3fa7, type: 2}
-  - {fileID: 11400000, guid: e4c61f9facfba094889a4eb032a0b629, type: 2}
-  - {fileID: 11400000, guid: 38fb6810d7254b444910596e48004009, type: 2}
-  - {fileID: 11400000, guid: 2f4ed792a5d90a04fad7947cae7810a2, type: 2}
+  - {fileID: 11400000, guid: 8dcb7dd20a179514ba793a197ddc707a, type: 2}
