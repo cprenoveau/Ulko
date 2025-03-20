@@ -28,8 +28,8 @@ MonoBehaviour:
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
-  portrait: {fileID: 0}
-  fullDrawing: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 3e72031e6cd75614792934d2bbb17dbd, type: 3}
+  fullDrawing: {fileID: 21300000, guid: b89e732540b0d45408b80c61e915ecff, type: 3}
   animations:
   - tag: {fileID: 11400000, guid: 09a5f85b036c00f4097a19e8c1b746cf, type: 2}
     animation: {fileID: 11400000, guid: c519e385d4599e74f87a05ded67ea5c1, type: 2}
