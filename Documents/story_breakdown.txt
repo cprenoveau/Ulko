@@ -1,0 +1,119 @@
+Act 1
+Chapter 1: The Lighthouse
+	Cutscene 01: Introduction
+	Cutscene 02: Waking up on the beach
+	Cutscene 03: Meeting Phoebey
+	Cutscene 04: Looking at the photograph of a man
+	Cutscene 05: Leaving the house
+	Cutscene 06: Letting out Rey
+	[World 1: The Coast]
+	Cutscene 07: Stopping to admire the view
+	[World 2: The Lighthouse]
+	Cutscene 08: Meeting the wizard
+	Cutscene 09: Entering the lighthouse
+	Cutscene 10: Finding the wizard upstairs
+	Cutscene 11: The following morning
+	Cutscene 12: Eating with the wizard
+	Interactable Cutscene 13: The duel on the beach
+	Cutscene 14: Planning to go to the library
+
+
+Act 2
+Chapter 2: The Library
+	Cutscene 01: Waiting for the wizard
+	[World 3: The Cliff]
+	Cutscene 02: Lunch break
+	[World 4: The Rocky Hill]
+	Cutscene 03: The top of the hill
+	Cutscene 04: The pub
+	[Puzzle 1: The Coins]
+	Cutscene 05: Leaving the wizard
+	Cutscene 06: The hotel next door
+	Cutscene 07: Waking up the wizard
+	Cutscene 08: The wizard doesn't look so well
+	[World 5: The City]
+	Cutscene 09: The wizard collapses
+	Cutscene 10: In Bob's office
+	Cutscene 11: Walking with Bob in the corridors
+	Cutscene 12: The library
+	Cutscene 13: Figuring out a strategy
+	[World 6: The Library]
+	[Puzzle 2: The Books]
+	Cutscene 14: Taking the books to the table
+	Cutscene 15: It's getting too dark to read
+
+Chapter 3: The Curse
+	Chapter 01: Doing research
+	Chapter 02: Out in the yard
+	[Puzzle 3: The Portal]
+	Cutscene 03: Have a safe journey home
+	Cutscene 04: Is it normal for people to disappear into thin air
+	Cutscene 05: Debrief in Bob's office
+	Cutscene 06: Ulko gets his bag stolen
+	Interactable Cutscene 07: The chase
+	[Boss Fight 1: The Witches]
+	Cutscene 08: Phoebey wins the fight
+	Cutscene 09: Back into Bob's office
+	Cutscene 10: Ulko and Phoebey in the corridor
+
+Chapter 4: The Exile
+	Cutscene 01: Woken up by the noise
+	Cutscene 02: The main hall is a forest
+	Cutscene 03: The all-hands meeting
+	Cutscene 04: Talking in Bob's office
+	Cutscene 05: Waiting in the yard
+	[World 7: The Fields]
+	Cutscene 06: Ulko has a hard time keeping up
+	[World 8: The Fields Again]
+	Cutscene 07: Reaching Ferdoon
+	Cutscene 08: In a room with Ferlin
+	Cutscene 09: Sneaking out to Phoebey's room
+
+Chapter 5: The Witch
+	Cutscene 01: The next morning
+	Cutscene 02: Outside the inn
+	[World 9 The Forest]
+	Cutscene 03: Getting ambushed by witches
+	[Boss Fight 2: The Witches Again]
+	Cutscene 04: They lost the fight
+	Cutscene 05: Sitting in a dungeon
+	Cutscene 06: Meeting Mother Karistal
+	[Boss Fight 3: Karistal]
+	Cutscene 07: Being sucked away
+	Cutscene 08: In the monastery
+	Cutscene 09: The game starts again in Phoebey's house
+	Cutscene 10: Looking at the photograph of a man
+
+Chapter 6: The Butterfly
+	Cutscene 01: Leaving the house
+	[World 1: The Coast]
+	Cutscene 02: Stopping to admire the view
+	[World 2: The Lighthouse]
+	Cutscene 03: Reaching the lighthouse
+	Cutscene 04: Finding the wizard upstairs
+	Cutscene 05: The following morning
+	Cutscene 06: Eating with the wizard
+	Cutscene 07: In Bob's office
+	Cutscene 08: Ulko gets his bag stolen
+	Interactable Cutscene 09: The chase
+	[Boss Fight 4: The Witches]
+	Cutscene 09: Back into Bob's office
+	Cutscene 10: Ulko and Phoebey in the corridor
+
+
+Act 3
+Chapter 7: The Outsider
+	Cutscene 01: Ulko has a hard time keeping up
+	Cutscene 02: Outside the inn
+	[World 9 The Forest]
+	Cutscene 03: Getting ambushed by witches
+	[Boss Fight 5: The Witches Again]
+	Cutscene 04: They lost the fight
+	Cutscene 05: Sitting in a dungeon
+	Cutscene 06: Meeting Mother Karistal
+	[Boss Fight 6: Karistal]
+	Cutscene 07: Being sucked away
+	Cutscene 08: Out in the yard
+	[Puzzle 4: The Portal]
+	Cutscene 09: In the monastery
+	Cutscene 10: Meeting Phoebey
