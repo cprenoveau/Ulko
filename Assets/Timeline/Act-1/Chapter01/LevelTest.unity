@@ -390,30 +390,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FreeFollowVCamExterior
       objectReference: {fileID: 0}
-    - target: {fileID: 4199101238322581679, guid: d1a4a9e61e8c00e48bec0ecc46d5c603, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4199101238322581679, guid: d1a4a9e61e8c00e48bec0ecc46d5c603, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.1400003
-      objectReference: {fileID: 0}
-    - target: {fileID: 4199101238322581679, guid: d1a4a9e61e8c00e48bec0ecc46d5c603, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.973249
-      objectReference: {fileID: 0}
-    - target: {fileID: 4199101238322581679, guid: d1a4a9e61e8c00e48bec0ecc46d5c603, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.22975288
-      objectReference: {fileID: 0}
-    - target: {fileID: 4199101238322581679, guid: d1a4a9e61e8c00e48bec0ecc46d5c603, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.000000027559897
-      objectReference: {fileID: 0}
-    - target: {fileID: 4199101238322581679, guid: d1a4a9e61e8c00e48bec0ecc46d5c603, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.0000000065060086
-      objectReference: {fileID: 0}
     - target: {fileID: 8355818562077906561, guid: d1a4a9e61e8c00e48bec0ecc46d5c603, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

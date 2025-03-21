@@ -1,4 +1,4 @@
-﻿using Cinemachine;
+﻿using Unity.Cinemachine;
 using Ulko.World;
 using Ulko.UI;
 using HotChocolate.Utils;
@@ -28,7 +28,7 @@ namespace Ulko
         public Camera cam;
         public Camera uiCam;
         public RawImage screenshotImage;
-        public CinemachineVirtualCamera dummyCamera;
+        public CinemachineCamera dummyCamera;
         public Player playerPrefab;
         public PlayerFollower followerPrefab;
 

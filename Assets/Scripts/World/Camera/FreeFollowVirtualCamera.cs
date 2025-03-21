@@ -38,7 +38,7 @@ namespace Ulko.World
             this.playerTransform = playerTransform;
             this.limits = limits;
            
-            float hFOV = Camera.VerticalToHorizontalFieldOfView(vCam.m_Lens.FieldOfView, vCam.m_Lens.Aspect);
+            float hFOV = Camera.VerticalToHorizontalFieldOfView(vCam.Lens.FieldOfView, vCam.Lens.Aspect);
 
             var vTopLeft = Quaternion.AngleAxis(hFOV / 2f, -cameraUp) * cameraForward;
             vTopLeft = Quaternion.AngleAxis(cam.fieldOfView / 2f, -cameraRight) * vTopLeft;

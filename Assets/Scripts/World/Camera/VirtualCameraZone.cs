@@ -1,4 +1,4 @@
-using Cinemachine;
+using Unity.Cinemachine;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -7,7 +7,7 @@ namespace Ulko.World
 {
     public abstract class VirtualCameraZone : Trigger
     {
-        public CinemachineVirtualCamera vCam;
+        public CinemachineCamera vCam;
 
         public static VirtualCameraZone CurrentZone { get; private set; }
 
@@ -62,19 +62,8 @@ namespace Ulko.World
             yield return null;
             _Init(cam, playerTransform, limits);
 
-            //switch to this vcam
-            var currentVCam = cam.GetComponent<CinemachineBrain>().ActiveVirtualCamera;
-            if (currentVCam != null) currentVCam.Priority = 0;
-
-            vCam.Priority = 1000;
+            vCam.Prioritize();
             vCam.PreviousStateIsValid = false;
-
-            var composer = vCam.GetCinemachineComponent<CinemachineComposer>();
-
-            float hDamping = composer.m_HorizontalDamping;
-            float vDamping = composer.m_VerticalDamping;
-            composer.m_HorizontalDamping = 0;
-            composer.m_VerticalDamping = 0;
 
             _UpdateCamera();
 
@@ -86,12 +75,6 @@ namespace Ulko.World
             _UpdateCamera();
 
             vCam.PreviousStateIsValid = false;
-
-            yield return null;
-            yield return null;
-
-            composer.m_HorizontalDamping = hDamping;
-            composer.m_VerticalDamping= vDamping;
 
             yield return null;
             OrientToCamera.RefreshAll();

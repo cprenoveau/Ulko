@@ -1,4 +1,4 @@
-using Cinemachine;
+using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Ulko.World
@@ -29,7 +29,8 @@ namespace Ulko.World
             if (playerTransform == null)
                 return;
 
-            vCam.GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition = groundPath.TimeOnPath;
+            var splineComponent = vCam.GetCinemachineComponent(CinemachineCore.Stage.Body) as CinemachineSplineDolly;
+            splineComponent.CameraPosition = groundPath.TimeOnPath;
 
             lookAtTransform.position = new Vector3(cam.transform.position.x, playerTransform.position.y, playerTransform.position.z);
         }

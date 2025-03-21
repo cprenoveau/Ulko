@@ -1,4 +1,4 @@
-﻿using Cinemachine;
+﻿using Unity.Cinemachine;
 using System.Collections;
 
 namespace Ulko.Data.Cutscenes
@@ -6,7 +6,7 @@ namespace Ulko.Data.Cutscenes
     public class SwitchCameraStep : StepAction
     {
         public CinemachineSwitch cinemachineSwitch;
-        public CinemachineVirtualCamera virtualCamera;
+        public CinemachineCamera virtualCamera;
 
         public override IEnumerator Play()
         {

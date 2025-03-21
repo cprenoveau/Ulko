@@ -1,4 +1,4 @@
-﻿using Cinemachine;
+﻿using Unity.Cinemachine;
 using UnityEngine;
 
 namespace Ulko
@@ -7,11 +7,9 @@ namespace Ulko
     public class CinemachineSwitch : MonoBehaviour
     {
         private bool wasSwitched;
-        public void Switch(CinemachineVirtualCamera vcam)
+        public void Switch(CinemachineCamera vcam)
         {
-            GetComponent<CinemachineBrain>().ActiveVirtualCamera.Priority = 0;
-            vcam.Priority = 1000;
-
+            vcam.Prioritize();
             wasSwitched = true;
         }
 

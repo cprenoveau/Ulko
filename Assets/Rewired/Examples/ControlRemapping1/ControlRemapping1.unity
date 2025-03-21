@@ -1,89 +1,135 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
-SceneSettings:
+OcclusionCullingSettings:
   m_ObjectHideFlags: 0
-  m_PVSData: 
-  m_PVSObjectsArray: []
-  m_PVSPortalsArray: []
+  serializedVersion: 2
   m_OcclusionBakeSettings:
     smallestOccluder: 5
-    smallestHole: .25
+    smallestHole: 0.25
     backfaceThreshold: 100
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
 --- !u!104 &2
 RenderSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 10
   m_Fog: 0
-  m_FogColor: {r: .5, g: .5, b: .5, a: 1}
+  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: .00999999978
+  m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
+  m_AmbientSkyColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientEquatorColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientGroundColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_AmbientIntensity: 1
+  m_AmbientMode: 3
+  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
-  m_HaloStrength: .5
+  m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
-  m_SpotCookie: {fileID: 0}
-  m_ObjectHideFlags: 0
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
+  m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
+  m_DefaultReflectionMode: 0
+  m_DefaultReflectionResolution: 128
+  m_ReflectionBounces: 1
+  m_ReflectionIntensity: 1
+  m_CustomReflection: {fileID: 0}
+  m_Sun: {fileID: 0}
+  m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
-  m_LightProbes: {fileID: 0}
-  m_Lightmaps: []
-  m_LightmapsMode: 1
-  m_BakedColorSpace: 0
-  m_UseDualLightmapsInForward: 0
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
+  m_GISettings:
+    serializedVersion: 2
+    m_BounceScale: 1
+    m_IndirectOutputScale: 1
+    m_AlbedoBoost: 1
+    m_EnvironmentLightingMode: 0
+    m_EnableBakedLightmaps: 1
+    m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
-    m_Resolution: 50
-    m_LastUsedResolution: 0
-    m_TextureWidth: 1024
-    m_TextureHeight: 1024
-    m_BounceBoost: 1
-    m_BounceIntensity: 1
-    m_SkyLightColor: {r: .860000014, g: .930000007, b: 1, a: 1}
-    m_SkyLightIntensity: 0
-    m_Quality: 0
-    m_Bounces: 1
-    m_FinalGatherRays: 1000
-    m_FinalGatherContrastThreshold: .0500000007
-    m_FinalGatherGradientThreshold: 0
-    m_FinalGatherInterpolationPoints: 15
-    m_AOAmount: 0
-    m_AOMaxDistance: .100000001
-    m_AOContrast: 1
-    m_LODSurfaceMappingDistance: 1
-    m_Padding: 0
+    serializedVersion: 12
+    m_Resolution: 1
+    m_BakeResolution: 50
+    m_AtlasSize: 1024
+    m_AO: 1
+    m_AOMaxDistance: 1
+    m_CompAOExponent: 1
+    m_CompAOExponentDirect: 0
+    m_ExtractAmbientOcclusion: 0
+    m_Padding: 2
+    m_LightmapParameters: {fileID: 0}
+    m_LightmapsBakeMode: 1
     m_TextureCompression: 0
-    m_LockAtlas: 0
+    m_ReflectionCompression: 2
+    m_MixedBakeMode: 1
+    m_BakeBackend: 0
+    m_PVRSampling: 1
+    m_PVRDirectSampleCount: 32
+    m_PVRSampleCount: 512
+    m_PVRBounces: 2
+    m_PVREnvironmentSampleCount: 512
+    m_PVREnvironmentReferencePointCount: 2048
+    m_PVRFilteringMode: 0
+    m_PVRDenoiserTypeDirect: 0
+    m_PVRDenoiserTypeIndirect: 0
+    m_PVRDenoiserTypeAO: 0
+    m_PVRFilterTypeDirect: 0
+    m_PVRFilterTypeIndirect: 0
+    m_PVRFilterTypeAO: 0
+    m_PVREnvironmentMIS: 0
+    m_PVRCulling: 1
+    m_PVRFilteringGaussRadiusDirect: 1
+    m_PVRFilteringGaussRadiusIndirect: 1
+    m_PVRFilteringGaussRadiusAO: 1
+    m_PVRFilteringAtrousPositionSigmaDirect: 0.5
+    m_PVRFilteringAtrousPositionSigmaIndirect: 2
+    m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
+  m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 6a15c3b65f792594cacc43147059cf9b, type: 2}
 --- !u!196 &5
 NavMeshSettings:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_BuildSettings:
-    agentRadius: .5
+    serializedVersion: 3
+    agentTypeID: 0
+    agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: .400000006
+    agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
-    accuratePlacement: 0
     minRegionArea: 2
-    widthInaccuracy: 16.666666
-    heightInaccuracy: 10
-  m_NavMesh: {fileID: 0}
+    manualCellSize: 0
+    cellSize: 0.16666666
+    manualTileSize: 0
+    tileSize: 256
+    buildHeightMesh: 0
+    maxJobWorkers: 0
+    preserveTilesOutsideBounds: 0
+    debug:
+      m_Flags: 0
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &220370783
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
-  - 4: {fileID: 220370785}
-  - 114: {fileID: 220370784}
-  - 114: {fileID: 220370786}
+  - component: {fileID: 220370785}
+  - component: {fileID: 220370784}
+  - component: {fileID: 220370786}
   m_Layer: 0
   m_Name: Rewired Input Manager
   m_TagString: Untagged
@@ -94,8 +140,9 @@ GameObject:
 --- !u!114 &220370784
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220370783}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -105,6 +152,7 @@ MonoBehaviour:
   _dontDestroyOnLoad: 1
   _userData:
     configVars:
+      updateMode: 0
       updateLoop: 7
       alwaysUseUnityInput: 0
       windowsStandalonePrimaryInputSource: 0
@@ -112,13 +160,14 @@ MonoBehaviour:
       linux_primaryInputSource: 0
       windowsUWP_primaryInputSource: 0
       xboxOne_primaryInputSource: 0
+      gameCoreXboxOne_primaryInputSource: 0
+      gameCoreScarlett_primaryInputSource: 0
       ps4_primaryInputSource: 0
+      ps5_primaryInputSource: 0
       webGL_primaryInputSource: 0
-      stadia_primaryInputSource: 0
       useXInput: 1
       useNativeMouse: 1
       useEnhancedDeviceSupport: 1
-      windowsStandalone_useSteamRawInputControllerWorkaround: 1
       osxStandalone_useEnhancedDeviceSupport: 1
       android_supportUnknownGamepads: 0
       ps4_assignJoysticksByPS4JoyId: 1
@@ -126,66 +175,83 @@ MonoBehaviour:
       logToScreen: 0
       runInEditMode: 0
       allowInputInEditorSceneView: 0
+      unityUsePhysicalKeys: 0
+      keyCombinationOverrideMode: 1
+      generateKeyEventsOnKeyCombinationOverride: 0
       platformVars_windowsStandalone:
         disableKeyboard: 0
+        disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
         useNativeKeyboard: 1
         joystickRefreshRate: 240
+        useWindowsGamingInput: 0
+        enhancedDeviceSupportExcludedDeviceTypes: 
       platformVars_linuxStandalone:
         disableKeyboard: 0
+        disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
+        useEnhancedDeviceSupport: 1
+        enhancedDeviceSupportExcludedDeviceTypes: 
       platformVars_osxStandalone:
         disableKeyboard: 0
+        disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
-      platformVars_windows8Store:
-        disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
+        useAppleGameController: 0
+        assignJoysticksByUserId: 0
+        enhancedDeviceSupportExcludedDeviceTypes: 
       platformVars_windowsUWP:
         disableKeyboard: 0
+        disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
         useGamepadAPI: 1
         useHIDAPI: 1
       platformVars_iOS:
         disableKeyboard: 0
+        disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
       platformVars_tvOS:
         disableKeyboard: 0
+        disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
       platformVars_android:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
-      platformVars_ps3:
-        disableKeyboard: 0
+        disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
       platformVars_ps4:
         disableKeyboard: 0
+        disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
+      platformVars_ps5:
+        disableKeyboard: 0
+        disableMouse: 0
+        ignoreInputWhenAppNotInFocus: 1
+        assignJoysticksByPS5JoyId: 1
       platformVars_psVita:
         disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
-      platformVars_xbox360:
-        disableKeyboard: 0
+        disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
       platformVars_xboxOne:
         disableKeyboard: 0
+        disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
-      platformVars_wii:
+      platformVars_gameCoreXboxOne:
         disableKeyboard: 0
+        disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
-      platformVars_wiiu:
+        assignJoysticksByUserId: 0
+      platformVars_gameCoreScarlett:
         disableKeyboard: 0
+        disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
+        assignJoysticksByUserId: 0
       platformVars_switch:
         disableKeyboard: 0
+        disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
       platformVars_webGL:
         disableKeyboard: 0
+        disableMouse: 0
         ignoreInputWhenAppNotInFocus: 1
-      platformVars_stadia:
-        disableKeyboard: 0
-        ignoreInputWhenAppNotInFocus: 1
-        useNativeKeyboard: 1
-        useNativeMouse: 1
       maxJoysticksPerPlayer: 1
       autoAssignJoysticks: 1
       assignJoysticksToPlayingPlayersOnly: 0
@@ -229,6 +295,7 @@ MonoBehaviour:
     - _id: 0
       _name: System
       _descriptiveName: System
+      _key: 
       _startPlaying: 0
       _defaultJoystickMaps:
       - _enabled: 0
@@ -260,6 +327,7 @@ MonoBehaviour:
     - _id: 5
       _name: Player0
       _descriptiveName: Player 1
+      _key: 
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 0
@@ -318,6 +386,7 @@ MonoBehaviour:
     - _id: 10
       _name: Player1
       _descriptiveName: Player 2
+      _key: 
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
@@ -367,6 +436,7 @@ MonoBehaviour:
     - _id: 17
       _name: Player2
       _descriptiveName: Player 3
+      _key: 
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
@@ -416,6 +486,7 @@ MonoBehaviour:
     - _id: 18
       _name: Player3
       _descriptiveName: Player 4
+      _key: 
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
@@ -465,6 +536,7 @@ MonoBehaviour:
     - _id: 19
       _name: Player4
       _descriptiveName: Player 5
+      _key: 
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
@@ -514,6 +586,7 @@ MonoBehaviour:
     - _id: 20
       _name: Player5
       _descriptiveName: Player 6
+      _key: 
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
@@ -563,6 +636,7 @@ MonoBehaviour:
     - _id: 21
       _name: Player6
       _descriptiveName: Player 7
+      _key: 
       _startPlaying: 1
       _defaultJoystickMaps:
       - _enabled: 1
@@ -616,6 +690,9 @@ MonoBehaviour:
       _descriptiveName: Vertical
       _positiveDescriptiveName: Up
       _negativeDescriptiveName: Down
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
@@ -625,6 +702,9 @@ MonoBehaviour:
       _descriptiveName: Horizontal
       _positiveDescriptiveName: Left
       _negativeDescriptiveName: Right
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
@@ -634,6 +714,9 @@ MonoBehaviour:
       _descriptiveName: Confirm
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
@@ -643,6 +726,9 @@ MonoBehaviour:
       _descriptiveName: Cancel
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
@@ -652,6 +738,9 @@ MonoBehaviour:
       _descriptiveName: Exit
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
@@ -661,6 +750,9 @@ MonoBehaviour:
       _descriptiveName: Display FPS
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 2
@@ -670,6 +762,9 @@ MonoBehaviour:
       _descriptiveName: Menu
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 2
@@ -679,6 +774,9 @@ MonoBehaviour:
       _descriptiveName: Load
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 2
@@ -688,6 +786,9 @@ MonoBehaviour:
       _descriptiveName: Save
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 2
@@ -697,6 +798,9 @@ MonoBehaviour:
       _descriptiveName: Quick Load
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 2
@@ -706,6 +810,9 @@ MonoBehaviour:
       _descriptiveName: Quick Save
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 2
@@ -715,6 +822,9 @@ MonoBehaviour:
       _descriptiveName: Control Settings
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 2
@@ -724,6 +834,9 @@ MonoBehaviour:
       _descriptiveName: Controls
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 2
@@ -733,6 +846,9 @@ MonoBehaviour:
       _descriptiveName: Toggle Minimap
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 6
@@ -742,6 +858,9 @@ MonoBehaviour:
       _descriptiveName: Zoom In Minimap
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 6
@@ -751,6 +870,9 @@ MonoBehaviour:
       _descriptiveName: Zoom Out Minimap
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 6
@@ -760,6 +882,9 @@ MonoBehaviour:
       _descriptiveName: Inventory
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 6
@@ -769,6 +894,9 @@ MonoBehaviour:
       _descriptiveName: Respawn
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 6
@@ -778,6 +906,9 @@ MonoBehaviour:
       _descriptiveName: Instant Action
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 6
@@ -787,6 +918,9 @@ MonoBehaviour:
       _descriptiveName: Change Weapon
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 3
@@ -796,6 +930,9 @@ MonoBehaviour:
       _descriptiveName: Throw Grenade
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 3
@@ -805,6 +942,9 @@ MonoBehaviour:
       _descriptiveName: Use Ability
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 3
@@ -814,6 +954,9 @@ MonoBehaviour:
       _descriptiveName: Reload
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 6
@@ -823,6 +966,9 @@ MonoBehaviour:
       _descriptiveName: Jump
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 3
@@ -832,6 +978,9 @@ MonoBehaviour:
       _descriptiveName: Accelerate
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 4
@@ -841,6 +990,9 @@ MonoBehaviour:
       _descriptiveName: Brake
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 4
@@ -850,6 +1002,9 @@ MonoBehaviour:
       _descriptiveName: Look Vertical
       _positiveDescriptiveName: Look Up
       _negativeDescriptiveName: Look Down
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 6
@@ -859,6 +1014,9 @@ MonoBehaviour:
       _descriptiveName: Look Horizontal
       _positiveDescriptiveName: Look Right
       _negativeDescriptiveName: Look Left
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 6
@@ -868,6 +1026,9 @@ MonoBehaviour:
       _descriptiveName: Action
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 6
@@ -877,6 +1038,9 @@ MonoBehaviour:
       _descriptiveName: Rear View
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 4
@@ -886,6 +1050,9 @@ MonoBehaviour:
       _descriptiveName: Accelerate
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 5
@@ -895,6 +1062,9 @@ MonoBehaviour:
       _descriptiveName: Decelerate
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 5
@@ -904,6 +1074,9 @@ MonoBehaviour:
       _descriptiveName: Change Altitude
       _positiveDescriptiveName: Raise Altitude
       _negativeDescriptiveName: Lower Altitude
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 5
@@ -913,6 +1086,9 @@ MonoBehaviour:
       _descriptiveName: Eject
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 5
@@ -922,6 +1098,9 @@ MonoBehaviour:
       _descriptiveName: Change Seat
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 4
@@ -931,6 +1110,9 @@ MonoBehaviour:
       _descriptiveName: Fire
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 6
@@ -940,42 +1122,52 @@ MonoBehaviour:
       _descriptiveName: Charge
       _positiveDescriptiveName: Charge Up
       _negativeDescriptiveName: Charge Down
+      _key: 
+      _positiveKey: 
+      _negativeKey: 
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 3
     actionCategories:
     - _name: Default
       _descriptiveName: Default
+      _key: 
       _tag: 
       _id: 0
       _userAssignable: 1
     - _name: Menu
       _descriptiveName: Menu
+      _key: 
       _tag: 
       _id: 1
       _userAssignable: 0
     - _name: System
       _descriptiveName: System
+      _key: 
       _tag: 
       _id: 2
       _userAssignable: 1
     - _name: GameplayShared
       _descriptiveName: General
+      _key: 
       _tag: 
       _id: 6
       _userAssignable: 1
     - _name: Infantry
       _descriptiveName: Infantry
+      _key: 
       _tag: 
       _id: 3
       _userAssignable: 1
     - _name: Vehicle
       _descriptiveName: Vehicle
+      _key: 
       _tag: 
       _id: 4
       _userAssignable: 1
     - _name: Airplane
       _descriptiveName: Airplane
+      _key: 
       _tag: 
       _id: 5
       _userAssignable: 1
@@ -1010,18 +1202,19 @@ MonoBehaviour:
       _mouseXYAxisDeltaCalc: 1
       _mouseOtherAxisSensitivity: 1
       _customControllerAxisSensitivity: 1
-      _buttonDoublePressSpeed: .300000012
-      _buttonShortPressTime: .25
+      _buttonDoublePressSpeed: 0.3
+      _buttonShortPressTime: 0.25
       _buttonShortPressExpiresIn: 0
       _buttonLongPressTime: 1
       _buttonLongPressExpiresIn: 0
-      _buttonDeadZone: .5
+      _buttonDeadZone: 0.5
       _buttonDownBuffer: 0
       _buttonRepeatRate: 30
       _buttonRepeatDelay: 0
     mapCategories:
     - _name: Default
       _descriptiveName: Default
+      _key: 
       _tag: 
       _id: 0
       _userAssignable: 0
@@ -1029,6 +1222,7 @@ MonoBehaviour:
       _checkConflictsCategoryIds: 0600000000000000
     - _name: Menu
       _descriptiveName: Menu
+      _key: 
       _tag: 
       _id: 1
       _userAssignable: 0
@@ -1036,6 +1230,7 @@ MonoBehaviour:
       _checkConflictsCategoryIds: 
     - _name: System
       _descriptiveName: System
+      _key: 
       _tag: 
       _id: 6
       _userAssignable: 0
@@ -1043,6 +1238,7 @@ MonoBehaviour:
       _checkConflictsCategoryIds: 
     - _name: GameplayShared
       _descriptiveName: General
+      _key: 
       _tag: 
       _id: 7
       _userAssignable: 1
@@ -1050,6 +1246,7 @@ MonoBehaviour:
       _checkConflictsCategoryIds: 0700000006000000020000000300000004000000
     - _name: Infantry
       _descriptiveName: Infantry
+      _key: 
       _tag: 
       _id: 2
       _userAssignable: 1
@@ -1057,6 +1254,7 @@ MonoBehaviour:
       _checkConflictsCategoryIds: 020000000600000007000000
     - _name: Vehicle
       _descriptiveName: Vehicle
+      _key: 
       _tag: 
       _id: 3
       _userAssignable: 1
@@ -1064,6 +1262,7 @@ MonoBehaviour:
       _checkConflictsCategoryIds: 030000000600000007000000
     - _name: Airplane
       _descriptiveName: Airplane
+      _key: 
       _tag: 
       _id: 4
       _userAssignable: 1
@@ -1072,33 +1271,42 @@ MonoBehaviour:
     joystickLayouts:
     - _name: Default
       _descriptiveName: Default
+      _key: 
       _id: 0
     keyboardLayouts:
     - _name: Default
       _descriptiveName: Default
+      _key: 
       _id: 0
     - _name: System
       _descriptiveName: System
+      _key: 
       _id: 8
     - _name: Player1
       _descriptiveName: Player1
+      _key: 
       _id: 4
     - _name: Player2
       _descriptiveName: Player2
+      _key: 
       _id: 5
     - _name: Player3
       _descriptiveName: Player3
+      _key: 
       _id: 6
     - _name: Player4
       _descriptiveName: Player4
+      _key: 
       _id: 7
     mouseLayouts:
     - _name: Default
       _descriptiveName: Default
+      _key: 
       _id: 0
     customControllerLayouts:
     - _name: Default
       _descriptiveName: Default
+      _key: 
       _id: 0
     joystickMaps:
     - id: 17
@@ -2063,24 +2271,28 @@ MonoBehaviour:
     customControllerIdCounter: 4
     controllerMapLayoutManagerSetIdCounter: 0
     controllerMapEnablerSetIdCounter: 0
-  _controllerDataFiles: {fileID: 11400000, guid: d21d2b20df8369642b76aafbb2576ba7,
-    type: 2}
+  _controllerDataFiles: {fileID: 11400000, guid: d21d2b20df8369642b76aafbb2576ba7, type: 2}
 --- !u!4 &220370785
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220370783}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &220370786
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220370783}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -2096,12 +2308,13 @@ MonoBehaviour:
 --- !u!1 &1572088612
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
-  - 4: {fileID: 1572088614}
-  - 114: {fileID: 1572088613}
+  - component: {fileID: 1572088614}
+  - component: {fileID: 1572088613}
   m_Layer: 0
   m_Name: ControlRemappingDemo1
   m_TagString: Untagged
@@ -2112,8 +2325,9 @@ GameObject:
 --- !u!114 &1572088613
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572088612}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -2123,25 +2337,30 @@ MonoBehaviour:
 --- !u!4 &1572088614
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1572088612}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2100927955
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
-  - 4: {fileID: 2100927960}
-  - 20: {fileID: 2100927959}
-  - 124: {fileID: 2100927957}
-  - 81: {fileID: 2100927956}
+  - component: {fileID: 2100927960}
+  - component: {fileID: 2100927959}
+  - component: {fileID: 2100927957}
+  - component: {fileID: 2100927956}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2152,34 +2371,51 @@ GameObject:
 --- !u!81 &2100927956
 AudioListener:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100927955}
   m_Enabled: 1
 --- !u!124 &2100927957
 Behaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100927955}
   m_Enabled: 1
 --- !u!20 &2100927959
 Camera:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100927955}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0.019607844}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
-  near clip plane: .300000012
+  near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -2190,16 +2426,34 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
   m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!4 &2100927960
 Transform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100927955}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1660057539 &9223372036854775807
+SceneRoots:
+  m_ObjectHideFlags: 0
+  m_Roots:
+  - {fileID: 220370785}
+  - {fileID: 1572088614}
+  - {fileID: 2100927960}
