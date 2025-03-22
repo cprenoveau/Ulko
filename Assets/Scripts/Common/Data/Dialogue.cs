@@ -86,7 +86,7 @@ namespace Ulko.Data
             public int rewindCount;
 
             public Graph parent;
-            public List<Graph> children = new List<Graph>();
+            public List<Graph> children = new();
 
             public Graph(JToken json)
             {

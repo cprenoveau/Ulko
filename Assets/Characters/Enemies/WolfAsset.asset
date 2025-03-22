@@ -13,21 +13,20 @@ MonoBehaviour:
   m_Name: WolfAsset
   m_EditorClassIdentifier: 
   id: tough
-  turnCooldown: 2
+  turnCooldown: 3
   abilities:
   - {fileID: 11400000, guid: 532594474f233594690389367259c5a9, type: 2}
-  status:
-  - {fileID: 11400000, guid: b9703167c1ba53046b04efed5c8a594b, type: 2}
+  status: []
   nameKey: wolf
   level: 1
   prefab:
-    m_AssetGUID: 121a66534dce7b04e8ec9062cdbc77b6
+    m_AssetGUID: b06c54df322bb144eba9b1a5f08b6cfb
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   animations:
   - tag: {fileID: 11400000, guid: 062d7c818afcd5649a0ac964cc14962f, type: 2}
-    animation: {fileID: 11400000, guid: 84246a1718127374f8063d0bf857bdb9, type: 2}
+    animation: {fileID: 11400000, guid: e3ba12902555a7a429a6cf15a28d2453, type: 2}
   - tag: {fileID: 11400000, guid: 596f3e284d854034c9fbdde789183ca9, type: 2}
-    animation: {fileID: 11400000, guid: 472b9de2916fc0f44b42b93f90de21a0, type: 2}
+    animation: {fileID: 11400000, guid: 66f2037095b296c44913522cbfdeb87d, type: 2}

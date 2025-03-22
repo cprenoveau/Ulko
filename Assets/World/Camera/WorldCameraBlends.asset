@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36baaa8bdcb9d8b49b9199833965d2c3, type: 3}
   m_Name: WorldCameraBlends
   m_EditorClassIdentifier: 
-  m_CustomBlends:
-  - m_From: FalwoodCam
-    m_To: FalwoodCam
-    m_Blend:
-      m_Style: 1
-      m_Time: 2
-      m_CustomCurve:
+  CustomBlends:
+  - From: VirtualCamera
+    To: VirtualCamera
+    Blend:
+      Style: 1
+      Time: 2
+      CustomCurve:
         serializedVersion: 2
         m_Curve: []
         m_PreInfinity: 0

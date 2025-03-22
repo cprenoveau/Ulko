@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DolphinAsset
   m_EditorClassIdentifier: 
   id: intelligent
-  turnCooldown: 2
+  turnCooldown: 3
   abilities:
   - {fileID: 11400000, guid: 88c5486c98bf4da4884d1f0c8108feff, type: 2}
   status:
@@ -21,13 +21,13 @@ MonoBehaviour:
   nameKey: dolphin
   level: 1
   prefab:
-    m_AssetGUID: 121a66534dce7b04e8ec9062cdbc77b6
+    m_AssetGUID: 3059b42bbe4b42e4ebf105243e99085c
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   animations:
   - tag: {fileID: 11400000, guid: 062d7c818afcd5649a0ac964cc14962f, type: 2}
-    animation: {fileID: 11400000, guid: 84246a1718127374f8063d0bf857bdb9, type: 2}
+    animation: {fileID: 11400000, guid: 012dc14b485081a4db2d2ce68719f7ed, type: 2}
   - tag: {fileID: 11400000, guid: 596f3e284d854034c9fbdde789183ca9, type: 2}
-    animation: {fileID: 11400000, guid: 472b9de2916fc0f44b42b93f90de21a0, type: 2}
+    animation: {fileID: 11400000, guid: dcf02e4ecfa07d842bbcfdba955adaf6, type: 2}

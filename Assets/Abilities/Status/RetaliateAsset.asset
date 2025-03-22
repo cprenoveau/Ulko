@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf5aec3336948e648822d18572c5255d, type: 3}
-  m_Name: DefendAsset
+  m_Name: RetaliateAsset
   m_EditorClassIdentifier: 
-  id: defend
+  id: retaliate
   customDescKey: 
   icon: {fileID: 0}
-  targetType: 0
-  applyType: 2
+  targetType: 1
+  applyType: 3
   applyInterval: 0
   priority: 0
   vfxOnHead: {fileID: 0}
@@ -32,10 +32,11 @@ MonoBehaviour:
     forceValidTarget: 0
     applySequence:
       steps:
+      - rid: 8319834574289371224
       - rid: 6273285063376109655
     effects:
       effects:
-      - rid: 6273285063376109654
+      - rid: 8319834574289371218
   references:
     version: 2
     RefIds:
@@ -51,9 +52,7 @@ MonoBehaviour:
         union: 0
         conditions:
         - rid: 6273285063376109651
-        - rid: 8319834574289371223
         - rid: 6273285063376109652
-        - rid: 6273285063376109653
         - rid: 8319834101643214939
     - rid: 6273285063376109651
       type: {class: ActorIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
@@ -63,32 +62,31 @@ MonoBehaviour:
     - rid: 6273285063376109652
       type: {class: TargetIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
-        invert: 1
-        targetType: 0
-    - rid: 6273285063376109653
-      type: {class: TargetIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
-      data:
         invert: 0
-        targetType: 1
-    - rid: 6273285063376109654
-      type: {class: BecomeTarget, ns: Ulko.Data.Abilities, asm: Ulko.Common}
-      data:
-        condition: {fileID: 0}
+        targetType: 0
     - rid: 6273285063376109655
       type: {class: MoveToTarget, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
         blocking: 1
         delay: 0
-        speed: 50
-        distance: -2
+        speed: 100
+        distance: 1
         ranged: 0
     - rid: 8319834101643214939
       type: {class: TargetIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
         invert: 0
         targetType: 3
-    - rid: 8319834574289371223
-      type: {class: ActorIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+    - rid: 8319834574289371218
+      type: {class: Damage, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
-        invert: 0
-        actorType: 2
+        condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
+        config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
+        attackStat: 1
+        damageMultiplier: 1
+        percentDamage: 0
+        flatDamage: 0
+    - rid: 8319834574289371224
+      type: {class: Wait, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        duration: 1

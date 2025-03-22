@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0eeacef801dab4d4fb7e8836110f64b0, type: 3}
-  m_Name: DemonFox_Death
+  m_Name: Dolphin_Death
   m_EditorClassIdentifier: 
   fps: 8
   frames:
-  - {fileID: 21300000, guid: e76c4385387c1364cbe07785396cbc5f, type: 3}
-  - {fileID: 21300000, guid: e76c4385387c1364cbe07785396cbc5f, type: 3}
-  - {fileID: 21300000, guid: e76c4385387c1364cbe07785396cbc5f, type: 3}
-  - {fileID: 21300000, guid: e76c4385387c1364cbe07785396cbc5f, type: 3}
+  - {fileID: 21300000, guid: 1dddddf96efba184e960089fbd62e035, type: 3}
+  - {fileID: 21300000, guid: 1dddddf96efba184e960089fbd62e035, type: 3}
+  - {fileID: 21300000, guid: 1dddddf96efba184e960089fbd62e035, type: 3}
+  - {fileID: 21300000, guid: 1dddddf96efba184e960089fbd62e035, type: 3}
   flash: {fileID: 0}
   fade: {fileID: 11400000, guid: 88131abd3c2a63e479e0093fe3b2f673, type: 2}

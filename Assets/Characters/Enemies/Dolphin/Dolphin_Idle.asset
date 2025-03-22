@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 503b0f19a62c3b24d8aa2a8a05ed8b11, type: 3}
-  m_Name: DemonFox_Idle
+  m_Name: Dolphin_Idle
   m_EditorClassIdentifier: 
-  down: {fileID: 11400000, guid: 84e1bbcab40d4e7429821b43fa635166, type: 2}
-  up: {fileID: 11400000, guid: 84e1bbcab40d4e7429821b43fa635166, type: 2}
-  left: {fileID: 11400000, guid: 84e1bbcab40d4e7429821b43fa635166, type: 2}
-  right: {fileID: 11400000, guid: 84e1bbcab40d4e7429821b43fa635166, type: 2}
+  down: {fileID: 11400000, guid: f4f01cc35d2e94f41ad3fa9adcafbdda, type: 2}
+  up: {fileID: 11400000, guid: f4f01cc35d2e94f41ad3fa9adcafbdda, type: 2}
+  left: {fileID: 11400000, guid: f4f01cc35d2e94f41ad3fa9adcafbdda, type: 2}
+  right: {fileID: 11400000, guid: f4f01cc35d2e94f41ad3fa9adcafbdda, type: 2}

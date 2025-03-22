@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 351845
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e76c4385387c1364cbe07785396cbc5f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f311c0d45258aa84dbda116e723dab8b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 4073312015284150166}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.72, z: 0}
+  m_LocalPosition: {x: -0.423, y: 1.983, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -173,7 +173,7 @@ Transform:
   m_GameObject: {fileID: 6025974329863544683}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.32, z: 0}
+  m_LocalPosition: {x: -0.466, y: 2.597, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 4982714369096202116}
   - component: {fileID: 935620492742095213}
   m_Layer: 6
-  m_Name: DemonFox
+  m_Name: Cat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6014300697345536546}
-  idle: {fileID: 11400000, guid: a77211b52f722124497ee5150a6ba3bb, type: 2}
-  walk: {fileID: 11400000, guid: a77211b52f722124497ee5150a6ba3bb, type: 2}
+  idle: {fileID: 11400000, guid: 2680d7fed19f1f34c9067b320218d2ff, type: 2}
+  walk: {fileID: 11400000, guid: 2680d7fed19f1f34c9067b320218d2ff, type: 2}
   footstepFrameInterval: 4
   children: []

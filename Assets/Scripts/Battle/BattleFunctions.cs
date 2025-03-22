@@ -89,6 +89,9 @@ namespace Ulko.Battle
 
                 await battleStack.ApplyOutcome(instance, ct);
 
+                if (!action.SelectedAction.isCardThrow)
+                    await ApplyStatusAfterAction(battleStack, instance, ct);
+
                 await Task.Delay(1000, ct);
 
                 if (ct.IsCancellationRequested)
@@ -125,7 +128,7 @@ namespace Ulko.Battle
         {
             var possibleActions = instance.GetPossibleEnemyActions(enemy);
 
-            int actionIndex = UnityEngine.Random.Range(0, possibleActions.Count);
+            int actionIndex = Random.Range(0, possibleActions.Count);
             var action = possibleActions[actionIndex];
 
             Debug.Log(enemy.Id + " uses " + action.ability.id);
@@ -145,6 +148,7 @@ namespace Ulko.Battle
 
                 await ApplyStatusOnAction(battleStack, instance, ct);
                 await battleStack.ApplyOutcome(instance, ct);
+                await ApplyStatusAfterAction(battleStack, instance, ct);
 
                 await Task.Delay(1000, ct);
 
@@ -204,6 +208,37 @@ namespace Ulko.Battle
                     {
                         state.pendingAction.targetIds[i] = newTarget.Id;
                     }
+                }
+            }
+        }
+
+        private static async Task ApplyStatusAfterAction(BattleStack battleStack, BattleInstance instance, CancellationToken ct)
+        {
+            foreach (var character in battleStack.CurrentAction.state.characters)
+            {
+                if (character.hp > 0)
+                    await ApplyStatusAfterAction(instance, battleStack.CurrentAction, character, ct);
+            }
+        }
+
+        private static async Task ApplyStatusAfterAction(BattleInstance instance, BattleAction currentAction, CharacterState actorState, CancellationToken ct)
+        {
+            foreach (var statusState in actorState.statuses)
+            {
+                if (statusState.statusAsset.applyType == StatusAsset.ApplyType.AfterAction
+                    && statusState.statusAsset.condition.IsTrue(actorState, currentAction.state))
+                {
+                    Debug.Log(actorState.id + " reacts with " + statusState.statusAsset.id);
+
+                    var characterAction = CreateActionFromStatus(currentAction, actorState, statusState);
+
+                    var battleAction = new BattleAction(
+                        statusState.statusAsset.node,
+                        new ActionState(characterAction, currentAction.state.characters));
+
+                    var battleStack = new BattleStack(battleAction);
+
+                    await battleStack.ApplyOutcome(instance, ct);
                 }
             }
         }

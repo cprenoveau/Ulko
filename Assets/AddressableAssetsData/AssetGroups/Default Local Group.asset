@@ -35,8 +35,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 121a66534dce7b04e8ec9062cdbc77b6
-    m_Address: Assets/Characters/DemonFox/DemonFox.prefab
+  - m_GUID: 14bbd450b7bba3548b7e1188fbf30442
+    m_Address: Assets/Characters/Enemies/Fox/Fox.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -52,6 +52,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 29187364e27072f4883cbb03510382f8
     m_Address: Assets/UI/Menus/PuzzleTestMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3059b42bbe4b42e4ebf105243e99085c
+    m_Address: Assets/Characters/Enemies/Dolphin/Dolphin.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -153,6 +158,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 987a4d0ba7bf0014aa0486312b5779c6
     m_Address: Assets/UI/Prompts/MessagePrompt.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b06c54df322bb144eba9b1a5f08b6cfb
+    m_Address: Assets/Characters/Enemies/Wolf/Wolf.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0a69e0ac7c27004abb3e301f43bbb02
+    m_Address: Assets/Characters/Enemies/Cat/Cat.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

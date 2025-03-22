@@ -13,21 +13,20 @@ MonoBehaviour:
   m_Name: FoxAsset
   m_EditorClassIdentifier: 
   id: wise
-  turnCooldown: 2
+  turnCooldown: 3
   abilities:
   - {fileID: 11400000, guid: 8b45d1ad3e62afe4da5b70ee8336d183, type: 2}
-  status:
-  - {fileID: 11400000, guid: b9703167c1ba53046b04efed5c8a594b, type: 2}
+  status: []
   nameKey: fox
   level: 1
   prefab:
-    m_AssetGUID: 121a66534dce7b04e8ec9062cdbc77b6
+    m_AssetGUID: 14bbd450b7bba3548b7e1188fbf30442
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   animations:
   - tag: {fileID: 11400000, guid: 062d7c818afcd5649a0ac964cc14962f, type: 2}
-    animation: {fileID: 11400000, guid: 84246a1718127374f8063d0bf857bdb9, type: 2}
+    animation: {fileID: 11400000, guid: 4a0693cb104cdbb40a53b2a080bdc466, type: 2}
   - tag: {fileID: 11400000, guid: 596f3e284d854034c9fbdde789183ca9, type: 2}
-    animation: {fileID: 11400000, guid: 472b9de2916fc0f44b42b93f90de21a0, type: 2}
+    animation: {fileID: 11400000, guid: e075c26299819e04995a2b9471f824df, type: 2}

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0eeacef801dab4d4fb7e8836110f64b0, type: 3}
-  m_Name: DemonFox_IdleDefault
+  m_Name: Fox_IdleDefault
   m_EditorClassIdentifier: 
   fps: 8
   frames:
-  - {fileID: 21300000, guid: e76c4385387c1364cbe07785396cbc5f, type: 3}
+  - {fileID: 21300000, guid: ec4ae98c501d8be4cb7f1d3b0876b4ea, type: 3}
   flash: {fileID: 0}
   fade: {fileID: 0}

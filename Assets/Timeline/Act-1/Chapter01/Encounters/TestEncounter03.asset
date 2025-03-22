@@ -17,4 +17,6 @@ MonoBehaviour:
   - positionIndex: 0
     asset: {fileID: 11400000, guid: 8a9a1c9ff02f09046be3970722bfb99e, type: 2}
   - positionIndex: 1
-    asset: {fileID: 11400000, guid: 8a9a1c9ff02f09046be3970722bfb99e, type: 2}
+    asset: {fileID: 11400000, guid: e753d5d86e99d2b428fa62e7457aaa15, type: 2}
+  - positionIndex: 2
+    asset: {fileID: 11400000, guid: d56f93b135acb384a8d73f228373dc6e, type: 2}
