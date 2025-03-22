@@ -108,7 +108,7 @@ namespace Ulko.Data.Abilities
 
             switch (targetType)
             {
-                case TargetType.Me: return state.pendingAction.targetIds[0] == actor.id;
+                case TargetType.Me: return state.pendingAction.targetIds.FirstOrDefault(t => t == actor.id) != null;
                 case TargetType.Ally: return state.FindCharacter(state.pendingAction.targetIds[0]).characterSide == actor.characterSide;
                 case TargetType.Enemy: return state.FindCharacter(state.pendingAction.targetIds[0]).characterSide != actor.characterSide;
                 case TargetType.One: return state.pendingAction.targetIds.Count == 1;

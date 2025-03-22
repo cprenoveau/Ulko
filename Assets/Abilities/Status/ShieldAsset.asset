@@ -31,8 +31,7 @@ MonoBehaviour:
   node:
     forceValidTarget: 0
     applySequence:
-      steps:
-      - rid: 8319834574289371224
+      steps: []
     effects:
       effects:
       - rid: 8319834574289371225
@@ -62,10 +61,6 @@ MonoBehaviour:
       data:
         invert: 1
         targetType: 0
-    - rid: 8319834574289371224
-      type: {class: Wait, ns: Ulko.Data.Abilities, asm: Ulko.Common}
-      data:
-        duration: 1
     - rid: 8319834574289371225
       type: {class: ModifyStat, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
