@@ -168,7 +168,9 @@ namespace Ulko.UI
 
             if (speakerName != null)
             {
-                speakerName.text = line.GetSpeakerName();
+                string speaker = line.GetSpeakerName();
+                speakerName.text = speaker;
+                speakerName.gameObject.SetActive(!string.IsNullOrEmpty(speaker));
 
                 foreach (var bubble in speechBubbles.Where(b => b.HasSpeakerId(line.speakerKey)))
                 {

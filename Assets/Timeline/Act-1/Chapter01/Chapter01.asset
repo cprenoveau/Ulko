@@ -15,6 +15,7 @@ MonoBehaviour:
   chapterName: Chapter 1
   description: The Lighthouse
   milestones:
+  - rid: 8319834574289371226
   - rid: 8319834483457523796
   - rid: 8319834483457523821
   - rid: 8319834483457523822
@@ -49,7 +50,7 @@ MonoBehaviour:
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
         name: Waking up on the beach
-        sceneAddress: CutsceneTest
+        sceneAddress: Chapter01_Cutscene02
         lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         isInterior: 0
         setPartyOrder: 0
@@ -59,7 +60,7 @@ MonoBehaviour:
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
         name: Meeting Phoebey
-        sceneAddress: CutsceneTest
+        sceneAddress: Chapter01_Cutscene03
         lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         isInterior: 0
         setPartyOrder: 0
@@ -69,7 +70,7 @@ MonoBehaviour:
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
         name: Looking at the photograph of a man
-        sceneAddress: CutsceneTest
+        sceneAddress: Chapter01_Cutscene04
         lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         isInterior: 0
         setPartyOrder: 0
@@ -79,7 +80,7 @@ MonoBehaviour:
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
         name: Leaving the house
-        sceneAddress: CutsceneTest
+        sceneAddress: Chapter01_Cutscene05
         lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         isInterior: 0
         setPartyOrder: 0
@@ -89,7 +90,7 @@ MonoBehaviour:
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
         name: Letting out Rey
-        sceneAddress: CutsceneTest
+        sceneAddress: Chapter01_Cutscene06
         lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         isInterior: 0
         setPartyOrder: 0
@@ -188,3 +189,13 @@ MonoBehaviour:
         party:
         - {fileID: 11400000, guid: b75ccacbaebd95546aac0918add8b32e, type: 2}
         showSavePrompt: 1
+    - rid: 8319834574289371226
+      type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
+      data:
+        name: Introduction
+        sceneAddress: Chapter01_Cutscene01
+        lightingAndWeather: {fileID: 11400000, guid: 7587c4c1b9cad0548a22e8713550040b, type: 2}
+        isInterior: 1
+        setPartyOrder: 0
+        party: []
+        showSavePrompt: 0

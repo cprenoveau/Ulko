@@ -35,7 +35,7 @@ namespace Ulko.Data
 
             public string GetSpeakerName()
             {
-                return Localization.Localize(speakerKey);
+                return !string.IsNullOrEmpty(speakerKey) ? Localization.Localize(speakerKey) : null;
             }
 
             public string GetText()

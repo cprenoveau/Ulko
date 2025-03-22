@@ -1,0 +1,74 @@
+[
+  {
+    "speaker": null,
+    "en": "The following day, Ulko is up outside the house, leaning on a piece of wood. Phoebey comes out behind him."
+  },
+  {
+    "speaker": "phoebey",
+    "en": "You seem to have regained some of your strength."
+  },
+  {
+    "speaker": "ulko",
+    "en": "Do you know how I can get out of here?"
+  },
+  {
+    "speaker": "phoebey",
+    "en": "Get out of here? I suppose you must be in a rush. Where are you from?"
+  },
+  {
+    "speaker": "ulko",
+    "en": "The real world."
+  },
+  {
+    "speaker": "phoebey",
+    "en": "I'm sorry?"
+  },
+  {
+    "speaker": "ulko",
+    "en": "Sorry, I'm still trying to figure out whether this place is a hallucination or a dream. So far, I'm leaning more towards the former."
+  },
+  {
+    "speaker": "phoebey",
+    "en": "Then, maybe you should stay here for a while."
+  },
+  {
+    "speaker": "ulko",
+    "en": "Would love to, but I believe I left the stove on in another hallucination. Excuse me."
+  },
+  {
+    "speaker": null,
+    "en": "Ulko starts to walk down the path to the North, leaning on his improvised walking stick."
+  },
+  {
+    "speaker": "phoebey",
+    "en": "Wait!"
+  },
+  {
+    "speaker": null,
+    "en": "Phoebey runs into the house and comes back with a small bag."
+  },
+  {
+    "speaker": "phoebey",
+    "en": "For the road."
+  },
+  {
+    "speaker": null,
+    "en": "Ulko hesitates before taking the bag."
+  },
+  {
+    "speaker": "phoebey",
+    "en": "You should try speaking with the <p>wizard of the lighthouse</p>. He'll give you some good advice. He can be found at the end of the <l>northern path</l>."
+  },
+  {
+    "speaker": null,
+    "en": "Ulko walks away as Phoebey and David watch him leave."
+  },
+  {
+    "speaker": "boy",
+    "en": "Who is he, mama?"
+  },
+  {
+    "speaker": "phoebey",
+    "en": "I don't know, honey. I don't know."
+  }
+]

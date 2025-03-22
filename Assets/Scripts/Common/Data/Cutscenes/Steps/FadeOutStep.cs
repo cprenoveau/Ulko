@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using UnityEngine;
 
 namespace Ulko.Data.Cutscenes
 {
@@ -8,16 +9,11 @@ namespace Ulko.Data.Cutscenes
         public float duration;
 
         public static event Action<FadeOutStep> OnPlay;
-        public bool IsPlaying { get; set; }
 
         public override IEnumerator Play()
         {
             OnPlay?.Invoke(this);
-
-            while (IsPlaying)
-            {
-                yield return null;
-            }
+            yield return new WaitForSeconds(duration);
         }
     }
 }

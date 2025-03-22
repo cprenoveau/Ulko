@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d20eb8100039224eac3de38bc89d5dc
+    m_Address: Chapter01_Cutscene04
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 112146e36a24c8044ae198397e836292
     m_Address: Assets/UI/Menus/Battle/BattleMenu.prefab
     m_ReadOnly: 0
@@ -45,6 +50,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 179f83521a8ef6542b624c671293e335
+    m_Address: Chapter01_Cutscene03
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ee151693cdf21b499927a2bf995fb2a
     m_Address: Assets/Characters/Heroes/Phoebey/Phoebey.prefab
     m_ReadOnly: 0
@@ -52,6 +62,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 29187364e27072f4883cbb03510382f8
     m_Address: Assets/UI/Menus/PuzzleTestMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 300e98d624edece459920875eaf68b12
+    m_Address: Chapter01_Cutscene02
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -126,6 +141,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 670dc80c44916ad4b821ff0e983b0345
+    m_Address: Chapter01_Cutscene06
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 782ac91376fc48b43991e37a007f05f9
     m_Address: Assets/Characters/Heroes/Ulko/Ulko.prefab
     m_ReadOnly: 0
@@ -136,6 +156,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7986e208fa1967b43886cf02ded16ff9
+    m_Address: Chapter01_Cutscene05
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7d7f4d3e344464a4997c1899afa4bae7
     m_Address: Assets/UI/Menus/Battle/GameOverMenu.prefab
     m_ReadOnly: 0
@@ -143,6 +168,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86b90bb98c797da4da0b0cd784cb7e06
     m_Address: Assets/VFX/Sparkles.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8781d5ea1539877499585908318f0eb9
+    m_Address: Chapter01_Cutscene01
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
