@@ -75,6 +75,9 @@ namespace Ulko.UI
 
             foreach (Stat stat in Enum.GetValues(typeof(Stat)))
             {
+                if (stat == Stat.Shield)
+                    continue;
+
                 var instance = Instantiate(statPrefab, statParent.transform);
 
                 int statValue = PlayerProfile.GetHeroStat(data.heroId, stat);

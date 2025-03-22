@@ -41,7 +41,7 @@ namespace Ulko.UI
             bool selected = false;
             foreach (Stat stat in Enum.GetValues(typeof(Stat)))
             {
-                if (stat == Stat.MaxHP)
+                if (stat == Stat.MaxHP || stat == Stat.Shield)
                     continue;
 
                 var instance = Instantiate(statPrefab, statParent.transform);

@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
-using System.Numerics;
 
 namespace Ulko.Data
 {
@@ -10,7 +9,8 @@ namespace Ulko.Data
         Strength,
         Wisdom,
         Intuition,
-        Intelligence
+        Intelligence,
+        Shield
     }
 
     [Serializable]
@@ -23,6 +23,7 @@ namespace Ulko.Data
         public float wisdom;
         public float intuition;
         public float intelligence;
+        public float shield;
 
         public static Level operator +(Level left, Level right)
         {
@@ -34,7 +35,8 @@ namespace Ulko.Data
                 strength = left.strength + right.strength,
                 wisdom = left.wisdom + right.wisdom,
                 intuition = left.intuition + right.intuition,
-                intelligence = left.intelligence + right.intelligence
+                intelligence = left.intelligence + right.intelligence,
+                shield = left.shield + right.shield
             };
         }
 
@@ -52,6 +54,7 @@ namespace Ulko.Data
             wisdom = source.wisdom;
             intuition = source.intuition;
             intelligence = source.intelligence;
+            shield = source.shield;
         }
 
         public float GetStat(Stat stat)
@@ -63,6 +66,7 @@ namespace Ulko.Data
                 case Stat.Wisdom: return wisdom;
                 case Stat.Intuition: return intuition;
                 case Stat.Intelligence: return intelligence;
+                case Stat.Shield: return shield;
             }
 
             return 0;
@@ -77,6 +81,7 @@ namespace Ulko.Data
                 case Stat.Wisdom: wisdom = value; break;
                 case Stat.Intuition: intuition = value; break;
                 case Stat.Intelligence: intelligence = value; break;
+                case Stat.Shield: shield = value; break;
             }
         }
 
@@ -101,6 +106,7 @@ namespace Ulko.Data
             wisdom = json["wisdom"].ToObject<float>();
             intuition = json["intuition"].ToObject<float>();
             intelligence = json["intelligence"].ToObject<float>();
+            shield = json["shield"] != null ? json["shield"].ToObject<float>() : 0;
         }
 
         public JToken ToJson()
@@ -113,7 +119,8 @@ namespace Ulko.Data
                 { "strength", strength },
                 { "wisdom", wisdom },
                 { "intuition", intuition },
-                { "intelligence", intelligence }
+                { "intelligence", intelligence },
+                { "shield", shield }
             };
 
             return json;
@@ -127,7 +134,8 @@ namespace Ulko.Data
                 && strength.Equals(other.strength)
                 && wisdom.Equals(other.wisdom)
                 && intuition.Equals(other.intuition)
-                && intelligence.Equals(other.intelligence);
+                && intelligence.Equals(other.intelligence)
+                && shield.Equals(other.shield);
         }
     }
 }

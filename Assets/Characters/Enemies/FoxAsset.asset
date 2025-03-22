@@ -16,7 +16,8 @@ MonoBehaviour:
   turnCooldown: 3
   abilities:
   - {fileID: 11400000, guid: 8b45d1ad3e62afe4da5b70ee8336d183, type: 2}
-  status: []
+  status:
+  - {fileID: 11400000, guid: 892aa9faca8af7e47abf4b618800dc2d, type: 2}
   nameKey: fox
   level: 1
   prefab:
