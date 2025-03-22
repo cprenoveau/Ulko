@@ -52,6 +52,7 @@ namespace Ulko.Data.Abilities
         public int hp;
         public CharacterSide characterSide;
         public Level stats;
+        public Level permanentBuff;
         public List<StatusState> statuses;
 
         public CharacterState(){}
@@ -64,6 +65,8 @@ namespace Ulko.Data.Abilities
             this.characterSide = characterSide;
             this.stats = stats;
             this.statuses = statuses;
+
+            permanentBuff = new Level();
         }
 
         public List<Stat> GetCharacterType()
@@ -90,6 +93,7 @@ namespace Ulko.Data.Abilities
             hp = source.hp;
             characterSide = source.characterSide;
             stats = source.stats.Clone();
+            permanentBuff = source.permanentBuff.Clone();
             statuses = source.statuses.Clone();
         }
 
@@ -100,6 +104,7 @@ namespace Ulko.Data.Abilities
                 && hp.Equals(other.hp)
                 && characterSide.Equals(other.characterSide)
                 && stats.Equals(other.stats)
+                && permanentBuff.Equals(other.permanentBuff)
                 && statuses.SequenceEqual(other.statuses);
         }
     }

@@ -17,7 +17,7 @@ namespace Ulko.Data.Abilities
 
         public enum ApplyType
         {
-            Permanent,
+            WhileActive,
             OnTurnStart,
             OnAction,
             AfterAction,

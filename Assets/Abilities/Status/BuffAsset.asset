@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5aec3336948e648822d18572c5255d, type: 3}
+  m_Name: BuffAsset
+  m_EditorClassIdentifier: 
+  id: buff
+  customDescKey: 
+  icon: {fileID: 0}
+  targetType: 2
+  applyType: 3
+  applyInterval: 0
+  priority: 0
+  vfxOnHead: {fileID: 0}
+  condition:
+    invert: 0
+    union: 0
+    conditions:
+    - rid: 6273285063376109649
+    - rid: 6273285063376109650
+  onGainSequence:
+    steps: []
+  node:
+    forceValidTarget: 0
+    applySequence:
+      steps:
+      - rid: 8319834574289371224
+    effects:
+      effects:
+      - rid: 8319834574289371225
+  references:
+    version: 2
+    RefIds:
+    - rid: 6273285063376109649
+      type: {class: EffectIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        invert: 0
+        effectType: 0
+    - rid: 6273285063376109650
+      type: {class: CompositeStatusCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        invert: 0
+        union: 0
+        conditions:
+        - rid: 6273285063376109651
+        - rid: 6273285063376109652
+    - rid: 6273285063376109651
+      type: {class: ActorIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        invert: 1
+        actorType: 0
+    - rid: 6273285063376109652
+      type: {class: TargetIsCondition, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        invert: 0
+        targetType: 0
+    - rid: 8319834574289371224
+      type: {class: Wait, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        duration: 1
+    - rid: 8319834574289371225
+      type: {class: ModifyStat, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        condition: {fileID: 0}
+        stat: 1
+        multiply: 1
+        add: 2
+        isPermanent: 1

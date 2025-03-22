@@ -6,7 +6,7 @@
         "level": 1.0,
         "exp": 4.0,
         "maxHP": 30.0,
-        "strength": 15.0,
+        "strength": 10.0,
         "wisdom": 0.0,
         "intuition": 0.0,
         "intelligence": 0.0
@@ -15,7 +15,7 @@
         "level": 2.0,
         "exp": 12.0,
         "maxHP": 80.0,
-        "strength": 40.0,
+        "strength": 30.0,
         "wisdom": 0.0,
         "intuition": 0.0,
         "intelligence": 0.0

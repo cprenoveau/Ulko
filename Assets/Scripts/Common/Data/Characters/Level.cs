@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using System.Numerics;
 
 namespace Ulko.Data
 {
@@ -22,6 +23,20 @@ namespace Ulko.Data
         public float wisdom;
         public float intuition;
         public float intelligence;
+
+        public static Level operator +(Level left, Level right)
+        {
+            return new Level()
+            {
+                level = left.level + right.level,
+                exp = left.exp + right.exp,
+                maxHP = left.maxHP + right.maxHP,
+                strength = left.strength + right.strength,
+                wisdom = left.wisdom + right.wisdom,
+                intuition = left.intuition + right.intuition,
+                intelligence = left.intelligence + right.intelligence
+            };
+        }
 
         public void Clone(object source)
         {
@@ -63,6 +78,11 @@ namespace Ulko.Data
                 case Stat.Intuition: intuition = value; break;
                 case Stat.Intelligence: intelligence = value; break;
             }
+        }
+
+        public void AddToStat(Stat stat, float value)
+        {
+            SetStat(stat, GetStat(stat) + value);
         }
 
         public Level() { }

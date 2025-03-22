@@ -53,7 +53,8 @@ namespace Ulko.Battle
         public int Exp => characterInternal.Exp;
         public int HP => characterInternal.HP;
         public bool IsDead => HP <= 0;
-        public Level Stats => characterInternal.Stats;
+        public Level Stats => characterInternal.Stats + CurrentBuff;
+        public Level CurrentBuff { get; private set; } = new Level();
         public List<AbilityAsset> Abilities => Asset.abilities;
         public List<StatusState> StatusState { get; private set; } = new List<StatusState>();
 
@@ -126,12 +127,12 @@ namespace Ulko.Battle
 
         public CharacterState CaptureState()
         {
-            var characterState = new CharacterState(Id, NameKey, HP, CharacterSide, Stats.Clone(), StatusState.Clone());
+            var characterState = new CharacterState(Id, NameKey, HP, CharacterSide, Stats, StatusState.Clone());
 
             foreach (var statusState in StatusState)
             {
                 if(statusState.statusAsset.targetType == StatusAsset.TargetType.Wielder
-                    && statusState.statusAsset.applyType == StatusAsset.ApplyType.Permanent)
+                    && statusState.statusAsset.applyType == StatusAsset.ApplyType.WhileActive)
                 {
                     foreach(var effect in statusState.statusAsset.node.effects.effects)
                     {
@@ -150,6 +151,8 @@ namespace Ulko.Battle
         {
             int originalHP = characterInternal.HP;
             characterInternal.HP = (int)Mathf.Clamp(state.hp, 0, Stats.maxHP);
+
+            CurrentBuff += state.permanentBuff;
 
             StatusState = state.statuses.Clone();
             UpdateStatusCosmetics();
