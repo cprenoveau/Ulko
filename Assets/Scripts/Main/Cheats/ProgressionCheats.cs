@@ -65,7 +65,10 @@ namespace Ulko.Cheats
         public void StartMilestone()
         {
             if (GameInstance != null && SelectedMilestone != null)
+            {
+                PlayerProfile.SetMilestone(SelectedMilestone.Name);
                 GameInstance.StartMilestone(SelectedMilestone, default).FireAndForgetTask();
+            }
         }
     }
 }
