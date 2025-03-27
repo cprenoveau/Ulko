@@ -78,7 +78,7 @@ namespace Ulko
             return loadedGame.party.FindIndex(h => h.id == heroId);
         }
 
-        public static Data.Characters.HeroAsset GetNextPartyMember(string heroId)
+        public static Data.Characters.HeroAsset GetNextPartyMember(string heroId, bool activeOnly)
         {
             int index = GetPartyIndex(heroId);
             if (index == -1) return null;
@@ -88,15 +88,18 @@ namespace Ulko
             {
                 nextIndex = (nextIndex + 1) % loadedGame.party.Count;
 
-                var hero = FindHero(CurrentStory, GetProgression(), GetPartyMember(nextIndex).id);
-                if (hero != null)
-                    return hero;
+                if (!activeOnly || GetPartyMember(nextIndex).isActive)
+                {
+                    var hero = FindHero(CurrentStory, GetProgression(), GetPartyMember(nextIndex).id);
+                    if (hero != null)
+                        return hero;
+                }
             }
 
             return FindHero(CurrentStory, GetProgression(), heroId);
         }
 
-        public static Data.Characters.HeroAsset GetPreviousPartyMember(string heroId)
+        public static Data.Characters.HeroAsset GetPreviousPartyMember(string heroId, bool activeOnly)
         {
             int index = GetPartyIndex(heroId);
             if (index == -1) return null;
@@ -106,9 +109,12 @@ namespace Ulko
             {
                 previousIndex = previousIndex > 0 ? previousIndex - 1 : loadedGame.party.Count - 1;
 
-                var hero = FindHero(CurrentStory, GetProgression(), GetPartyMember(previousIndex).id);
-                if (hero != null)
-                    return hero;
+                if (!activeOnly || GetPartyMember(previousIndex).isActive)
+                {
+                    var hero = FindHero(CurrentStory, GetProgression(), GetPartyMember(previousIndex).id);
+                    if (hero != null)
+                        return hero;
+                }
             }
 
             return FindHero(CurrentStory, GetProgression(), heroId);

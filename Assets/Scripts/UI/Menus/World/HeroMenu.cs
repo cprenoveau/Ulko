@@ -51,7 +51,7 @@ namespace Ulko.UI
         {
             Audio.Player.PlayUISound(Audio.UISoundId.Swish);
 
-            var next = PlayerProfile.GetNextPartyMember(Data.hero.id);
+            var next = PlayerProfile.GetNextPartyMember(Data.hero.id, true);
             if (next.id != Data.hero.id)
             {
                 Data.hero = next;
@@ -65,7 +65,7 @@ namespace Ulko.UI
         {
             Audio.Player.PlayUISound(Audio.UISoundId.Swish);
 
-            var previous = PlayerProfile.GetPreviousPartyMember(Data.hero.id);
+            var previous = PlayerProfile.GetPreviousPartyMember(Data.hero.id, true);
             if (previous.id != Data.hero.id)
             {
                 Data.hero = previous;

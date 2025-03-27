@@ -129,7 +129,7 @@ namespace Ulko.UI
             }
 
             int heroIndex = 0;
-            var party = PlayerProfile.Party;
+            var party = PlayerProfile.ActiveParty;
             for(int i = 0; i < party.Count(); ++i)
             {
                 var hero = party.ElementAt(i);
