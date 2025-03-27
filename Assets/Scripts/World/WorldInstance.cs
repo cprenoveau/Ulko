@@ -243,7 +243,7 @@ namespace Ulko.World
 
             foreach (var follower in PlayerFollowers)
             {
-                follower.transform.position = position + new Vector3(0, 0, 0.2f);
+                follower.transform.position = position;
                 follower.CharacterInstance.Stand(standDirection ?? lastDirection ?? Vector2.zero);
             }
         }

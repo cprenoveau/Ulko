@@ -1,4 +1,6 @@
 ﻿using HotChocolate.Cheats;
+using HotChocolate.UI.Cheats;
+using System;
 using UnityEngine;
 
 namespace Ulko.Cheats
@@ -6,6 +8,8 @@ namespace Ulko.Cheats
     [CreateAssetMenu(fileName = "HeroesCheats", menuName = "Ulko/Cheats/Heroes", order = 1)]
     public class HeroesCheats : ScriptableObject
     {
+        public event Action<ScriptableObject> NeedsRefresh;
+
         [CheatProperty(CustomWidgetAddress = "Assets/Cheats/HeroCheatWidget.prefab")]
         public Persistence.Hero Ulko
         {
@@ -53,7 +57,7 @@ namespace Ulko.Cheats
                 return hero;
 
             var data = Database.Heroes[heroId];
-            return new Persistence.Hero(data, PlayerProfile.GetHeroMaxHP(heroId), PlayerProfile.GetHeroExp(heroId));
+            return new Persistence.Hero(data, PlayerProfile.GetHeroMaxHP(heroId), PlayerProfile.GetHeroExp(heroId), false);
         }
     }
 }

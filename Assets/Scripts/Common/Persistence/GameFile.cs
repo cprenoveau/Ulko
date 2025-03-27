@@ -16,12 +16,12 @@ namespace Ulko.Persistence
 
         public Hero() { }
 
-        public Hero(Data.Characters.Hero data, int hp, int exp)
+        public Hero(Data.Characters.Hero data, int hp, int exp, bool isActive)
         {
             id = data.id;
             this.hp = hp;
             this.exp = exp;
-            isActive = true;
+            this.isActive = isActive;
         }
 
         public Hero(Hero source)

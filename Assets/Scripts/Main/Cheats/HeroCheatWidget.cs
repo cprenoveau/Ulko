@@ -18,6 +18,8 @@ namespace Ulko.Cheats
         public Slider expSlider;
         public TMP_Text expLabel;
 
+        public Toggle inPartyToggle;
+
         public event ICustomWidget.ValueChanged OnValueChanged;
 
         public Persistence.Hero Data { get; private set; }
@@ -36,6 +38,7 @@ namespace Ulko.Cheats
             hpSlider.onValueChanged.AddListener(OnHpChanged);
             levelSlider.onValueChanged.AddListener(OnLevelChanged);
             expSlider.onValueChanged.AddListener(OnExpChanged);
+            inPartyToggle.onValueChanged.AddListener(OnInPartyChanged);
         }
 
         private void Refresh()
@@ -60,6 +63,8 @@ namespace Ulko.Cheats
             expSlider.minValue = hero.GetLevelData(level.level).exp;
             expSlider.maxValue = nextLevelExp;
             expSlider.value = Data.exp;
+
+            inPartyToggle.isOn = Data.isActive;
         }
 
         private void OnHpChanged(float value)
@@ -84,6 +89,19 @@ namespace Ulko.Cheats
         private void OnExpChanged(float value)
         {
             Data.exp = (int)value;
+            Refresh();
+
+            OnValueChanged?.Invoke(Data);
+        }
+
+        private void OnInPartyChanged(bool value)
+        {
+            if (value)
+                PlayerProfile.AddPartyMember(Data.id);
+            else
+                PlayerProfile.RemovePartyMember(Data.id);
+
+            Data.isActive = value;
             Refresh();
 
             OnValueChanged?.Invoke(Data);

@@ -30,7 +30,9 @@ namespace Ulko.World
         {
             Target = target;
             Rank = rank;
-            transform.position = Target.transform.position + new Vector3(0, 0, 0.2f);
+            transform.position = Target.transform.position;
+
+            Move();
         }
 
         public void SetCharacter(GameObject instance)
@@ -43,7 +45,7 @@ namespace Ulko.World
             }
 
             CharacterInstance = instance.GetComponent<CharacterAnimation>();
-            CharacterInstance.transform.localPosition = Vector3.zero;
+            CharacterInstance.transform.localPosition = new Vector3(0, 0, 0.01f);
 
             CharacterInstance.Stand(dir);
         }
@@ -92,14 +94,17 @@ namespace Ulko.World
                 newPos = Vector3.Lerp(nextPos, newPos, ratio);
             }
 
-            if (ManhattanLengthNoHeight(newPos, transform.position) < 0.01f)
+            if (CharacterInstance != null)
             {
-                CharacterInstance.Walk(Vector2.zero);
-            }
-            else
-            {
-                var realDir = newPos - transform.position;
-                CharacterInstance.Walk(Normalize(new Vector2(realDir.x, realDir.z)));
+                if (ManhattanLengthNoHeight(newPos, transform.position) < 0.01f)
+                {
+                    CharacterInstance.Walk(Vector2.zero);
+                }
+                else
+                {
+                    var realDir = newPos - transform.position;
+                    CharacterInstance.Walk(Normalize(new Vector2(realDir.x, realDir.z)));
+                }
             }
 
             float y = isFalling || IsGrounded() ? transform.position.y : newPos.y;
