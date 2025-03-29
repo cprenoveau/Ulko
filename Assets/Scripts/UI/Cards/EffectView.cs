@@ -75,11 +75,11 @@ namespace Ulko.UI
                 image.sprite = giveStatus.status.icon;
                 powerText.text = giveStatus.Description(Owner.stats);
             }
-            //else if(effect is RemoveStatus removeStatus)
-            //{
-            //    image.sprite = healIcon;
-            //    powerText.text = string.Format(Localization.Localize("heals_status"), Localization.Localize(removeStatus.status.id));
-            //}
+            else if (Effect is RemoveStatus removeStatus)
+            {
+                image.sprite = healIcon;
+                powerText.text = removeStatus.Description(Owner.stats);
+            }
             else
             {
                 gameObject.SetActive(false);

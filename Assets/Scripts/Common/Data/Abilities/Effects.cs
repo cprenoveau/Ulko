@@ -214,7 +214,8 @@ namespace Ulko.Data.Abilities
             BecomeTarget,
             CancelEffect,
             ModifyStat,
-            GiveStatus
+            GiveStatus,
+            RemoveStatus
         }
 
         public abstract EffectType Type { get; }
