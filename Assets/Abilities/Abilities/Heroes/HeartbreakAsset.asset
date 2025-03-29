@@ -17,7 +17,7 @@ MonoBehaviour:
   target:
     usabilityScope: 1
     targetType: 0
-    targetSize: 1
+    targetSize: 0
     targetCondition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
   mainStat: 3
   nodes:
@@ -40,7 +40,7 @@ MonoBehaviour:
       data:
         condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
         status: {fileID: 11400000, guid: dfda5b99ac85a6944ad60ac3d2a2b0d2, type: 2}
-        baseTurns: 1
+        baseTurns: 2
         bonusStat: 3
         bonusTurnsPerTenPoints: 1
     - rid: 8319834129809539349

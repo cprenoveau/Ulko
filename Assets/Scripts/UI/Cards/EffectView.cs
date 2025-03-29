@@ -49,10 +49,20 @@ namespace Ulko.UI
 
                 if(damage.condition.FindCondition(typeof(HasType)) is HasType hasType)
                 {
-                    if (hasType.invert)
-                        extraDesc = "without " + TextFormat.Localize(hasType.stat);
+                    if (TargetSize == TargetSize.Group)
+                    {
+                        if (hasType.invert)
+                            extraDesc = "without " + TextFormat.Localize(hasType.stat);
+                        else
+                            extraDesc = "with " + TextFormat.Localize(hasType.stat);
+                    }
                     else
-                        extraDesc = "with " + TextFormat.Localize(hasType.stat);
+                    {
+                        if (hasType.invert)
+                            extraDesc = "if has no " + TextFormat.Localize(hasType.stat);
+                        else
+                            extraDesc = "if has " + TextFormat.Localize(hasType.stat);
+                    }
                 }
             }
             else if (Effect is Heal heal)
