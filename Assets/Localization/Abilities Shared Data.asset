@@ -143,6 +143,14 @@ MonoBehaviour:
     m_Key: confused
     m_Metadata:
       m_Items: []
+  - m_Id: 10935302741811200
+    m_Key: watashield
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10935346043805696
+    m_Key: watashield_desc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

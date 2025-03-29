@@ -195,14 +195,6 @@ MonoBehaviour:
     m_Key: menu
     m_Metadata:
       m_Items: []
-  - m_Id: 61193605610602496
-    m_Key: modify_stat_against_desc
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61196649165357056
-    m_Key: modify_stat_against_neg_desc
-    m_Metadata:
-      m_Items: []
   - m_Id: 279773480372658176
     m_Key: modify_stat_desc
     m_Metadata:
@@ -377,6 +369,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 55134278772719616
     m_Key: voice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 397584292100694016
+    m_Key: stat_shield
     m_Metadata:
       m_Items: []
   m_Metadata:

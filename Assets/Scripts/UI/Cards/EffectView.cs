@@ -80,6 +80,11 @@ namespace Ulko.UI
                 image.sprite = healIcon;
                 powerText.text = removeStatus.Description(Owner.stats);
             }
+            else if(Effect is ModifyStat modifyStat)
+            {
+                image.sprite = modifyStat.IsNegative() ? attackIcon : healIcon;
+                powerText.text = modifyStat.Description(Owner.stats);
+            }
             else
             {
                 gameObject.SetActive(false);

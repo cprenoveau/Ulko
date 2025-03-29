@@ -90,6 +90,10 @@ MonoBehaviour:
     m_Localized: Confus
     m_Metadata:
       m_Items: []
+  - m_Id: 10935302741811200
+    m_Localized: Bouclier Wata
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

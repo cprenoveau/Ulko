@@ -149,6 +149,14 @@ MonoBehaviour:
     m_Localized: Confused
     m_Metadata:
       m_Items: []
+  - m_Id: 10935302741811200
+    m_Localized: Watashield
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10935346043805696
+    m_Localized: Gives protection from rain, among other things.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

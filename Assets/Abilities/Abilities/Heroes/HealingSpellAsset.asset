@@ -30,7 +30,8 @@ MonoBehaviour:
       data:
         forceValidTarget: 0
         applySequence:
-          steps: []
+          steps:
+          - rid: 8319834670752596050
         effects:
           effects:
           - rid: 6273285092736237654
@@ -44,3 +45,14 @@ MonoBehaviour:
         percentHeal: 0
         flatHeal: 0
         revive: 1
+    - rid: 8319834670752596050
+      type: {class: PlayVFX, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+      data:
+        blocking: 1
+        delay: 0
+        onTargets: 1
+        position: {x: 0, y: 0, z: 0}
+        vfx: {fileID: 11400000, guid: 0986d995302b5b749890cb10d7c4414b, type: 2}
+        loop: 0
+        speed: 1
+        duration: 2

@@ -68,10 +68,45 @@ namespace Ulko.Data.Abilities
                 actor.permanentBuff.AddToStat(stat, statValue - originalValue);
         }
 
+        public bool IsNegative()
+        {
+            return add < 0 || multiply < 0;
+        }
+
         public override string Description(Level actorStats)
         {
             string str = "";
-            return str;
+
+            if (multiply > 1f)
+            {
+                float diff = (multiply - 1f) * 100f;
+                str += string.Format("+{0:F0}%", diff);
+                if (add != 0) str += " ";
+            }
+            else if (multiply < 1f)
+            {
+                float diff = (1f - multiply) * 100f;
+                str += string.Format("-{0:F0}%", diff);
+                if (add != 0) str += " ";
+            }
+
+            if (add > 0)
+            {
+                str += string.Format("+{0}", add);
+            }
+            else if (add < 0)
+            {
+                str += string.Format("{0}", add);
+            }
+
+            if (IsNegative())
+            {
+                return Localization.LocalizeFormat("main", "modify_stat_neg_desc", str, TextFormat.Localize(stat));
+            }
+            else
+            {
+                return Localization.LocalizeFormat("main", "modify_stat_desc", str, TextFormat.Localize(stat));
+            }
         }
     }
 }

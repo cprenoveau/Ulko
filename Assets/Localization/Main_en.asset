@@ -226,14 +226,6 @@ MonoBehaviour:
     m_Localized: Level
     m_Metadata:
       m_Items: []
-  - m_Id: 61193605610602496
-    m_Localized: '{0} {1} against {2}'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 61196649165357056
-    m_Localized: Inflicts {0} {1} to {2}
-    m_Metadata:
-      m_Items: []
   - m_Id: 61210188873596928
     m_Localized: Prevents status {0}
     m_Metadata:
@@ -384,6 +376,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 391377801274449920
     m_Localized: Cards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 397584292100694016
+    m_Localized: Shield
     m_Metadata:
       m_Items: []
   references:

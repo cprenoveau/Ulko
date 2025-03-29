@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5792312ed36db064cbedc1bef273b452, type: 3}
-  m_Name: MegaHealingSpellAsset
+  m_Name: WatashieldAsset
   m_EditorClassIdentifier: 
-  id: mega_healing_spell
-  flavorText: mega_healing_spell_desc
+  id: watashield
+  flavorText: watashield_desc
   target:
-    usabilityScope: 0
+    usabilityScope: 1
     targetType: 1
     targetSize: 1
-    targetCondition: {fileID: 11400000, guid: eadf067ed4464b84bbe84e931be17834, type: 2}
-  mainStat: 4
+    targetCondition: {fileID: 0}
+  mainStat: 2
   nodes:
   - rid: 6273285019555594450
   references:
@@ -31,21 +31,19 @@ MonoBehaviour:
         forceValidTarget: 0
         applySequence:
           steps:
-          - rid: 8319834670752596051
+          - rid: 8319834670752596052
         effects:
           effects:
-          - rid: 6273285092736237654
-    - rid: 6273285092736237654
-      type: {class: Heal, ns: Ulko.Data.Abilities, asm: Ulko.Common}
+          - rid: 8319834670752596044
+    - rid: 8319834670752596044
+      type: {class: ModifyStat, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
-        condition: {fileID: 11400000, guid: eadf067ed4464b84bbe84e931be17834, type: 2}
-        config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
-        healStat: 4
-        healMultiplier: 1
-        percentHeal: 0
-        flatHeal: 0
-        revive: 1
-    - rid: 8319834670752596051
+        condition: {fileID: 0}
+        stat: 5
+        multiply: 1
+        add: 10
+        isPermanent: 1
+    - rid: 8319834670752596052
       type: {class: PlayVFX, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
         blocking: 1
