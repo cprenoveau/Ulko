@@ -103,6 +103,8 @@ namespace Ulko.UI
             {
                 if (character.CharacterSide == CharacterSide.Enemies)
                     RefreshEnemies();
+                else
+                    RefreshHeroes();
 
                 int hpDiff = newState.hp - oldState.hp;
 
