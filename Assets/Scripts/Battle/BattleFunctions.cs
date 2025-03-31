@@ -230,6 +230,8 @@ namespace Ulko.Battle
                 {
                     Debug.Log(actorState.id + " reacts with " + statusState.statusAsset.id);
 
+                    currentAction.state.characters = instance.CaptureCharacterStates();
+
                     var characterAction = CreateActionFromStatus(currentAction, actorState, statusState);
 
                     var battleAction = new BattleAction(
