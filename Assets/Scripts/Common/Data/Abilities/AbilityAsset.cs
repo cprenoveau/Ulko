@@ -12,12 +12,12 @@ namespace Ulko.Data.Abilities
         [SerializeReference]
         public List<Effect> effects = new();
 
-        public string Description(Level actorStats)
+        public string Description(CharacterState actor)
         {
             string str = "";
             for(int i = 0; i < effects.Count; ++i)
             {
-                str += effects[i].Description(actorStats);
+                str += effects[i].Description(actor);
                 if (i < effects.Count - 1)
                     str += ",";
             }
@@ -37,9 +37,9 @@ namespace Ulko.Data.Abilities
             return effects.effects.Find(e => e.Type == effectType) != null;
         }
 
-        public string Description(Level actorStats)
+        public string Description(CharacterState actor)
         {
-            return effects.Description(actorStats);
+            return effects.Description(actor);
         }
     }
 
@@ -100,7 +100,7 @@ namespace Ulko.Data.Abilities
 
         public string FlavorText => Localization.Localize(flavorText);
 
-        public string Description(Level actorStats)
+        public string Description(CharacterState actor)
         {
             if (nodes.Count == 0)
             {
@@ -111,7 +111,7 @@ namespace Ulko.Data.Abilities
 
             for(int i = 0; i < nodes.Count; ++i)
             {
-                string desc = nodes[i].Description(actorStats);
+                string desc = nodes[i].Description(actor);
 
                 str += desc;
                 if (i < nodes.Count - 1)
@@ -119,7 +119,7 @@ namespace Ulko.Data.Abilities
                     int descCount = 1;
                     int nextNode = i + 1;
 
-                    while (nextNode < nodes.Count && nodes[nextNode].Description(actorStats) == desc)
+                    while (nextNode < nodes.Count && nodes[nextNode].Description(actor) == desc)
                     {
                         nextNode++;
                         descCount++;

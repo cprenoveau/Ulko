@@ -21,5 +21,13 @@ namespace Ulko
         {
             return Localization.Localize("stat_" + stat.ToString().ToLower());
         }
+
+        public static string NumberOfTurns(int nTurns)
+        {
+            if (nTurns >= 1000)
+                return "\u221E"; //infinity
+            else
+                return nTurns.ToString();
+        }
     }
 }

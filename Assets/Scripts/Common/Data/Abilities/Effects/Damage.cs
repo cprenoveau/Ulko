@@ -108,14 +108,17 @@ namespace Ulko.Data.Abilities
             return (int)damage;
         }
 
-        public override string Description(Level actorStats)
+        public override string Description(CharacterState actor)
         {
-            int value = RawValue(actorStats);
             string str = "";
 
             if (damageMultiplier != 0)
             {
-                str = Localization.LocalizeFormat("damage_flat_desc", value);
+                int value = RawValue(actor.stats);
+                int originalValue = RawValue(actor.OriginalStats);
+
+                string valueStr = value < originalValue ? "<color=#FF0000>" + value + "</color>" : value.ToString();
+                str = Localization.LocalizeFormat("main", "damage_flat_desc", valueStr);
             }
             else if (percentDamage != 0)
             {

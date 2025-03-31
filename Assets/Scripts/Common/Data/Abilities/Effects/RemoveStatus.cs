@@ -41,17 +41,17 @@ namespace Ulko.Data.Abilities
                 var target = state.FindCharacter(targetId);
                 if (target != null && (condition == null || condition.IsTrue(actor, target)))
                 {
-                    Apply(actor, target);
+                    Apply(target);
                 }
             }
         }
 
-        public void Apply(CharacterState actor, CharacterState target)
+        public void Apply(CharacterState target)
         {
             target.statuses.RemoveAll(s => s.statusAsset.id == status.id);
         }
 
-        public override string Description(Level actorStats)
+        public override string Description(CharacterState actor)
         {
             return Localization.LocalizeFormat("main", "remove_status_turn_desc", Localization.Localize(status.id));
         }

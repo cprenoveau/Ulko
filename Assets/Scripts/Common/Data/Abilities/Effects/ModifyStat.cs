@@ -73,7 +73,7 @@ namespace Ulko.Data.Abilities
             return add < 0 || multiply < 0;
         }
 
-        public override string Description(Level actorStats)
+        public override string Description(CharacterState actor)
         {
             string str = "";
 

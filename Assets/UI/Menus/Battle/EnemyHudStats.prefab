@@ -94,6 +94,7 @@ MonoBehaviour:
   turnText: {fileID: 7001263920546399943}
   statsParent: {fileID: 8695267287482867649}
   statPrefab: {fileID: 7550888014603896014, guid: 35148e447be547d47bece6387936d540, type: 3}
+  statusPrefab: {fileID: 2766291548582358815, guid: 9a4290ce0ebc1dc44a8bfccdfc3cb960, type: 3}
 --- !u!1 &1586300138921244894
 GameObject:
   m_ObjectHideFlags: 0

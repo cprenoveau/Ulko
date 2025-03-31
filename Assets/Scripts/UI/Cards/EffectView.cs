@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static Ulko.Data.Abilities.AbilityTarget;
+using Ulko.Data;
 
 namespace Ulko.UI
 {
@@ -45,7 +46,7 @@ namespace Ulko.UI
             if (Effect is Damage damage)
             {
                 image.sprite = attackIcon;
-                powerText.text = damage.Description(Owner.stats);
+                powerText.text = damage.Description(Owner);
 
                 if(damage.condition.FindCondition(typeof(HasType)) is HasType hasType)
                 {
@@ -68,22 +69,22 @@ namespace Ulko.UI
             else if (Effect is Heal heal)
             {
                 image.sprite = healIcon;
-                powerText.text = heal.Description(Owner.stats);
+                powerText.text = heal.Description(Owner);
             }
             else if (Effect is GiveStatus giveStatus)
             {
                 image.sprite = giveStatus.status.icon;
-                powerText.text = giveStatus.Description(Owner.stats);
+                powerText.text = giveStatus.Description(Owner);
             }
             else if (Effect is RemoveStatus removeStatus)
             {
                 image.sprite = healIcon;
-                powerText.text = removeStatus.Description(Owner.stats);
+                powerText.text = removeStatus.Description(Owner);
             }
             else if(Effect is ModifyStat modifyStat)
             {
                 image.sprite = modifyStat.IsNegative() ? attackIcon : healIcon;
-                powerText.text = modifyStat.Description(Owner.stats);
+                powerText.text = modifyStat.Description(Owner);
             }
             else
             {

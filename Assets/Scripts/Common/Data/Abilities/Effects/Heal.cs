@@ -72,6 +72,8 @@ namespace Ulko.Data.Abilities
                 heal += target.stats.maxHP * percentHeal / 100f;
                 heal += flatHeal;
 
+                heal = Mathf.Clamp(heal, 1, heal);
+
                 target.hp += (int)heal;
             }
         }
@@ -84,9 +86,9 @@ namespace Ulko.Data.Abilities
             return (int)heal;
         }
 
-        public override string Description(Level actorStats)
+        public override string Description(CharacterState actor)
         {
-            int value = RawValue(actorStats);
+            int value = RawValue(actor.stats);
             string str = "";
 
             if (revive)

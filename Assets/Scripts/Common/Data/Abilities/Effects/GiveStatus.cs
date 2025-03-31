@@ -76,11 +76,11 @@ namespace Ulko.Data.Abilities
             }
         }
 
-        public override string Description(Level actorStats)
+        public override string Description(CharacterState actor)
         {
             string str;
 
-            int turns = NumberOfTurns(actorStats);
+            int turns = NumberOfTurns(actor.stats);
 
             if (turns < 100)
                 str = Localization.LocalizeFormat("main", "give_status_turn_desc", Localization.Localize(status.id), turns);

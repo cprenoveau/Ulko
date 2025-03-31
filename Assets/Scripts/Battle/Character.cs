@@ -181,12 +181,11 @@ namespace Ulko.Battle
         {
             for(int i = 0; i < StatusState.Count;)
             {
-                var statusState = StatusState[i];
+                StatusState[i].nTurns++;
 
-                statusState.nTurns++;
-                if(statusState.nTurns >= statusState.maxTurns)
+                if(StatusState[i].nTurns >= StatusState[i].maxTurns)
                 {
-                    RemoveStatusCosmetics(statusState.statusAsset.id);
+                    RemoveStatusCosmetics(StatusState[i].statusAsset.id);
                     StatusState.RemoveAt(i);
                 }
                 else

@@ -34,7 +34,9 @@ namespace Ulko.UI
                 var cardInstance = Instantiate(cardPrefab, cardsAnchor.transform);
 
                 var abilityView = cardInstance.GetComponentInChildren<AbilityView>();
-                abilityView.Init(card.Data.abilityAsset, getCharacter(card.Data.ownerId));
+                var characterState = getCharacter(card.Data.ownerId);
+
+                abilityView.Init(card.Data.abilityAsset, characterState);
 
                 cardInstance.OnSelected += (CardView cardView) => { OnCardSelected?.Invoke(cardView); };
                 cardInstance.OnClick += (CardView cardView) => { OnCardClicked?.Invoke(cardView); };

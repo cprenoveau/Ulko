@@ -11,6 +11,7 @@ namespace Ulko.UI
         public HeroView heroView;
         public RectTransform statsParent;
         public HudStatView statPrefab;
+        public HudStatusView statusPrefab;
         public GameObject selectedObject;
         public GameObject unselectedObject;
 
@@ -33,6 +34,12 @@ namespace Ulko.UI
             {
                 var statInstance = Instantiate(statPrefab, statsParent);
                 statInstance.Init(Stat.Shield, characterState.stats, hero.Stats);
+            }
+
+            foreach(var status in hero.StatusState)
+            {
+                var statusInstance = Instantiate(statusPrefab, statsParent);
+                statusInstance.Init(status);
             }
 
             Select(selected);

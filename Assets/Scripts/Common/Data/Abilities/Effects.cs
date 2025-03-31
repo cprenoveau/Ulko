@@ -55,6 +55,8 @@ namespace Ulko.Data.Abilities
         public Level permanentBuff;
         public List<StatusState> statuses;
 
+        public Level OriginalStats { get; private set; }
+
         public CharacterState(){}
 
         public CharacterState(string id, string nameKey, int hp, CharacterSide characterSide, Level stats, List<StatusState> statuses)
@@ -66,6 +68,7 @@ namespace Ulko.Data.Abilities
             this.stats = stats;
             this.statuses = statuses;
 
+            OriginalStats = stats.Clone();
             permanentBuff = new Level();
         }
 
@@ -222,7 +225,7 @@ namespace Ulko.Data.Abilities
 
         public abstract Effect Clone();
         public abstract bool IsEqual(Effect other);
-        public abstract string Description(Level actorStats);
+        public abstract string Description(CharacterState actor);
         public abstract void Apply(CharacterAction action, ActionState state);
     }
 }

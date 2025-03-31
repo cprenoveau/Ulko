@@ -39,7 +39,7 @@ namespace Ulko.UI
             PlayerProfile.OnPartyChanged += RefreshHeroes;
 
             this.data.battleInstance.OnCharacterStateChanged += ShowCharacterStateChanged;
-            this.data.battleInstance.OnIncrementTurnCount += RefreshEnemies;
+            this.data.battleInstance.OnIncrementTurnCount += RefreshAll;
         }
 
         protected override void _OnPop() 
@@ -49,19 +49,23 @@ namespace Ulko.UI
             if (data != null)
             {
                 data.battleInstance.OnCharacterStateChanged -= ShowCharacterStateChanged;
-                data.battleInstance.OnIncrementTurnCount -= RefreshEnemies;
+                data.battleInstance.OnIncrementTurnCount -= RefreshAll;
             }
         }
 
         protected override void _OnFocusIn(bool fromPush, string previousMenu)
         {
-            RefreshHeroes();
-            RefreshEnemies();
-
+            RefreshAll();
             data.uiRoot.SetInfo(null);
         }
 
         protected override void _OnFocusOut(bool fromPop, string nextMenu) { }
+
+        private void RefreshAll()
+        {
+            RefreshHeroes();
+            RefreshEnemies();
+        }
 
         private void RefreshHeroes()
         {

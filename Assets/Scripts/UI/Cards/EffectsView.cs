@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System.Linq;
-using Ulko.Battle;
 using static Ulko.Data.Abilities.AbilityTarget;
+using Ulko.Data;
 
 namespace Ulko.UI
 {

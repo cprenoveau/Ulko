@@ -14,6 +14,7 @@ namespace Ulko.UI
         public TMP_Text turnText;
         public RectTransform statsParent;
         public HudStatView statPrefab;
+        public HudStatusView statusPrefab;
 
         private Character character;
         private Camera worldCamera;
@@ -57,6 +58,15 @@ namespace Ulko.UI
 
                 var statInstance = Instantiate(statPrefab, statsParent);
                 statInstance.Init(stat, characterState.stats, character.Stats);
+            }
+
+            foreach (var status in characterState.statuses)
+            {
+                if (status.statusAsset.icon == null)
+                    continue;
+
+                var statusInstance = Instantiate(statusPrefab, statsParent);
+                statusInstance.Init(status);
             }
         }
 

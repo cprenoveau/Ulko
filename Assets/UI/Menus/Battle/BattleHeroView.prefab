@@ -823,6 +823,7 @@ MonoBehaviour:
   heroView: {fileID: 2828502222030073573}
   statsParent: {fileID: 2721139519379403765}
   statPrefab: {fileID: 7550888014603896014, guid: 35148e447be547d47bece6387936d540, type: 3}
+  statusPrefab: {fileID: 2766291548582358815, guid: 9a4290ce0ebc1dc44a8bfccdfc3cb960, type: 3}
   selectedObject: {fileID: 7522280178903555428}
   unselectedObject: {fileID: 6598502761600607056}
 --- !u!114 &5378626613509129910
