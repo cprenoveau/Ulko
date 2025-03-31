@@ -67,9 +67,9 @@ namespace Ulko.Data.Abilities
         {
             if(target.hp > 0 || revive)
             {
-                float heal = RawValue(actor.stats);
+                float heal = RawValue(actor.CurrentStats);
 
-                heal += target.stats.maxHP * percentHeal / 100f;
+                heal += target.CurrentStats.maxHP * percentHeal / 100f;
                 heal += flatHeal;
 
                 heal = Mathf.Clamp(heal, 1, heal);
@@ -88,7 +88,7 @@ namespace Ulko.Data.Abilities
 
         public override string Description(CharacterState actor)
         {
-            int value = RawValue(actor.stats);
+            int value = RawValue(actor.CurrentStats);
             string str = "";
 
             if (revive)

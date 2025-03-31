@@ -58,14 +58,18 @@ namespace Ulko.Data.Abilities
         public void Apply(CharacterState actor)
         {
             float originalValue;
-            float statValue = originalValue = actor.stats.GetStat(stat);
+            float statValue = originalValue = actor.baseStats.GetStat(stat);
             statValue *= multiply;
             statValue += add;
 
-            actor.stats.SetStat(stat, statValue);
-
-            if(isPermanent)
-                actor.permanentBuff.AddToStat(stat, statValue - originalValue);
+            if (isPermanent)
+            {
+                actor.buff.AddToStat(stat, statValue - originalValue);
+            }
+            else
+            {
+                actor.baseStats.SetStat(stat, statValue);
+            }
         }
 
         public bool IsNegative()

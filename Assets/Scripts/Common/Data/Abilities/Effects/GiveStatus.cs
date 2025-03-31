@@ -63,7 +63,7 @@ namespace Ulko.Data.Abilities
 
         public void Apply(CharacterState actor, CharacterState target)
         {
-            int turns = NumberOfTurns(actor.stats);
+            int turns = NumberOfTurns(actor.CurrentStats);
 
             int index = target.statuses.FindIndex(s => s.statusAsset.id == status.id);
             if(index == -1)
@@ -80,7 +80,7 @@ namespace Ulko.Data.Abilities
         {
             string str;
 
-            int turns = NumberOfTurns(actor.stats);
+            int turns = NumberOfTurns(actor.CurrentStats);
 
             if (turns < 100)
                 str = Localization.LocalizeFormat("main", "give_status_turn_desc", Localization.Localize(status.id), turns);

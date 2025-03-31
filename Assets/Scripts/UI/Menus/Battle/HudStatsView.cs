@@ -40,8 +40,8 @@ namespace Ulko.UI
 
         private void Refresh()
         {
-            hpText.text = Localization.LocalizeFormat("hp_value", character.HP, character.Stats.maxHP);
-            hpSlider.maxValue = character.Stats.maxHP;
+            hpText.text = Localization.LocalizeFormat("hp_value", character.HP, character.CurrentStats.maxHP);
+            hpSlider.maxValue = character.CurrentStats.maxHP;
             hpSlider.value = character.HP;
             turnText.text = character.TurnCooldown().ToString();
 
@@ -53,11 +53,14 @@ namespace Ulko.UI
             var characterState = character.CaptureState();
             foreach (Stat stat in Enum.GetValues(typeof(Stat)))
             {
-                if (stat == Stat.MaxHP || character.Stats.GetStat(stat) <= 0)
+                if (stat == Stat.MaxHP)
                     continue;
 
-                var statInstance = Instantiate(statPrefab, statsParent);
-                statInstance.Init(stat, characterState.stats, character.Stats);
+                if (character.BaseStats.GetStat(stat) > 0 || characterState.CurrentStats.GetStat(stat) > 0)
+                {
+                    var statInstance = Instantiate(statPrefab, statsParent);
+                    statInstance.Init(stat, characterState.CurrentStats, characterState.OriginalStats);
+                }
             }
 
             foreach (var status in characterState.statuses)

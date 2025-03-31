@@ -29,11 +29,11 @@ namespace Ulko.UI
             }
 
             var characterState = hero.CaptureState();
-            float shield = hero.Stats.GetStat(Stat.Shield);
+            float shield = characterState.CurrentStats.GetStat(Stat.Shield);
             if(shield > 0)
             {
                 var statInstance = Instantiate(statPrefab, statsParent);
-                statInstance.Init(Stat.Shield, characterState.stats, hero.Stats);
+                statInstance.Init(Stat.Shield, characterState.CurrentStats, hero.CurrentStats);
             }
 
             foreach(var status in hero.StatusState)

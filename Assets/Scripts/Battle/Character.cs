@@ -53,8 +53,9 @@ namespace Ulko.Battle
         public int Exp => characterInternal.Exp;
         public int HP => characterInternal.HP;
         public bool IsDead => HP <= 0;
-        public Level Stats => characterInternal.Stats + CurrentBuff;
-        public Level CurrentBuff { get; private set; } = new Level();
+        public Level CurrentStats => BaseStats + Buff;
+        public Level BaseStats => characterInternal.Stats;
+        public Level Buff { get; private set; } = new Level();
         public List<AbilityAsset> Abilities => Asset.abilities;
         public List<StatusState> StatusState { get; private set; } = new List<StatusState>();
 
@@ -120,14 +121,14 @@ namespace Ulko.Battle
         public string Description()
         {
             string str = Name;
-            str += " " + Localization.LocalizeFormat("hp_value", HP, Stats.maxHP);
+            str += " " + Localization.LocalizeFormat("hp_value", HP, CurrentStats.maxHP);
 
             return str;
         }
 
         public CharacterState CaptureState()
         {
-            var characterState = new CharacterState(Id, NameKey, HP, CharacterSide, Stats, StatusState.Clone());
+            var characterState = new CharacterState(Id, NameKey, HP, CharacterSide, BaseStats.Clone(), Buff.Clone(), StatusState.Clone());
 
             foreach (var statusState in StatusState)
             {
@@ -149,10 +150,10 @@ namespace Ulko.Battle
 
         public void ApplyState(CharacterState state)
         {
-            int originalHP = characterInternal.HP;
-            characterInternal.HP = (int)Mathf.Clamp(state.hp, 0, Stats.maxHP);
+            Buff = state.buff.Clone();
 
-            CurrentBuff += state.permanentBuff;
+            int originalHP = characterInternal.HP;
+            characterInternal.HP = (int)Mathf.Clamp(state.hp, 0, CurrentStats.maxHP);
 
             StatusState = state.statuses.Clone();
             UpdateStatusCosmetics();

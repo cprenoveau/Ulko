@@ -63,7 +63,7 @@ namespace Ulko.UI
             var hero = PlayerProfile.GetPartyMember(heroId);
             var heroAsset = PlayerProfile.FindHero(PlayerProfile.CurrentStory, PlayerProfile.GetProgression(), heroId);
 
-            return new CharacterState(Id, heroAsset.displayName, hero.hp, CharacterSide.Heroes, PlayerProfile.GetHeroStats(heroId), new List<StatusState>());
+            return new CharacterState(Id, heroAsset.displayName, hero.hp, CharacterSide.Heroes, PlayerProfile.GetHeroStats(heroId), new Level(), new List<StatusState>());
         }
 
         private void UpdateInfo(CardView cardView)

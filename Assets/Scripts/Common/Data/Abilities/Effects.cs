@@ -51,25 +51,26 @@ namespace Ulko.Data.Abilities
         public string nameKey;
         public int hp;
         public CharacterSide characterSide;
-        public Level stats;
-        public Level permanentBuff;
+        public Level baseStats;
+        public Level buff;
         public List<StatusState> statuses;
 
+        public Level CurrentStats => baseStats + buff;
         public Level OriginalStats { get; private set; }
 
         public CharacterState(){}
 
-        public CharacterState(string id, string nameKey, int hp, CharacterSide characterSide, Level stats, List<StatusState> statuses)
+        public CharacterState(string id, string nameKey, int hp, CharacterSide characterSide, Level baseStats, Level buff, List<StatusState> statuses)
         {
             this.id = id;
             this.nameKey = nameKey;
             this.hp = hp;
             this.characterSide = characterSide;
-            this.stats = stats;
+            this.baseStats = baseStats;
+            this.buff = buff;
             this.statuses = statuses;
 
-            OriginalStats = stats.Clone();
-            permanentBuff = new Level();
+            OriginalStats = CurrentStats;
         }
 
         public List<Stat> GetCharacterType()
@@ -77,7 +78,7 @@ namespace Ulko.Data.Abilities
             var characterType = new List<Stat>();
             foreach (Stat stat in Enum.GetValues(typeof(Stat)))
             {
-                if (stats.GetStat(stat) > 0)
+                if (baseStats.GetStat(stat) > 0)
                     characterType.Add(stat);
             }
 
@@ -95,8 +96,8 @@ namespace Ulko.Data.Abilities
             nameKey = source.nameKey;
             hp = source.hp;
             characterSide = source.characterSide;
-            stats = source.stats.Clone();
-            permanentBuff = source.permanentBuff.Clone();
+            baseStats = source.baseStats.Clone();
+            buff = source.buff.Clone();
             statuses = source.statuses.Clone();
         }
 
@@ -106,8 +107,8 @@ namespace Ulko.Data.Abilities
                 && nameKey.Equals(other.nameKey)
                 && hp.Equals(other.hp)
                 && characterSide.Equals(other.characterSide)
-                && stats.Equals(other.stats)
-                && permanentBuff.Equals(other.permanentBuff)
+                && baseStats.Equals(other.baseStats)
+                && buff.Equals(other.buff)
                 && statuses.SequenceEqual(other.statuses);
         }
     }

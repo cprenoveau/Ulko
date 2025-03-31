@@ -62,10 +62,10 @@ namespace Ulko.Data.Abilities
 
         public void Apply(CharacterState actor, CharacterState target)
         {
-            float damage = RawValue(actor.stats);
-            float shield = target.stats.GetStat(Stat.Shield);
+            float damage = RawValue(actor.CurrentStats);
+            float shield = target.CurrentStats.GetStat(Stat.Shield);
 
-            damage += target.stats.maxHP * percentDamage / 100f;
+            damage += target.CurrentStats.maxHP * percentDamage / 100f;
             damage += flatDamage;
 
             damage = Mathf.RoundToInt(damage * GetAttackMultiplier(target));
@@ -75,9 +75,7 @@ namespace Ulko.Data.Abilities
             damage -= soak;
 
             target.hp -= (int)damage;
-
-            target.stats.AddToStat(Stat.Shield, -soak);
-            target.permanentBuff.AddToStat(Stat.Shield, -soak);
+            target.buff.AddToStat(Stat.Shield, -soak);
 
             if (target.hp <= 0)
                 target.statuses.Clear();
@@ -114,7 +112,7 @@ namespace Ulko.Data.Abilities
 
             if (damageMultiplier != 0)
             {
-                int value = RawValue(actor.stats);
+                int value = RawValue(actor.CurrentStats);
                 int originalValue = RawValue(actor.OriginalStats);
 
                 string valueStr = value < originalValue ? "<color=#FF0000>" + value + "</color>" : value.ToString();

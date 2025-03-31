@@ -38,7 +38,7 @@ MonoBehaviour:
     - rid: 8319834670752596044
       type: {class: ModifyStat, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
-        condition: {fileID: 0}
+        condition: {fileID: 11400000, guid: 389e848f4890adc4c9aa45a4a4b6bba7, type: 2}
         stat: 5
         multiply: 1
         add: 10
