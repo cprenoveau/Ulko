@@ -55,20 +55,20 @@ namespace Ulko.Data.Abilities
             }
         }
 
-        public void Apply(CharacterState actor)
+        public void Apply(CharacterState target)
         {
             float originalValue;
-            float statValue = originalValue = actor.baseStats.GetStat(stat);
+            float statValue = originalValue = target.baseStats.GetStat(stat);
             statValue *= multiply;
             statValue += add;
 
             if (isPermanent)
             {
-                actor.buff.AddToStat(stat, statValue - originalValue);
+                target.buff.AddToStat(stat, statValue - originalValue);
             }
             else
             {
-                actor.baseStats.SetStat(stat, statValue);
+                target.baseStats.SetStat(stat, statValue);
             }
         }
 
