@@ -38,7 +38,7 @@ MonoBehaviour:
     - rid: 6273285092736237642
       type: {class: GiveStatus, ns: Ulko.Data.Abilities, asm: Ulko.Common}
       data:
-        condition: {fileID: 11400000, guid: 7a72f61ca5d2c134ea4bb13828df4f5b, type: 2}
+        condition: {fileID: 11400000, guid: 6717b80b3966ec04b9e18ce92d71ef0b, type: 2}
         status: {fileID: 11400000, guid: cd9309d12763ff14399ca6ccce345380, type: 2}
         baseTurns: 2
         bonusStat: 4
