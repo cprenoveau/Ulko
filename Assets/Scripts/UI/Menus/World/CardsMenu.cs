@@ -7,7 +7,8 @@ namespace Ulko.UI
 {
     public class CardsMenu : Menu
     {
-        public DeckOfCardsView cardDeckView;
+        public DeckOfCardsView equipedDeckView;
+        public DeckOfCardsView reserveDeckView;
 
         private MenuStack stack;
         private MenuData data;
@@ -16,14 +17,14 @@ namespace Ulko.UI
 
         private void Start()
         {
-            cardDeckView.OnCardSelected += UpdateInfo;
-            cardDeckView.OnCardClicked += OnCardClicked;
+            equipedDeckView.OnCardSelected += UpdateInfo;
+            equipedDeckView.OnCardClicked += OnCardClicked;
         }
 
         private void OnDestroy()
         {
-            cardDeckView.OnCardSelected -= UpdateInfo;
-            cardDeckView.OnCardClicked -= OnCardClicked;
+            equipedDeckView.OnCardSelected -= UpdateInfo;
+            equipedDeckView.OnCardClicked -= OnCardClicked;
         }
 
         protected override void _OnPush(MenuStack stack, object data)
@@ -51,11 +52,11 @@ namespace Ulko.UI
                 }
             }
 
-            cardDeckView.Init();
-            cardDeckView.AddCards(currentDeck, CaptureState);
+            equipedDeckView.Init();
+            equipedDeckView.AddCards(currentDeck, CaptureState);
 
-            if (cardDeckView.Cards.Count > 0)
-                Select(cardDeckView.Cards[0].button.gameObject);
+            if (equipedDeckView.Cards.Count > 0)
+                Select(equipedDeckView.Cards[0].button.gameObject);
         }
 
         private CharacterState CaptureState(string heroId)

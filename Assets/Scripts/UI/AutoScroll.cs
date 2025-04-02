@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using HotChocolate.Utils;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -40,19 +41,6 @@ namespace Ulko.UI
             }
         }
 
-        private Transform FindSelectedRoot(Transform parent)
-        {
-            while(parent != null)
-            {
-                if (parent.parent == scrollRect.content)
-                    return parent;
-
-                parent = parent.parent;
-            }
-
-            return null;
-        }
-
         private Vector2? ScrollToPosition()
         {
             var selected = EventSystem.current.currentSelectedGameObject;
@@ -60,16 +48,14 @@ namespace Ulko.UI
             if (selected == null)
                 return null;
 
-            var selectedRoot = FindSelectedRoot(selected.transform);
+            var rt = selected.GetComponent<RectTransform>();
 
-            if(selectedRoot == null)
-                return null;
-
-            var rt = selectedRoot.GetComponent<RectTransform>();
+            Rect elementScreenRect = Positions.ScreenRect(rt);
+            Vector2 minPos = Positions.ToLocalPos(new Vector2(elementScreenRect.x, elementScreenRect.max.y), scrollRect.content);
 
             if (scrollRect.vertical)
             {
-                float minPosY = -rt.anchoredPosition.y;
+                float minPosY = -minPos.y;
                 float maxPosY = minPosY + rt.rect.height;
 
                 float viewMinY = scrollRect.content.anchoredPosition.y;
@@ -78,8 +64,9 @@ namespace Ulko.UI
                 //scroll down
                 if (maxPosY > viewMaxY)
                 {
-                    int childCount = scrollRect.content.childCount;
-                    if (rt == scrollRect.content.GetChild(childCount - 1))
+                    if(rt.GetComponent<Selectable>() != null
+                        && (rt.GetComponent<Selectable>().navigation.selectOnDown == null
+                        || rt.GetComponent<Selectable>().navigation.selectOnDown.transform.position.y > rt.position.y))
                     {
                         maxPosY = scrollRect.content.rect.height;
                     }
@@ -90,7 +77,9 @@ namespace Ulko.UI
                 //scroll up
                 else if (minPosY < viewMinY)
                 {
-                    if (rt == scrollRect.content.GetChild(0))
+                    if (rt.GetComponent<Selectable>() != null
+                        && (rt.GetComponent<Selectable>().navigation.selectOnUp == null
+                        || rt.GetComponent<Selectable>().navigation.selectOnUp.transform.position.y < rt.position.y))
                     {
                         minPosY = 0;
                     }
