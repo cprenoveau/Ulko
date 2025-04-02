@@ -45,9 +45,7 @@ namespace Ulko.UI
 
         private void Refresh()
         {
-            cardDeckView.Init();
-
-            cardDeckView.AddCards(data.battleInstance.DrawPile, (string id) => { return data.battleInstance.FindCharacter(id).CaptureState(); });
+            cardDeckView.Init(data.battleInstance.DrawPile, (string id) => { return data.battleInstance.FindCharacter(id).CaptureState(); });
 
             if (cardDeckView.Cards.Count > 0)
                 Select(cardDeckView.Cards[0].button.gameObject);

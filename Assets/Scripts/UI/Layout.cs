@@ -13,6 +13,11 @@ namespace Ulko.UI
             grid.StartCoroutine(SetupNavigationDelayed(grid, anchoredPosition));
         }
 
+        public static void SetupGrids(GridLayoutGroup grid1, GridLayoutGroup grid2, Vector2 anchoredPosition)
+        {
+            grid1.StartCoroutine(SetupNavigationDelayed(grid1, grid2, anchoredPosition));
+        }
+
         private static IEnumerator SetupNavigationDelayed(GridLayoutGroup grid, Vector2 anchoredPosition)
         {
             yield return null;
@@ -23,6 +28,14 @@ namespace Ulko.UI
 
             SetupGridCellSize(grid);
             SetupWrapAroundGridNavigation(grid);
+        }
+
+        private static IEnumerator SetupNavigationDelayed(GridLayoutGroup grid1, GridLayoutGroup grid2, Vector2 anchoredPosition)
+        {
+            yield return SetupNavigationDelayed(grid1, anchoredPosition);
+            yield return SetupNavigationDelayed(grid2, anchoredPosition);
+
+            StitchGrids(grid1, grid2);
         }
 
         private static void SetupGridCellSize(GridLayoutGroup grid)
@@ -43,32 +56,71 @@ namespace Ulko.UI
 
             for (int i = 0; i < grid.transform.childCount; ++i)
             {
-                var coord = GetCoordinates(i, grid);
+                var (colIndex, rowIndex) = GetCoordinates(i, grid);
 
                 var selectable = GetSelectableAt(i, grid.transform);
                 var nav = new Navigation() { mode = Navigation.Mode.Explicit };
 
-                if (coord.colIndex == 0)
-                    nav.selectOnLeft = GetSelectableAt(GetIndex(lastColIndex, coord.rowIndex, grid), grid.transform);
+                if (colIndex == 0)
+                    nav.selectOnLeft = GetSelectableAt(GetIndex(lastColIndex, rowIndex, grid), grid.transform);
                 else
-                    nav.selectOnLeft = GetSelectableAt(GetIndex(coord.colIndex - 1, coord.rowIndex, grid), grid.transform);
+                    nav.selectOnLeft = GetSelectableAt(GetIndex(colIndex - 1, rowIndex, grid), grid.transform);
 
-                if (coord.colIndex == lastColIndex)
-                    nav.selectOnRight = GetSelectableAt(GetIndex(0, coord.rowIndex, grid), grid.transform);
+                if (colIndex == lastColIndex)
+                    nav.selectOnRight = GetSelectableAt(GetIndex(0, rowIndex, grid), grid.transform);
                 else
-                    nav.selectOnRight = GetSelectableAt(GetIndex(coord.colIndex + 1, coord.rowIndex, grid), grid.transform);
+                    nav.selectOnRight = GetSelectableAt(GetIndex(colIndex + 1, rowIndex, grid), grid.transform);
 
-                int lastRowIndex = GetLastRowIndex(coord.colIndex, grid);
+                int lastRowIndex = GetLastRowIndex(colIndex, grid);
 
-                if (coord.rowIndex == 0)
-                    nav.selectOnUp = GetSelectableAt(GetIndex(coord.colIndex, lastRowIndex, grid), grid.transform);
+                if (rowIndex == 0)
+                    nav.selectOnUp = GetSelectableAt(GetIndex(colIndex, lastRowIndex, grid), grid.transform);
                 else
-                    nav.selectOnUp = GetSelectableAt(GetIndex(coord.colIndex, coord.rowIndex - 1, grid), grid.transform);
+                    nav.selectOnUp = GetSelectableAt(GetIndex(colIndex, rowIndex - 1, grid), grid.transform);
 
-                if (coord.rowIndex == lastRowIndex)
-                    nav.selectOnDown = GetSelectableAt(GetIndex(coord.colIndex, 0, grid), grid.transform);
+                if (rowIndex == lastRowIndex)
+                    nav.selectOnDown = GetSelectableAt(GetIndex(colIndex, 0, grid), grid.transform);
                 else
-                    nav.selectOnDown = GetSelectableAt(GetIndex(coord.colIndex, coord.rowIndex + 1, grid), grid.transform);
+                    nav.selectOnDown = GetSelectableAt(GetIndex(colIndex, rowIndex + 1, grid), grid.transform);
+
+                selectable.navigation = nav;
+            }
+        }
+
+        public static void StitchGrids(GridLayoutGroup first, GridLayoutGroup second)
+        {
+            for (int i = 0; i < first.transform.childCount; ++i)
+            {
+                var (colIndex, rowIndex) = GetCoordinates(i, first);
+
+                var selectable = GetSelectableAt(i, first.transform);
+                var nav = selectable.navigation;
+
+                int lastRowIndex = GetLastRowIndex(colIndex, first);
+
+                if (rowIndex == 0)
+                    nav.selectOnUp = GetSelectableAt(GetIndex(colIndex, lastRowIndex, second), second.transform);
+
+                if (rowIndex == lastRowIndex)
+                    nav.selectOnDown = GetSelectableAt(GetIndex(colIndex, 0, second), second.transform);
+
+                selectable.navigation = nav;
+            }
+
+            for (int i = 0; i < second.transform.childCount; ++i)
+            {
+                var (colIndex, rowIndex) = GetCoordinates(i, second);
+
+                var selectable = GetSelectableAt(i, second.transform);
+                var nav = selectable.navigation;
+
+                int lastRowIndex = GetLastRowIndex(colIndex, second);
+
+                if (rowIndex == 0)
+                    nav.selectOnUp = GetSelectableAt(GetIndex(colIndex, lastRowIndex, first), first.transform);
+
+                if (rowIndex == lastRowIndex)
+                    nav.selectOnDown = GetSelectableAt(GetIndex(colIndex, 0, first), first.transform);
 
                 selectable.navigation = nav;
             }

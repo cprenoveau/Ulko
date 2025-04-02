@@ -18,17 +18,14 @@ namespace Ulko.UI
         public event Action<CardView> OnCardSelected;
         public event Action<CardView> OnCardClicked;
 
-        public void Init()
+        public delegate CharacterState GetCharacterDelegate(string id);
+        public void Init(DeckOfCards<AbilityCard> cardDeck, GetCharacterDelegate getCharacter, bool setupGrid = true)
         {
             foreach (Transform card in cardsAnchor.transform)
             {
                 Destroy(card.gameObject);
             }
-        }
 
-        public delegate CharacterState GetCharacterDelegate(string id);
-        public void AddCards(DeckOfCards<AbilityCard> cardDeck, GetCharacterDelegate getCharacter)
-        {
             foreach (var card in cardDeck)
             {
                 var cardInstance = Instantiate(cardPrefab, cardsAnchor.transform);
@@ -44,7 +41,8 @@ namespace Ulko.UI
                 Cards.Add(cardInstance);
             }
 
-            Layout.SetupGrid(cardsAnchor, Vector2.zero);
+            if(setupGrid)
+                Layout.SetupGrid(cardsAnchor, Vector2.zero);
         }
     }
 }

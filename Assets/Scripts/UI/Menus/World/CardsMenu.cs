@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Ulko.Data;
 using Ulko.Data.Abilities;
+using UnityEngine;
 
 namespace Ulko.UI
 {
@@ -19,12 +20,18 @@ namespace Ulko.UI
         {
             equipedDeckView.OnCardSelected += UpdateInfo;
             equipedDeckView.OnCardClicked += OnCardClicked;
+
+            reserveDeckView.OnCardSelected += UpdateInfo;
+            reserveDeckView.OnCardClicked += OnCardClicked;
         }
 
         private void OnDestroy()
         {
             equipedDeckView.OnCardSelected -= UpdateInfo;
             equipedDeckView.OnCardClicked -= OnCardClicked;
+
+            reserveDeckView.OnCardSelected -= UpdateInfo;
+            reserveDeckView.OnCardClicked -= OnCardClicked;
         }
 
         protected override void _OnPush(MenuStack stack, object data)
@@ -52,8 +59,10 @@ namespace Ulko.UI
                 }
             }
 
-            equipedDeckView.Init();
-            equipedDeckView.AddCards(currentDeck, CaptureState);
+            equipedDeckView.Init(currentDeck, CaptureState, false);
+            reserveDeckView.Init(currentDeck, CaptureState, false);
+
+            Layout.SetupGrids(equipedDeckView.cardsAnchor, reserveDeckView.cardsAnchor, Vector2.zero);
 
             if (equipedDeckView.Cards.Count > 0)
                 Select(equipedDeckView.Cards[0].button.gameObject);
