@@ -14,6 +14,7 @@ namespace Ulko
         public static Dictionary<string, Story> Stories { get; private set; } = new Dictionary<string, Story>();
         public static Dictionary<string, Hero> Heroes { get; private set; } = new Dictionary<string, Hero>();
         public static Dictionary<string, Enemy> Enemies { get; private set; } = new Dictionary<string, Enemy>();
+        public static Dictionary<string, AbilityAsset> Abilities { get; private set; } = new Dictionary<string, AbilityAsset>();
         public static Dictionary<string, StatusAsset> Statuses { get; private set; } = new Dictionary<string, StatusAsset>();
 
         public static async Task Init(List<Story> stories, TextAsset heroesAsset, TextAsset enemiesAsset)
@@ -36,6 +37,14 @@ namespace Ulko
             foreach (var enemy in enemies)
             {
                 Enemies.Add(enemy.id, enemy);
+            }
+
+            Abilities.Clear();
+
+            var abilities = await Addressables.LoadAssetsAsync<AbilityAsset>("ability", null).Task;
+            foreach (var ability in abilities)
+            {
+                Abilities.Add(ability.id, ability);
             }
 
             Statuses.Clear();

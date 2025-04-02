@@ -19,9 +19,9 @@ namespace Ulko.Battle
         public Data.Timeline.IMilestone Milestone { get; private set; }
         public BattleConfig Config { get; private set; }
 
-        public DeckOfCards<AbilityCard> DrawPile { get; private set; } = new DeckOfCards<AbilityCard>();
-        public DeckOfCards<AbilityCard> DiscardPile { get; private set; } = new DeckOfCards<AbilityCard>();
-        public HandOfCards<AbilityCard> CurrentHand { get; private set; } = new HandOfCards<AbilityCard>();
+        public DeckOfCards DrawPile { get; private set; } = new DeckOfCards();
+        public DeckOfCards DiscardPile { get; private set; } = new DeckOfCards();
+        public HandOfCards CurrentHand { get; private set; } = new HandOfCards();
         public int FreeRedrawInTurns { get; private set; }
 
         private readonly Character heroPrefab;
@@ -160,7 +160,7 @@ namespace Ulko.Battle
             {
                 foreach (var ability in hero.Abilities)
                 {
-                    DrawPile.TryAddCard(new Card<AbilityCard>(new AbilityCard(ability, hero.Id)));
+                    DrawPile.TryAddCard(new Card<AbilityCardData>(new AbilityCardData(ability, hero.Id)));
                 }
             }
 
@@ -446,10 +446,12 @@ namespace Ulko.Battle
             int cardIndex = 0;
             foreach(var card in CurrentHand)
             {
-                var actor = FindCharacter(card.Data.ownerId);
+                var abilityCard = card as Card<AbilityCardData>;
+
+                var actor = FindCharacter(abilityCard.Data.ownerId);
                 if(actor != null)
                 {
-                    actions.AddRange(CreateActions(cardIndex, card.Data.abilityAsset, false, actor, characters));
+                    actions.AddRange(CreateActions(cardIndex, abilityCard.Data.abilityAsset, false, actor, characters));
                     cardIndex++;
                 }
             }

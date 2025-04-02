@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Ulko.Battle;
 using Ulko.Data;
 using Ulko.Data.Abilities;
 using UnityEngine;
@@ -18,9 +17,11 @@ namespace Ulko.UI
         public event Action<CardView> OnCardSelected;
         public event Action<CardView> OnCardClicked;
 
-        public delegate CharacterState GetCharacterDelegate(string id);
-        public void Init(DeckOfCards<AbilityCard> cardDeck, GetCharacterDelegate getCharacter, bool setupGrid = true)
+        public delegate CharacterState GetCharacterDelegate(string ownerId);
+        public void Init(DeckOfCards cardDeck, GetCharacterDelegate getCharacter, bool setupGrid = true)
         {
+            Cards.Clear();
+
             foreach (Transform card in cardsAnchor.transform)
             {
                 Destroy(card.gameObject);
@@ -29,11 +30,14 @@ namespace Ulko.UI
             foreach (var card in cardDeck)
             {
                 var cardInstance = Instantiate(cardPrefab, cardsAnchor.transform);
+                cardInstance.Init(card);
+
+                var abilityCard = card as Card<AbilityCardData>;
 
                 var abilityView = cardInstance.GetComponentInChildren<AbilityView>();
-                var characterState = getCharacter(card.Data.ownerId);
+                var characterState = getCharacter(abilityCard.Data.ownerId);
 
-                abilityView.Init(card.Data.abilityAsset, characterState);
+                abilityView.Init(abilityCard.Data.abilityAsset, characterState);
 
                 cardInstance.OnSelected += (CardView cardView) => { OnCardSelected?.Invoke(cardView); };
                 cardInstance.OnClick += (CardView cardView) => { OnCardClicked?.Invoke(cardView); };

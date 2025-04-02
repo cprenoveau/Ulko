@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Status
+  m_EditorClassIdentifier: 
+  m_GroupName: Status
+  m_GUID: e810c53d5b3fdd648b006ad89d187683
+  m_SerializeEntries:
+  - m_GUID: 1c019e52809e8084980df2e41bbb4c19
+    m_Address: Assets/Abilities/Status/RetaliateAsset.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - status
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b05fb7cae836d948a2cc95d9c4b00ae
+    m_Address: Assets/Abilities/Status/BuffAsset.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - status
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31427f9455011cd4c9cf67a29e080d78
+    m_Address: Assets/Abilities/Status/BlindAsset.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - status
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5451b63c5dda28446b600e02cdb17eee
+    m_Address: Assets/Abilities/Status/EmptyAsset.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - status
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 892aa9faca8af7e47abf4b618800dc2d
+    m_Address: Assets/Abilities/Status/ShieldAsset.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - status
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9703167c1ba53046b04efed5c8a594b
+    m_Address: Assets/Abilities/Status/DefendAsset.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - status
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd9309d12763ff14399ca6ccce345380
+    m_Address: Assets/Abilities/Status/ConfusedAsset.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - status
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfda5b99ac85a6944ad60ac3d2a2b0d2
+    m_Address: Assets/Abilities/Status/LonelyAsset.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - status
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: cc8d94e112127eb4ebbada1dddf2b467, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 021456e41218f4443a738531ed734b6a, type: 2}
+    - {fileID: 11400000, guid: 725b5097d65351a4591f4857e98693a9, type: 2}

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Ulko.UI;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,6 +37,13 @@ namespace Ulko.UI
             yield return SetupNavigationDelayed(grid2, anchoredPosition);
 
             StitchGrids(grid1, grid2);
+
+            var autoScroll = grid1.GetComponentInParent<AutoScroll>();
+            if (autoScroll != null)
+            {
+                autoScroll.gameObject.SetActive(false);
+                autoScroll.gameObject.SetActive(true);
+            }
         }
 
         private static void SetupGridCellSize(GridLayoutGroup grid)
@@ -99,7 +107,7 @@ namespace Ulko.UI
                 int lastRowIndex = GetLastRowIndex(colIndex, first);
 
                 if (rowIndex == 0)
-                    nav.selectOnUp = GetSelectableAt(GetIndex(colIndex, lastRowIndex, second), second.transform);
+                    nav.selectOnUp = GetSelectableAt(GetIndex(colIndex, GetLastRowIndex(colIndex, second), second), second.transform);
 
                 if (rowIndex == lastRowIndex)
                     nav.selectOnDown = GetSelectableAt(GetIndex(colIndex, 0, second), second.transform);
@@ -117,7 +125,7 @@ namespace Ulko.UI
                 int lastRowIndex = GetLastRowIndex(colIndex, second);
 
                 if (rowIndex == 0)
-                    nav.selectOnUp = GetSelectableAt(GetIndex(colIndex, lastRowIndex, first), first.transform);
+                    nav.selectOnUp = GetSelectableAt(GetIndex(colIndex, GetLastRowIndex(colIndex, first), first), first.transform);
 
                 if (rowIndex == lastRowIndex)
                     nav.selectOnDown = GetSelectableAt(GetIndex(colIndex, 0, first), first.transform);
@@ -173,7 +181,7 @@ namespace Ulko.UI
 
         private static Selectable GetSelectableAt(int index, Transform parent)
         {
-            return parent.GetChild(index).GetComponentInChildren<Selectable>();
+            return parent.childCount > index && index >= 0 ? parent.GetChild(index).GetComponentInChildren<Selectable>() : null;
         }
 
         private static (int colIndex, int rowIndex) GetCoordinates(int index, GridLayoutGroup grid)

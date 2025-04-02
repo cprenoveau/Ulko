@@ -3,17 +3,17 @@ using System.Collections.Generic;
 
 namespace Ulko.Data
 {
-    public class HandOfCards<T> : IEnumerable<Card<T>>
+    public class HandOfCards : IEnumerable<ICard>
     {
-        private readonly List<Card<T>> cards = new();
+        private readonly List<ICard> cards = new();
 
         public HandOfCards() { }
-        public HandOfCards(IEnumerable<Card<T>> cards)
+        public HandOfCards(IEnumerable<ICard> cards)
         {
             this.cards.AddRange(cards);
         }
 
-        public bool TryAddCard(Card<T> card)
+        public bool TryAddCard(ICard card)
         {
             if (IsInDeck(card))
                 return false;
@@ -22,9 +22,9 @@ namespace Ulko.Data
             return true;
         }
 
-        public List<Card<T>> TryAddCards(IEnumerable<Card<T>> cards)
+        public List<ICard> TryAddCards(IEnumerable<ICard> cards)
         {
-            var result = new List<Card<T>>();
+            var result = new List<ICard>();
 
             foreach(var card in cards)
             {
@@ -35,7 +35,7 @@ namespace Ulko.Data
             return result;
         }
 
-        public bool TryRemoveCard(Card<T> card)
+        public bool TryRemoveCard(ICard card)
         {
             int index = cards.FindIndex(c => c.Id == card.Id);
             return TryRemoveCardAt(index);
@@ -52,9 +52,9 @@ namespace Ulko.Data
             return false;
         }
 
-        public List<Card<T>> TryRemoveCards(IEnumerable<Card<T>> cards)
+        public List<ICard> TryRemoveCards(IEnumerable<ICard> cards)
         {
-            var result = new List<Card<T>>();
+            var result = new List<ICard>();
 
             foreach (var card in cards)
             {
@@ -65,7 +65,7 @@ namespace Ulko.Data
             return result;
         }
 
-        public void DiscardAt(int index, DeckOfCards<T> discardPile)
+        public void DiscardAt(int index, DeckOfCards discardPile)
         {
             if (index >= 0 && index < cards.Count)
             {
@@ -74,12 +74,12 @@ namespace Ulko.Data
             }
         }
 
-        public void Discard(IEnumerable<Card<T>> cards, DeckOfCards<T> discardPile)
+        public void Discard(IEnumerable<ICard> cards, DeckOfCards discardPile)
         {
             discardPile.TryAddCards(TryRemoveCards(cards));
         }
 
-        public bool IsInDeck(Card<T> card)
+        public bool IsInDeck(ICard card)
         {
             return cards.FindIndex(c => c.Id == card.Id) != -1;
         }
@@ -89,7 +89,7 @@ namespace Ulko.Data
             cards.Clear();
         }
 
-        public IEnumerator<Card<T>> GetEnumerator()
+        public IEnumerator<ICard> GetEnumerator()
         {
             return cards.GetEnumerator();
         }

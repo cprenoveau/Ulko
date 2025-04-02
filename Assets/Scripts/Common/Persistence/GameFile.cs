@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using Ulko.Data;
 
 namespace Ulko.Persistence
 {
@@ -193,6 +194,8 @@ namespace Ulko.Persistence
         public Location location;
         public List<Hero> party = new();
 
+        public List<Card<AbilityCardData>> reserveDeck = new();
+
         public string currentStory;
         public Dictionary<string, Progression> stories = new();
 
@@ -218,6 +221,7 @@ namespace Ulko.Persistence
             playTime = source.playTime;
             location = source.location.Clone();
             party = source.party.Clone();
+            reserveDeck = source.reserveDeck.Clone();
             currentStory = source.currentStory;
             stories = source.stories.Clone();
         }
@@ -227,6 +231,7 @@ namespace Ulko.Persistence
             playTime = json["playTime"] != null ? json["playTime"].ToObject<double>() : 0;
             location = json["location"].Parse<Location>();
             party = json["party"].ParseList<Hero>();
+            reserveDeck = json["reserveDeck"].ParseList<Card<AbilityCardData>>();
             currentStory = json["currentStory"].ToString();
             stories = json["stories"].ParseDict<Progression>();
         }
@@ -238,6 +243,7 @@ namespace Ulko.Persistence
                 { "playTime", playTime },
                 { "location", location.ToJson() },
                 { "party", party.ToJson() },
+                { "reserveDeck", reserveDeck.ToJson() },
                 { "currentStory", currentStory },
                 { "stories", stories.ToJson() }
             };

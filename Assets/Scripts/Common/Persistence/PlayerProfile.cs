@@ -197,6 +197,54 @@ namespace Ulko
             return hero;
         }
 
+        public static DeckOfCards CurrentDeck()
+        {
+            var currentDeck = new DeckOfCards();
+
+            foreach (var hero in ActiveParty)
+            {
+                var heroAsset = FindHero(CurrentStory, GetProgression(), hero.id);
+                for(int i = 0; i < heroAsset.abilities.Count; ++i)
+                {
+                    currentDeck.TryAddCard(new Card<AbilityCardData>(hero.id.GetHashCode() + i, new AbilityCardData(heroAsset.abilities[i], hero.id)));
+                }
+            }
+
+            foreach(var card in loadedGame.reserveDeck)
+            {
+                currentDeck.TryRemoveCard(card);
+            }
+
+            return currentDeck;
+        }
+
+        public static DeckOfCards ReserveDeck()
+        {
+            var reserveDeck = new DeckOfCards();
+
+            foreach(var card in loadedGame.reserveDeck)
+            {
+                reserveDeck.TryAddCard(card);
+            }
+
+            return reserveDeck;
+        }
+
+        public static bool IsInReserve(Card<AbilityCardData> card)
+        {
+            return loadedGame.reserveDeck.FirstOrDefault(c => c.Id == card.Id) != null;
+        }
+
+        public static void PutInReserve(Card<AbilityCardData> card)
+        {
+            loadedGame.reserveDeck.Add(card);
+        }
+
+        public static void RemoveFromReserve(Card<AbilityCardData> card)
+        {
+            loadedGame.reserveDeck.RemoveAll(c => c.Id == card.Id);
+        }
+
         public static void ReviveParty()
         {
             foreach (var hero in Party)

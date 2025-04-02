@@ -80,12 +80,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 31427f9455011cd4c9cf67a29e080d78
-    m_Address: Assets/Abilities/BlindAsset.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - status
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 31fcdc3de9f1d8944be9d6b8d7320fb2
     m_Address: Assets/UI/Menus/PauseMenu.prefab
     m_ReadOnly: 0
@@ -200,12 +194,6 @@ MonoBehaviour:
     m_Address: Assets/Characters/Enemies/Cat/Cat.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b9703167c1ba53046b04efed5c8a594b
-    m_Address: Assets/Abilities/DefendAsset.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - status
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: be70f2b7c5dee004fabce7ea58ac07da
     m_Address: Assets/UI/Menus/Battle/BattleTargetMenu.prefab

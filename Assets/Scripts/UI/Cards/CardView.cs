@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Ulko.Data;
 using UnityEngine;
 
 namespace Ulko.UI
@@ -14,6 +15,8 @@ namespace Ulko.UI
         public event Action<CardView> OnSelected;
         public event Action<CardView> OnDeselected;
         public event Action<CardView> OnClick;
+
+        public ICard Card { get; private set; }
 
         public PointedButton SelectedExtraButton => extraButtons.FirstOrDefault(b => b.Selected);
 
@@ -44,6 +47,11 @@ namespace Ulko.UI
                 extraButton.OnSelected -= OnSelect;
                 extraButton.OnDeselected -= OnDeselect;
             }
+        }
+
+        public void Init(ICard card)
+        {
+            Card = card;
         }
 
         private void OnSelect()

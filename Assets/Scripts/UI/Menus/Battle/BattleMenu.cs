@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using Ulko.Data;
 
 namespace Ulko.UI
 {
@@ -111,13 +112,15 @@ namespace Ulko.UI
             int cardIndex = 0;
             foreach(var card in data.battleInstance.CurrentHand)
             {
+                var abilityCard = card as Card<AbilityCardData>;
+
                 var actions = possibleActions.Where(a => a.cardIndex == cardIndex).ToList();
-                var owner = data.battleInstance.FindCharacter(card.Data.ownerId);
+                var owner = data.battleInstance.FindCharacter(abilityCard.Data.ownerId);
 
-                var abilityCard = handOfCardsView.AddCard(abilityPrefab);
-                abilityCard.Init(cardIndex, card.Data.abilityAsset, owner, actions);
+                var abilityCardView = handOfCardsView.AddCard(abilityPrefab);
+                abilityCardView.Init(cardIndex, abilityCard.Data.abilityAsset, owner, actions);
 
-                abilityCard.OnThrow += OnThrowClicked;
+                abilityCardView.OnThrow += OnThrowClicked;
 
                 cardIndex++;
             }

@@ -4,31 +4,17 @@ using System.Collections.Generic;
 
 namespace Ulko.Data
 {
-    public class Card<T>
-    {
-        public int Id { get; private set; } //unique card id
-        public T Data { get; private set; }
-
-        private static int currentId;
-
-        public Card(T data)
-        {
-            Id = currentId++;
-            Data = data;
-        }
-    }
-
-    public class DeckOfCards<T> : IEnumerable<Card<T>>
+    public class DeckOfCards : IEnumerable<ICard>
     {
         public DeckOfCards() { }
-        public DeckOfCards(IEnumerable<Card<T>> cards)
+        public DeckOfCards(IEnumerable<ICard> cards)
         {
             this.cards.AddRange(cards);
         }
 
-        private readonly List<Card<T>> cards = new();
+        private readonly List<ICard> cards = new();
 
-        public bool TryAddCard(Card<T> card)
+        public bool TryAddCard(ICard card)
         {
             if (IsInDeck(card))
                 return false;
@@ -37,9 +23,9 @@ namespace Ulko.Data
             return true;
         }
 
-        public List<Card<T>> TryAddCards(IEnumerable<Card<T>> cards)
+        public List<ICard> TryAddCards(IEnumerable<ICard> cards)
         {
-            var result = new List<Card<T>>();
+            var result = new List<ICard>();
 
             foreach (var card in cards)
             {
@@ -50,7 +36,7 @@ namespace Ulko.Data
             return result;
         }
 
-        public bool TryRemoveCard(Card<T> card)
+        public bool TryRemoveCard(ICard card)
         {
             int index = cards.FindIndex(c => c.Id == card.Id);
             if(index != -1)
@@ -62,9 +48,9 @@ namespace Ulko.Data
             return false;
         }
 
-        public List<Card<T>> TryRemoveCards(IEnumerable<Card<T>> cards)
+        public List<ICard> TryRemoveCards(IEnumerable<ICard> cards)
         {
-            var result = new List<Card<T>>();
+            var result = new List<ICard>();
 
             foreach (var card in cards)
             {
@@ -75,14 +61,14 @@ namespace Ulko.Data
             return result;
         }
 
-        public void ShuffleDeckInto(DeckOfCards<T> discardPile)
+        public void ShuffleDeckInto(DeckOfCards discardPile)
         {
             TryAddCards(discardPile);
             discardPile.Flush();
             Shuffle();
         }
 
-        public bool IsInDeck(Card<T> card)
+        public bool IsInDeck(ICard card)
         {
             return cards.FindIndex(c => c.Id == card.Id) != -1;
         }
@@ -105,9 +91,9 @@ namespace Ulko.Data
             }
         }
 
-        public List<Card<T>> Peek(int n)
+        public List<ICard> Peek(int n)
         {
-            var result = new List<Card<T>>();
+            var result = new List<ICard>();
             for(int i = 0; i < n && i < cards.Count; ++i)
             {
                 result.Add(cards[i]);
@@ -120,7 +106,7 @@ namespace Ulko.Data
         /// Picks n cards from deck and adds them to current hand.
         /// Picked cards are removed from deck. If n is greater than deck card count, the whole deck is added to hand.
         /// </summary>
-        public HandOfCards<T> DrawCards(int n, HandOfCards<T> currentHand)
+        public HandOfCards DrawCards(int n, HandOfCards currentHand)
         {
             currentHand.TryAddCards(DrawCards(n));
             return currentHand;
@@ -130,9 +116,9 @@ namespace Ulko.Data
         /// Picks n cards from top of the deck.
         /// Picked cards are removed from deck. If n is greater than deck card count, the whole deck is returned.
         /// </summary>
-        public List<Card<T>> DrawCards(int n)
+        public List<ICard> DrawCards(int n)
         {
-            var result = new List<Card<T>>();
+            var result = new List<ICard>();
 
             int deckCardCount = cards.Count;
             for(int i = 0; i < n && i < deckCardCount; ++i)
@@ -146,7 +132,7 @@ namespace Ulko.Data
             return result;
         }
 
-        public IEnumerator<Card<T>> GetEnumerator()
+        public IEnumerator<ICard> GetEnumerator()
         {
             return cards.GetEnumerator();
         }

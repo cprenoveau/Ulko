@@ -19,19 +19,19 @@ namespace Ulko.UI
         private void Start()
         {
             equipedDeckView.OnCardSelected += UpdateInfo;
-            equipedDeckView.OnCardClicked += OnCardClicked;
+            equipedDeckView.OnCardClicked += AddToReserve;
 
             reserveDeckView.OnCardSelected += UpdateInfo;
-            reserveDeckView.OnCardClicked += OnCardClicked;
+            reserveDeckView.OnCardClicked += RemoveFromReserve;
         }
 
         private void OnDestroy()
         {
             equipedDeckView.OnCardSelected -= UpdateInfo;
-            equipedDeckView.OnCardClicked -= OnCardClicked;
+            equipedDeckView.OnCardClicked -= AddToReserve;
 
             reserveDeckView.OnCardSelected -= UpdateInfo;
-            reserveDeckView.OnCardClicked -= OnCardClicked;
+            reserveDeckView.OnCardClicked -= RemoveFromReserve;
         }
 
         protected override void _OnPush(MenuStack stack, object data)
@@ -48,19 +48,8 @@ namespace Ulko.UI
 
         private void Refresh()
         {
-            var currentDeck = new DeckOfCards<AbilityCard>();
-
-            foreach (var hero in PlayerProfile.ActiveParty)
-            {
-                var heroAsset = PlayerProfile.FindHero(PlayerProfile.CurrentStory, PlayerProfile.GetProgression(), hero.id);
-                foreach (var ability in heroAsset.abilities)
-                {
-                    currentDeck.TryAddCard(new Card<AbilityCard>(new AbilityCard(ability, hero.id)));
-                }
-            }
-
-            equipedDeckView.Init(currentDeck, CaptureState, false);
-            reserveDeckView.Init(currentDeck, CaptureState, false);
+            equipedDeckView.Init(PlayerProfile.CurrentDeck(), CaptureState, false);
+            reserveDeckView.Init(PlayerProfile.ReserveDeck(), CaptureState, false);
 
             Layout.SetupGrids(equipedDeckView.cardsAnchor, reserveDeckView.cardsAnchor, Vector2.zero);
 
@@ -73,7 +62,7 @@ namespace Ulko.UI
             var hero = PlayerProfile.GetPartyMember(heroId);
             var heroAsset = PlayerProfile.FindHero(PlayerProfile.CurrentStory, PlayerProfile.GetProgression(), heroId);
 
-            return new CharacterState(Id, heroAsset.displayName, hero.hp, CharacterSide.Heroes, PlayerProfile.GetHeroStats(heroId), new Level(), new List<StatusState>());
+            return new CharacterState(heroId, heroAsset.displayName, hero.hp, CharacterSide.Heroes, PlayerProfile.GetHeroStats(heroId), new Level(), new List<StatusState>());
         }
 
         private void UpdateInfo(CardView cardView)
@@ -85,9 +74,18 @@ namespace Ulko.UI
             }
         }
 
-        private void OnCardClicked(CardView cardView)
+        private void AddToReserve(CardView cardView)
         {
-            cardView.button.SuperSelect(false);
+            PlayerProfile.PutInReserve(cardView.Card as Card<AbilityCardData>);
+
+            Refresh();
+        }
+
+        private void RemoveFromReserve(CardView cardView)
+        {
+            PlayerProfile.RemoveFromReserve(cardView.Card as Card<AbilityCardData>);
+
+            Refresh();
         }
     }
 }
