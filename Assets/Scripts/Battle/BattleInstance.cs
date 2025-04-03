@@ -156,7 +156,7 @@ namespace Ulko.Battle
             DiscardPile.Flush();
 
             DrawPile.Flush();
-            DrawPile.TryAddCards(PlayerProfile.CurrentDeck(Config.maxCardsInDeck).equiped);
+            DrawPile.TryAddCards(PlayerProfile.CurrentDeck(Config.minCardsInDeck, Config.maxCardsInDeck).equiped);
             DrawPile.Shuffle();
         }
 

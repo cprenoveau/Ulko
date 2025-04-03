@@ -54,7 +54,7 @@ namespace Ulko.UI
 
         private void Refresh()
         {
-            var (equiped, reserve) = PlayerProfile.CurrentDeck(battleConfig.maxCardsInDeck);
+            var (equiped, reserve) = PlayerProfile.CurrentDeck(battleConfig.minCardsInDeck, battleConfig.maxCardsInDeck);
 
             equipedDeckView.Init(equiped, CaptureState, false);
             reserveDeckView.Init(reserve, CaptureState, false);

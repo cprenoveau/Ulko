@@ -60,9 +60,15 @@ namespace Ulko
             OnHeroChanged?.Invoke(loadedGame.party[heroIndex]);
         }
 
+        public static bool IsActive(string heroId)
+        {
+            var hero = GetPartyMember(heroId);
+            return hero != null && hero.isActive;
+        }
+
         public static Hero GetPartyMember(string heroId)
         {
-            return loadedGame?.party.Find(h => h.id == heroId);
+            return loadedGame.party.Find(h => h.id == heroId);
         }
 
         public static Hero GetPartyMember(int index)
@@ -197,14 +203,28 @@ namespace Ulko
             return hero;
         }
 
-        public static (DeckOfCards equiped, DeckOfCards reserve) CurrentDeck(int maxCards)
+        public static (DeckOfCards equiped, DeckOfCards reserve) CurrentDeck(int minCards, int maxCards)
         {
             var currentDeck = new DeckOfCards();
             var reserveDeck = new DeckOfCards();
 
+            //make sure to remove all cards from inactive heroes
+            loadedGame.reserveDeck.RemoveAll(c => !IsActive(c.Data.ownerId));
+
             var equipedCards = AllAbilityCards();
             equipedCards.RemoveAll(c => IsInReserve(c));
 
+            //not enough equiped cards
+            while (equipedCards.Count < minCards && loadedGame.reserveDeck.Count > 0)
+            {
+                var card = loadedGame.reserveDeck.First();
+                if (TryRemoveFromReserve(card, maxCards))
+                {
+                    equipedCards.Add(card);
+                }
+            }
+
+            //too many equiped cards
             while (equipedCards.Count > maxCards)
             {
                 foreach (var hero in ActiveParty)
@@ -217,8 +237,10 @@ namespace Ulko
                     {
                         var card = equipedCards[cardIndex];
 
-                        reserveDeck.TryAddCard(card);
-                        equipedCards.RemoveAt(cardIndex);
+                        if (TryPutInReserve(card, minCards, maxCards))
+                        {
+                            equipedCards.RemoveAt(cardIndex);
+                        }
                     }
                 }
             }
@@ -281,7 +303,7 @@ namespace Ulko
 
         public static bool TryPutInReserve(Card<AbilityCardData> card, int minCardsInDeck, int maxCardsInDeck)
         {
-            if (!IsInReserve(card.Id) && CurrentDeckCount(maxCardsInDeck) > minCardsInDeck)
+            if (card != null && !IsInReserve(card.Id) && CurrentDeckCount(maxCardsInDeck) > minCardsInDeck)
             {
                 loadedGame.reserveDeck.Add(card);
                 return true;
@@ -292,7 +314,7 @@ namespace Ulko
 
         public static bool TryRemoveFromReserve(Card<AbilityCardData> card, int maxCardsInDeck)
         {
-            if (IsInReserve(card.Id) && CurrentDeckCount(maxCardsInDeck) < maxCardsInDeck)
+            if (card != null && IsInReserve(card.Id) && CurrentDeckCount(maxCardsInDeck) < maxCardsInDeck)
             {
                 loadedGame.reserveDeck.RemoveAll(c => c.Id == card.Id);
                 return true;
