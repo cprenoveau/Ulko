@@ -1,5 +1,8 @@
 ﻿using HotChocolate.UI;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
+using Ulko.Battle;
 using Ulko.Data;
 using Ulko.Data.Abilities;
 using UnityEngine;
@@ -8,6 +11,9 @@ namespace Ulko.UI
 {
     public class CardsMenu : Menu
     {
+        public BattleConfig battleConfig;
+
+        public TMP_Text deckLabel;
         public DeckOfCardsView equipedDeckView;
         public DeckOfCardsView reserveDeckView;
 
@@ -48,13 +54,17 @@ namespace Ulko.UI
 
         private void Refresh()
         {
-            equipedDeckView.Init(PlayerProfile.CurrentDeck(), CaptureState, false);
-            reserveDeckView.Init(PlayerProfile.ReserveDeck(), CaptureState, false);
+            var (equiped, reserve) = PlayerProfile.CurrentDeck(battleConfig.maxCardsInDeck);
+
+            equipedDeckView.Init(equiped, CaptureState, false);
+            reserveDeckView.Init(reserve, CaptureState, false);
 
             Layout.SetupGrids(equipedDeckView.cardsAnchor, reserveDeckView.cardsAnchor, Vector2.zero);
 
             if (equipedDeckView.Cards.Count > 0)
                 Select(equipedDeckView.Cards[0].button.gameObject);
+
+            deckLabel.text = "Deck " + equiped.Count() + "/" + battleConfig.maxCardsInDeck;
         }
 
         private CharacterState CaptureState(string heroId)
@@ -76,16 +86,26 @@ namespace Ulko.UI
 
         private void AddToReserve(CardView cardView)
         {
-            PlayerProfile.PutInReserve(cardView.Card as Card<AbilityCardData>);
-
-            Refresh();
+            if(PlayerProfile.TryPutInReserve(cardView.Card as Card<AbilityCardData>, battleConfig.minCardsInDeck, battleConfig.maxCardsInDeck))
+            {
+                Refresh();
+            }
+            else
+            {
+                cardView.button.SuperSelect(false);
+            }
         }
 
         private void RemoveFromReserve(CardView cardView)
         {
-            PlayerProfile.RemoveFromReserve(cardView.Card as Card<AbilityCardData>);
-
-            Refresh();
+            if(PlayerProfile.TryRemoveFromReserve(cardView.Card as Card<AbilityCardData>, battleConfig.maxCardsInDeck))
+            {
+                Refresh();
+            }
+            else
+            {
+                cardView.button.SuperSelect(false);
+            }
         }
     }
 }

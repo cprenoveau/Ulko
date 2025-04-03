@@ -197,52 +197,82 @@ namespace Ulko
             return hero;
         }
 
-        public static DeckOfCards CurrentDeck()
+        public static (DeckOfCards equiped, DeckOfCards reserve) CurrentDeck(int maxCards)
         {
             var currentDeck = new DeckOfCards();
+            var reserveDeck = new DeckOfCards();
 
             foreach (var hero in ActiveParty)
             {
                 var heroAsset = FindHero(CurrentStory, GetProgression(), hero.id);
                 for(int i = 0; i < heroAsset.abilities.Count; ++i)
                 {
-                    currentDeck.TryAddCard(new Card<AbilityCardData>(hero.id.GetHashCode() + i, new AbilityCardData(heroAsset.abilities[i], hero.id)));
+                    int cardId = hero.id.GetHashCode() + i;
+
+                    if (!IsInReserve(cardId))
+                    {
+                        var card = new Card<AbilityCardData>(cardId, new AbilityCardData(heroAsset.abilities[i], hero.id));
+
+                        if (currentDeck.Count() >= maxCards)
+                            reserveDeck.TryAddCard(card);
+                        else
+                            currentDeck.TryAddCard(card);
+                    }
                 }
             }
 
-            foreach(var card in loadedGame.reserveDeck)
-            {
-                currentDeck.TryRemoveCard(card);
-            }
-
-            return currentDeck;
-        }
-
-        public static DeckOfCards ReserveDeck()
-        {
-            var reserveDeck = new DeckOfCards();
-
-            foreach(var card in loadedGame.reserveDeck)
+            foreach (var card in loadedGame.reserveDeck)
             {
                 reserveDeck.TryAddCard(card);
             }
 
-            return reserveDeck;
+            return (currentDeck, reserveDeck);
+        }
+
+        public static int CurrentDeckCount(int maxCards)
+        {
+            int abilities = 0;
+
+            foreach (var hero in ActiveParty)
+            {
+                var heroAsset = FindHero(CurrentStory, GetProgression(), hero.id);
+                abilities += heroAsset.abilities.Count;
+            }
+
+            int cardCount = abilities - loadedGame.reserveDeck.Count;
+            return Mathf.Clamp(cardCount, 0, maxCards);
+        }
+
+        public static bool IsInReserve(int cardId)
+        {
+            return loadedGame.reserveDeck.FirstOrDefault(c => c.Id == cardId) != null;
         }
 
         public static bool IsInReserve(Card<AbilityCardData> card)
         {
-            return loadedGame.reserveDeck.FirstOrDefault(c => c.Id == card.Id) != null;
+            return IsInReserve(card.Id);
         }
 
-        public static void PutInReserve(Card<AbilityCardData> card)
+        public static bool TryPutInReserve(Card<AbilityCardData> card, int minCardsInDeck, int maxCardsInDeck)
         {
-            loadedGame.reserveDeck.Add(card);
+            if (!IsInReserve(card.Id) && CurrentDeckCount(maxCardsInDeck) > minCardsInDeck)
+            {
+                loadedGame.reserveDeck.Add(card);
+                return true;
+            }
+
+            return false;
         }
 
-        public static void RemoveFromReserve(Card<AbilityCardData> card)
+        public static bool TryRemoveFromReserve(Card<AbilityCardData> card, int maxCardsInDeck)
         {
-            loadedGame.reserveDeck.RemoveAll(c => c.Id == card.Id);
+            if (IsInReserve(card.Id) && CurrentDeckCount(maxCardsInDeck) < maxCardsInDeck)
+            {
+                loadedGame.reserveDeck.RemoveAll(c => c.Id == card.Id);
+                return true;
+            }
+
+            return false;
         }
 
         public static void ReviveParty()

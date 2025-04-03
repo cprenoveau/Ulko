@@ -89,10 +89,10 @@ namespace Ulko
             permanentContainer = new GameObject("Universe");
             DontDestroyOnLoad(permanentContainer);
 
+            await Database.Init(main.stories, main.heroes, main.enemies);
+
             Settings.Init(main.settingsConfig);
             PlayerProfile.Init(main.newGame);
-
-            await Database.Init(main.stories, main.heroes, main.enemies);
 
             var locInstance = Instantiate(main.localizationPrefab, permanentContainer.transform);
             Localization.Init(locInstance);

@@ -7,6 +7,8 @@ namespace Ulko.Battle
     public class BattleConfig : ScriptableObject
     {
         public int maxHeroCount = 4;
+        public int minCardsInDeck = 5;
+        public int maxCardsInDeck = 15;
         public AbilityAsset cardThrowAbility;
     }
 }

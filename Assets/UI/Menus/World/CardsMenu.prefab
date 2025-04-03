@@ -372,6 +372,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSelected: {fileID: 0}
+  battleConfig: {fileID: 11400000, guid: cddb99c532a45b34484e341e1a48aafd, type: 2}
+  deckLabel: {fileID: 1618531559793403791}
   equipedDeckView: {fileID: 3521677632269624896}
   reserveDeckView: {fileID: 3174079135237130245}
 --- !u!1 &3863906418786115325
