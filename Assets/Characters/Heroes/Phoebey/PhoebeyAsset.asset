@@ -14,12 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: phoebey
   turnCooldown: 3
-  abilities:
-  - {fileID: 11400000, guid: 52cb1ac95117eca41a7b593d49603e82, type: 2}
-  - {fileID: 11400000, guid: 52cb1ac95117eca41a7b593d49603e82, type: 2}
-  - {fileID: 11400000, guid: 1894d56f77f745e408823a9ac1fb4e8a, type: 2}
-  - {fileID: 11400000, guid: 31d358ce6d601e947bb69c4eb04eebf6, type: 2}
-  status: []
   displayName: phoebey
   prefab:
     m_AssetGUID: 1ee151693cdf21b499927a2bf995fb2a
@@ -29,6 +23,7 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   portrait: {fileID: 21300000, guid: 3e72031e6cd75614792934d2bbb17dbd, type: 3}
   fullDrawing: {fileID: 21300000, guid: b89e732540b0d45408b80c61e915ecff, type: 3}
+  progression: {fileID: 11400000, guid: 268b85deb2a37f44d899039688fccb11, type: 2}
   animations:
   - tag: {fileID: 11400000, guid: 09a5f85b036c00f4097a19e8c1b746cf, type: 2}
     animation: {fileID: 11400000, guid: c519e385d4599e74f87a05ded67ea5c1, type: 2}

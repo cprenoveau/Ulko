@@ -30,6 +30,7 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   portrait: {fileID: 21300000, guid: cb20dbe9c8b26fa45a7527ea1b05d2ca, type: 3}
   fullDrawing: {fileID: 21300000, guid: 8893ed1ba3dbdf548a7f62d6e9e312a6, type: 3}
+  progression: {fileID: 11400000, guid: 467329c80c25fc246935250e9957d26c, type: 2}
   animations:
   - tag: {fileID: 11400000, guid: 09a5f85b036c00f4097a19e8c1b746cf, type: 2}
     animation: {fileID: 11400000, guid: 6c6eb1c893fe63b4d92a482577afe00f, type: 2}

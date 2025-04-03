@@ -265,10 +265,12 @@ namespace Ulko
             foreach (var hero in ActiveParty)
             {
                 var heroAsset = FindHero(CurrentStory, GetProgression(), hero.id);
-                for (int i = 0; i < heroAsset.abilities.Count; ++i)
+                var abilities = heroAsset.Abilities;
+
+                for (int i = 0; i < abilities.Count(); ++i)
                 {
                     int cardId = hero.id.GetHashCode() + i;
-                    var card = new Card<AbilityCardData>(cardId, new AbilityCardData(heroAsset.abilities[i], hero.id));
+                    var card = new Card<AbilityCardData>(cardId, new AbilityCardData(abilities.ElementAt(i), hero.id));
 
                     cards.Add(card);
                 }
@@ -284,7 +286,7 @@ namespace Ulko
             foreach (var hero in ActiveParty)
             {
                 var heroAsset = FindHero(CurrentStory, GetProgression(), hero.id);
-                abilities += heroAsset.abilities.Count;
+                abilities += heroAsset.Abilities.Count();
             }
 
             int cardCount = abilities - loadedGame.reserveDeck.Count;

@@ -14,13 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: bob
   turnCooldown: 3
-  abilities:
-  - {fileID: 11400000, guid: ae8afabd16bce77469821dea8be31e15, type: 2}
-  - {fileID: 11400000, guid: ae8afabd16bce77469821dea8be31e15, type: 2}
-  - {fileID: 11400000, guid: 33a23cabe19d43d4284ba341b063e55b, type: 2}
-  - {fileID: 11400000, guid: 7dd936ccd9672ed4b84be63bb90d5a1d, type: 2}
-  - {fileID: 11400000, guid: fb5d782e50dd2f045a952dcdaf38ca19, type: 2}
-  status: []
   displayName: bob
   prefab:
     m_AssetGUID: ff32988c16b732d4c841339c6d12fde2
@@ -30,6 +23,7 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   portrait: {fileID: 21300000, guid: 5597430e5833fd842bcb0425f3590485, type: 3}
   fullDrawing: {fileID: 21300000, guid: 9078eb7c1c351fa45a5dd298265afbbc, type: 3}
+  progression: {fileID: 11400000, guid: 3a00518be1a6e2748bbafb6641b47d67, type: 2}
   animations:
   - tag: {fileID: 11400000, guid: 09a5f85b036c00f4097a19e8c1b746cf, type: 2}
     animation: {fileID: 11400000, guid: c056132b6645381429b65a6cb31d8e9b, type: 2}

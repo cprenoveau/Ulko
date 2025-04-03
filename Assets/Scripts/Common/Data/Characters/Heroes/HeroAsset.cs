@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using Ulko.Data.Abilities;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -19,7 +21,11 @@ namespace Ulko.Data.Characters
         public AssetReferenceT<GameObject> prefab;
         public Sprite portrait;
         public Sprite fullDrawing;
+        public HeroProgression progression;
         public List<AnimationData> animations = new();
+
+        public override IEnumerable<AbilityAsset> Abilities => progression.GetAbilities(PlayerProfile.GetHeroLevel(id)).Select(a => a.ability);
+        public override IEnumerable<StatusAsset> Statuses => new List<StatusAsset>();
 
         public GameObject Instantiate(Transform parent)
         {

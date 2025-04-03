@@ -56,7 +56,7 @@ namespace Ulko.Battle
         public Level CurrentStats => BaseStats + Buff;
         public Level BaseStats => characterInternal.Stats;
         public Level Buff { get; private set; } = new Level();
-        public List<AbilityAsset> Abilities => Asset.abilities;
+        public IEnumerable<AbilityAsset> Abilities => Asset.Abilities;
         public List<StatusState> StatusState { get; private set; } = new List<StatusState>();
 
         public Vector3 Position { get; private set; }
@@ -112,7 +112,7 @@ namespace Ulko.Battle
 
             CharacterInstance.Stand(FacingDirection);
 
-            foreach(var status in Asset.status)
+            foreach(var status in Asset.Statuses)
             {
                 StatusState.Add(new StatusState(status, 10000, 0));
             }

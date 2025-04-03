@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Ulko.Data.Abilities;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -18,7 +19,12 @@ namespace Ulko.Data.Characters
         public string nameKey;
         public int level = 1;
         public AssetReferenceT<GameObject> prefab;
+        public List<AbilityAsset> abilities = new();
+        public List<StatusAsset> status = new();
         public List<AnimationData> animations = new();
+
+        public override IEnumerable<AbilityAsset> Abilities => abilities;
+        public override IEnumerable<StatusAsset> Statuses => status;
 
         public GameObject Instantiate(Transform parent)
         {

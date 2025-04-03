@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5c53770a1756664e8cd4acec32fb7ab, type: 3}
+  m_Name: UlkoProgression
+  m_EditorClassIdentifier: 
+  abilities:
+  - minLevel: 0
+    ability: {fileID: 11400000, guid: 6bf01be8e184b2141b73e83492911e32, type: 2}
+  - minLevel: 0
+    ability: {fileID: 11400000, guid: 6bf01be8e184b2141b73e83492911e32, type: 2}
+  - minLevel: 0
+    ability: {fileID: 11400000, guid: dad6f97a27dca8d40a80cdd7811ace29, type: 2}
+  - minLevel: 0
+    ability: {fileID: 11400000, guid: dad6f97a27dca8d40a80cdd7811ace29, type: 2}
+  - minLevel: 0
+    ability: {fileID: 11400000, guid: 442a52cab6ab75a4c9cf0f7d3a1964f3, type: 2}
+  - minLevel: 3
+    ability: {fileID: 11400000, guid: dafd57f915a7e4d44ac4450fdd59d8cf, type: 2}

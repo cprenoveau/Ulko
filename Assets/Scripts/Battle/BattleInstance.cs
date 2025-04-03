@@ -489,7 +489,8 @@ namespace Ulko.Battle
             var actions = new List<BattleActions>();
             var characters = CaptureCharacterStates();
 
-            actions.AddRange(CreateActions(0, actor.Abilities[UnityEngine.Random.Range(0, actor.Abilities.Count)], false, actor, characters));
+            int index = UnityEngine.Random.Range(0, actor.Abilities.Count());
+            actions.AddRange(CreateActions(0, actor.Abilities.ElementAt(index), false, actor, characters));
 
             return actions;
         }

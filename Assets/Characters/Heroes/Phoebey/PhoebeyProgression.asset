@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5c53770a1756664e8cd4acec32fb7ab, type: 3}
+  m_Name: PhoebeyProgression
+  m_EditorClassIdentifier: 
+  abilities:
+  - minLevel: 0
+    ability: {fileID: 11400000, guid: 52cb1ac95117eca41a7b593d49603e82, type: 2}
+  - minLevel: 0
+    ability: {fileID: 11400000, guid: 52cb1ac95117eca41a7b593d49603e82, type: 2}
+  - minLevel: 0
+    ability: {fileID: 11400000, guid: 1894d56f77f745e408823a9ac1fb4e8a, type: 2}
+  - minLevel: 0
+    ability: {fileID: 11400000, guid: ae8afabd16bce77469821dea8be31e15, type: 2}
+  - minLevel: 3
+    ability: {fileID: 11400000, guid: 31d358ce6d601e947bb69c4eb04eebf6, type: 2}

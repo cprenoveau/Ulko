@@ -14,12 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: ferlin
   turnCooldown: 3
-  abilities:
-  - {fileID: 11400000, guid: 256da18838cb2e54abcdd1fe0b6d847a, type: 2}
-  - {fileID: 11400000, guid: 256da18838cb2e54abcdd1fe0b6d847a, type: 2}
-  - {fileID: 11400000, guid: f99761e588a686e49a04fc26115fe18f, type: 2}
-  - {fileID: 11400000, guid: 23db4c12fc88ee44b991756f885872c3, type: 2}
-  status: []
   displayName: ferlin
   prefab:
     m_AssetGUID: 39423d94ce83b954c98273f6e9bbc303
@@ -29,6 +23,7 @@ MonoBehaviour:
     m_EditorAssetChanged: 0
   portrait: {fileID: 21300000, guid: 187cf8e6429744b4a89c0d0581574b32, type: 3}
   fullDrawing: {fileID: 21300000, guid: a91d9df149bdc0b49ac2f7ab7a620ca0, type: 3}
+  progression: {fileID: 11400000, guid: 82cbd8f5db9395a4a85d798b9594be4a, type: 2}
   animations:
   - tag: {fileID: 11400000, guid: 09a5f85b036c00f4097a19e8c1b746cf, type: 2}
     animation: {fileID: 11400000, guid: 8fd632f74c95bc94ab096dea30cde4dc, type: 2}

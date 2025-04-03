@@ -8,7 +8,8 @@ namespace Ulko.Data.Characters
     {
         public string id;
         public int turnCooldown = 3;
-        public List<AbilityAsset> abilities = new();
-        public List<StatusAsset> status = new();
+
+        public abstract IEnumerable<AbilityAsset> Abilities { get; }
+        public abstract IEnumerable<StatusAsset> Statuses { get; }
     }
 }
