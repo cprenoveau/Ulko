@@ -151,6 +151,14 @@ MonoBehaviour:
     m_Key: watashield_desc
     m_Metadata:
       m_Items: []
+  - m_Id: 12683999192276992
+    m_Key: caring_heart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12684144638156800
+    m_Key: caring_heart_desc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

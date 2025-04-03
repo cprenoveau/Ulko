@@ -94,6 +94,10 @@ MonoBehaviour:
     m_Localized: Bouclier Wata
     m_Metadata:
       m_Items: []
+  - m_Id: 12683999192276992
+    m_Localized: Coeur Bienveillant
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
