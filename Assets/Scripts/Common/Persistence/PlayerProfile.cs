@@ -42,7 +42,7 @@ namespace Ulko
         {
             if (gameCopy != null)
             {
-                loadedGame = gameCopy;
+                loadedGame = gameCopy.Clone();
                 gameCopy = null;
             }
         }
@@ -440,6 +440,19 @@ namespace Ulko
         }
 
         public static string CurrentStory => loadedGame.currentStory;
+
+        public static int GetCurrentChapter()
+        {
+            var progression = GetProgression(loadedGame.currentStory);
+
+            int chapter = progression.chapter + 1;
+            for(int i = 0; i < progression.act; ++i)
+            {
+                chapter += Database.Stories[loadedGame.currentStory].acts[i].chapters.Count;
+            }
+
+            return chapter;
+        }
 
         public static Progression GetProgression()
         {

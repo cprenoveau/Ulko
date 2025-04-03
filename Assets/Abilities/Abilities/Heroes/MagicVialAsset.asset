@@ -42,5 +42,5 @@ MonoBehaviour:
         healStat: 4
         healMultiplier: 0
         percentHeal: 0
-        flatHeal: 10
+        flatHeal: 20
         revive: 1

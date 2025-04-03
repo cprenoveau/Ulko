@@ -24,7 +24,7 @@ namespace Ulko.Data.Characters
         public HeroProgression progression;
         public List<AnimationData> animations = new();
 
-        public override IEnumerable<AbilityAsset> Abilities => progression.GetAbilities(PlayerProfile.GetHeroLevel(id)).Select(a => a.ability);
+        public override IEnumerable<AbilityAsset> Abilities => progression.GetAbilities(PlayerProfile.GetHeroLevel(id), PlayerProfile.GetCurrentChapter()).Select(a => a.ability);
         public override IEnumerable<StatusAsset> Statuses => new List<StatusAsset>();
 
         public GameObject Instantiate(Transform parent)

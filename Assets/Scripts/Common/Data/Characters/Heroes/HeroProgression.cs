@@ -12,14 +12,15 @@ namespace Ulko.Data.Characters
         public class AbilityProgression
         {
             public int minLevel;
+            public int minChapter;
             public Abilities.AbilityAsset ability;
         }
 
         public List<AbilityProgression> abilities = new();
 
-        public IEnumerable<AbilityProgression> GetAbilities(int level)
+        public IEnumerable<AbilityProgression> GetAbilities(int level, int chapter)
         {
-            return abilities.Where(a => level >= a.minLevel);
+            return abilities.Where(a => level >= a.minLevel && chapter >= a.minChapter);
         }
 
         public IEnumerable<AbilityProgression> GetNextAbilities(int currentLevel)
