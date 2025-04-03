@@ -154,16 +154,9 @@ namespace Ulko.Battle
         private void RefreshDeck()
         {
             DiscardPile.Flush();
+
             DrawPile.Flush();
-
-            foreach (var hero in Heroes)
-            {
-                foreach (var ability in hero.Abilities)
-                {
-                    DrawPile.TryAddCard(new Card<AbilityCardData>(new AbilityCardData(ability, hero.Id)));
-                }
-            }
-
+            DrawPile.TryAddCards(PlayerProfile.CurrentDeck());
             DrawPile.Shuffle();
         }
 

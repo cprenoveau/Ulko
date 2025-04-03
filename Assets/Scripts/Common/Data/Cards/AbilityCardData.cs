@@ -8,6 +8,8 @@ namespace Ulko.Data
         public AbilityAsset abilityAsset;
         public string ownerId;
 
+        public AbilityCardData() { }
+
         public AbilityCardData(AbilityAsset abilityAsset, string ownerId)
         {
             this.abilityAsset = abilityAsset;
