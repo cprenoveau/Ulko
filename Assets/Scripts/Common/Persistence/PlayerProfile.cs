@@ -202,23 +202,30 @@ namespace Ulko
             var currentDeck = new DeckOfCards();
             var reserveDeck = new DeckOfCards();
 
-            foreach (var hero in ActiveParty)
+            var equipedCards = AllAbilityCards();
+            equipedCards.RemoveAll(c => IsInReserve(c));
+
+            while (equipedCards.Count > maxCards)
             {
-                var heroAsset = FindHero(CurrentStory, GetProgression(), hero.id);
-                for(int i = 0; i < heroAsset.abilities.Count; ++i)
+                foreach (var hero in ActiveParty)
                 {
-                    int cardId = hero.id.GetHashCode() + i;
+                    if (equipedCards.Count <= maxCards)
+                        break;
 
-                    if (!IsInReserve(cardId))
+                    int cardIndex = equipedCards.FindLastIndex(c => c.Data.ownerId == hero.id);
+                    if (cardIndex != -1)
                     {
-                        var card = new Card<AbilityCardData>(cardId, new AbilityCardData(heroAsset.abilities[i], hero.id));
+                        var card = equipedCards[cardIndex];
 
-                        if (currentDeck.Count() >= maxCards)
-                            reserveDeck.TryAddCard(card);
-                        else
-                            currentDeck.TryAddCard(card);
+                        reserveDeck.TryAddCard(card);
+                        equipedCards.RemoveAt(cardIndex);
                     }
                 }
+            }
+
+            foreach(var card in equipedCards)
+            {
+                currentDeck.TryAddCard(card);
             }
 
             foreach (var card in loadedGame.reserveDeck)
@@ -227,6 +234,25 @@ namespace Ulko
             }
 
             return (currentDeck, reserveDeck);
+        }
+
+        public static List<Card<AbilityCardData>> AllAbilityCards()
+        {
+            var cards = new List<Card<AbilityCardData>>();
+
+            foreach (var hero in ActiveParty)
+            {
+                var heroAsset = FindHero(CurrentStory, GetProgression(), hero.id);
+                for (int i = 0; i < heroAsset.abilities.Count; ++i)
+                {
+                    int cardId = hero.id.GetHashCode() + i;
+                    var card = new Card<AbilityCardData>(cardId, new AbilityCardData(heroAsset.abilities[i], hero.id));
+
+                    cards.Add(card);
+                }
+            }
+
+            return cards;
         }
 
         public static int CurrentDeckCount(int maxCards)
