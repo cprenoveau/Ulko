@@ -41,7 +41,7 @@ MonoBehaviour:
         condition: {fileID: 11400000, guid: 389e848f4890adc4c9aa45a4a4b6bba7, type: 2}
         stat: 5
         multiply: 1
-        add: 10
+        add: 20
         isPermanent: 1
     - rid: 8319834670752596052
       type: {class: PlayVFX, ns: Ulko.Data.Abilities, asm: Ulko.Common}
