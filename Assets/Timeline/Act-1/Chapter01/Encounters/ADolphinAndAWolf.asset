@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e9cca3d02b5d6b479b6257c9bc73f44, type: 3}
-  m_Name: TestEncounter01
+  m_Name: ADolphinAndAWolf
   m_EditorClassIdentifier: 
   sceneAddress: TestEncounter
-  minMoney: 80
-  maxMoney: 100
   enemies:
   - positionIndex: 0
     asset: {fileID: 11400000, guid: 703086cae10ddbe4a9d192f79139423f, type: 2}
   - positionIndex: 1
-    asset: {fileID: 11400000, guid: 703086cae10ddbe4a9d192f79139423f, type: 2}
+    asset: {fileID: 11400000, guid: d56f93b135acb384a8d73f228373dc6e, type: 2}

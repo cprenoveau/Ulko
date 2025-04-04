@@ -170,6 +170,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91e446fb10197e84c8c375cc74862c2a
+    m_Address: TheCoast
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95c23d7799246c749bf45d7c17f8978e
     m_Address: Startup
     m_ReadOnly: 0

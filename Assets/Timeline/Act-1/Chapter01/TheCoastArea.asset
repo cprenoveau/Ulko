@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f4a80cbb0ea0a84ea128d4d0d8a9b8c, type: 3}
-  m_Name: TestSpawnPoint
+  m_Script: {fileID: 11500000, guid: aad338bbcc24ad64ab0c8bdf473c5d6e, type: 3}
+  m_Name: TheCoastArea
   m_EditorClassIdentifier: 
-  id: test
+  id: the_coast

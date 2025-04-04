@@ -15,30 +15,18 @@ MonoBehaviour:
   m_TableCollectionName: Locations
   m_TableCollectionNameGuidString: 117f2d8d1d452e94f9d0b8e29650d4a0
   m_Entries:
-  - m_Id: 20444123136
-    m_Key: falwood
-    m_Metadata:
-      m_Items: []
-  - m_Id: 124358194187337728
-    m_Key: demonkin_house
-    m_Metadata:
-      m_Items: []
-  - m_Id: 124623516718989312
-    m_Key: sigrid_house
-    m_Metadata:
-      m_Items: []
-  - m_Id: 124653536267075584
-    m_Key: falwood_church
+  - m_Id: 73659310080
+    m_Key: the_coast
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 0
+    rid: 2764259157260369996
   references:
     version: 2
     RefIds:
-    - rid: 0
+    - rid: 2764259157260369996
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1648928480517
+        m_CustomEpoch: 1743769832526

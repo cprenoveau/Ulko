@@ -382,6 +382,25 @@ MonoBehaviour:
     m_Localized: Shield
     m_Metadata:
       m_Items: []
+  - m_Id: 399610477638836224
+    m_Localized: Your physical fitness. Strength is added to all attacks.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 399610814382727168
+    m_Localized: Your general cognitive ability. It predicts your score on an IQ
+      test. Intelligence beats intuition.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 399610996319051776
+    m_Localized: Your connection to nature and to the unity of the Universe. A skill
+      Ulko definitely lacks. Wisdom beats intelligence.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 399611487287500800
+    m_Localized: Your unconscious ability to perceive reality and solve problems
+      while being oblivious to the process. Intuition beats wisdom.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

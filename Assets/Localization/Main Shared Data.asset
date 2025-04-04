@@ -375,6 +375,22 @@ MonoBehaviour:
     m_Key: stat_shield
     m_Metadata:
       m_Items: []
+  - m_Id: 399610477638836224
+    m_Key: strength_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 399610814382727168
+    m_Key: intelligence_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 399610996319051776
+    m_Key: wisdom_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 399611487287500800
+    m_Key: intuition_desc
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

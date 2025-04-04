@@ -65,3 +65,8 @@ MonoBehaviour:
       m_TableReference:
         m_TableCollectionName: GUID:4e6851dee0d247d438a40c59a8c8e30b
     tableCache: {fileID: 0}
+  - tableId: locations
+    table:
+      m_TableReference:
+        m_TableCollectionName: GUID:117f2d8d1d452e94f9d0b8e29650d4a0
+    tableCache: {fileID: 0}
