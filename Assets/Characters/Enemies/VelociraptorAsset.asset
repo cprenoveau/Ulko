@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: VelociraptorAsset
   m_EditorClassIdentifier: 
   id: intelligent
-  turnCooldown: 4
+  turnCooldown: 3
   nameKey: velociraptor
   level: 2
   prefab:

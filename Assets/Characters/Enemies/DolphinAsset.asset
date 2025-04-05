@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DolphinAsset
   m_EditorClassIdentifier: 
   id: intelligent
-  turnCooldown: 3
+  turnCooldown: 2
   nameKey: dolphin
   level: 1
   prefab:

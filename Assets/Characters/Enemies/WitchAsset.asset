@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WitchAsset
   m_EditorClassIdentifier: 
   id: intuitive
-  turnCooldown: 4
+  turnCooldown: 3
   nameKey: witch
   level: 2
   prefab:

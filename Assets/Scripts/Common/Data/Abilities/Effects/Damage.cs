@@ -88,7 +88,7 @@ namespace Ulko.Data.Abilities
             var characterType = target.GetCharacterType();
             foreach (var stat in characterType)
             {
-                attackMult *= config.GetAttackMultiplier(attackStat, stat);
+                attackMult += config.GetAttackMultiplier(attackStat, stat) - 1f;
             }
 
             return attackMult;

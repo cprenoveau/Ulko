@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: CatAsset
   m_EditorClassIdentifier: 
   id: intuitive
-  turnCooldown: 3
-  abilities:
-  - {fileID: 11400000, guid: a7803af48de9bcf4d86c912f58a3a844, type: 2}
-  status:
-  - {fileID: 11400000, guid: 1c019e52809e8084980df2e41bbb4c19, type: 2}
+  turnCooldown: 2
   nameKey: cat
   level: 1
   prefab:
@@ -26,6 +22,10 @@ MonoBehaviour:
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  abilities:
+  - {fileID: 11400000, guid: a7803af48de9bcf4d86c912f58a3a844, type: 2}
+  status:
+  - {fileID: 11400000, guid: 1c019e52809e8084980df2e41bbb4c19, type: 2}
   animations:
   - tag: {fileID: 11400000, guid: 062d7c818afcd5649a0ac964cc14962f, type: 2}
     animation: {fileID: 11400000, guid: 7edb7187b080b1745a6dd26e624fe1ea, type: 2}
