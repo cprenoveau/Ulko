@@ -14,8 +14,8 @@
       {
         "level": 2.0,
         "exp": 16.0,
-        "maxHP": 120.0,
-        "strength": 30.0,
+        "maxHP": 100.0,
+        "strength": 25.0,
         "wisdom": 0.0,
         "intuition": 0.0,
         "intelligence": 0.0
@@ -37,11 +37,11 @@
       {
         "level": 2.0,
         "exp": 16.0,
-        "maxHP": 120.0,
-        "strength": 15.0,
+        "maxHP": 100.0,
+        "strength": 10.0,
         "wisdom": 0.0,
         "intuition": 0.0,
-        "intelligence": 25.0
+        "intelligence": 20.0
       }
     ]
   },
@@ -60,9 +60,9 @@
       {
         "level": 2.0,
         "exp": 16.0,
-        "maxHP": 120.0,
-        "strength": 15.0,
-        "wisdom": 25.0,
+        "maxHP": 100.0,
+        "strength": 10.0,
+        "wisdom": 20.0,
         "intuition": 0.0,
         "intelligence": 0.0
       }
@@ -83,10 +83,10 @@
       {
         "level": 2.0,
         "exp": 16.0,
-        "maxHP": 120.0,
-        "strength": 15.0,
+        "maxHP": 100.0,
+        "strength": 10.0,
         "wisdom": 0.0,
-        "intuition": 25.0,
+        "intuition": 20.0,
         "intelligence": 0.0
       }
     ]

@@ -158,7 +158,7 @@ MonoBehaviour:
         - {fileID: 11400000, guid: 1b7e667ce5250254c8232ea96caa6df9, type: 2}
         - {fileID: 11400000, guid: d9ba2d95d7c950542be1074eba084577, type: 2}
         showSavePrompt: 1
-        battleAsset: {fileID: 11400000, guid: 4559b86dc63ce804d95e6115baf63742, type: 2}
+        battleAsset: {fileID: 11400000, guid: a972f7c92da8a0d4f9efad0f94a7ede3, type: 2}
     - rid: 8319834483457523869
       type: {class: BossBattle, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:

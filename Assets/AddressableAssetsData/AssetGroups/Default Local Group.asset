@@ -65,6 +65,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2da7cd2580800834d8e7bdd574ad9e11
+    m_Address: Assets/Characters/Enemies/Witch/Witch.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 300e98d624edece459920875eaf68b12
     m_Address: Chapter01_Cutscene02
     m_ReadOnly: 0
@@ -122,6 +127,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5456c658e07683744b1ec8350baa60e0
     m_Address: Assets/UI/Menus/WorldHud.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 588832cb4bff7454dbc0f726f7241405
+    m_Address: TheWitchBossBattle
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

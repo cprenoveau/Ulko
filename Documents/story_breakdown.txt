@@ -51,7 +51,7 @@ Chapter 3: The Curse
 	Cutscene 05: Debrief in Bob's office
 	Cutscene 06: Ulko gets his bag stolen
 	Interactable Cutscene 07: The chase
-	[Boss Fight 1: The Witches]
+	[Boss Fight 1: The Witch]
 	Cutscene 08: Phoebey wins the fight
 	Cutscene 09: Back into Bob's office
 	Cutscene 10: Ulko and Phoebey in the corridor
@@ -74,7 +74,7 @@ Chapter 5: The Witch
 	Cutscene 02: Outside the inn
 	[World 9 The Forest]
 	Cutscene 03: Getting ambushed by witches
-	[Boss Fight 2: The Witches Again]
+	[Boss Fight 2: The Witches]
 	Cutscene 04: They lost the fight
 	Cutscene 05: Sitting in a dungeon
 	Cutscene 06: Meeting Mother Karistal
@@ -96,7 +96,7 @@ Chapter 6: The Butterfly
 	Cutscene 07: In Bob's office
 	Cutscene 08: Ulko gets his bag stolen
 	Interactable Cutscene 09: The chase
-	[Boss Fight 4: The Witches]
+	[Boss Fight 4: The Witches Again]
 	Cutscene 09: Back into Bob's office
 	Cutscene 10: Ulko and Phoebey in the corridor
 

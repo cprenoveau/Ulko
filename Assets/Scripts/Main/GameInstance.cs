@@ -154,7 +154,6 @@ namespace Ulko
             if (ct.IsCancellationRequested)
                 return;
 
-            PlayerProfile.SaveTempState();
             CurrentBattle = battle;
 
             await sceneStack.Jump(battle.sceneAddress, null);

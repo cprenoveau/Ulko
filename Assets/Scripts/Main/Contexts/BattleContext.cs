@@ -55,6 +55,8 @@ namespace Ulko.Contexts
 
         private async Task DoBattle(CancellationToken ct)
         {
+            PlayerProfile.SaveTempState();
+
             var result = await BattleFunctions.DoBattle(
                 battleInstance,
                 cam,

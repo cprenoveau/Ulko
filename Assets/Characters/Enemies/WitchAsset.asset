@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b13fe2d8047e95542bef27d7bc984ae4, type: 3}
+  m_Name: WitchAsset
+  m_EditorClassIdentifier: 
+  id: intuitive
+  turnCooldown: 3
+  nameKey: cat
+  level: 2
+  prefab:
+    m_AssetGUID: 2da7cd2580800834d8e7bdd574ad9e11
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  abilities:
+  - {fileID: 11400000, guid: a7803af48de9bcf4d86c912f58a3a844, type: 2}
+  status:
+  - {fileID: 11400000, guid: 1c019e52809e8084980df2e41bbb4c19, type: 2}
+  animations:
+  - tag: {fileID: 11400000, guid: 062d7c818afcd5649a0ac964cc14962f, type: 2}
+    animation: {fileID: 11400000, guid: 470e0c3476f357449ade36a8870e5209, type: 2}
+  - tag: {fileID: 11400000, guid: 596f3e284d854034c9fbdde789183ca9, type: 2}
+    animation: {fileID: 11400000, guid: 7031ee575e866c44c8ead11de9b2b11f, type: 2}

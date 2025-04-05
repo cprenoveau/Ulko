@@ -193,7 +193,7 @@
   },
   {
     "id": "phoebey",
-    "minLevel": 1.0,
+    "minLevel": 5.0,
     "levels": [
       {
         "level": 1.0,
@@ -289,7 +289,7 @@
   },
   {
     "id": "bob",
-    "minLevel": 1.0,
+    "minLevel": 5.0,
     "levels": [
       {
         "level": 1.0,

@@ -125,14 +125,14 @@ MonoBehaviour:
     - rid: 8319834483457523857
       type: {class: BossBattle, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
-        name: The Witches
+        name: The Witch
         lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         isInterior: 0
         setPartyOrder: 0
         party:
         - {fileID: 11400000, guid: 45887f0254b8b0c40bdd089a9367e04d, type: 2}
         showSavePrompt: 1
-        battleAsset: {fileID: 11400000, guid: 4559b86dc63ce804d95e6115baf63742, type: 2}
+        battleAsset: {fileID: 11400000, guid: a2d6e0e4f6a0c9b4a8e0b4c11d774c57, type: 2}
     - rid: 8319834483457523858
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
