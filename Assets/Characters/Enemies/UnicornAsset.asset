@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b13fe2d8047e95542bef27d7bc984ae4, type: 3}
-  m_Name: WitchAsset
+  m_Name: UnicornAsset
   m_EditorClassIdentifier: 
-  id: intuitive
+  id: wise
   turnCooldown: 3
-  nameKey: witch
+  nameKey: unicorn
   level: 2
   prefab:
-    m_AssetGUID: 2da7cd2580800834d8e7bdd574ad9e11
+    m_AssetGUID: 9144717123e6d5445b6587421356a1e6
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   abilities:
-  - {fileID: 11400000, guid: a7803af48de9bcf4d86c912f58a3a844, type: 2}
+  - {fileID: 11400000, guid: 8b45d1ad3e62afe4da5b70ee8336d183, type: 2}
   status:
-  - {fileID: 11400000, guid: 1c019e52809e8084980df2e41bbb4c19, type: 2}
+  - {fileID: 11400000, guid: 892aa9faca8af7e47abf4b618800dc2d, type: 2}
   animations:
   - tag: {fileID: 11400000, guid: 062d7c818afcd5649a0ac964cc14962f, type: 2}
-    animation: {fileID: 11400000, guid: 470e0c3476f357449ade36a8870e5209, type: 2}
+    animation: {fileID: 11400000, guid: 842909d8eeac13e4ca92572c2fdd3151, type: 2}
   - tag: {fileID: 11400000, guid: 596f3e284d854034c9fbdde789183ca9, type: 2}
-    animation: {fileID: 11400000, guid: 7031ee575e866c44c8ead11de9b2b11f, type: 2}
+    animation: {fileID: 11400000, guid: 0cfd8bd2004f6844b926db6a781a9706, type: 2}

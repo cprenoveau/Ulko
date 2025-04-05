@@ -180,6 +180,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9144717123e6d5445b6587421356a1e6
+    m_Address: Assets/Characters/Enemies/Unicorn/Unicorn.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91e446fb10197e84c8c375cc74862c2a
     m_Address: TheCoast
     m_ReadOnly: 0

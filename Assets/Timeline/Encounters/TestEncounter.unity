@@ -170,7 +170,7 @@ PrefabInstance:
     - target: {fileID: 1360665457847583915, guid: 7110f6e025c7997418212fc8fca6b8b6, type: 3}
       propertyPath: startingEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: 411c46b214742e54fa1603449ed72bd1, type: 2}
+      objectReference: {fileID: 11400000, guid: 53adbc6f1997bdc4fa209a989d86241b, type: 2}
     - target: {fileID: 1360665457847583915, guid: 7110f6e025c7997418212fc8fca6b8b6, type: 3}
       propertyPath: startingMilestone
       value: The Coast
@@ -301,10 +301,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6270908931295115404, guid: 7305f845dc76e0249ab917d84d69b891, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6270908931295115404, guid: 7305f845dc76e0249ab917d84d69b891, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -301,18 +301,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6270908930274268883, guid: 7305f845dc76e0249ab917d84d69b891, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 11.700002
-      objectReference: {fileID: 0}
-    - target: {fileID: 6270908930274268883, guid: 7305f845dc76e0249ab917d84d69b891, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 14.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 6270908931295115404, guid: 7305f845dc76e0249ab917d84d69b891, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6270908931295115404, guid: 7305f845dc76e0249ab917d84d69b891, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -356,22 +344,6 @@ PrefabInstance:
     - target: {fileID: 6270908931295115405, guid: 7305f845dc76e0249ab917d84d69b891, type: 3}
       propertyPath: m_Name
       value: Battlefield
-      objectReference: {fileID: 0}
-    - target: {fileID: 6270908931842535226, guid: 7305f845dc76e0249ab917d84d69b891, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 15.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 6270908931842535226, guid: 7305f845dc76e0249ab917d84d69b891, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 16.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 6270908932020910904, guid: 7305f845dc76e0249ab917d84d69b891, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 18.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6270908932020910904, guid: 7305f845dc76e0249ab917d84d69b891, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 18.69
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
