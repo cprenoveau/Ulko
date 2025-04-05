@@ -375,16 +375,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3118779298537134537}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace946e9071dd58429ff93dbc814be80, type: 3}
+  m_Script: {fileID: 11500000, guid: ffcb3d1b794471044a4c4e9292c3e0cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   firstSelected: {fileID: 4140547185355877402}
   config: {fileID: 11400000, guid: 645d861f89d95b84aa0b6b311d1bd1c1, type: 2}
+  newAbilityPopup: {fileID: 11400000, guid: a596f140a651c8a428744802f9476c2f, type: 2}
   levelUpText: {fileID: 158130965342009336}
   levelUpStat: {fileID: 1993451403503256277}
   statPrefab: {fileID: 6254035158548274371, guid: f5e8bf66f4cbef14e94b192ac877972d, type: 3}
   statParent: {fileID: 6546209570261774872}
-  closeButton: {fileID: 1928141275489542034}
+  nextButton: {fileID: 1928141275489542034}
 --- !u!1 &3985818624951065540
 GameObject:
   m_ObjectHideFlags: 0

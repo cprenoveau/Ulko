@@ -366,6 +366,10 @@ MonoBehaviour:
     m_Localized: Bouclier
     m_Metadata:
       m_Items: []
+  - m_Id: 400023225522708480
+    m_Localized: Nouvelle Carte!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

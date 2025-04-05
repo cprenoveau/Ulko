@@ -1,10 +1,13 @@
-﻿using Ulko.Battle;
-using Ulko.Data;
+﻿using Ulko.Data;
 using HotChocolate.UI;
 using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+using System.Collections;
+using Ulko.Data.Abilities;
+using System.Collections.Generic;
 
 namespace Ulko.UI
 {
@@ -21,12 +24,14 @@ namespace Ulko.UI
     public class LevelUpScreen : Menu
     {
         public UiConfig config;
+        public MenuDefinition newAbilityPopup;
+
         public TMP_Text levelUpText;
         public StatView levelUpStat;
 
         public StatView statPrefab;
         public RectTransform statParent;
-        public Button closeButton;
+        public Button nextButton;
 
         private MenuStack stack;
         private LevelUpScreenData data;
@@ -35,7 +40,7 @@ namespace Ulko.UI
 
         private void Start()
         {
-            closeButton.onClick.AddListener(Close);
+            nextButton.onClick.AddListener(ShowNewAbilities);
             Localization.LocaleChanged += Refresh;
         }
 
@@ -91,9 +96,47 @@ namespace Ulko.UI
             return false;
         }
 
-        private void Close()
+        private void ShowNewAbilities()
         {
+            StartCoroutine(ShowNewAbilitiesAsync());
+        }
+
+        private IEnumerator ShowNewAbilitiesAsync()
+        {
+            var heroAsset = PlayerProfile.FindHero(PlayerProfile.CurrentStory, PlayerProfile.GetProgression(), data.heroId);
+
+            var oldAbilities = heroAsset.AbilitiesForLevel(data.oldLevel);
+            var newAbilities = heroAsset.Abilities;
+
+            if (newAbilities.Count() > oldAbilities.Count())
+            {
+                var hero = PlayerProfile.GetPartyMember(data.heroId);
+                var character = new CharacterState(data.heroId, heroAsset.displayName, hero.hp, CharacterSide.Heroes, PlayerProfile.GetHeroStats(data.heroId), new Level(), new List<StatusState>());
+
+                foreach (var newAbilty in newAbilities)
+                {
+                    if (!oldAbilities.Contains(newAbilty))
+                    {
+                        yield return ShowNewAbilityAsync(newAbilty, character);
+                    }
+                }
+            }
+
             stack.Pop();
+        }
+
+        private IEnumerator ShowNewAbilityAsync(AbilityAsset ability, CharacterState character)
+        {
+            stack.Push(newAbilityPopup.asset, newAbilityPopup.id, new NewAbilityPopupData
+            {
+                ability = ability,
+                character = character
+            });
+
+            while(stack.PendingCount > 0 || stack.Top.Id != Id)
+            {
+                yield return null;
+            }
         }
     }
 }

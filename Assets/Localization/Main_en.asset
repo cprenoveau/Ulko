@@ -385,6 +385,10 @@ MonoBehaviour:
       while being oblivious to the process. Intuition beats wisdom.
     m_Metadata:
       m_Items: []
+  - m_Id: 400023225522708480
+    m_Localized: New Card!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

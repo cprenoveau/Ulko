@@ -375,6 +375,10 @@ MonoBehaviour:
     m_Key: wisdom_desc
     m_Metadata:
       m_Items: []
+  - m_Id: 400023225522708480
+    m_Key: new_card
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
