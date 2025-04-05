@@ -17,10 +17,12 @@ MonoBehaviour:
   probability: 0.5
   encounters:
   - frequency: 1
+    battle: {fileID: 11400000, guid: 411c46b214742e54fa1603449ed72bd1, type: 2}
+  - frequency: 1
+    battle: {fileID: 11400000, guid: 01abf3458eb617c4aa12fe7f93e45ae2, type: 2}
+  - frequency: 1
+    battle: {fileID: 11400000, guid: f36f000aac99e234ebde45c58590beb3, type: 2}
+  - frequency: 1
+    battle: {fileID: 11400000, guid: 55433677824ed5e4baa904fbc2f2f3fd, type: 2}
+  - frequency: 1
     battle: {fileID: 11400000, guid: 4559b86dc63ce804d95e6115baf63742, type: 2}
-  - frequency: 1
-    battle: {fileID: 11400000, guid: 1bc3b070fbba921498c50bc995618458, type: 2}
-  - frequency: 1
-    battle: {fileID: 11400000, guid: bb3ec8b9a692c3f47ba27ffb7ff3fa9c, type: 2}
-  - frequency: 1
-    battle: {fileID: 11400000, guid: 2f7bb681c60a019458642411f18e9dbc, type: 2}

@@ -17,6 +17,7 @@ namespace Ulko.Data
         public int minSteps = 10;
         public int checkInterval = 5;
         public float probability = 1;
+        public bool pickInOrder;
         public List<Encounter> encounters = new();
 
         public int TryFindEncounterIndex(Encounter encounter)
@@ -51,21 +52,29 @@ namespace Ulko.Data
             return null;
         }
 
-        private readonly List<Encounter> remaining = new();
+        private static readonly Dictionary<Encounters, List<Encounter>> remaining = new();
         private Encounter PickEncounter()
         {
-            if(remaining.Count == 0)
+            if (!remaining.ContainsKey(this))
+                remaining.Add(this, new List<Encounter>());
+
+            if (remaining[this].Count == 0)
             {
                 foreach (var encounter in encounters)
                 {
                     for(int i = 0; i < encounter.frequency; ++i)
-                        remaining.Add(encounter);
+                        remaining[this].Add(encounter);
                 }
             }
 
-            int index = UnityEngine.Random.Range(0, remaining.Count);
-            var picked = remaining[index];
-            remaining.RemoveAt(index);
+            int index = 0;
+            if(!pickInOrder)
+            {
+                index = UnityEngine.Random.Range(0, remaining.Count);
+            }
+
+            var picked = remaining[this][index];
+            remaining[this].RemoveAt(index);
 
             return picked;
         }

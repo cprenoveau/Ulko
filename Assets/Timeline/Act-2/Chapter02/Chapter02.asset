@@ -43,14 +43,14 @@ MonoBehaviour:
       type: {class: Level, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
         name: The Cliff
-        sceneAddress: LevelTest
+        sceneAddress: TheCliff
         lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         setPartyOrder: 1
         party:
         - {fileID: 11400000, guid: b75ccacbaebd95546aac0918add8b32e, type: 2}
         - {fileID: 11400000, guid: 1b7e667ce5250254c8232ea96caa6df9, type: 2}
         showSavePrompt: 0
-        area: {fileID: 11400000, guid: 90fc23306b565ad4da4088653883701d, type: 2}
+        area: {fileID: 11400000, guid: 0f1906d82a7bf944b9d9f1e2b603ea11, type: 2}
         spawnPoint: {fileID: 11400000, guid: dd34cea886fa6924e85be34c2ef5e3f6, type: 2}
     - rid: 8319834483457523796
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
@@ -76,14 +76,14 @@ MonoBehaviour:
       type: {class: Level, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
         name: The Rocky Hill
-        sceneAddress: LevelTest
+        sceneAddress: TheCliff
         lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         setPartyOrder: 0
         party:
         - {fileID: 11400000, guid: b75ccacbaebd95546aac0918add8b32e, type: 2}
         - {fileID: 11400000, guid: 1b7e667ce5250254c8232ea96caa6df9, type: 2}
         showSavePrompt: 0
-        area: {fileID: 11400000, guid: 90fc23306b565ad4da4088653883701d, type: 2}
+        area: {fileID: 11400000, guid: 0f1906d82a7bf944b9d9f1e2b603ea11, type: 2}
         spawnPoint: {fileID: 11400000, guid: dd34cea886fa6924e85be34c2ef5e3f6, type: 2}
     - rid: 8319834483457523827
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}

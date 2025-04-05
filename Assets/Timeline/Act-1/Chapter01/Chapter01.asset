@@ -110,13 +110,13 @@ MonoBehaviour:
       type: {class: Level, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
         name: The Lighthouse
-        sceneAddress: LevelTest
+        sceneAddress: TheCoast
         lightingAndWeather: {fileID: 11400000, guid: 7587c4c1b9cad0548a22e8713550040b, type: 2}
         setPartyOrder: 0
         party:
         - {fileID: 11400000, guid: b75ccacbaebd95546aac0918add8b32e, type: 2}
         showSavePrompt: 0
-        area: {fileID: 11400000, guid: 90fc23306b565ad4da4088653883701d, type: 2}
+        area: {fileID: 11400000, guid: 253bb3cc3c097c24b80717bb0b36aee3, type: 2}
         spawnPoint: {fileID: 11400000, guid: dd34cea886fa6924e85be34c2ef5e3f6, type: 2}
     - rid: 8319834483457523827
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}

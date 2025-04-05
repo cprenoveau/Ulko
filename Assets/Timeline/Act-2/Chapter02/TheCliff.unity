@@ -1390,7 +1390,7 @@ GameObject:
   - component: {fileID: 1955767679}
   - component: {fileID: 1955767680}
   m_Layer: 0
-  m_Name: TestArea
+  m_Name: TheCliff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1430,8 +1430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56ca95165ab1044c89393326f6c15c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaTag: {fileID: 11400000, guid: 90fc23306b565ad4da4088653883701d, type: 2}
-  encounters: {fileID: 11400000, guid: 8d64905492d190f4aa4ba8e6c866546b, type: 2}
+  areaTag: {fileID: 11400000, guid: 0f1906d82a7bf944b9d9f1e2b603ea11, type: 2}
+  encounters: {fileID: 11400000, guid: 21660817ea27e6b4db2c8c2c3064e848, type: 2}
   ambientAudioConfig: {fileID: 0}
   musicDef: {fileID: 0}
   limits: {fileID: 722875408}

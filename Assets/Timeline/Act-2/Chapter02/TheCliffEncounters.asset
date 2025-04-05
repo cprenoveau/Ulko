@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57192d280a5b8c54c9b9943d2bba7aa8, type: 3}
-  m_Name: TheCoastEncounters
+  m_Name: TheCliffEncounters
   m_EditorClassIdentifier: 
   minSteps: 10
   checkInterval: 5
@@ -22,3 +22,7 @@ MonoBehaviour:
     battle: {fileID: 11400000, guid: 55433677824ed5e4baa904fbc2f2f3fd, type: 2}
   - frequency: 1
     battle: {fileID: 11400000, guid: 01abf3458eb617c4aa12fe7f93e45ae2, type: 2}
+  - frequency: 1
+    battle: {fileID: 11400000, guid: f36f000aac99e234ebde45c58590beb3, type: 2}
+  - frequency: 1
+    battle: {fileID: 11400000, guid: 411c46b214742e54fa1603449ed72bd1, type: 2}
