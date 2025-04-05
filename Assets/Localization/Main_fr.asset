@@ -82,10 +82,6 @@ MonoBehaviour:
     m_Localized: Effacer
     m_Metadata:
       m_Items: []
-  - m_Id: 373179914614988800
-    m_Localized: Jeter la Main
-    m_Metadata:
-      m_Items: []
   - m_Id: 11925375503433728
     m_Localized: Fuir
     m_Metadata:
@@ -122,14 +118,6 @@ MonoBehaviour:
     m_Localized: "Inflige {0} points de d\xE9g\xE2t"
     m_Metadata:
       m_Items: []
-  - m_Id: 50367762906873856
-    m_Localized: "Gu\xE9rit des PV bas\xE9 sur {0}% {2} de type {1}"
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50368019271122944
-    m_Localized: "Gu\xE9rit des PV bas\xE9 sur {0}% {1}"
-    m_Metadata:
-      m_Items: []
   - m_Id: 50368085205581824
     m_Localized: "Gu\xE9rit {0}% des PV"
     m_Metadata:
@@ -156,10 +144,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 51403770637189120
     m_Localized: Prochain Niv dans:{0}
-    m_Metadata:
-      m_Items: []
-  - m_Id: 51413480060878848
-    m_Localized: "Se d\xE9bloque au Niveau {0}"
     m_Metadata:
       m_Items: []
   - m_Id: 52173637481005056

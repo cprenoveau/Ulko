@@ -127,20 +127,12 @@ MonoBehaviour:
     m_Key: heal_all
     m_Metadata:
       m_Items: []
-  - m_Id: 50368019271122944
-    m_Key: heal_desc
-    m_Metadata:
-      m_Items: []
   - m_Id: 50368211680624640
     m_Key: heal_flat_desc
     m_Metadata:
       m_Items: []
   - m_Id: 50368085205581824
     m_Key: heal_percent_desc
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50367762906873856
-    m_Key: heal_wtype_desc
     m_Metadata:
       m_Items: []
   - m_Id: 273697502483439616
@@ -153,6 +145,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 1758003859591168
     m_Key: hp_value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 399610814382727168
+    m_Key: intelligence_desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 399611487287500800
+    m_Key: intuition_desc
     m_Metadata:
       m_Items: []
   - m_Id: 55134130759925760
@@ -315,6 +315,10 @@ MonoBehaviour:
     m_Key: stat_maxhp
     m_Metadata:
       m_Items: []
+  - m_Id: 397584292100694016
+    m_Key: stat_shield
+    m_Metadata:
+      m_Items: []
   - m_Id: 386647019653947392
     m_Key: stat_strength
     m_Metadata:
@@ -333,6 +337,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 99628456309141504
     m_Key: status_value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 399610477638836224
+    m_Key: strength_desc
     m_Metadata:
       m_Items: []
   - m_Id: 391373494303055872
@@ -355,14 +363,6 @@ MonoBehaviour:
     m_Key: total_exp
     m_Metadata:
       m_Items: []
-  - m_Id: 373179914614988800
-    m_Key: trash_hand
-    m_Metadata:
-      m_Items: []
-  - m_Id: 51413480060878848
-    m_Key: unlocks_at_level
-    m_Metadata:
-      m_Items: []
   - m_Id: 52175051104059392
     m_Key: victory
     m_Metadata:
@@ -371,24 +371,8 @@ MonoBehaviour:
     m_Key: voice
     m_Metadata:
       m_Items: []
-  - m_Id: 397584292100694016
-    m_Key: stat_shield
-    m_Metadata:
-      m_Items: []
-  - m_Id: 399610477638836224
-    m_Key: strength_desc
-    m_Metadata:
-      m_Items: []
-  - m_Id: 399610814382727168
-    m_Key: intelligence_desc
-    m_Metadata:
-      m_Items: []
   - m_Id: 399610996319051776
     m_Key: wisdom_desc
-    m_Metadata:
-      m_Items: []
-  - m_Id: 399611487287500800
-    m_Key: intuition_desc
     m_Metadata:
       m_Items: []
   m_Metadata:

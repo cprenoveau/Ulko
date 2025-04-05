@@ -82,10 +82,6 @@ MonoBehaviour:
     m_Localized: Delete
     m_Metadata:
       m_Items: []
-  - m_Id: 373179914614988800
-    m_Localized: Trash Hand
-    m_Metadata:
-      m_Items: []
   - m_Id: 11925375503433728
     m_Localized: Run
     m_Metadata:
@@ -122,14 +118,6 @@ MonoBehaviour:
     m_Localized: Deals {0} damage
     m_Metadata:
       m_Items: []
-  - m_Id: 50367762906873856
-    m_Localized: Heals HP based on {0}% {1} {2}
-    m_Metadata:
-      m_Items: []
-  - m_Id: 50368019271122944
-    m_Localized: Heals HP based on {0}% {1}
-    m_Metadata:
-      m_Items: []
   - m_Id: 50368085205581824
     m_Localized: Heals {0}% HP
     m_Metadata:
@@ -156,10 +144,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 51403770637189120
     m_Localized: To Next Lvl:{0}
-    m_Metadata:
-      m_Items: []
-  - m_Id: 51413480060878848
-    m_Localized: Unlocks at Level {0}
     m_Metadata:
       m_Items: []
   - m_Id: 52173637481005056
