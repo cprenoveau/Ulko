@@ -265,6 +265,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffaf8d06c7f511246b3bf998ceeaa20e
+    m_Address: Assets/Characters/Enemies/Velociraptor/Velociraptor.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: cc8d94e112127eb4ebbada1dddf2b467, type: 2}
   m_SchemaSet:

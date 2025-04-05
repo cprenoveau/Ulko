@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: UnicornAsset
   m_EditorClassIdentifier: 
   id: wise
-  turnCooldown: 3
+  turnCooldown: 4
   nameKey: unicorn
   level: 2
   prefab:

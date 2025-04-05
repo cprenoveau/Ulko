@@ -10,24 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b13fe2d8047e95542bef27d7bc984ae4, type: 3}
-  m_Name: WitchAsset
+  m_Name: VelociraptorAsset
   m_EditorClassIdentifier: 
-  id: intuitive
+  id: intelligent
   turnCooldown: 4
-  nameKey: witch
+  nameKey: velociraptor
   level: 2
   prefab:
-    m_AssetGUID: 2da7cd2580800834d8e7bdd574ad9e11
+    m_AssetGUID: ffaf8d06c7f511246b3bf998ceeaa20e
     m_SubObjectName: 
     m_SubObjectGUID: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
   abilities:
-  - {fileID: 11400000, guid: a7803af48de9bcf4d86c912f58a3a844, type: 2}
+  - {fileID: 11400000, guid: 88c5486c98bf4da4884d1f0c8108feff, type: 2}
   status:
-  - {fileID: 11400000, guid: 1c019e52809e8084980df2e41bbb4c19, type: 2}
+  - {fileID: 11400000, guid: b9703167c1ba53046b04efed5c8a594b, type: 2}
+  - {fileID: 11400000, guid: 24f6c4f4dce364d4cb8f4517dfbbf5c2, type: 2}
   animations:
   - tag: {fileID: 11400000, guid: 062d7c818afcd5649a0ac964cc14962f, type: 2}
-    animation: {fileID: 11400000, guid: 470e0c3476f357449ade36a8870e5209, type: 2}
+    animation: {fileID: 11400000, guid: 5c04ced0ccbd23a49af65435592d6379, type: 2}
   - tag: {fileID: 11400000, guid: 596f3e284d854034c9fbdde789183ca9, type: 2}
-    animation: {fileID: 11400000, guid: 7031ee575e866c44c8ead11de9b2b11f, type: 2}
+    animation: {fileID: 11400000, guid: 7373fb0ba94b52f46b5816096b812770, type: 2}

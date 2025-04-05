@@ -170,7 +170,7 @@ PrefabInstance:
     - target: {fileID: 1360665457847583915, guid: 7110f6e025c7997418212fc8fca6b8b6, type: 3}
       propertyPath: startingEncounter
       value: 
-      objectReference: {fileID: 11400000, guid: 53adbc6f1997bdc4fa209a989d86241b, type: 2}
+      objectReference: {fileID: 11400000, guid: ca95bfe0288be2d46a3c8de21e8a6298, type: 2}
     - target: {fileID: 1360665457847583915, guid: 7110f6e025c7997418212fc8fca6b8b6, type: 3}
       propertyPath: startingMilestone
       value: The Coast
