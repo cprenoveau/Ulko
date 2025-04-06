@@ -27,6 +27,10 @@ MonoBehaviour:
     m_Key: the_fields
     m_Metadata:
       m_Items: []
+  - m_Id: 773408903127040
+    m_Key: the_forest
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -126,13 +126,13 @@ MonoBehaviour:
       type: {class: Level, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
         name: The Coast
-        sceneAddress: LevelTest
+        sceneAddress: TheCoast
         lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         setPartyOrder: 1
         party:
         - {fileID: 11400000, guid: b75ccacbaebd95546aac0918add8b32e, type: 2}
         showSavePrompt: 0
-        area: {fileID: 11400000, guid: 90fc23306b565ad4da4088653883701d, type: 2}
+        area: {fileID: 11400000, guid: 253bb3cc3c097c24b80717bb0b36aee3, type: 2}
         spawnPoint: {fileID: 11400000, guid: dd34cea886fa6924e85be34c2ef5e3f6, type: 2}
     - rid: 8319834483457523861
       type: {class: Level, ns: Ulko.Data.Timeline, asm: Ulko.Common}
@@ -149,14 +149,14 @@ MonoBehaviour:
     - rid: 8319834483457523865
       type: {class: BossBattle, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:
-        name: The Witches Again
+        name: The Witch Again
         lightingAndWeather: {fileID: 11400000, guid: d891c3507d795c147bb0f595940a6620, type: 2}
         isInterior: 0
         setPartyOrder: 0
         party:
         - {fileID: 11400000, guid: 45887f0254b8b0c40bdd089a9367e04d, type: 2}
         showSavePrompt: 1
-        battleAsset: {fileID: 11400000, guid: a972f7c92da8a0d4f9efad0f94a7ede3, type: 2}
+        battleAsset: {fileID: 11400000, guid: a2d6e0e4f6a0c9b4a8e0b4c11d774c57, type: 2}
     - rid: 8319834483457523866
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:

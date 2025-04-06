@@ -96,7 +96,7 @@ Chapter 6: The Butterfly
 	Cutscene 07: In Bob's office
 	Cutscene 08: Ulko gets his bag stolen
 	Interactable Cutscene 09: The chase
-	[Boss Fight 4: The Witches Again]
+	[Boss Fight 4: The Witch Again]
 	Cutscene 09: Back into Bob's office
 	Cutscene 10: Ulko and Phoebey in the corridor
 

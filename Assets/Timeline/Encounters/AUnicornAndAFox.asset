@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e9cca3d02b5d6b479b6257c9bc73f44, type: 3}
-  m_Name: TwoFoxes
+  m_Name: AUnicornAndAFox
   m_EditorClassIdentifier: 
   sceneAddress: TestEncounter
   enemies:
   - positionIndex: 0
-    asset: {fileID: 11400000, guid: e753d5d86e99d2b428fa62e7457aaa15, type: 2}
+    asset: {fileID: 11400000, guid: 8ef72e0df4bc8fb4c80cb43a8be18213, type: 2}
   - positionIndex: 1
     asset: {fileID: 11400000, guid: e753d5d86e99d2b428fa62e7457aaa15, type: 2}
