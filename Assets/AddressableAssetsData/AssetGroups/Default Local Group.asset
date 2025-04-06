@@ -35,6 +35,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f384c881d8c7bc4cb0541bf2cd0319a
+    m_Address: Assets/Characters/Enemies/Karistal/Karistal.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 112146e36a24c8044ae198397e836292
     m_Address: Assets/UI/Menus/Battle/BattleMenu.prefab
     m_ReadOnly: 0
@@ -257,6 +262,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da5f73387f41dde478d70b5e5f55944f
     m_Address: TheCliff
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfc09653c357e13448b9538749b4c12e
+    m_Address: KaristalBossBattle
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

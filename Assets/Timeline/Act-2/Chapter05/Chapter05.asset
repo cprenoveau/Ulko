@@ -167,7 +167,7 @@ MonoBehaviour:
         - {fileID: 11400000, guid: 45887f0254b8b0c40bdd089a9367e04d, type: 2}
         - {fileID: 11400000, guid: d9ba2d95d7c950542be1074eba084577, type: 2}
         showSavePrompt: 1
-        battleAsset: {fileID: 11400000, guid: 4559b86dc63ce804d95e6115baf63742, type: 2}
+        battleAsset: {fileID: 11400000, guid: 06eaa58187a92e8409ced70ed0b7d3fe, type: 2}
     - rid: 8319834483457523864
       type: {class: Cutscene, ns: Ulko.Data.Timeline, asm: Ulko.Common}
       data:

@@ -88,6 +88,15 @@
         "wisdom": 0.0,
         "intuition": 25.0,
         "intelligence": 0.0
+      },
+      {
+        "level": 3.0,
+        "exp": 24.0,
+        "maxHP": 250.0,
+        "strength": 10.0,
+        "wisdom": 0.0,
+        "intuition": 35.0,
+        "intelligence": 0.0
       }
     ]
   }
