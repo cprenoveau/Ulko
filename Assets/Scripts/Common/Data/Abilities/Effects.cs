@@ -78,7 +78,7 @@ namespace Ulko.Data.Abilities
             var characterType = new List<Stat>();
             foreach (Stat stat in Enum.GetValues(typeof(Stat)))
             {
-                if (baseStats.GetStat(stat) > 0)
+                if (CurrentStats.GetStat(stat) > 0)
                     characterType.Add(stat);
             }
 
