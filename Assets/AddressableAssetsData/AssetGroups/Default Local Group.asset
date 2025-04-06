@@ -220,6 +220,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fc1a1c5a7cbdf545887179874410020
+    m_Address: Assets/UI/Menus/Dialogue/LabelScreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b06c54df322bb144eba9b1a5f08b6cfb
     m_Address: Assets/Characters/Enemies/Wolf/Wolf.prefab
     m_ReadOnly: 0
@@ -242,6 +247,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf044d85944b5834fb26c80f107e75d0
     m_Address: Assets/UI/Menus/Battle/LevelUpScreen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2e42eef4535f6b4faa6368e29274f1e
+    m_Address: Assets/UI/Menus/Dialogue/NarrationBox.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

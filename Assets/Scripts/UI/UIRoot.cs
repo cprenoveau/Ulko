@@ -16,6 +16,7 @@ namespace Ulko
         public bool allowMouseInputs = false;
 
         public MenuStack menuStack;
+        public MenuStack overlayStack;
 
         public AssetReference messagePrompt;
         public AssetReference choicePrompt;
@@ -31,6 +32,8 @@ namespace Ulko
         public void Init()
         {
             HotChocolate.UI.Menu.UseAddressables(menuStack);
+            HotChocolate.UI.Menu.UseAddressables(overlayStack);
+
             SetInfo(null);
             fastForward.SetActive(false);
 
@@ -38,11 +41,19 @@ namespace Ulko
 
             menuStack.OnBlockInput -= OnMenuStackBlockInput;
             menuStack.OnBlockInput += OnMenuStackBlockInput;
+
+            overlayStack.OnBlockInput -= OnOverlayStackBlockInput;
+            overlayStack.OnBlockInput += OnOverlayStackBlockInput;
         }
 
         private static void OnMenuStackBlockInput(bool blockInput)
         {
             PlayerController.DisableUISubmit(blockInput, "MenuStack");
+        }
+
+        private static void OnOverlayStackBlockInput(bool blockInput)
+        {
+            PlayerController.DisableUISubmit(blockInput, "OverlayStack");
         }
 
         public readonly struct BlockInputScope : IDisposable

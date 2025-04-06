@@ -379,6 +379,10 @@ MonoBehaviour:
     m_Key: new_card
     m_Metadata:
       m_Items: []
+  - m_Id: 400465975778992128
+    m_Key: chapter_1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

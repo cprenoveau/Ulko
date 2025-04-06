@@ -7,6 +7,7 @@ namespace Ulko.Data.Cutscenes
 {
     public class PlayDialogueStep : StepAction
     {
+        public bool isNarration;
         public TextAsset dialogueOverride;
         public int startLineIndex = 0;
         public int endLineIndex = -1;

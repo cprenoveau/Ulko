@@ -47,7 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiRoot: {fileID: 6368828361219786642}
   uiCam: {fileID: 2481977210555511052}
-  dialogueMenu: {fileID: 11400000, guid: 28cc7e734c24e754b830e6dba7b37b9d, type: 2}
+  dialogueBox: {fileID: 11400000, guid: 28cc7e734c24e754b830e6dba7b37b9d, type: 2}
+  narrationBox: {fileID: 11400000, guid: 23d633d2ae2c27343a97c1008ee3da2c, type: 2}
+  labelScreen: {fileID: 11400000, guid: e4d5b90700a222a44b137f1f3a575f54, type: 2}
 --- !u!1001 &8463611294703765982
 PrefabInstance:
   m_ObjectHideFlags: 0

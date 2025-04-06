@@ -9,15 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c6af7d525f139145bcc17c1bc87c54e, type: 3}
-  m_Name: FadingPanelSlow
+  m_Script: {fileID: 11500000, guid: 692ce7614ae62c34f935fed22168e769, type: 3}
+  m_Name: NarrationBox
   m_EditorClassIdentifier: 
-  fadeInDuration: 1
-  inAlphaStart: 0
-  inAlphaEnd: 1
-  inDelay: 0
-  inAnimationEasing: 27
-  fadeOutDuration: 2
-  outAlphaEnd: 0
-  outDelay: 0
-  outAnimationEasing: 27
+  asset:
+    m_AssetGUID: c2e42eef4535f6b4faa6368e29274f1e
+    m_SubObjectName: 
+    m_SubObjectGUID: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  id: narration_box

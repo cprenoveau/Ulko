@@ -16,7 +16,9 @@ namespace Ulko.Contexts
         public override Camera UICamera => uiCam;
 
         public Camera uiCam;
-        public MenuDefinition dialogueMenu;
+        public MenuDefinition dialogueBox;
+        public MenuDefinition narrationBox;
+        public MenuDefinition labelScreen;
 
         private Cutscene cutscene;
 
@@ -26,6 +28,7 @@ namespace Ulko.Contexts
             uiRoot.FadeAmount(1f);
 
             PlayDialogueStep.OnPlay += ShowDialogue;
+            ShowLabelStep.OnPlay += ShowLabel;
             FadeInStep.OnPlay += FadeIn;
             FadeOutStep.OnPlay += FadeOut;
 
@@ -45,9 +48,13 @@ namespace Ulko.Contexts
                 cutscene.Stop(true);
 
             uiRoot.menuStack.PopAll();
+            uiRoot.overlayStack.PopAll();
 
-            while (!ct.IsCancellationRequested && (uiRoot.menuStack.Count > 0 || uiRoot.menuStack.PendingCount > 0))
+            while (!ct.IsCancellationRequested &&
+                (uiRoot.menuStack.Count > 0 || uiRoot.menuStack.PendingCount > 0 || uiRoot.overlayStack.Count > 0 || uiRoot.overlayStack.PendingCount > 0))
+            {
                 await Task.Yield();
+            }
 
             _Dispose();
         }
@@ -55,6 +62,7 @@ namespace Ulko.Contexts
         protected override void _Dispose()
         {
             PlayDialogueStep.OnPlay -= ShowDialogue;
+            ShowLabelStep.OnPlay -= ShowLabel;
             FadeInStep.OnPlay -= FadeIn;
             FadeOutStep.OnPlay -= FadeOut;
         }
@@ -77,12 +85,26 @@ namespace Ulko.Contexts
                 page.lines[evt.lineIndex].OnPlay += () => { cutscene.StartCoroutine(evt.action.Play()); };
             }
 
-            uiRoot.menuStack.Push(dialogueMenu.asset, dialogueMenu.id, new DialogueMenuData
+            var menuDef = showDialogue.isNarration ? narrationBox : dialogueBox;
+            var menuStack = showDialogue.isNarration ? uiRoot.overlayStack : uiRoot.menuStack;
+
+            menuStack.Push(menuDef.asset, menuDef.id, new DialogueMenuData
             {
                 dialogue = dialogue,
                 startLineIndex = showDialogue.startLineIndex,
                 endLineIndex = showDialogue.endLineIndex,
                 onClose = () => { showDialogue.IsPlaying = false; }
+            });
+        }
+
+        private void ShowLabel(ShowLabelStep showLabel)
+        {
+            showLabel.IsPlaying = true;
+
+            uiRoot.overlayStack.Push(labelScreen.asset, labelScreen.id, new LabelScreenData
+            {
+                labelKey = showLabel.labelKey,
+                onClose = () => { showLabel.IsPlaying = false; }
             });
         }
 

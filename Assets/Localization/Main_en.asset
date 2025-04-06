@@ -389,6 +389,10 @@ MonoBehaviour:
     m_Localized: New Card!
     m_Metadata:
       m_Items: []
+  - m_Id: 400465975778992128
+    m_Localized: 'Chapter 1: The Lighthouse'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
