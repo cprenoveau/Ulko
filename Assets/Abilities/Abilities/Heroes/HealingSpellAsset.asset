@@ -17,7 +17,7 @@ MonoBehaviour:
   target:
     usabilityScope: 0
     targetType: 1
-    targetSize: 0
+    targetSize: 1
     targetCondition: {fileID: 11400000, guid: eadf067ed4464b84bbe84e931be17834, type: 2}
   mainStat: 4
   nodes:
@@ -41,7 +41,7 @@ MonoBehaviour:
         condition: {fileID: 11400000, guid: eadf067ed4464b84bbe84e931be17834, type: 2}
         config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
         healStat: 4
-        healMultiplier: 1.5
+        healMultiplier: 0.8
         percentHeal: 0
         flatHeal: 0
         revive: 1

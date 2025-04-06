@@ -19,6 +19,7 @@ namespace Ulko
         public string startingMilestone;
         [Tooltip("Immediately start this encounter after milestone is started.")]
         public Data.BattleAsset startingEncounter;
+        public int minHeroLevel = 1;
 
         public SettingsConfig settingsConfig;
         public CheatUi cheats;
@@ -131,6 +132,14 @@ namespace Ulko
                 PlayerProfile.SetMilestone(milestoneName);
 
                 await gameInstance.StartMilestone(Database.GetMilestone(PlayerProfile.CurrentStory, PlayerProfile.GetProgression()), ct);
+
+                foreach (var hero in PlayerProfile.ActiveParty)
+                {
+                    if (main.minHeroLevel > PlayerProfile.GetHeroLevel(hero.id))
+                    {
+                        PlayerProfile.SetHeroLevel(hero.id, main.minHeroLevel);
+                    }
+                }
 
                 if (main.startingEncounter != null)
                     await gameInstance.StartBattle(main.startingEncounter, ct);

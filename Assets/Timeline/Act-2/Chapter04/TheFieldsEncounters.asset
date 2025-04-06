@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57192d280a5b8c54c9b9943d2bba7aa8, type: 3}
+  m_Name: TheFieldsEncounters
+  m_EditorClassIdentifier: 
+  minSteps: 10
+  checkInterval: 5
+  probability: 0.5
+  pickInOrder: 1
+  encounters:
+  - frequency: 1
+    battle: {fileID: 11400000, guid: dcf3272486a43554babcdcaa5576b527, type: 2}
+  - frequency: 1
+    battle: {fileID: 11400000, guid: 5327dbec102613045961dc837cb446f0, type: 2}
+  - frequency: 1
+    battle: {fileID: 11400000, guid: ca95bfe0288be2d46a3c8de21e8a6298, type: 2}
+  - frequency: 1
+    battle: {fileID: 11400000, guid: f36f000aac99e234ebde45c58590beb3, type: 2}
+  - frequency: 1
+    battle: {fileID: 11400000, guid: c0c4e55b21da6d843be00d623c2388f1, type: 2}
+  - frequency: 1
+    battle: {fileID: 11400000, guid: 4f3262d947e4bd94d83e686cfb2370da, type: 2}

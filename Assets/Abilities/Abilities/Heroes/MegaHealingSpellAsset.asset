@@ -41,7 +41,7 @@ MonoBehaviour:
         condition: {fileID: 11400000, guid: eadf067ed4464b84bbe84e931be17834, type: 2}
         config: {fileID: 11400000, guid: bc0512167ae18044c8ff571b6236024c, type: 2}
         healStat: 4
-        healMultiplier: 1
+        healMultiplier: 1.2
         percentHeal: 0
         flatHeal: 0
         revive: 1

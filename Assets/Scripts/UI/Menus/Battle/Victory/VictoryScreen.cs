@@ -89,8 +89,6 @@ namespace Ulko.UI
 
                 if(oldLevel != newLevel)
                 {
-                    PlayerProfile.HealHero(hero.heroId);
-
                     stack.Push(levelUp.asset, levelUp.id, new LevelUpScreenData()
                     {
                         gameState = data.gameState,

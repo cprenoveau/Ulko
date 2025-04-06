@@ -14,12 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities:
   - minLevel: 0
+    minChapter: 0
     ability: {fileID: 11400000, guid: 52cb1ac95117eca41a7b593d49603e82, type: 2}
   - minLevel: 0
+    minChapter: 0
     ability: {fileID: 11400000, guid: 52cb1ac95117eca41a7b593d49603e82, type: 2}
   - minLevel: 0
+    minChapter: 0
     ability: {fileID: 11400000, guid: 1894d56f77f745e408823a9ac1fb4e8a, type: 2}
   - minLevel: 0
+    minChapter: 0
     ability: {fileID: 11400000, guid: 4bc6529cadabb0741ad507e5cdcbefaf, type: 2}
-  - minLevel: 3
+  - minLevel: 0
+    minChapter: 0
     ability: {fileID: 11400000, guid: 31d358ce6d601e947bb69c4eb04eebf6, type: 2}

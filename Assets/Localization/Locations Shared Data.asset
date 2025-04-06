@@ -19,6 +19,14 @@ MonoBehaviour:
     m_Key: the_coast
     m_Metadata:
       m_Items: []
+  - m_Id: 761796381106176
+    m_Key: the_cliff
+    m_Metadata:
+      m_Items: []
+  - m_Id: 761848784740352
+    m_Key: the_fields
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

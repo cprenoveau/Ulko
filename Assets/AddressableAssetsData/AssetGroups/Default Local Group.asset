@@ -150,6 +150,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 716c1935d83bc1c45a5b755e68d6687f
+    m_Address: TheFields
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 782ac91376fc48b43991e37a007f05f9
     m_Address: Assets/Characters/Heroes/Ulko/Ulko.prefab
     m_ReadOnly: 0

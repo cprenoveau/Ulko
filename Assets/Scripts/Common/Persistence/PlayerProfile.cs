@@ -232,7 +232,7 @@ namespace Ulko
                     if (equipedCards.Count <= maxCards)
                         break;
 
-                    int cardIndex = equipedCards.FindLastIndex(c => c.Data.ownerId == hero.id);
+                    int cardIndex = equipedCards.FindIndex(c => c.Data.ownerId == hero.id);
                     if (cardIndex != -1)
                     {
                         var card = equipedCards[cardIndex];
@@ -361,8 +361,26 @@ namespace Ulko
 
         public static void AddHeroExp(string heroId, int exp)
         {
+            int oldMaxHp = GetHeroMaxHP(heroId);
+
             var hero = CreateOrGetHero(heroId);
             hero.exp += exp;
+
+            int newMaxHp = GetHeroMaxHP(heroId);
+            hero.hp += newMaxHp - oldMaxHp;
+        }
+
+        public static void SetHeroLevel(string heroId, int level)
+        {
+            int oldMaxHp = GetHeroMaxHP(heroId);
+
+            var heroData = Database.Heroes[heroId];
+            var hero = CreateOrGetHero(heroId);
+
+            hero.exp = heroData.GetLevelData(level).exp;
+
+            int newMaxHp = GetHeroMaxHP(heroId);
+            hero.hp += newMaxHp - oldMaxHp;
         }
 
         public static int GetHeroExp(string heroId)
