@@ -6,6 +6,7 @@ namespace Ulko
     {
         public Transform target;
         public Vector3 targetOffset;
+        public float distanceFromTarget = 1f;
         public float maxSpeed = 10f;
         public float maxForce = 0.1f;
         public float slowDownDistance = 5f;
@@ -16,7 +17,7 @@ namespace Ulko
         {
             Vector3 targetPos = target.position + targetOffset;
 
-            float distance = (targetPos - transform.position).magnitude;
+            float distance = (targetPos - transform.position).magnitude - distanceFromTarget;
             Vector3 direction = (targetPos - transform.position).normalized;
 
             Vector3 desiredVelocity;
