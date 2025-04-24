@@ -75,8 +75,7 @@ namespace Ulko.Contexts
 
             if (showDialogue.dialogueOverride != null)
             {
-                dialogue = new Data.Dialogue();
-                dialogue.AddNode(JToken.Parse(showDialogue.dialogueOverride.text));
+                dialogue = showDialogue.dialogueOverride.CreateDialogue();
             }
 
             var page = dialogue.GetCurrentNode().page;

@@ -17,7 +17,7 @@ namespace Ulko.Data.Cutscenes
         }
 
         public Camera cam;
-        public TextAsset dialogue;
+        public DialogueAsset dialogue;
 
         public bool stopAllAmbientAudio;
         public AmbientAudioConfig ambientAudioConfig;
@@ -32,8 +32,10 @@ namespace Ulko.Data.Cutscenes
 
         private void Awake()
         {
-            if(dialogue != null)
-                DefaultDialogue.AddNode(JToken.Parse(dialogue.text));
+            if (dialogue != null)
+            {
+                DefaultDialogue = dialogue.CreateDialogue();
+            }
         }
 
         public void Play(Action onComplete)

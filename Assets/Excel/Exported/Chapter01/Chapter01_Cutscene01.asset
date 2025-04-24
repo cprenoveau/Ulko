@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1100fbe39eb584c92700c0c32d3461, type: 3}
+  m_Name: Chapter01_Cutscene01
+  m_EditorClassIdentifier: 
+  languages:
+  - {fileID: 4900000, guid: d4f1df7579689c0448183c61b443cf8d, type: 3}
+  - {fileID: 4900000, guid: c08a87ba1c32064479c39dcc3683491b, type: 3}

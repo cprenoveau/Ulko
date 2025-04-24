@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
+using System.Linq;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace ExcelExporter
@@ -58,12 +59,12 @@ namespace ExcelExporter
                 book = excelApp.Workbooks.Open(fullFileName);
                 Excel.Worksheet sheet = book.Worksheets.get_Item(1);
 
-                var exportAll = ExportAll(sheet);
-                if(exportAll.isTrue)
+                var (isTrue, folder, soloTokens) = ExportAll(sheet);
+                if(isTrue)
                 {
-                    if (!string.IsNullOrEmpty(exportAll.folder))
+                    if (!string.IsNullOrEmpty(folder))
                     {
-                        outputPath = Path.Combine(outputPath, exportAll.folder);
+                        outputPath = Path.Combine(outputPath, folder);
                     }
 
                     if (!Directory.Exists(outputPath))
@@ -71,8 +72,20 @@ namespace ExcelExporter
 
                     for (int i = 2; i <= book.Worksheets.Count; ++i)
                     {
-                        if(!SkipExport(book.Worksheets[i]))
-                            File.WriteAllText(Path.Combine(outputPath, fileName + "_" + book.Worksheets[i].Name + ".json"), ReadSheet(book.Worksheets[i], book).ToString());
+                        if (!SkipExport(book.Worksheets[i]))
+                        {
+                            if (soloTokens.Length > 0)
+                            {
+                                foreach(string token in soloTokens)
+                                {
+                                    File.WriteAllText(Path.Combine(outputPath, fileName + "_" + book.Worksheets[i].Name + "_" + token + ".json"), ReadSheet(book.Worksheets[i], book, token, soloTokens).ToString());
+                                }
+                            }
+                            else
+                            {
+                                File.WriteAllText(Path.Combine(outputPath, fileName + "_" + book.Worksheets[i].Name + ".json"), ReadSheet(book.Worksheets[i], book).ToString());
+                            }
+                        }
                     }
                 }
                 else
@@ -98,13 +111,14 @@ namespace ExcelExporter
             return key == "*skip_export";
         }
 
-        private static (bool isTrue, string folder) ExportAll(Excel.Worksheet sheet)
+        private static (bool isTrue, string folder, string[] soloTokens) ExportAll(Excel.Worksheet sheet)
         {
             string key = sheet.Cells[1, 1].Value;
-            return (key == "export_all_sheets", sheet.Cells[2,1].Value);
+            string soloTokensStr = sheet.Cells[3, 1].Value;
+            return (key == "export_all_sheets", sheet.Cells[2,1].Value, !string.IsNullOrEmpty(soloTokensStr) ? soloTokensStr.Split(',') : new string[0]);
         }
 
-        private static JToken ReadSheet(Excel.Worksheet sheet, Excel.Workbook book)
+        private static JToken ReadSheet(Excel.Worksheet sheet, Excel.Workbook book, string soloToken = null, string[] allSoloTokens = null)
         {
             JArray jArray = new JArray();
             Excel.Range range = sheet.UsedRange;
@@ -124,7 +138,7 @@ namespace ExcelExporter
                     if (string.IsNullOrEmpty(label))
                         break;
 
-                    if (label[0] == '*')
+                    if (label[0] == '*' || (soloToken != null && label != soloToken && allSoloTokens.Contains(label)))
                         continue;
 
                     if (value is string)

@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ulko.Data;
 using UnityEngine;
 
 namespace Ulko.World
@@ -19,7 +20,7 @@ namespace Ulko.World
         public Side exitSide;
         public float walkDistance = 1f;
         public float speed = 1f;
-        public List<TextAsset> pageAssets = new();
+        public List<DialogueAsset> pageAssets = new();
 
         public Data.Dialogue Dialogue { get; private set; }
 
@@ -27,11 +28,11 @@ namespace Ulko.World
 
         private void Awake()
         {
-            Dialogue = new Data.Dialogue();
+            Dialogue = new Dialogue();
 
             foreach (var page in pageAssets)
             {
-                Dialogue.AddNode(JToken.Parse(page.text));
+                page.AddNode(Dialogue);
             }
         }
 

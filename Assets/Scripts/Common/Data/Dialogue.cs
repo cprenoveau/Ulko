@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Ulko.Data
 {
@@ -16,7 +17,11 @@ namespace Ulko.Data
             public Line(JToken json)
             {
                 speakerKey = json["speaker"]?.ToString();
+                AddLanguage(json);
+            }
 
+            public void AddLanguage(JToken json)
+            {
                 var locales = Localization.GetLocales();
                 foreach (var locale in locales)
                 {
@@ -52,11 +57,17 @@ namespace Ulko.Data
             public int CurrentLineIndex { get; set; }
             public List<Line> lines = new();
 
-            public Page(JToken json)
+            public Page(params JToken[] jsonTokens)
             {
-                foreach (var entry in json)
+                for(int i = 0; i < jsonTokens[0].Count(); ++i)
                 {
-                    lines.Add(new Line(entry));
+                    var line = new Line(jsonTokens[0][i]);
+                    lines.Add(line);
+
+                    for(int j = 1; j < jsonTokens.Count(); ++j)
+                    {
+                        line.AddLanguage(jsonTokens[j][i]);
+                    }
                 }
             }
 
@@ -88,26 +99,28 @@ namespace Ulko.Data
             public Graph parent;
             public List<Graph> children = new();
 
-            public Graph(JToken json)
+            public Graph(params JToken[] jsonTokens)
             {
-                if(json is JArray)
+                if (jsonTokens[0] is JArray)
                 {
-                    page = new Page(json);
+                    page = new Page(jsonTokens);
                 }
                 else
                 {
-                    page = new Page(json["lines"]);
-                    rewindCount = json["rewindCount"]?.ToObject<int>() ?? 0;
+                    page = new Page(jsonTokens[0]["lines"]);
+                    rewindCount = jsonTokens[0]["rewindCount"]?.ToObject<int>() ?? 0;
 
-                    if (json["choice"] != null)
-                        choice = new Line(json["choice"]);
+                    if (jsonTokens[0]["choice"] != null)
+                        choice = new Line(jsonTokens[0]["choice"]);
 
-                    if(json["children"] != null)
+                    if (jsonTokens[0]["children"] != null)
                     {
-                        foreach(var child in json["children"])
+                        foreach (var child in jsonTokens[0]["children"])
                         {
-                            var graph = new Graph(child);
-                            graph.parent = this;
+                            var graph = new Graph(child)
+                            {
+                                parent = this
+                            };
                             children.Add(graph);
                         }
                     }
@@ -157,9 +170,9 @@ namespace Ulko.Data
 
         public Dialogue(){ }
 
-        public void AddNode(JToken json)
+        public void AddNode(params JToken[] jsonTokens)
         {
-            nodes.Add(new Graph(json));
+            nodes.Add(new Graph(jsonTokens));
         }
 
         public Graph GetCurrentNode()

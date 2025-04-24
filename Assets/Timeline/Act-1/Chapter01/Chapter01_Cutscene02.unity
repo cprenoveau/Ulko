@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1175105480}
-  dialogue: {fileID: 4900000, guid: d25bafcf2627ec948922300dd2906cbe, type: 3}
+  dialogue: {fileID: 11400000, guid: b064f1e28be0bf04a8a3e09aa8fea757, type: 2}
   stopAllAmbientAudio: 0
   ambientAudioConfig: {fileID: 0}
   ambientFadeInDuration: 0.1
@@ -432,6 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4837d7c6d189fa64595bfa22e6e214cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNarration: 0
   dialogueOverride: {fileID: 0}
   startLineIndex: 0
   endLineIndex: -1

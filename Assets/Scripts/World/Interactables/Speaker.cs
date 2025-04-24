@@ -1,8 +1,8 @@
 ﻿using Ulko.Data.Timeline;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Ulko.Data;
 
 namespace Ulko.World
 {
@@ -11,13 +11,13 @@ namespace Ulko.World
         public bool fixedPose;
         public bool useCurrentDirection;
         public Vector2 standDirection = Vector2.zero;
-        public List<TextAsset> defaultDialogue = new();
+        public List<DialogueAsset> defaultDialogue = new();
 
         [Serializable]
         public class DialoguePerMilestone
         {
             public string milestone;
-            public List<TextAsset> pageAssets = new();
+            public List<DialogueAsset> pageAssets = new();
         }
 
         public List<DialoguePerMilestone> dialoguePerMilestone = new();
@@ -35,7 +35,7 @@ namespace Ulko.World
 
         public void Init(IMilestone milestone)
         {
-            Dialogue = new Data.Dialogue();
+            Dialogue = new Dialogue();
 
             var pages = defaultDialogue;
             var dialogue = dialoguePerMilestone.Find(d => d.milestone == milestone.Name);
@@ -46,7 +46,7 @@ namespace Ulko.World
 
             foreach (var page in pages)
             {
-                Dialogue.AddNode(JToken.Parse(page.text));
+                page.AddNode(Dialogue);
             }
         }
 

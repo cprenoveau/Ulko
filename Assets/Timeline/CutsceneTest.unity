@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1175105480}
-  dialogue: {fileID: 4900000, guid: fd0ce35c3fb502a43a193625f7c8447b, type: 3}
+  dialogue: {fileID: 11400000, guid: 7dccf4477a20d43438feef262d4e8dfb, type: 2}
   stopAllAmbientAudio: 0
   ambientAudioConfig: {fileID: 0}
   ambientFadeInDuration: 0.1
@@ -373,12 +373,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Priority:
-    Enabled: 0
-    m_Value: 0
+    Enabled: 1
+    m_Value: 1000
   OutputChannel: 1
   StandbyUpdate: 2
-  m_StreamingVersion: 20170927
-  m_LegacyPriority: 1000
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
   Target:
     TrackingTarget: {fileID: 0}
     LookAtTarget: {fileID: 0}
@@ -432,6 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4837d7c6d189fa64595bfa22e6e214cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isNarration: 0
   dialogueOverride: {fileID: 0}
   startLineIndex: 0
   endLineIndex: -1
@@ -501,7 +502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1360665457847583915, guid: 7110f6e025c7997418212fc8fca6b8b6, type: 3}
       propertyPath: startingMilestone
-      value: Waking up on the beach
+      value: Waiting for the wizard
       objectReference: {fileID: 0}
     - target: {fileID: 8132017264807802678, guid: 7110f6e025c7997418212fc8fca6b8b6, type: 3}
       propertyPath: m_Name
