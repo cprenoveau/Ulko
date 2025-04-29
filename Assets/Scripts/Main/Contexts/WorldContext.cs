@@ -159,14 +159,15 @@ namespace Ulko
 
         private Persistence.Location CurrentLocation()
         {
+            var area = CurrentArea();
             var location = Data.CurrentLocation;
-            if (!string.IsNullOrEmpty(location.area))
+
+            if (area != null && location.area == area.areaTag.id)
             {
                 return location;
             }
             else
             {
-                var area = Area.FindArea(Data.CurrentLevel.area.id);
                 var spawnPoint = area.FindSpawnPoint(Data.CurrentLevel.spawnPoint.id);
 
                 return new Persistence.Location

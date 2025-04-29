@@ -172,7 +172,7 @@ namespace Ulko
             PlayerProfile.SetEncounterIndex(-1);
             PlayerProfile.ReviveParty();
 
-            if (GetCurrentMilestone() is Data.Timeline.BossBattle)
+            if (GetCurrentMilestone() is BossBattle)
             {
                 await StartNextMilestone(ct);
             }
