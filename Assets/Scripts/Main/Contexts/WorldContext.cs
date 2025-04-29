@@ -141,15 +141,20 @@ namespace Ulko
 
         private Area CurrentArea()
         {
+            Area area = null;
+
             var location = Data.CurrentLocation;
             if (!string.IsNullOrEmpty(location.area))
             {
-                return Area.FindArea(location.area);
+                area = Area.FindArea(location.area);
             }
-            else
+
+            if(area == null)
             {
-                return Area.FindArea(Data.CurrentLevel.area.id);
+                area = Area.FindArea(Data.CurrentLevel.area.id);
             }
+
+            return area;
         }
 
         private Persistence.Location CurrentLocation()

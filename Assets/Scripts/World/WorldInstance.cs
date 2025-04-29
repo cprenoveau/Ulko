@@ -248,8 +248,10 @@ namespace Ulko.World
             }
         }
 
-        private void EnterArea()
+        private void EnterArea(Area area)
         {
+            CurrentArea = area;
+
             Player.ResetSteps();
 
             if (CurrentArea.musicDef == null)
@@ -261,6 +263,7 @@ namespace Ulko.World
                 CurrentArea.ambientAudioConfig.Play(0.1f);
 
             Area.EnterArea(CurrentArea.areaTag.id, Player, WorldCamera);
+            PlayerProfile.SetArea(CurrentArea.areaTag.id);
 
             OnAreaEntered?.Invoke(CurrentArea);
         }
@@ -294,12 +297,8 @@ namespace Ulko.World
 
             if (CurrentArea == null || CurrentArea.areaTag.id != area.areaTag.id)
             {
-                CurrentArea = area;
-                EnterArea();
+                EnterArea(area);
             }
-
-            CurrentArea = area;
-            PlayerProfile.SetArea(CurrentArea.areaTag.id);
         }
 
         private void StartNextMilestone()
