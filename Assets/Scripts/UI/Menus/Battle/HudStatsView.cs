@@ -47,7 +47,8 @@ namespace Ulko.UI
 
             foreach (Transform child in statsParent)
             {
-                Destroy(child.gameObject);
+                if(child.GetComponent<HudStatView>() != null)
+                    Destroy(child.gameObject);
             }
 
             var characterState = character.CaptureState();
