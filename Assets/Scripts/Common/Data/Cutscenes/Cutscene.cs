@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +15,6 @@ namespace Ulko.Data.Cutscenes
             public Sequence sequence;
         }
 
-        public Camera cam;
         public DialogueAsset dialogue;
 
         public bool stopAllAmbientAudio;
@@ -26,6 +24,7 @@ namespace Ulko.Data.Cutscenes
         public bool playBattleTransition;
         public List<CutsceneSequence> sequences = new();
 
+        public Camera Camera { get; private set; }
         public Dialogue DefaultDialogue { get; private set; } = new Dialogue();
 
         private readonly Dictionary<int, Coroutine> playingCoroutines = new();
@@ -38,13 +37,14 @@ namespace Ulko.Data.Cutscenes
             }
         }
 
-        public void Play(Action onComplete)
+        public void Play(Camera camera, Action onComplete)
         {
             Debug.Log("Cutscene start");
 
-            cam.gameObject.SetActive(true);
+            Camera = camera;
+            Camera.gameObject.SetActive(true);
 
-            if(stopAllAmbientAudio)
+            if (stopAllAmbientAudio)
                 Audio.Player.StopAll(AudioType.Ambient);
 
             if (ambientAudioConfig != null)
@@ -59,7 +59,7 @@ namespace Ulko.Data.Cutscenes
             Debug.Log("Cutscene stop");
 
             if(turnCameraOff)
-                cam.gameObject.SetActive(false);
+                Camera.gameObject.SetActive(false);
 
             StopAllCoroutines();
             playingCoroutines.Clear();

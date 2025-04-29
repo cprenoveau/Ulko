@@ -1,20 +1,19 @@
 ﻿using Ulko.Data.Cutscenes;
 using Ulko.UI;
 using HotChocolate.Utils;
-using Newtonsoft.Json.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 namespace Ulko.Contexts
 {
     public class CutsceneContext : Context<IGameState>
     {
         public override ContextType ContextType => ContextType.Cutscene;
-        public override Camera Camera => cutscene != null ? cutscene.cam : null;
+        public override Camera Camera => cam;
         public override Camera UICamera => uiCam;
 
+        public Camera cam;
         public Camera uiCam;
         public MenuDefinition dialogueBox;
         public MenuDefinition narrationBox;
@@ -35,10 +34,7 @@ namespace Ulko.Contexts
             cutscene = FindFirstObjectByType<Cutscene>();
             if (cutscene != null)
             {
-                var cameraData = cutscene.cam.GetUniversalAdditionalCameraData();
-                cameraData.cameraStack.Add(uiCam);
-
-                cutscene.Play(() => { StartNextMilestone(ct); });
+                cutscene.Play(Camera, () => { StartNextMilestone(ct); });
             }
         }
 
