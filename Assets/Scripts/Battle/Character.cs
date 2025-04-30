@@ -121,7 +121,7 @@ namespace Ulko.Battle
         public string Description()
         {
             string str = Name;
-            str += " " + Localization.LocalizeFormat("hp_value", HP, CurrentStats.maxHP);
+            str += " " + Localization.LocalizeFormat("hp_value", HP, CurrentStats.GetStat(Stat.MaxHP));
 
             return str;
         }
@@ -132,10 +132,10 @@ namespace Ulko.Battle
 
             foreach (var statusState in StatusState)
             {
-                if(statusState.statusAsset.targetType == StatusAsset.TargetType.Wielder
-                    && statusState.statusAsset.applyType == StatusAsset.ApplyType.WhileActive)
+                if(statusState.StatusAsset.targetType == StatusAsset.TargetType.Wielder
+                    && statusState.StatusAsset.applyType == StatusAsset.ApplyType.WhileActive)
                 {
-                    foreach(var effect in statusState.statusAsset.node.effects.effects)
+                    foreach(var effect in statusState.StatusAsset.node.effects.effects)
                     {
                         if(effect is ModifyStat modifyStat)
                         {
@@ -150,12 +150,12 @@ namespace Ulko.Battle
 
         public void ApplyState(CharacterState state)
         {
-            Buff = state.buff.Clone();
+            Buff = state.Buff.Clone();
 
             int originalHP = characterInternal.HP;
-            characterInternal.HP = (int)Mathf.Clamp(state.hp, 0, CurrentStats.maxHP);
+            characterInternal.HP = (int)Mathf.Clamp(state.HP, 0, CurrentStats.GetStat(Stat.MaxHP));
 
-            StatusState = state.statuses.Clone();
+            StatusState = state.CaptureStatus();
             UpdateStatusCosmetics();
 
             if (IsDead)
@@ -182,11 +182,11 @@ namespace Ulko.Battle
         {
             for(int i = 0; i < StatusState.Count;)
             {
-                StatusState[i].nTurns++;
+                StatusState[i].IncrementCurrentTurn();
 
-                if(StatusState[i].nTurns >= StatusState[i].maxTurns)
+                if(StatusState[i].CurrentTurn >= StatusState[i].MaxTurns)
                 {
-                    RemoveStatusCosmetics(StatusState[i].statusAsset.id);
+                    RemoveStatusCosmetics(StatusState[i].StatusAsset.id);
                     StatusState.RemoveAt(i);
                 }
                 else
@@ -205,7 +205,7 @@ namespace Ulko.Battle
 
             foreach (string statusId in statusCosmeticsTasks.Keys)
             {
-                if (StatusState.FirstOrDefault(s => s.statusAsset.id == statusId) == null)
+                if (StatusState.FirstOrDefault(s => s.StatusAsset.id == statusId) == null)
                     toRemove.Add(statusId);
             }
 
@@ -222,7 +222,7 @@ namespace Ulko.Battle
 
         private void AddStatusCosmetics(StatusState status)
         {
-            string statusId = status.statusAsset.id;
+            string statusId = status.StatusAsset.id;
 
             if (!statusCosmeticsTasks.ContainsKey(statusId))
             {
@@ -252,9 +252,9 @@ namespace Ulko.Battle
                 return;
 
             var anchor = GetComponentInChildren<HeadAnchor>();
-            if (anchor != null && status.statusAsset.vfxOnHead != null)
+            if (anchor != null && status.StatusAsset.vfxOnHead != null)
             {
-                var vfx = status.statusAsset.vfxOnHead;
+                var vfx = status.StatusAsset.vfxOnHead;
                 var result = await Addressables.InstantiateAsync(vfx.prefab.RuntimeKey, anchor.transform.position, Quaternion.identity, anchor.transform).Task;
                 result.name = vfx.name;
 

@@ -13,7 +13,7 @@ namespace Ulko.Battle
         public string Name => Localization.Localize(NameKey);
         public string NameKey => HeroAsset.displayName;
         public CharacterSide CharacterSide => CharacterSide.Heroes;
-        public int Level => HeroData.GetLevelDataFromExp(SavedData.exp).level;
+        public int Level => HeroData.GetLevelDataFromExp(SavedData.exp).Lvl;
         public int Exp => SavedData.exp;
 
         public int HP

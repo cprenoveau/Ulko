@@ -48,7 +48,7 @@ namespace Ulko.Data.Abilities
 
         public void Apply(CharacterState target)
         {
-            target.statuses.RemoveAll(s => s.statusAsset.id == status.id);
+            target.RemoveStatus(status.id);
         }
 
         public override string Description(CharacterState actor)

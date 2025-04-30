@@ -377,7 +377,7 @@ namespace Ulko
             var heroData = Database.Heroes[heroId];
             var hero = CreateOrGetHero(heroId);
 
-            hero.exp = heroData.GetLevelData(level).exp;
+            hero.exp = heroData.GetLevelData(level).Exp;
 
             int newMaxHp = GetHeroMaxHP(heroId);
             hero.hp += newMaxHp - oldMaxHp;
@@ -388,7 +388,7 @@ namespace Ulko
             var heroData = Database.Heroes[heroId];
             var hero = GetPartyMember(heroId);
 
-            return hero != null ? hero.exp : heroData.GetLevelData(heroData.minLevel).exp;
+            return hero != null ? hero.exp : heroData.GetLevelData(heroData.minLevel).Exp;
         }
 
         public static int GetHeroLevel(string heroId)
@@ -396,7 +396,7 @@ namespace Ulko
             var heroData = Database.Heroes[heroId];
             var hero = GetPartyMember(heroId);
 
-            return hero != null ? heroData.GetLevelDataFromExp(hero.exp).level : heroData.minLevel;
+            return hero != null ? heroData.GetLevelDataFromExp(hero.exp).Lvl : heroData.minLevel;
         }
 
         public static int GetHeroMaxHP(string heroId)
@@ -406,7 +406,7 @@ namespace Ulko
 
         public static int GetHeroMaxHP(string heroId, int level)
         {
-            return (int)GetHeroStats(heroId, level).maxHP;
+            return (int)GetHeroStats(heroId, level).GetStat(Stat.MaxHP);
         }
 
         public static Level GetHeroStats(string heroId, int level)

@@ -79,9 +79,9 @@ namespace Ulko.Data.Abilities
         {
             switch (actorType)
             {
-                case ActorType.Me: return state.pendingAction.actorId == actor.id;
-                case ActorType.Ally: return state.FindCharacter(state.pendingAction.actorId).characterSide == actor.characterSide;
-                case ActorType.Enemy: return state.FindCharacter(state.pendingAction.actorId).characterSide != actor.characterSide;
+                case ActorType.Me: return state.pendingAction.actorId == actor.Id;
+                case ActorType.Ally: return state.FindCharacter(state.pendingAction.actorId).CharacterSide == actor.CharacterSide;
+                case ActorType.Enemy: return state.FindCharacter(state.pendingAction.actorId).CharacterSide != actor.CharacterSide;
             }
 
             return false;
@@ -108,9 +108,9 @@ namespace Ulko.Data.Abilities
 
             switch (targetType)
             {
-                case TargetType.Me: return state.pendingAction.targetIds.FirstOrDefault(t => t == actor.id) != null;
-                case TargetType.Ally: return state.FindCharacter(state.pendingAction.targetIds[0]).characterSide == actor.characterSide;
-                case TargetType.Enemy: return state.FindCharacter(state.pendingAction.targetIds[0]).characterSide != actor.characterSide;
+                case TargetType.Me: return state.pendingAction.targetIds.FirstOrDefault(t => t == actor.Id) != null;
+                case TargetType.Ally: return state.FindCharacter(state.pendingAction.targetIds[0]).CharacterSide == actor.CharacterSide;
+                case TargetType.Enemy: return state.FindCharacter(state.pendingAction.targetIds[0]).CharacterSide != actor.CharacterSide;
                 case TargetType.One: return state.pendingAction.targetIds.Count == 1;
             }
 

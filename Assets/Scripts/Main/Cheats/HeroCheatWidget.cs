@@ -51,16 +51,16 @@ namespace Ulko.Cheats
             var hero = Database.Heroes[Data.id];
             var level = hero.GetLevelDataFromExp(Data.exp);
 
-            levelLabel.text = "Level: " + level.level + "/" + hero.MaxLevel;
+            levelLabel.text = "Level: " + level.Lvl + "/" + hero.MaxLevel;
 
             levelSlider.minValue = 1;
             levelSlider.maxValue = hero.MaxLevel;
-            levelSlider.value = level.level;
+            levelSlider.value = level.Lvl;
 
-            int nextLevelExp = !hero.IsMaxLevel(level.level) ? hero.GetLevelData(level.level + 1).exp : hero.GetLevelData(level.level).exp;
+            int nextLevelExp = !hero.IsMaxLevel(level.Lvl) ? hero.GetLevelData(level.Lvl + 1).Exp : hero.GetLevelData(level.Lvl).Exp;
             expLabel.text = "Exp: " + Data.exp + "/" + nextLevelExp;
 
-            expSlider.minValue = hero.GetLevelData(level.level).exp;
+            expSlider.minValue = hero.GetLevelData(level.Lvl).Exp;
             expSlider.maxValue = nextLevelExp;
             expSlider.value = Data.exp;
 
@@ -80,7 +80,7 @@ namespace Ulko.Cheats
             var hero = Database.Heroes[Data.id];
             var level = hero.GetLevelData((int)value);
 
-            Data.exp = level.exp;
+            Data.exp = level.Exp;
             Refresh();
 
             OnValueChanged?.Invoke(Data);

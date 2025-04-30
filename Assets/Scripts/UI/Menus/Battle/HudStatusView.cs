@@ -12,10 +12,10 @@ namespace Ulko.UI
 
         public void Init(StatusState statusState)
         {
-            int remainingTurns = statusState.maxTurns - statusState.nTurns;
+            int remainingTurns = statusState.MaxTurns - statusState.CurrentTurn;
 
             valueText.text = TextFormat.NumberOfTurns(remainingTurns);
-            icon.sprite = statusState.statusAsset.icon;
+            icon.sprite = statusState.StatusAsset.icon;
         }
     }
 }

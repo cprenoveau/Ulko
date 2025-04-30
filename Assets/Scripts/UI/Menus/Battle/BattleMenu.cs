@@ -228,7 +228,7 @@ namespace Ulko.UI
             if (cardView is BattleAbilityCardView battleAbility)
             {
                 ShowTargetMenu(
-                    data.battleInstance.FindCharacter(battleAbility.abilityView.Owner.id),
+                    data.battleInstance.FindCharacter(battleAbility.abilityView.Owner.Id),
                     battleAbility.Actions,
                     null,
                     (BattleActions actions) => DeclareAction(battleAbility.CardIndex, actions, battleAbility));

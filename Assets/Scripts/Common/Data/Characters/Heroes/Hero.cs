@@ -32,11 +32,11 @@ namespace Ulko.Data.Characters
         {
             for (int i = 0; i < levels.Count; ++i)
             {
-                if (exp == levels[i].exp)
+                if (exp == levels[i].Exp)
                 {
                     return levels[i];
                 }
-                else if (exp < levels[i].exp)
+                else if (exp < levels[i].Exp)
                 {
                     return levels[i - 1];
                 }

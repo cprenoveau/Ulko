@@ -64,16 +64,7 @@ namespace Ulko.Data.Abilities
         public void Apply(CharacterState actor, CharacterState target)
         {
             int turns = NumberOfTurns(actor.CurrentStats);
-
-            int index = target.statuses.FindIndex(s => s.statusAsset.id == status.id);
-            if(index == -1)
-            {
-                target.statuses.Add(new StatusState(status, turns, 0));
-            }
-            else
-            {
-                target.statuses[index].maxTurns += turns;
-            }
+            target.AddStatus(status, turns);
         }
 
         public override string Description(CharacterState actor)

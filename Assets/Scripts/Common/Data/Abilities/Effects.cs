@@ -12,17 +12,27 @@ namespace Ulko.Data.Abilities
 
     public class StatusState : IClonable, IEquatable<StatusState>
     {
-        public StatusAsset statusAsset;
-        public int maxTurns;
-        public int nTurns;
+        public StatusAsset StatusAsset { get; private set; }
+        public int MaxTurns { get; private set; }
+        public int CurrentTurn { get; private set; }
+
+        public void IncrementCurrentTurn()
+        {
+            CurrentTurn++;
+        }
+
+        public void AddTotalTurns(int turns)
+        {
+            MaxTurns += turns;
+        }
 
         public StatusState() { }
 
-        public StatusState(StatusAsset statusAsset, int maxTurns, int nTurns)
+        public StatusState(StatusAsset statusAsset, int maxTurns, int currentTurn)
         {
-            this.statusAsset = statusAsset;
-            this.maxTurns = maxTurns;
-            this.nTurns = nTurns;
+            StatusAsset = statusAsset;
+            MaxTurns = maxTurns;
+            CurrentTurn = currentTurn;
         }
 
         public void Clone(object source)
@@ -32,42 +42,76 @@ namespace Ulko.Data.Abilities
 
         public void Clone(StatusState source)
         {
-            statusAsset = source.statusAsset;
-            maxTurns = source.maxTurns;
-            nTurns = source.nTurns;
+            StatusAsset = source.StatusAsset;
+            MaxTurns = source.MaxTurns;
+            CurrentTurn = source.CurrentTurn;
         }
 
         public bool Equals(StatusState other)
         {
-            return statusAsset == other.statusAsset
-                && maxTurns == other.maxTurns
-                && nTurns == other.nTurns;
+            return StatusAsset == other.StatusAsset
+                && MaxTurns == other.MaxTurns
+                && CurrentTurn == other.CurrentTurn;
         }
     }
 
     public class CharacterState : IClonable, IEquatable<CharacterState>
     {
-        public string id;
-        public string nameKey;
-        public int hp;
-        public CharacterSide characterSide;
-        public Level baseStats;
-        public Level buff;
-        public List<StatusState> statuses;
+        public string Id { get; private set; }
+        public string NameKey { get; private set; }
+        public int HP { get; private set; }
 
-        public Level CurrentStats => baseStats + buff;
+        public void AddHP(float hp)
+        {
+            HP += (int)hp;
+
+            if (HP <= 0)
+                statuses.Clear();
+        }
+
+        public CharacterSide CharacterSide { get; private set; }
+        public Level BaseStats { get; private set; }
+        public Level Buff { get; private set; }
+
+        public IEnumerable<StatusState> Statuses => statuses;
+        private List<StatusState> statuses = new();
+
+        public void RemoveStatus(string statusId)
+        {
+            statuses.RemoveAll(s => s.StatusAsset.id == statusId);
+        }
+
+        public void AddStatus(StatusAsset status, int turns)
+        {
+            int index = statuses.FindIndex(s => s.StatusAsset.id == status.id);
+            if (index == -1)
+            {
+                statuses.Add(new StatusState(status, turns, 0));
+            }
+            else
+            {
+                statuses[index].AddTotalTurns(turns);
+            }
+        }
+
+        public List<StatusState> CaptureStatus()
+        {
+            return statuses.Clone();
+        }
+
+        public Level CurrentStats => BaseStats + Buff;
         public Level OriginalStats { get; private set; }
 
         public CharacterState(){}
 
         public CharacterState(string id, string nameKey, int hp, CharacterSide characterSide, Level baseStats, Level buff, List<StatusState> statuses)
         {
-            this.id = id;
-            this.nameKey = nameKey;
-            this.hp = hp;
-            this.characterSide = characterSide;
-            this.baseStats = baseStats;
-            this.buff = buff;
+            Id = id;
+            NameKey = nameKey;
+            HP = hp;
+            CharacterSide = characterSide;
+            BaseStats = baseStats;
+            Buff = buff;
             this.statuses = statuses;
 
             OriginalStats = CurrentStats;
@@ -92,23 +136,23 @@ namespace Ulko.Data.Abilities
 
         public void Clone(CharacterState source)
         {
-            id = source.id;
-            nameKey = source.nameKey;
-            hp = source.hp;
-            characterSide = source.characterSide;
-            baseStats = source.baseStats.Clone();
-            buff = source.buff.Clone();
+            Id = source.Id;
+            NameKey = source.NameKey;
+            HP = source.HP;
+            CharacterSide = source.CharacterSide;
+            BaseStats = source.BaseStats.Clone();
+            Buff = source.Buff.Clone();
             statuses = source.statuses.Clone();
         }
 
         public bool Equals(CharacterState other)
         {
-            return id.Equals(other.id)
-                && nameKey.Equals(other.nameKey)
-                && hp.Equals(other.hp)
-                && characterSide.Equals(other.characterSide)
-                && baseStats.Equals(other.baseStats)
-                && buff.Equals(other.buff)
+            return Id.Equals(other.Id)
+                && NameKey.Equals(other.NameKey)
+                && HP.Equals(other.HP)
+                && CharacterSide.Equals(other.CharacterSide)
+                && BaseStats.Equals(other.BaseStats)
+                && Buff.Equals(other.Buff)
                 && statuses.SequenceEqual(other.statuses);
         }
     }
@@ -172,7 +216,7 @@ namespace Ulko.Data.Abilities
         public CharacterAction pendingAction;
         public List<CharacterState> characters = new();
 
-        public CharacterState FindCharacter(string id) => characters.FirstOrDefault(c => c.id == id);
+        public CharacterState FindCharacter(string id) => characters.FirstOrDefault(c => c.Id == id);
 
         public ActionState() { }
 

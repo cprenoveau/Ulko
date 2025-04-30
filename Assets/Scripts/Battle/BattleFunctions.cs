@@ -216,26 +216,26 @@ namespace Ulko.Battle
         {
             foreach (var character in battleStack.CurrentAction.state.characters)
             {
-                if (character.hp > 0)
+                if (character.HP > 0)
                     await ApplyStatusAfterAction(instance, battleStack.CurrentAction, character, ct);
             }
         }
 
         private static async Task ApplyStatusAfterAction(BattleInstance instance, BattleAction currentAction, CharacterState actorState, CancellationToken ct)
         {
-            foreach (var statusState in actorState.statuses)
+            foreach (var statusState in actorState.Statuses)
             {
-                if (statusState.statusAsset.applyType == StatusAsset.ApplyType.AfterAction
-                    && statusState.statusAsset.condition.IsTrue(actorState, currentAction.state))
+                if (statusState.StatusAsset.applyType == StatusAsset.ApplyType.AfterAction
+                    && statusState.StatusAsset.condition.IsTrue(actorState, currentAction.state))
                 {
-                    Debug.Log(actorState.id + " reacts with " + statusState.statusAsset.id);
+                    Debug.Log(actorState.Id + " reacts with " + statusState.StatusAsset.id);
 
                     currentAction.state.characters = instance.CaptureCharacterStates();
 
                     var characterAction = CreateActionFromStatus(currentAction, actorState, statusState);
 
                     var battleAction = new BattleAction(
-                        statusState.statusAsset.node,
+                        statusState.StatusAsset.node,
                         new ActionState(characterAction, currentAction.state.characters));
 
                     var battleStack = new BattleStack(battleAction);
@@ -256,7 +256,7 @@ namespace Ulko.Battle
 
                 foreach (var character in battleStack.CurrentAction.state.characters)
                 {
-                    if(character.hp > 0)
+                    if(character.HP > 0)
                         ApplyStatusOnAction(battleStack, character, ref usedStatus);
                 }
 
@@ -267,27 +267,27 @@ namespace Ulko.Battle
 
         private static void ApplyStatusOnAction(BattleStack battleStack, CharacterState actorState, ref Dictionary<string, HashSet<StatusAsset>> usedStatus)
         {
-            foreach (var statusState in actorState.statuses)
+            foreach (var statusState in actorState.Statuses)
             {
-                if (statusState.statusAsset.applyType == StatusAsset.ApplyType.OnAction
-                    && (!usedStatus.ContainsKey(actorState.id) || !usedStatus[actorState.id].Contains(statusState.statusAsset))
-                    && (!statusState.statusAsset.node.HasEffectOfType(Effect.EffectType.BecomeTarget) || !ContainsEffectType(Effect.EffectType.BecomeTarget, ref usedStatus))
-                    && statusState.statusAsset.condition.IsTrue(actorState, battleStack.CurrentAction.state))
+                if (statusState.StatusAsset.applyType == StatusAsset.ApplyType.OnAction
+                    && (!usedStatus.ContainsKey(actorState.Id) || !usedStatus[actorState.Id].Contains(statusState.StatusAsset))
+                    && (!statusState.StatusAsset.node.HasEffectOfType(Effect.EffectType.BecomeTarget) || !ContainsEffectType(Effect.EffectType.BecomeTarget, ref usedStatus))
+                    && statusState.StatusAsset.condition.IsTrue(actorState, battleStack.CurrentAction.state))
                 {
-                    Debug.Log(actorState.id + " reacts with " + statusState.statusAsset.id);
+                    Debug.Log(actorState.Id + " reacts with " + statusState.StatusAsset.id);
 
                     var characterAction = CreateActionFromStatus(battleStack.CurrentAction, actorState, statusState);
 
                     var battleAction = new BattleAction(
-                        statusState.statusAsset.node,
+                        statusState.StatusAsset.node,
                         new ActionState(characterAction, battleStack.CurrentAction.state.characters));
 
                     battleStack.Push(battleAction);
 
-                    if (!usedStatus.ContainsKey(actorState.id))
-                        usedStatus.Add(actorState.id, new HashSet<StatusAsset>());
+                    if (!usedStatus.ContainsKey(actorState.Id))
+                        usedStatus.Add(actorState.Id, new HashSet<StatusAsset>());
 
-                    usedStatus[actorState.id].Add(statusState.statusAsset);
+                    usedStatus[actorState.Id].Add(statusState.StatusAsset);
                 }
             }
         }
@@ -306,7 +306,7 @@ namespace Ulko.Battle
         private static CharacterAction CreateActionFromStatus(BattleAction battleAction, CharacterState actorState, StatusState statusState)
         {
             List<string> targetIds = new();
-            switch (statusState.statusAsset.targetType)
+            switch (statusState.StatusAsset.targetType)
             {
                 case StatusAsset.TargetType.ActionTarget:
                     targetIds = battleAction.state.pendingAction.targetIds;
@@ -317,11 +317,11 @@ namespace Ulko.Battle
                     break;
 
                 case StatusAsset.TargetType.Wielder:
-                    targetIds = new List<string> { actorState.id };
+                    targetIds = new List<string> { actorState.Id };
                     break;
             }
 
-            return new CharacterAction(actorState.id, targetIds, statusState.statusAsset.node.effects.effects);
+            return new CharacterAction(actorState.Id, targetIds, statusState.StatusAsset.node.effects.effects);
         }
     }
 }

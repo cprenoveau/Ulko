@@ -58,17 +58,17 @@ namespace Ulko.Data.Abilities
         public void Apply(CharacterState target)
         {
             float originalValue;
-            float statValue = originalValue = target.baseStats.GetStat(stat);
+            float statValue = originalValue = target.BaseStats.GetStat(stat);
             statValue *= multiply;
             statValue += add;
 
             if (isPermanent)
             {
-                target.buff.AddToStat(stat, statValue - originalValue);
+                target.Buff.AddToStat(stat, statValue - originalValue);
             }
             else
             {
-                target.baseStats.SetStat(stat, statValue);
+                target.BaseStats.SetStat(stat, statValue);
             }
         }
 

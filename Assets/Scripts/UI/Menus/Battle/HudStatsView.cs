@@ -40,8 +40,8 @@ namespace Ulko.UI
 
         private void Refresh()
         {
-            hpText.text = Localization.LocalizeFormat("hp_value", character.HP, character.CurrentStats.maxHP);
-            hpSlider.maxValue = character.CurrentStats.maxHP;
+            hpText.text = Localization.LocalizeFormat("hp_value", character.HP, character.CurrentStats.GetStat(Stat.MaxHP));
+            hpSlider.maxValue = character.CurrentStats.GetStat(Stat.MaxHP);
             hpSlider.value = character.HP;
             turnText.text = character.TurnCooldown().ToString();
 
@@ -64,9 +64,9 @@ namespace Ulko.UI
                 }
             }
 
-            foreach (var status in characterState.statuses)
+            foreach (var status in characterState.Statuses)
             {
-                if (status.statusAsset.icon == null)
+                if (status.StatusAsset.icon == null)
                     continue;
 
                 var statusInstance = Instantiate(statusPrefab, statsParent);

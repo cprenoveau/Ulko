@@ -102,7 +102,7 @@ namespace Ulko.UI
 
         private void ShowCharacterStateChanged(CharacterState oldState, CharacterState newState, CharacterAction action)
         {
-            var character = data.battleInstance.FindCharacter(oldState.id);
+            var character = data.battleInstance.FindCharacter(oldState.Id);
             if (character != null)
             {
                 if (character.CharacterSide == CharacterSide.Enemies)
@@ -110,7 +110,7 @@ namespace Ulko.UI
                 else
                     RefreshHeroes();
 
-                int hpDiff = newState.hp - oldState.hp;
+                int hpDiff = newState.HP - oldState.HP;
 
                 if (hpDiff < 0)
                 {

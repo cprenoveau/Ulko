@@ -58,7 +58,7 @@ namespace Ulko.UI
             lvlText.text = Localization.LocalizeFormat("lvl_value", level);
 
             int currentExp = saved.exp;
-            int requiredExp = hero.IsMaxLevel(level) ? currentExp : hero.GetLevelData(level + 1).exp;
+            int requiredExp = hero.IsMaxLevel(level) ? currentExp : hero.GetLevelData(level + 1).Exp;
 
             if (expText != null)
             {
@@ -76,7 +76,7 @@ namespace Ulko.UI
 
             if (expBar != null)
             {
-                expBar.minValue = hero.GetLevelData(level).exp;
+                expBar.minValue = hero.GetLevelData(level).Exp;
                 expBar.maxValue = requiredExp;
                 expBar.value = currentExp;
             }

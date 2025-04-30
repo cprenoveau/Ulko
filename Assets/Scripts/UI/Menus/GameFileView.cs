@@ -44,8 +44,8 @@ namespace Ulko.UI
                 var heroData = Database.Heroes[hero.id];
                 var levelData = heroData.GetLevelDataFromExp(hero.exp);
 
-                if (levelData.level > highestLevel)
-                    highestLevel = levelData.level;
+                if (levelData.Lvl > highestLevel)
+                    highestLevel = levelData.Lvl;
             }
 
             lvlText.text = Localization.LocalizeFormat("level_value", highestLevel);

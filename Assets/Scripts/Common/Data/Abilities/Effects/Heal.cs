@@ -65,16 +65,16 @@ namespace Ulko.Data.Abilities
 
         public void Apply(CharacterState actor, CharacterState target)
         {
-            if(target.hp > 0 || revive)
+            if(target.HP > 0 || revive)
             {
                 float heal = RawValue(actor.CurrentStats);
 
-                heal += target.CurrentStats.maxHP * percentHeal / 100f;
+                heal += target.CurrentStats.GetStat(Stat.MaxHP) * percentHeal / 100f;
                 heal += flatHeal;
 
                 heal = Mathf.Clamp(heal, 1, heal);
 
-                target.hp += (int)heal;
+                target.AddHP(heal);
             }
         }
 

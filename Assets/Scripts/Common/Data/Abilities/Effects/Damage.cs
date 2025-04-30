@@ -65,7 +65,7 @@ namespace Ulko.Data.Abilities
             float damage = RawValue(actor.CurrentStats);
             float shield = target.CurrentStats.GetStat(Stat.Shield);
 
-            damage += target.CurrentStats.maxHP * percentDamage / 100f;
+            damage += target.CurrentStats.GetStat(Stat.MaxHP) * percentDamage / 100f;
             damage += flatDamage;
 
             damage = Mathf.RoundToInt(damage * GetAttackMultiplier(target));
@@ -74,11 +74,8 @@ namespace Ulko.Data.Abilities
             float soak = Mathf.Min(shield, damage);
             damage -= soak;
 
-            target.hp -= (int)damage;
-            target.buff.AddToStat(Stat.Shield, -soak);
-
-            if (target.hp <= 0)
-                target.statuses.Clear();
+            target.AddHP(-damage);
+            target.Buff.AddToStat(Stat.Shield, -soak);
         }
 
         public float GetAttackMultiplier(CharacterState target)

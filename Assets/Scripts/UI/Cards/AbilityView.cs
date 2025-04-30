@@ -48,7 +48,7 @@ namespace Ulko.UI
         private void Refresh()
         {
             nameText.text = Localization.Localize(AbilityAsset.id);
-            ownerNameText.text = Localization.Localize(Owner.nameKey);
+            ownerNameText.text = Localization.Localize(Owner.NameKey);
 
             abilityTypeIcon.sprite = config.FindStatIcon(AbilityAsset.mainStat);
             abilityTypeIcon.color = config.FindStatColor(AbilityAsset.mainStat);

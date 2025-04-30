@@ -16,14 +16,17 @@ namespace Ulko.Data
     [Serializable]
     public class Level : IJsonObject, IClonable, IEquatable<Level>
     {
-        public int level;
-        public int exp;
-        public float maxHP;
-        public float strength;
-        public float wisdom;
-        public float intuition;
-        public float intelligence;
-        public float shield;
+        private int level;
+        private int exp;
+        private float maxHP;
+        private float strength;
+        private float wisdom;
+        private float intuition;
+        private float intelligence;
+        private float shield;
+
+        public int Lvl => level;
+        public int Exp => exp;
 
         public static Level operator +(Level left, Level right)
         {

@@ -252,7 +252,7 @@ namespace Ulko.Battle
         {
             foreach (var characterState in state.characters)
             {
-                var character = FindCharacter(characterState.id);
+                var character = FindCharacter(characterState.Id);
                 if (character != null)
                 {
                     var oldState = character.CaptureState();
@@ -380,18 +380,18 @@ namespace Ulko.Battle
             switch (target.targetType)
             {
                 case AbilityTarget.TargetType.Allies:
-                    candidates.AddRange(GetAlliesOf(actor.characterSide, FetchCondition.All));
+                    candidates.AddRange(GetAlliesOf(actor.CharacterSide, FetchCondition.All));
 
                     if (!target.HasCondition(typeof(IsOnSameSideCondition)))
-                        candidates.AddRange(GetEnemiesOf(actor.characterSide, FetchCondition.All));
+                        candidates.AddRange(GetEnemiesOf(actor.CharacterSide, FetchCondition.All));
 
                     break;
 
                 case AbilityTarget.TargetType.Enemies:
-                    candidates.AddRange(GetEnemiesOf(actor.characterSide, FetchCondition.All));
+                    candidates.AddRange(GetEnemiesOf(actor.CharacterSide, FetchCondition.All));
 
                     if (!target.HasCondition(typeof(IsOnSameSideCondition)))
-                        candidates.AddRange(GetAlliesOf(actor.characterSide, FetchCondition.All));
+                        candidates.AddRange(GetAlliesOf(actor.CharacterSide, FetchCondition.All));
 
                     break;
             }

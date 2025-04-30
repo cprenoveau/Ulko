@@ -99,7 +99,7 @@ namespace Ulko.Data.Abilities
     {
         protected override bool _IsTrue(CharacterState actor, CharacterState target)
         {
-            return target.hp > 0;
+            return target.HP > 0;
         }
     }
 
@@ -108,7 +108,7 @@ namespace Ulko.Data.Abilities
     {
         protected override bool _IsTrue(CharacterState actor, CharacterState target)
         {
-            return actor != null && actor.id == target.id;
+            return actor != null && actor.Id == target.Id;
         }
     }
 
@@ -117,7 +117,7 @@ namespace Ulko.Data.Abilities
     {
         protected override bool _IsTrue(CharacterState actor, CharacterState target)
         {
-            return actor != null && actor.characterSide == target.characterSide;
+            return actor != null && actor.CharacterSide == target.CharacterSide;
         }
     }
 
@@ -126,7 +126,7 @@ namespace Ulko.Data.Abilities
     {
         protected override bool _IsTrue(CharacterState actor, CharacterState target)
         {
-            return target.hp >= target.CurrentStats.maxHP;
+            return target.HP >= target.CurrentStats.GetStat(Stat.MaxHP);
         }
     }
 

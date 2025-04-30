@@ -15,7 +15,7 @@ namespace Ulko.Battle
         public string NameKey => EnemyAsset.nameKey;
         public CharacterSide CharacterSide => CharacterSide.Enemies;
         public int Level => EnemyAsset.level;
-        public int Exp => EnemyData.GetLevelData(Level).exp;
+        public int Exp => EnemyData.GetLevelData(Level).Exp;
         public int HP { get; set; }
         public Level Stats => EnemyData.GetLevelData(Level);
 
@@ -43,7 +43,7 @@ namespace Ulko.Battle
             FacingDirection = direction;
             Instantiate = asset.Instantiate;
 
-            HP = (int)Stats.maxHP;
+            HP = (int)Stats.GetStat(Stat.MaxHP);
         }
     }
 }
