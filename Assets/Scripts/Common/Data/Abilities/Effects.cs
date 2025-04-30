@@ -159,15 +159,33 @@ namespace Ulko.Data.Abilities
 
     public class CharacterAction : IClonable, IEquatable<CharacterAction>
     {
-        public string actorId;
-        public List<string> targetIds = new();
-        public List<Effect> effects = new();
+        public string ActorId { get; private set; }
+
+        public IEnumerable<string> TargetIds => targetIds;
+        private List<string> targetIds = new();
+
+        public void ReplaceTarget(string oldTargetId, string newTargetId)
+        {
+            int index = targetIds.IndexOf(oldTargetId);
+            if(index != -1)
+            {
+                targetIds[index] = newTargetId;
+            }
+        }
+
+        public IEnumerable<Effect> Effects => effects;
+        private List<Effect> effects = new();
+
+        public void RemoveEffectOfType(Effect.EffectType effectType)
+        {
+            effects.RemoveAll(e => e.Type == effectType);
+        }
 
         public CharacterAction() { }
 
         public CharacterAction(string actorId, List<string> targetIds, List<Effect> effects)
         {
-            this.actorId = actorId;
+            ActorId = actorId;
             this.targetIds = targetIds;
             this.effects = effects;
         }
@@ -179,7 +197,7 @@ namespace Ulko.Data.Abilities
 
         public void Clone(CharacterAction source)
         {
-            actorId = source.actorId;
+            ActorId = source.ActorId;
             targetIds = source.targetIds.Clone();
 
             effects = new();
@@ -191,7 +209,7 @@ namespace Ulko.Data.Abilities
 
         public bool Equals(CharacterAction other)
         {
-            return actorId.Equals(other.actorId)
+            return ActorId.Equals(other.ActorId)
                 && targetIds.SequenceEqual(other.targetIds)
                 && EffectsAreEqual(other);
         }
@@ -245,7 +263,7 @@ namespace Ulko.Data.Abilities
 
         public static void Apply(CharacterAction action, ActionState state)
         {
-            foreach (var effect in action.effects)
+            foreach (var effect in action.Effects)
             {
                 effect.Apply(action, state);
             }

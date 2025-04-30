@@ -30,26 +30,18 @@ namespace Ulko.Data.Abilities
 
         public override void Apply(CharacterAction action, ActionState state)
         {
-            var actor = state.FindCharacter(action.actorId);
+            var actor = state.FindCharacter(action.ActorId);
             if (actor == null)
                 return;
 
-            List<string> newTargets = new();
-
-            foreach (var targetId in state.pendingAction.targetIds)
+            foreach (var targetId in state.pendingAction.TargetIds)
             {
                 var target = state.FindCharacter(targetId);
                 if (target != null && (condition == null || condition.IsTrue(actor, target)))
                 {
-                    newTargets.Add(action.actorId);
-                }
-                else
-                {
-                    newTargets.Add(targetId);
+                    state.pendingAction.ReplaceTarget(targetId, action.ActorId);
                 }
             }
-
-            state.pendingAction.targetIds = newTargets;
         }
 
         public override string Description(CharacterState actor)

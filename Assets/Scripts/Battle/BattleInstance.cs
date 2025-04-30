@@ -302,7 +302,7 @@ namespace Ulko.Battle
             return Enemies.FirstOrDefault(e => e.IdWithoutSuffix == id);
         }
 
-        public List<Character> FindCharacters(List<string> ids)
+        public List<Character> FindCharacters(IEnumerable<string> ids)
         {
             var list = new List<Character>();
             foreach (var id in ids)

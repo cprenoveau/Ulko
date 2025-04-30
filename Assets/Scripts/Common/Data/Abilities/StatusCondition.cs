@@ -79,9 +79,9 @@ namespace Ulko.Data.Abilities
         {
             switch (actorType)
             {
-                case ActorType.Me: return state.pendingAction.actorId == actor.Id;
-                case ActorType.Ally: return state.FindCharacter(state.pendingAction.actorId).CharacterSide == actor.CharacterSide;
-                case ActorType.Enemy: return state.FindCharacter(state.pendingAction.actorId).CharacterSide != actor.CharacterSide;
+                case ActorType.Me: return state.pendingAction.ActorId == actor.Id;
+                case ActorType.Ally: return state.FindCharacter(state.pendingAction.ActorId).CharacterSide == actor.CharacterSide;
+                case ActorType.Enemy: return state.FindCharacter(state.pendingAction.ActorId).CharacterSide != actor.CharacterSide;
             }
 
             return false;
@@ -103,15 +103,15 @@ namespace Ulko.Data.Abilities
 
         protected override bool _IsTrue(CharacterState actor, ActionState state)
         {
-            if (state.pendingAction.targetIds.Count == 0)
+            if (state.pendingAction.TargetIds.Count() == 0)
                 return false;
 
             switch (targetType)
             {
-                case TargetType.Me: return state.pendingAction.targetIds.FirstOrDefault(t => t == actor.Id) != null;
-                case TargetType.Ally: return state.FindCharacter(state.pendingAction.targetIds[0]).CharacterSide == actor.CharacterSide;
-                case TargetType.Enemy: return state.FindCharacter(state.pendingAction.targetIds[0]).CharacterSide != actor.CharacterSide;
-                case TargetType.One: return state.pendingAction.targetIds.Count == 1;
+                case TargetType.Me: return state.pendingAction.TargetIds.FirstOrDefault(t => t == actor.Id) != null;
+                case TargetType.Ally: return state.FindCharacter(state.pendingAction.TargetIds.First()).CharacterSide == actor.CharacterSide;
+                case TargetType.Enemy: return state.FindCharacter(state.pendingAction.TargetIds.First()).CharacterSide != actor.CharacterSide;
+                case TargetType.One: return state.pendingAction.TargetIds.Count() == 1;
             }
 
             return false;
@@ -125,7 +125,7 @@ namespace Ulko.Data.Abilities
 
         protected override bool _IsTrue(CharacterState actor, ActionState state)
         {
-            return state.pendingAction.effects.FirstOrDefault(e => e.Type == effectType) != null;
+            return state.pendingAction.Effects.FirstOrDefault(e => e.Type == effectType) != null;
         }
     }
 }

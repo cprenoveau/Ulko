@@ -73,7 +73,7 @@ namespace Ulko.Battle
 
             foreach(var battleAction in action.SelectedAction.actions)
             {
-                var actor = instance.FindCharacter(battleAction.state.pendingAction.actorId);
+                var actor = instance.FindCharacter(battleAction.state.pendingAction.ActorId);
                 if (actor.IsDead && !action.SelectedAction.isCardThrow)
                     continue;
 
@@ -135,7 +135,7 @@ namespace Ulko.Battle
 
             foreach (var battleAction in action.actions)
             {
-                var actor = instance.FindCharacter(battleAction.state.pendingAction.actorId);
+                var actor = instance.FindCharacter(battleAction.state.pendingAction.ActorId);
                 if (actor.IsDead)
                     continue;
 
@@ -194,19 +194,19 @@ namespace Ulko.Battle
 
         private static void ForceValidTarget(BattleInstance instance, AbilityTarget abilityTarget, ActionState state)
         {
-            var actor = state.FindCharacter(state.pendingAction.actorId);
+            var actor = state.FindCharacter(state.pendingAction.ActorId);
             var candidates = instance.GetTargetCandidates(abilityTarget, actor);
 
-            for (int i = 0; i < state.pendingAction.targetIds.Count; ++i)
+            foreach(string targetId in state.pendingAction.TargetIds)
             {
-                var target = state.FindCharacter(state.pendingAction.targetIds[i]);
+                var target = state.FindCharacter(targetId);
 
                 if (!abilityTarget.IsValidTarget(actor, target))
                 {
                     var newTarget = instance.GetRandomSingleTarget(candidates);
                     if (newTarget != null)
                     {
-                        state.pendingAction.targetIds[i] = newTarget.Id;
+                        state.pendingAction.ReplaceTarget(targetId, newTarget.Id);
                     }
                 }
             }
@@ -309,11 +309,11 @@ namespace Ulko.Battle
             switch (statusState.StatusAsset.targetType)
             {
                 case StatusAsset.TargetType.ActionTarget:
-                    targetIds = battleAction.state.pendingAction.targetIds;
+                    targetIds = battleAction.state.pendingAction.TargetIds.ToList();
                     break;
 
                 case StatusAsset.TargetType.ActionActor:
-                    targetIds = new List<string> { battleAction.state.pendingAction.actorId };
+                    targetIds = new List<string> { battleAction.state.pendingAction.ActorId };
                     break;
 
                 case StatusAsset.TargetType.Wielder:

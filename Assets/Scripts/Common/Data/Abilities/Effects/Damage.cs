@@ -46,11 +46,11 @@ namespace Ulko.Data.Abilities
 
         public override void Apply(CharacterAction action, ActionState state)
         {
-            var actor = state.FindCharacter(action.actorId);
+            var actor = state.FindCharacter(action.ActorId);
             if (actor == null)
                 return;
 
-            foreach (string targetId in action.targetIds)
+            foreach (string targetId in action.TargetIds)
             {
                 var target = state.FindCharacter(targetId);
                 if (target != null && (condition == null || condition.IsTrue(actor, target)))

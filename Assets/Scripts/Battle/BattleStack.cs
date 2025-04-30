@@ -60,10 +60,10 @@ namespace Ulko.Battle
 
         public static async Task PlaySequenceAsTask(BattleInstance instance, BattleAction action, CancellationToken ct)
         {
-            await PlaySequenceAsTask(instance, action.node.applySequence, action.state.pendingAction.actorId, action.state.pendingAction.targetIds, ct);
+            await PlaySequenceAsTask(instance, action.node.applySequence, action.state.pendingAction.ActorId, action.state.pendingAction.TargetIds, ct);
         }
 
-        public static async Task PlaySequenceAsTask(BattleInstance instance, AbilitySequence sequence, string actorId, List<string> targetIds, CancellationToken ct)
+        public static async Task PlaySequenceAsTask(BattleInstance instance, AbilitySequence sequence, string actorId, IEnumerable<string> targetIds, CancellationToken ct)
         {
             if (ct.IsCancellationRequested)
                 return;
@@ -71,7 +71,7 @@ namespace Ulko.Battle
             await instance.Battlefield.StartCoroutineAsync(PlaySequence(instance, sequence, actorId, targetIds), ct);
         }
 
-        public static IEnumerator PlaySequence(BattleInstance instance, AbilitySequence sequence, string actorId, List<string> targetIds)
+        public static IEnumerator PlaySequence(BattleInstance instance, AbilitySequence sequence, string actorId, IEnumerable<string> targetIds)
         {
             yield return PlaySequence(
                 instance.Battlefield,

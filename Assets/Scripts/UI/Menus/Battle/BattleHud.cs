@@ -116,7 +116,7 @@ namespace Ulko.UI
                 {
                     ShowText(character, (-hpDiff).ToString(), config.damageTextColor);
 
-                    foreach (var effect in action.effects)
+                    foreach (var effect in action.Effects)
                     {
                         if (effect is Damage damage)
                         {

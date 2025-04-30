@@ -31,14 +31,14 @@ namespace Ulko.Data.Abilities
 
         public override void Apply(CharacterAction action, ActionState state)
         {
-            var actor = state.FindCharacter(action.actorId);
+            var actor = state.FindCharacter(action.ActorId);
             if (actor == null)
                 return;
 
-            var pendingActionActor = state.FindCharacter(state.pendingAction.actorId);
+            var pendingActionActor = state.FindCharacter(state.pendingAction.ActorId);
             if (pendingActionActor != null && (condition == null || condition.IsTrue(actor, pendingActionActor)))
             {
-                state.pendingAction.effects.RemoveAll(e => e.Type == effectType);
+                state.pendingAction.RemoveEffectOfType(effectType);
             }
         }
 
