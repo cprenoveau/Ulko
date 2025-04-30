@@ -3,7 +3,7 @@ Quirky card game RPG with a horror twist.
 
 Requires Unity 6.
 
-You will find all of the main logic and objects in the Main folder and Script/Main.
+You will find all of the main logic and objects in the Main folder and Scripts/Main.
 
 The levels are held in the Timeline folder, then Act-1, Act-2 and Act-3.
 
@@ -14,10 +14,11 @@ There's a Play from Start checkbox right beside the Unity Play/Pause/Stop button
 Press F1 for cheats. You'll notice some cheats have shortcut keys, for instance Next Milestone is F12 and Win Battle is F2.
 
 The system is divided into the following assemblies:
-Main: main entry point and master of the universe, knows everything
-UI: knows everything but Main
-World: overworld navigation, knows Common
-Battle: encounters and bosses, knows Common
-Common: contains game data and shared functionalities
+
+Main: main entry point and master of the universe, knows everything<br>
+UI: knows everything but Main<br>
+World: overworld navigation, knows Common<br>
+Battle: encounters and bosses, knows Common<br>
+Common: contains game data and shared functionalities<br>
 
 This game makes use of the HotChocolate library: https://cprenoveau.github.io/HotChocolate/
