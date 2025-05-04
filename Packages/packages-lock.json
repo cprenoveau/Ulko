@@ -8,7 +8,7 @@
         "com.unity.addressables": "2.2.2",
         "com.unity.nuget.newtonsoft-json": "3.2.1"
       },
-      "hash": "13ec23a60613bc5455af0829cdf73397bb539aa1"
+      "hash": "f29e8e41ea6f318bade20b1529f80a379dd9e0a7"
     },
     "com.marijnzwemmer.unity-toolbar-extender": {
       "version": "https://github.com/marijnz/unity-toolbar-extender.git",
