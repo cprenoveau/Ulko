@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: MainStory
   m_EditorClassIdentifier: 
   id: main
-  acts:
-  - {fileID: 11400000, guid: b883bbf7c9bf88a44a32d2656c2ca573, type: 2}
-  - {fileID: 11400000, guid: a89db58202a9a9745a608dc0c6bf60bd, type: 2}
-  - {fileID: 11400000, guid: c7f6650b4c6ebc643b18660fac5a6057, type: 2}
+  chapters:
+  - {fileID: 11400000, guid: d779dfaef08b20241b49266de0b71b5f, type: 2}
+  - {fileID: 11400000, guid: 486a581ec0500b54488365608e351fe5, type: 2}
+  - {fileID: 11400000, guid: 64460b18e6cbf1b4bbe84784825b3fa7, type: 2}
+  - {fileID: 11400000, guid: e4c61f9facfba094889a4eb032a0b629, type: 2}
+  - {fileID: 11400000, guid: 38fb6810d7254b444910596e48004009, type: 2}
+  - {fileID: 11400000, guid: 2f4ed792a5d90a04fad7947cae7810a2, type: 2}
+  - {fileID: 11400000, guid: 8dcb7dd20a179514ba793a197ddc707a, type: 2}

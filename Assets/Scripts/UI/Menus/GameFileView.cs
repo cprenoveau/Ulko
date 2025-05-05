@@ -61,12 +61,12 @@ namespace Ulko.UI
                 Destroy(child.gameObject);
             }
 
-            var progression = GameFile.stories.ContainsKey(GameFile.currentStory) ? GameFile.stories[GameFile.currentStory] : new Persistence.Progression();
+            var progression = GameFile.chapterProgression.ContainsKey(GameFile.currentStoryId) ? GameFile.chapterProgression[GameFile.currentStoryId] : new Persistence.ChapterProgression();
 
             for (int i = GameFile.party.Count-1; i >= 0; --i)
             {
                 var hero = GameFile.party[i];
-                var heroRef = PlayerProfile.FindHero(GameFile.currentStory, progression, hero.id);
+                var heroRef = PlayerProfile.FindHeroAsset(hero.id);
 
                 if (heroRef == null)
                     continue;

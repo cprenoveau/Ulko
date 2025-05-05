@@ -27,11 +27,12 @@ namespace Ulko
         public Volume vhsGlitchEffect;
 
         public Location CurrentLocation => PlayerProfile.CurrentLocation;
-        public IMilestone CurrentMilestone => GetCurrentMilestone();
-        public Level CurrentLevel => GetCurrentMilestone() as Level;
-        public Cutscene CurrentCutscene => GetCurrentMilestone() as Cutscene;
+        public IMilestone CurrentMilestone => PlayerProfile.GetCurrentMilestone();
+        public Level CurrentLevel => PlayerProfile.GetCurrentMilestone() as Level;
+        public Cutscene CurrentCutscene => PlayerProfile.GetCurrentMilestone() as Cutscene;
         public Data.BattleAsset CurrentBattle { get; private set; }
         public Context Context(ContextType type) => contexts[type];
+
         public Camera Camera => CurrentContext != ContextType.None ? contexts[CurrentContext].Camera : null;
         public Camera UICamera => CurrentContext != ContextType.None ? contexts[CurrentContext].UICamera : null;
         public UIRoot UIRoot => CurrentContext != ContextType.None ? contexts[CurrentContext].UIRoot : uiRoot;
@@ -44,12 +45,6 @@ namespace Ulko
         private readonly Dictionary<ContextType, Context> contexts = new();
 
         private PlayerController playerControllerPrefab;
-
-        private IMilestone GetCurrentMilestone()
-        {
-            var progression = PlayerProfile.GetProgression();
-            return Database.GetMilestone(PlayerProfile.CurrentStory, progression.act, progression.chapter, progression.milestone);
-        }
 
         public async Task Init(PlayerController playerControllerPrefab, List<Context> contextPrefabs, CancellationToken ct)
         {
@@ -123,12 +118,12 @@ namespace Ulko
             await SetContext(milestone.Context, ct);
         }
 
-        public async Task StartNextMilestone(CancellationToken ct)
+        public async Task CompleteMilestone(CancellationToken ct)
         {
             if (ct.IsCancellationRequested)
                 return;
 
-            var milestone = GetCurrentMilestone();
+            var milestone = PlayerProfile.GetCurrentMilestone();
             if (milestone != null && milestone.ShowSavePrompt && !ct.IsCancellationRequested)
             {
                 uiRoot.menuStack.Jump(saveMenu.asset, saveMenu.id, null, new MenuData() { gameState = this, uiRoot = uiRoot });
@@ -137,15 +132,22 @@ namespace Ulko
                     await Task.Yield();
             }
 
-            PlayerProfile.SetNextMilestone();
+            PlayerProfile.CompleteCurrentMilestone();
+            PlayerProfile.ResetLocation();
 
-            if (PlayerProfile.IsFirst(PlayerProfile.GetProgression()))
+            //back to main quest
+            if(PlayerProfile.CurrentStoryIsCompleted() && !PlayerProfile.CurrentStoryIsMain())
+            {
+                PlayerProfile.SetCurrentStoryToMain();
+            }
+
+            if (PlayerProfile.CurrentStoryIsCompleted())
             {
                 await GoToStartup(ct);
             }
             else
             {
-                await StartMilestone(GetCurrentMilestone(), ct);
+                await StartMilestone(PlayerProfile.GetCurrentMilestone(), ct);
             }
         }
 
@@ -172,13 +174,13 @@ namespace Ulko
             PlayerProfile.SetEncounterIndex(-1);
             PlayerProfile.ReviveParty();
 
-            if (GetCurrentMilestone() is BossBattle)
+            if (PlayerProfile.GetCurrentMilestone() is BossBattle)
             {
-                await StartNextMilestone(ct);
+                await CompleteMilestone(ct);
             }
             else
             {
-                await StartMilestone(GetCurrentMilestone(), ct);
+                await StartMilestone(PlayerProfile.GetCurrentMilestone(), ct);
             }
         }
 

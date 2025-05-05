@@ -103,7 +103,7 @@ namespace Ulko.UI
 
         private IEnumerator ShowNewAbilitiesAsync()
         {
-            var heroAsset = PlayerProfile.FindHero(PlayerProfile.CurrentStory, PlayerProfile.GetProgression(), data.heroId);
+            var heroAsset = PlayerProfile.FindHeroAsset(data.heroId);
 
             var oldAbilities = heroAsset.AbilitiesForLevel(data.oldLevel);
             var newAbilities = heroAsset.Abilities;

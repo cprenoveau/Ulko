@@ -214,7 +214,7 @@ namespace Ulko
 
         private void StartNextMilestone()
         {
-            Data.StartNextMilestone(default).FireAndForgetTask();
+            Data.CompleteMilestone(default).FireAndForgetTask();
         }
 
         private void SaveGame()

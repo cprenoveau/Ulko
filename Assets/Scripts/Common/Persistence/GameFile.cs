@@ -4,6 +4,7 @@ using System;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using Ulko.Data;
+using Ulko.Data.Timeline;
 
 namespace Ulko.Persistence
 {
@@ -137,50 +138,65 @@ namespace Ulko.Persistence
     }
 
     [Serializable]
-    public class Progression : IJsonObject, IClonable
+    public class ChapterProgression : IJsonObject, IClonable
     {
-        public int act;
-        public int chapter;
-        public int milestone;
+        public string chapterId;
+        public bool fullyCompleted;
+        public List<string> completedMilestones = new();
 
-        public Progression() { }
+        public bool ChapterIsCompleted()
+        {
+            return fullyCompleted;
+        }
 
-        public Progression(Progression source)
+        public bool ChapterIsInProgress()
+        {
+            return completedMilestones.Count > 0;
+        }
+
+        public bool MilestoneIsCompleted(string milestoneName)
+        {
+            return completedMilestones.Contains(milestoneName);
+        }
+
+        public ChapterProgression() { }
+
+        public ChapterProgression(ChapterProgression source)
         {
             Clone(source);
         }
 
-        public Progression(JToken json)
+        public ChapterProgression(JToken json)
         {
             FromJson(json);
         }
 
         public void Clone(object source)
         {
-            Clone(source as Progression);
+            Clone(source as ChapterProgression);
         }
 
-        public void Clone(Progression source)
+        public void Clone(ChapterProgression source)
         {
-            act = source.act;
-            chapter = source.chapter;
-            milestone = source.milestone;
+            chapterId = source.chapterId;
+            fullyCompleted = source.fullyCompleted;
+            completedMilestones = source.completedMilestones.Clone();
         }
 
         public void FromJson(JToken json)
         {
-            act = json["act"].ToObject<int>();
-            chapter = json["chapter"].ToObject<int>();
-            milestone = json["milestone"].ToObject<int>();
+            chapterId = json["chapterId"].ToString();
+            fullyCompleted = json["fullyCompleted"].ToObject<bool>();
+            completedMilestones = json["completedMilestones"].ParseStringList();
         }
 
         public JToken ToJson()
         {
             var json = new JObject
             {
-                { "act", act },
-                { "chapter", chapter },
-                { "milestone", milestone }
+                { "chapterId", chapterId },
+                { "fullyCompleted", fullyCompleted },
+                { "completedMilestones", completedMilestones.ToJson() }
             };
 
             return json;
@@ -196,8 +212,49 @@ namespace Ulko.Persistence
 
         public List<Card<AbilityCardData>> reserveDeck = new();
 
-        public string currentStory;
-        public Dictionary<string, Progression> stories = new();
+        public string currentStoryId;
+        public Dictionary<string, ChapterProgression> chapterProgression = new();
+
+        public ChapterProgression GetChapterProgression(string chapterId)
+        {
+            if (chapterProgression.ContainsKey(chapterId))
+                return chapterProgression[chapterId];
+            else
+                return new ChapterProgression() { chapterId = chapterId };
+        }
+
+        public void ResetChapterProgression(string chapterId)
+        {
+            chapterProgression.Remove(chapterId);
+        }
+
+        public bool ChapterIsCompleted(string chapterId)
+        {
+            return GetChapterProgression(chapterId).ChapterIsCompleted();
+        }
+
+        public void CompleteMilestone(string chapterId, string milestoneName)
+        {
+            if (!chapterProgression.ContainsKey(chapterId))
+            {
+                chapterProgression.Add(chapterId, new ChapterProgression() { chapterId = chapterId });
+            }
+
+            if (!chapterProgression[chapterId].MilestoneIsCompleted(milestoneName))
+            {
+                chapterProgression[chapterId].completedMilestones.Add(milestoneName);
+            }
+        }
+
+        public void CompleteChapter(string chapterId)
+        {
+            if (!chapterProgression.ContainsKey(chapterId))
+            {
+                chapterProgression.Add(chapterId, new ChapterProgression() { chapterId = chapterId });
+            }
+
+            chapterProgression[chapterId].fullyCompleted = true;
+        }
 
         public GameFile() { }
 
@@ -222,8 +279,8 @@ namespace Ulko.Persistence
             location = source.location.Clone();
             party = source.party.Clone();
             reserveDeck = source.reserveDeck.Clone();
-            currentStory = source.currentStory;
-            stories = source.stories.Clone();
+            currentStoryId = source.currentStoryId;
+            chapterProgression = source.chapterProgression.Clone();
         }
 
         public void FromJson(JToken json)
@@ -232,8 +289,8 @@ namespace Ulko.Persistence
             location = json["location"].Parse<Location>();
             party = json["party"].ParseList<Hero>();
             reserveDeck = json["reserveDeck"].ParseList<Card<AbilityCardData>>();
-            currentStory = json["currentStory"].ToString();
-            stories = json["stories"].ParseDict<Progression>();
+            currentStoryId = json["currentStoryId"].ToString();
+            chapterProgression = json["chapterProgression"].ParseDict<ChapterProgression>();
         }
 
         public JToken ToJson()
@@ -244,8 +301,8 @@ namespace Ulko.Persistence
                 { "location", location.ToJson() },
                 { "party", party.ToJson() },
                 { "reserveDeck", reserveDeck.ToJson() },
-                { "currentStory", currentStory },
-                { "stories", stories.ToJson() }
+                { "currentStoryId", currentStoryId },
+                { "chapterProgression", chapterProgression.ToJson() }
             };
 
             return json;

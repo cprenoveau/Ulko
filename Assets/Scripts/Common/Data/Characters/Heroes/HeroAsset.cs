@@ -25,7 +25,7 @@ namespace Ulko.Data.Characters
         public List<AnimationData> animations = new();
 
         public override IEnumerable<AbilityAsset> Abilities => AbilitiesForLevel(PlayerProfile.GetHeroLevel(id));
-        public IEnumerable<AbilityAsset> AbilitiesForLevel(int level) => progression.GetAbilities(level, PlayerProfile.GetCurrentChapter()).Select(a => a.ability);
+        public IEnumerable<AbilityAsset> AbilitiesForLevel(int level) => progression.GetAbilities(level, PlayerProfile.GetCurrentChapterIndex(PlayerProfile.MAIN_STORY_ID)).Select(a => a.ability);
 
         public override IEnumerable<StatusAsset> Statuses => new List<StatusAsset>();
 

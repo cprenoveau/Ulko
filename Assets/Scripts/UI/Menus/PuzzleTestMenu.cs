@@ -42,7 +42,7 @@ namespace Ulko.UI
 
         private void Continue()
         {
-            data.gameState.StartNextMilestone(default).FireAndForgetTask();
+            data.gameState.CompleteMilestone(default).FireAndForgetTask();
         }
     }
 }

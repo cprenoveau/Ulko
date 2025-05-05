@@ -4,6 +4,6 @@
       "id": "ulko"
     },
   ],
-  "currentStory": "main",
-  "stories": {}
+  "currentStoryId": "main",
+  "chapterProgression": {}
 }

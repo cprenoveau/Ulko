@@ -9,8 +9,8 @@ namespace Ulko.Data.Timeline
     [CreateAssetMenu(fileName = "Chapter", menuName = "Ulko/Timeline/Chapter", order = 1)]
     public class Chapter : ScriptableObject
     {
+        public string chapterId;
         public string chapterName;
-        public string description;
 
         [SerializeReference]
         public List<IMilestone> milestones = new();
@@ -20,7 +20,7 @@ namespace Ulko.Data.Timeline
         {
             instantiators.Clear();
 
-            var milestoneTypes = typeof(Act).Assembly.GetTypes().Where(t => t.GetInterfaces().Contains(typeof(IMilestone)));
+            var milestoneTypes = typeof(Chapter).Assembly.GetTypes().Where(t => t.GetInterfaces().Contains(typeof(IMilestone)));
             foreach (var milestoneType in milestoneTypes)
             {
                 instantiators.Add(Create(milestoneType));

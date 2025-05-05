@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Ulko.Data.Abilities;
+using System.Linq;
 
 namespace Ulko
 {
@@ -56,108 +57,51 @@ namespace Ulko
             }
         }
 
-        public static (string story, Persistence.Progression prog) GetProgression(string milestoneName)
+        public static Story GetStory(string storyId)
         {
-            foreach(var story in Stories)
+            if (Stories.ContainsKey(storyId))
             {
-                string storyName = story.Key;
-                for(int i = 0; i < story.Value.acts.Count; ++i)
+                return Stories[storyId];
+            }
+            else
+            {
+                Debug.LogError("Story with id " + storyId + " doesn't exist.");
+                return null;
+            }
+        }
+
+        public static (Story story, Chapter chapter) GetChapter(string chapterId)
+        {
+            foreach(var story in Stories.Values)
+            {
+                var chapter = story.chapters.FirstOrDefault(c => c.chapterId == chapterId);
+                if (chapter != null)
+                    return (story, chapter);
+            }
+
+            Debug.LogError("Chapter with id " + chapterId + " doesn't exist.");
+            return (null,null);
+        }
+
+        public static (Story story, Chapter chapter, IMilestone milestone) GetMilestone(string milestoneName)
+        {
+            foreach (var story in Stories.Values)
+            {
+                foreach(var chapter in story.chapters)
                 {
-                    for(int j = 0; j < story.Value.acts[i].chapters.Count; ++j)
-                    {
-                        int milestoneIndex = story.Value.acts[i].chapters[j].milestones.FindIndex(m => m.Name == milestoneName);
-                        if(milestoneIndex != -1)
-                        {
-                            return (storyName, new Persistence.Progression { act = i, chapter = j, milestone = milestoneIndex });
-                        }
-                    }
+                    var milestone = chapter.milestones.FirstOrDefault(m => m.Name == milestoneName);
+                    if (milestone != null)
+                        return (story, chapter, milestone);
                 }
             }
 
-            return (null, null);
+            Debug.LogError("Milestone with name " + milestoneName + " doesn't exist.");
+            return (null,null,null);
         }
 
-        public static IMilestone GetMilestone(string story, Persistence.Progression progression)
+        public static bool IsLastMilestone(Chapter chapter, string milestoneName)
         {
-            return GetMilestone(story, progression.act, progression.chapter, progression.milestone);
-        }
-
-        public static IMilestone GetMilestone(string story, int actIndex, int chapterIndex, int milestoneIndex)
-        {
-            var chapter = GetChapter(story, actIndex, chapterIndex);
-            if(chapter != null)
-            {
-                return GetMilestone(chapter, milestoneIndex);
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public static IMilestone GetMilestone(Chapter chapter, int milestoneIndex)
-        {
-            if (milestoneIndex >= 0 && milestoneIndex < chapter.milestones.Count)
-            {
-                return chapter.milestones[milestoneIndex];
-            }
-            else
-            {
-                Debug.LogError("Milestone with index " + milestoneIndex + " doesn't exist in chapter " + chapter.name);
-                return null;
-            }
-        }
-
-        public static Chapter GetChapter(string story, int actIndex, int chapterIndex)
-        {
-            var act = GetAct(story, actIndex);
-            if(act != null)
-            {
-                return GetChapter(act, chapterIndex);
-            }
-            else
-            {
-                return null;
-            }
-        }
-
-        public static Chapter GetChapter(Act act, int chapterIndex)
-        {
-            if(chapterIndex >= 0 && chapterIndex < act.chapters.Count)
-            {
-                return act.chapters[chapterIndex];
-            }
-            else
-            {
-                Debug.LogError("Chapter with index "+chapterIndex+" doesn't exist in act "+act.name);
-                return null;
-            }
-        }
-
-        public static Act GetAct(string story, int actIndex)
-        {
-            if(Stories.ContainsKey(story))
-            {
-                return GetAct(Stories[story], actIndex);
-            }
-            else
-            {
-                Debug.LogError("Story with id " + story + " doesn't exist");
-                return null;
-            }
-        }
-
-        public static Act GetAct(Story story, int actIndex)
-        {
-            if(actIndex >= 0 && actIndex < story.acts.Count)
-            {
-                return story.acts[actIndex];
-            }
-            else
-            {
-                Debug.LogError("Act with index " + actIndex + " doesn't exist in story "+story.id);
-                return null;
-            }
+            return chapter.milestones.Last().Name == milestoneName;
         }
     }
 }

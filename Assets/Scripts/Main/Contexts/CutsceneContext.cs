@@ -133,7 +133,7 @@ namespace Ulko.Contexts
                 uiRoot.FadeAmount(1f);
             }
 
-            await Data.StartNextMilestone(ct);
+            await Data.CompleteMilestone(ct);
         }
 
         protected override void _Move(Vector2 direction, float deltaTime)

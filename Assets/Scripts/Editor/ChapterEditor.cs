@@ -23,8 +23,8 @@ namespace Ulko.Data.Timeline
 
             EditorGUILayout.BeginVertical();
 
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("chapterId"));
             EditorGUILayout.PropertyField(serializedObject.FindProperty("chapterName"));
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("description"));
 
             var milestonesProperty = serializedObject.FindProperty("milestones");
 

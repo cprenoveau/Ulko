@@ -1,5 +1,4 @@
-﻿using Codice.Client.BaseCommands.Merge.Xml;
-using HotChocolate.Cheats;
+﻿using HotChocolate.Cheats;
 using HotChocolate.UI.Cheats;
 using HotChocolate.Utils;
 using System;
@@ -21,12 +20,33 @@ namespace Ulko.Cheats
         public void NextMilestone()
         {
             if (GameInstance != null)
-                GameInstance.StartNextMilestone(default).FireAndForgetTask();
+                GameInstance.CompleteMilestone(default).FireAndForgetTask();
         }
 
-        private Story MainStory => Database.Stories["main"];
-        public IEnumerable<Chapter> Chapters => MainStory.acts.SelectMany(a => a.chapters);
-        public string[] ChapterNames => Chapters.Select(c => c.chapterName + ": " + c.description).ToArray();
+        private IEnumerable<Story> Stories => Database.Stories.Values;
+        public string[] StoryNames => Stories.Select(c => c.id).ToArray();
+        private Story SelectedStory => Stories.ElementAtOrDefault(storyIndex);
+
+        private int storyIndex = 0;
+        [CheatProperty(StringArrayProperty = nameof(StoryNames))]
+        public int Story
+        {
+            get => storyIndex;
+            set
+            {
+                if (storyIndex != value)
+                {
+                    storyIndex = value;
+                    chapterIndex = 0;
+                    milestoneIndex = 0;
+
+                    NeedsRefresh?.Invoke(this);
+                }
+            }
+        }
+
+        public IEnumerable<Chapter> Chapters => SelectedStory.chapters;
+        public string[] ChapterNames => Chapters.Select(c => c.chapterName).ToArray();
 
         private int chapterIndex = 0;
         [CheatProperty(StringArrayProperty = nameof(ChapterNames))]
@@ -66,7 +86,30 @@ namespace Ulko.Cheats
         {
             if (GameInstance != null && SelectedMilestone != null)
             {
-                PlayerProfile.SetMilestone(SelectedMilestone.Name);
+                PlayerProfile.SetCurrentStory(SelectedStory.id);
+
+                //complete previous chapter
+                if (chapterIndex > 0)
+                {
+                    var previousChapter = Chapters.ElementAt(chapterIndex - 1);
+                    PlayerProfile.CompleteMilestone(previousChapter, previousChapter.milestones.Last().Name);
+                }
+
+                //reset current and all future chapters
+                for (int i = chapterIndex; i < SelectedStory.chapters.Count; ++i)
+                {
+                    PlayerProfile.ResetChapterProgression(SelectedStory.chapters[i].chapterId);
+                }
+
+                //complete previous milestone
+                if (milestoneIndex > 0)
+                {
+                    string previousMilestone = MilestoneNames[milestoneIndex - 1];
+                    PlayerProfile.CompleteMilestone(SelectedChapter, previousMilestone);
+                }
+
+                PlayerProfile.ResetLocation();
+
                 GameInstance.StartMilestone(SelectedMilestone, default).FireAndForgetTask();
             }
         }

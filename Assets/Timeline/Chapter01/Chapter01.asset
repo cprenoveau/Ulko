@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d181e62724c6f84783247ec6a565380, type: 3}
   m_Name: Chapter01
   m_EditorClassIdentifier: 
-  chapterName: Chapter 1
-  description: The Lighthouse
+  chapterId: chapter_01
+  chapterName: The Lighthouse
   milestones:
   - rid: 8319834574289371226
   - rid: 8319834483457523796

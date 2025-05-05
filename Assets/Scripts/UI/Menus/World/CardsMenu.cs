@@ -70,7 +70,7 @@ namespace Ulko.UI
         private CharacterState CaptureState(string heroId)
         {
             var hero = PlayerProfile.GetPartyMember(heroId);
-            var heroAsset = PlayerProfile.FindHero(PlayerProfile.CurrentStory, PlayerProfile.GetProgression(), heroId);
+            var heroAsset = PlayerProfile.FindHeroAsset(heroId);
 
             return new CharacterState(heroId, heroAsset.displayName, hero.hp, CharacterSide.Heroes, PlayerProfile.GetHeroStats(heroId), new Level(), new List<StatusState>());
         }

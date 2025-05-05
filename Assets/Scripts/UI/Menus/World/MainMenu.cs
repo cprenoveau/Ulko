@@ -133,13 +133,13 @@ namespace Ulko.UI
             for(int i = 0; i < party.Count(); ++i)
             {
                 var hero = party.ElementAt(i);
-                var heroRef = PlayerProfile.FindHero(PlayerProfile.CurrentStory, PlayerProfile.GetProgression(), hero.id);
+                var heroAsset = PlayerProfile.FindHeroAsset(hero.id);
 
-                if (heroRef == null)
+                if (heroAsset == null)
                     continue;
 
                 var instance = Instantiate(heroPrefab, heroParent);
-                instance.GetComponentInChildren<HeroView>().Init(heroRef);
+                instance.GetComponentInChildren<HeroView>().Init(heroAsset);
 
                 instance.GetComponentInChildren<SlidingPanel>().pushDelay = heroIndex * 0.1f;
                 instance.GetComponentInChildren<FadingPanel>().pushDelay = heroIndex * 0.1f;

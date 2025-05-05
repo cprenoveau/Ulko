@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d181e62724c6f84783247ec6a565380, type: 3}
   m_Name: Chapter02
   m_EditorClassIdentifier: 
-  chapterName: Chapter 2
-  description: The Library
+  chapterId: chapter_02
+  chapterName: The Library
   milestones:
   - rid: 8319834483457523796
   - rid: 6273284956353200204

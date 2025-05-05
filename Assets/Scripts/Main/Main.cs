@@ -5,6 +5,8 @@ using System.Threading;
 using HotChocolate.Utils;
 using System.Collections.Generic;
 using HotChocolate.UI.Cheats;
+using Ulko.Data.Timeline;
+using System.Linq;
 
 
 #if UNITY_EDITOR
@@ -34,7 +36,7 @@ namespace Ulko
         public GameInstance gameInstancePrefab;
         public List<Context> contextPrefabs = new();
 
-        public List<Data.Timeline.Story> stories = new();
+        public List<Story> stories = new();
 
         private static bool gameStarted;
         private static CancellationTokenSource ctSource;
@@ -116,22 +118,48 @@ namespace Ulko
 
 #if UNITY_EDITOR
 
-            string milestoneName = null;
-
-            if (!string.IsNullOrEmpty(main.startingMilestone))
-                milestoneName = main.startingMilestone;
+            string milestoneName = main.startingMilestone;
 
             if (string.IsNullOrEmpty(milestoneName))
                 milestoneName = SceneManager.GetActiveScene().name;
 
-            var (story, prog) = Database.GetProgression(milestoneName);
+            Story story = null;
+            Chapter chapter = null;
+            IMilestone milestone = null;
 
-            if (prog != null && !EditorPrefs.GetBool("ForcePlayFromStartup"))
+            if (!string.IsNullOrEmpty(milestoneName))
+            {
+                var result = Database.GetMilestone(milestoneName);
+
+                story = result.story;
+                chapter = result.chapter;
+                milestone = result.milestone;
+            }
+
+            if (milestone != null && !EditorPrefs.GetBool("ForcePlayFromStartup"))
             {
                 PlayerProfile.NewGame();
-                PlayerProfile.SetMilestone(milestoneName);
+                PlayerProfile.SetCurrentStory(story.id);
 
-                await gameInstance.StartMilestone(Database.GetMilestone(PlayerProfile.CurrentStory, PlayerProfile.GetProgression()), ct);
+                int chapterIndex = story.chapters.IndexOf(chapter);
+
+                //complete previous chapter
+                if (chapterIndex > 0)
+                {
+                    var previousChapter = story.chapters[chapterIndex - 1];
+                    PlayerProfile.CompleteMilestone(previousChapter, previousChapter.milestones.Last().Name);
+                }
+
+                int milestoneIndex = chapter.milestones.IndexOf(milestone);
+
+                //complete previous milestone
+                if (milestoneIndex > 0)
+                {
+                    var previousMilestone = chapter.milestones[milestoneIndex - 1];
+                    PlayerProfile.CompleteMilestone(chapter, previousMilestone.Name);
+                }
+
+                await gameInstance.StartMilestone(milestone, ct);
 
                 foreach (var hero in PlayerProfile.ActiveParty)
                 {

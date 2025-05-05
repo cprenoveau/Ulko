@@ -35,7 +35,7 @@ namespace Ulko
 
         Task GoToStartup(CancellationToken ct);
         Task StartMilestone(Data.Timeline.IMilestone milestone, CancellationToken ct);
-        Task StartNextMilestone(CancellationToken ct);
+        Task CompleteMilestone(CancellationToken ct);
 
         Task StartBattle(Data.BattleAsset battle, CancellationToken ct);
         Task EndBattle(CancellationToken ct);

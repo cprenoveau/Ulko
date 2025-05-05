@@ -5,7 +5,7 @@ Requires Unity 6.
 
 You will find all of the main logic and objects in the Main folder and Scripts/Main.
 
-The levels are held in the Timeline folder, then Act-1, Act-2 and Act-3.
+The levels are held in the Timeline folder which contains chapters.
 
 Start the game from any scene (except for the ones in the Gym folder).
 
